@@ -1,0 +1,61 @@
+@plan "Upper Lower Strength"
+@freq 4x/week
+@cycle 6w: w1-4 progress, w5 intensity, w6 deload
+
+# ============================================================
+# UPPER A — Schwere Drückbewegungen
+# ============================================================
+
+---[Upper A] Mo
+
+Bench Press          5x5   @85%   r180s  +2.5kg/w
+OHP                  4x6   @80%   r120s
+Barbell Row          4x8   @RPE8  r120s
+ss {
+  Dip                3x8   @BW
+  Face Pull          3x15
+}
+
+# ============================================================
+# LOWER A — Schwere Kniebeuge
+# ============================================================
+
+---[Lower A] Di
+
+Squat                5x5   @85%   r180s  +2.5kg/w
+RDL                  3x8   @RPE7  r120s
+ss {
+  Leg Extension      3x12
+  Leg Curl           3x12
+}
+Calf Raise           4x15  r60s
+
+# ============================================================
+# UPPER B — Volumen
+# ============================================================
+
+---[Upper B] Do
+
+Incline Bench Press  4x8   @RPE7  r120s
+Dumbbell OHP         3x10  @RPE7  r90s
+Dumbbell Row         4x10  @RPE7  r90s
+ss {
+  Lateral Raise      4x15
+  Hammer Curl        3x12
+  Tricep Pushdown    3x12
+}
+
+# ============================================================
+# LOWER B — Volumen
+# ============================================================
+
+---[Lower B] Fr
+
+Front Squat          4x6   @RPE7  r120s
+Deadlift             3x5   @RPE8  r180s
+Bulgarian Split Squat 3x10 @RPE7  r90s
+ss {
+  Leg Press          3x12
+  Leg Curl           3x12
+}
+Calf Raise           4x15  r60s

@@ -1,0 +1,57 @@
+@plan "PPL Hypertrophy"
+@freq 6x/week
+@cycle 4w: w1-3 progress, w4 deload
+@unit kg
+
+# ============================================================
+# PUSH — Brust, Schultern, Trizeps
+# ============================================================
+
+---[Push] Mo Do
+
+Bench Press          4x8   @RPE8  r120s  +2.5kg/w
+OHP                  3x10  @RPE7  r90s
+ss {
+  Incline DB Fly     3x12  r60s
+  Tricep Pushdown    3x15  r60s
+}
+Lateral Raise        4x15  r60s  drop
+Face Pull            3x15  r60s
+
+> Aufwärmen: 2x10 @50%, 1x5 @70% vor Bench Press
+
+# ============================================================
+# PULL — Rücken, Bizeps
+# ============================================================
+
+---[Pull] Di Fr
+
+Deadlift             3x5   @RPE9  r180s  +2.5kg/w
+Barbell Row          4x8   @RPE8  r120s
+ss {
+  Lat Pulldown       3x10
+  Face Pull          3x15
+}
+ss {
+  Hammer Curl        3x12
+  Rear Delt Fly      3x15
+}
+
+> Woche 4 (Deload): Deadlift nur 3x5 @60%
+
+# ============================================================
+# LEGS — Beine, Gesäß
+# ============================================================
+
+---[Legs] Mi Sa
+
+Squat                4x6   @RPE8  r180s  +2.5kg/w  t3010
+RDL                  3x10  @RPE7  r120s
+ss {
+  Leg Press          3x12
+  Leg Curl           3x12
+}
+Bulgarian Split Squat 3x10 @RPE7  r90s
+Calf Raise           4x15  r60s
+
+> Bei Knieproblemen: Beinpresse statt Squat
