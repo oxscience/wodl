@@ -1,7 +1,7 @@
 """
 WODL Parser — Workout Definition Language -> structured data.
 
-Parses `.wod` text blocks into a structured Python dict / JSON
+Parses `.wodl` text blocks into a structured Python dict / JSON
 that can be consumed by apps, rendered as Markdown tables,
 or exported to calendar events.
 

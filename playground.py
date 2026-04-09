@@ -5,7 +5,7 @@ from wodl import parse, to_json, to_markdown
 
 app = Flask(__name__)
 
-SAMPLE_WOD = """\
+SAMPLE_WODL = """\
 @plan "Full Body Basics"
 @freq 3x/week
 @cycle 4w: w1-3 progress, w4 deload
@@ -279,7 +279,7 @@ HTML = """\
     <textarea
       id="editor"
       placeholder="Trainingsplan hier eingeben..."
-      name="wod"
+      name="wodl"
     ></textarea>
   </div>
 
@@ -307,7 +307,7 @@ HTML = """\
   let debounceTimer = null;
 
   function parseAndRender() {
-    const body = new URLSearchParams({ wod: editor.value, format: currentFormat });
+    const body = new URLSearchParams({ wodl: editor.value, format: currentFormat });
     fetch('/parse', { method: 'POST', body })
       .then(r => r.text())
       .then(html => { output.innerHTML = html; });
@@ -431,19 +431,19 @@ def _md_to_html(md: str) -> str:
 def index():
     import json
 
-    plan = parse(SAMPLE_WOD)
+    plan = parse(SAMPLE_WODL)
     initial_html = _md_to_html(to_markdown(plan))
     return render_template_string(
         HTML,
-        sample=SAMPLE_WOD,
-        sample_json=json.dumps(SAMPLE_WOD),
+        sample=SAMPLE_WODL,
+        sample_json=json.dumps(SAMPLE_WODL),
         initial_output=initial_html,
     )
 
 
 @app.route("/parse", methods=["POST"])
-def parse_wod():
-    wod_text = request.form.get("wod", "")
+def parse_wodl():
+    wod_text = request.form.get("wodl", "")
     fmt = request.form.get("format", "markdown")
 
     if not wod_text.strip():

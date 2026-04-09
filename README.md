@@ -4,7 +4,7 @@ Eine minimalistische Sprache fuer strukturierte Trainingsplaene.
 
 **Schreib deinen Trainingsplan als Text — kompakt, lesbar, maschinenlesbar.**
 
-```wod
+```wodl
 @plan "Push Pull Legs"
 @freq 6x/week
 @cycle 4w: w1-3 progress, w4 deload
@@ -47,7 +47,7 @@ python playground.py
 # Oeffnet http://localhost:5051
 ```
 
-Links `.wod` schreiben, rechts live das Ergebnis sehen.
+Links `.wodl` schreiben, rechts live das Ergebnis sehen.
 
 ## Install
 
@@ -60,9 +60,9 @@ pip install -e .
 ### CLI
 
 ```bash
-wodl plan.wod               # Zusammenfassung
-wodl plan.wod --json        # JSON-Output
-wodl plan.wod --markdown    # Markdown-Tabellen
+wodl plan.wodl               # Zusammenfassung
+wodl plan.wodl --json        # JSON-Output
+wodl plan.wodl --markdown    # Markdown-Tabellen
 wodl --list                 # Alle bekannten Uebungen
 wodl --list compound        # Nur Compound-Movements
 ```
@@ -72,7 +72,7 @@ wodl --list compound        # Nur Compound-Movements
 ```python
 from wodl import parse, to_json, to_markdown
 
-plan = parse(open("plan.wod").read())
+plan = parse(open("plan.wodl").read())
 
 print(to_json(plan))      # Strukturiertes JSON
 print(to_markdown(plan))   # Lesbare Tabelle
@@ -82,7 +82,7 @@ print(to_markdown(plan))   # Lesbare Tabelle
 
 ### Metadata
 
-```wod
+```wodl
 @plan "Plan Name"
 @freq 4x/week
 @cycle 4w: w1-3 progress, w4 deload
@@ -91,7 +91,7 @@ print(to_markdown(plan))   # Lesbare Tabelle
 
 ### Sessions
 
-```wod
+```wodl
 ---[Session Name] Mo Mi Fr
 ```
 
@@ -114,7 +114,7 @@ Name    SETSxREPS  @INTENSITY  rREST  MODIFIERS
 
 ### Gruppierungen
 
-```wod
+```wodl
 ss {                    # Superset
   Lateral Raise  3x15
   Face Pull      3x15
@@ -135,7 +135,7 @@ giant {                 # Giant Set (4+)
 
 ### Notizen & Kommentare
 
-```wod
+```wodl
 # Das ist ein Kommentar (wird ignoriert)
 > Das ist eine Notiz (gehoert zur Session)
 Bench Press  4x8  # Inline-Kommentar
@@ -165,15 +165,15 @@ Im [`examples/`](examples/) Ordner:
 
 | Datei | Split | Frequenz | Fokus |
 |-------|-------|----------|-------|
-| `ppl-hypertrophy.wod` | Push/Pull/Legs | 6x/Woche | Hypertrophie, Supersets |
-| `upper-lower-strength.wod` | Upper/Lower | 4x/Woche | 5x5 Kraft + Volumen |
-| `minimalist-3day.wod` | Full Body | 3x/Woche | Nur Compounds, 45 min |
+| `ppl-hypertrophy.wodl` | Push/Pull/Legs | 6x/Woche | Hypertrophie, Supersets |
+| `upper-lower-strength.wodl` | Upper/Lower | 4x/Woche | 5x5 Kraft + Volumen |
+| `minimalist-3day.wodl` | Full Body | 3x/Woche | Nur Compounds, 45 min |
 
 ## Was kann man damit bauen?
 
-- **Plaene versionieren** — `.wod` in Git, Aenderungen diffbar
+- **Plaene versionieren** — `.wodl` in Git, Aenderungen diffbar
 - **Plaene exportieren** — JSON fuer Apps, Markdown fuer Docs
-- **Plaene generieren** — LLMs koennen `.wod` ausgeben statt Freitext
+- **Plaene generieren** — LLMs koennen `.wodl` ausgeben statt Freitext
 - **Plaene validieren** — Parser warnt bei unbekannten Uebungen
 - **App-Integration** — Import in Fitness-Apps, Kalender-Export, Progression-Tracking
 
