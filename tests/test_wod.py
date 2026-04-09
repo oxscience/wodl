@@ -1,7 +1,7 @@
 """Tests for the WOD parser and exercise registry."""
 
-from wod import parse, to_json, to_markdown, resolve, resolve_fuzzy
-from wod import list_exercises, get_muscles, ExerciseLine, ExerciseGroup
+from wodl import parse, to_json, to_markdown, resolve, resolve_fuzzy
+from wodl import list_exercises, get_muscles, ExerciseLine, ExerciseGroup
 
 
 # ===================================================================

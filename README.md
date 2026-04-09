@@ -1,6 +1,8 @@
-# WOD — Workout Definition Language
+# WODL — Workout Definition Language
 
-A minimalist DSL for writing structured training plans in code blocks.
+Eine minimalistische Sprache fuer strukturierte Trainingsplaene.
+
+**Schreib deinen Trainingsplan als Text — kompakt, lesbar, maschinenlesbar.**
 
 ```wod
 @plan "Push Pull Legs"
@@ -30,6 +32,23 @@ RDL                  3x10 @RPE7  r120s
 Calf Raise           4x15 r60s
 ```
 
+## Warum?
+
+Trainingsplaene leben in Excel-Tabellen, PDFs, Screenshots und WhatsApp-Nachrichten. Keins davon ist versionierbar, vergleichbar oder maschinenlesbar.
+
+WODL ist beides: **fuer Menschen lesbar** (jeder Trainer versteht es sofort) und **fuer Maschinen parsbar** (ein Parser macht daraus strukturierte Daten).
+
+## Playground
+
+Direkt im Browser ausprobieren — ohne Installation:
+
+```bash
+python playground.py
+# Oeffnet http://localhost:5051
+```
+
+Links `.wod` schreiben, rechts live das Ergebnis sehen.
+
 ## Install
 
 ```bash
@@ -38,28 +57,28 @@ pip install -e .
 
 ## Usage
 
-### Python
-
-```python
-from wod import parse, to_json, to_markdown
-
-plan = parse(open("plan.wod").read())
-
-print(to_json(plan))      # structured JSON
-print(to_markdown(plan))   # readable table
-```
-
 ### CLI
 
 ```bash
-wod plan.wod               # summary
-wod plan.wod --json        # JSON output
-wod plan.wod --markdown    # Markdown tables
-wod --list                 # all known exercises
-wod --list compound        # only compound movements
+wodl plan.wod               # Zusammenfassung
+wodl plan.wod --json        # JSON-Output
+wodl plan.wod --markdown    # Markdown-Tabellen
+wodl --list                 # Alle bekannten Uebungen
+wodl --list compound        # Nur Compound-Movements
 ```
 
-## Syntax
+### Python
+
+```python
+from wodl import parse, to_json, to_markdown
+
+plan = parse(open("plan.wod").read())
+
+print(to_json(plan))      # Strukturiertes JSON
+print(to_markdown(plan))   # Lesbare Tabelle
+```
+
+## Syntax auf einen Blick
 
 ### Metadata
 
@@ -76,24 +95,24 @@ wod --list compound        # only compound movements
 ---[Session Name] Mo Mi Fr
 ```
 
-Days: `Mo Di Mi Do Fr Sa So` (or English: `Mon Tue Wed Thu Fri Sat Sun`)
+Tage: `Mo Di Mi Do Fr Sa So` (oder Englisch: `Mon Tue Wed Thu Fri Sat Sun`)
 
-### Exercise Lines
+### Uebungszeile
 
 ```
 Name    SETSxREPS  @INTENSITY  rREST  MODIFIERS
 ```
 
-| Token | Examples | Meaning |
-|-------|----------|---------|
-| Sets x Reps | `4x8`, `3x8-12`, `5x5`, `3x30s` | Volume |
-| Intensity | `@RPE8`, `@85%`, `@100kg`, `@BW+10kg` | Load |
-| Rest | `r90s`, `r2m`, `r60-90s` | Pause between sets |
-| Tempo | `t3010` | Eccentric-Pause-Concentric-Pause |
-| Progression | `+2.5kg/w`, `+1rep/w` | Weekly increment |
-| Modifiers | `drop`, `cluster`, `pause-rep` | Set type |
+| Token | Beispiel | Bedeutung |
+|-------|----------|-----------|
+| Saetze x Reps | `4x8`, `3x8-12`, `5x5`, `3x30s` | Volumen |
+| Intensitaet | `@RPE8`, `@85%`, `@100kg`, `@BW+10kg` | Belastung |
+| Pause | `r90s`, `r2m`, `r60-90s` | Satzpause |
+| Tempo | `t3010` | Exzentrisch-Pause-Konzentrisch-Pause |
+| Progression | `+2.5kg/w`, `+1rep/w` | Woechentliche Steigerung |
+| Modifier | `drop`, `cluster`, `pause-rep` | Satzmethode |
 
-### Groupings
+### Gruppierungen
 
 ```wod
 ss {                    # Superset
@@ -114,37 +133,49 @@ giant {                 # Giant Set (4+)
 }
 ```
 
-### Notes & Comments
+### Notizen & Kommentare
 
 ```wod
-# This is a comment (ignored by parser)
-> This is a note (attached to the session)
-Bench Press  4x8  # inline comment
+# Das ist ein Kommentar (wird ignoriert)
+> Das ist eine Notiz (gehoert zur Session)
+Bench Press  4x8  # Inline-Kommentar
 ```
 
-## Exercise Registry
+## Deutsche Uebungsnamen
 
-45+ exercises with canonical English names. German aliases and abbreviations are resolved automatically:
+45+ Uebungen mit kanonischen englischen Namen. Deutsche Aliases und Abkuerzungen werden automatisch aufgeloest:
 
 ```
-Bankdrücken     -> Bench Press
-Kniebeugen      -> Squat
-Kreuzheben      -> Deadlift
-Klimmzüge       -> Pull-up
-KH Rudern       -> Dumbbell Row
-LH Rudern       -> Barbell Row
-Seitheben       -> Lateral Raise
+Bankdruecken     -> Bench Press
+Kniebeugen       -> Squat
+Kreuzheben       -> Deadlift
+Klimmzuege       -> Pull-up
+KH Rudern        -> Dumbbell Row
+LH Rudern        -> Barbell Row
+Seitheben        -> Lateral Raise
+Schulterdruecken -> OHP
+Liegestuetz      -> Push-up
 ```
 
-Unknown exercises trigger a warning but still parse.
+Unbekannte Uebungen werden trotzdem geparst — es gibt nur eine Warnung.
 
-## Examples
+## Beispiel-Plaene
 
-See the [`examples/`](examples/) directory:
+Im [`examples/`](examples/) Ordner:
 
-- `ppl-hypertrophy.wod` — 6-day Push/Pull/Legs
-- `upper-lower-strength.wod` — 4-day Upper/Lower
-- `minimalist-3day.wod` — 3-day Full Body
+| Datei | Split | Frequenz | Fokus |
+|-------|-------|----------|-------|
+| `ppl-hypertrophy.wod` | Push/Pull/Legs | 6x/Woche | Hypertrophie, Supersets |
+| `upper-lower-strength.wod` | Upper/Lower | 4x/Woche | 5x5 Kraft + Volumen |
+| `minimalist-3day.wod` | Full Body | 3x/Woche | Nur Compounds, 45 min |
+
+## Was kann man damit bauen?
+
+- **Plaene versionieren** — `.wod` in Git, Aenderungen diffbar
+- **Plaene exportieren** — JSON fuer Apps, Markdown fuer Docs
+- **Plaene generieren** — LLMs koennen `.wod` ausgeben statt Freitext
+- **Plaene validieren** — Parser warnt bei unbekannten Uebungen
+- **App-Integration** — Import in Fitness-Apps, Kalender-Export, Progression-Tracking
 
 ## License
 

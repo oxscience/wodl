@@ -1,11 +1,11 @@
-"""WOD CLI — parse .wod files from the command line.
+"""WODL CLI — parse .wod files from the command line.
 
 Usage:
-    wod plan.wod              # validate and show summary
-    wod plan.wod --json       # output as JSON
-    wod plan.wod --markdown   # output as Markdown table
-    wod --list                # list all known exercises
-    wod --list compound       # list compound exercises only
+    wodl plan.wod              # validate and show summary
+    wodl plan.wod --json       # output as JSON
+    wodl plan.wod --markdown   # output as Markdown table
+    wodl --list                # list all known exercises
+    wodl --list compound       # list compound exercises only
 """
 
 from __future__ import annotations
@@ -13,14 +13,14 @@ from __future__ import annotations
 import argparse
 import sys
 
-from wod.parser import parse, to_json, to_markdown
-from wod.registry import list_exercises
+from wodl.parser import parse, to_json, to_markdown
+from wodl.registry import list_exercises
 
 
 def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser(
-        prog="wod",
-        description="WOD — Workout Definition Language parser",
+        prog="wodl",
+        description="WODL — Workout Definition Language parser",
     )
     p.add_argument("file", nargs="?", help="Path to a .wod file")
     p.add_argument("--json", action="store_true", help="Output as JSON")

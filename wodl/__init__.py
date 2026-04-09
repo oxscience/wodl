@@ -1,9 +1,9 @@
-"""WOD — Workout Definition Language.
+"""WODL — Workout Definition Language.
 
 A minimalist DSL for writing structured training plans in code blocks.
 
 Usage:
-    from wod import parse, to_json, to_markdown
+    from wodl import parse, to_json, to_markdown
 
     plan = parse('''
     @plan "My Plan"
@@ -15,7 +15,7 @@ Usage:
     print(to_markdown(plan))
 """
 
-from wod.parser import (
+from wodl.parser import (
     parse,
     to_dict,
     to_json,
@@ -26,7 +26,7 @@ from wod.parser import (
     ExerciseGroup,
     CycleWeek,
 )
-from wod.registry import resolve, resolve_fuzzy, list_exercises, get_muscles, EXERCISES
+from wodl.registry import resolve, resolve_fuzzy, list_exercises, get_muscles, EXERCISES
 
 __version__ = "0.1.0"
 

@@ -1,12 +1,12 @@
 """
-WOD Parser — Workout Definition Language -> structured data.
+WODL Parser — Workout Definition Language -> structured data.
 
 Parses `.wod` text blocks into a structured Python dict / JSON
 that can be consumed by apps, rendered as Markdown tables,
 or exported to calendar events.
 
 Usage:
-    from wod import parse
+    from wodl import parse
 
     plan = parse(wod_text)
 """
@@ -18,7 +18,7 @@ import re
 from dataclasses import dataclass, field, asdict
 from typing import Literal
 
-from wod.registry import resolve, resolve_fuzzy
+from wodl.registry import resolve, resolve_fuzzy
 
 # ---------------------------------------------------------------------------
 # Data model
@@ -395,7 +395,7 @@ def to_markdown(plan: Plan) -> str:
 
     for session in plan.sessions:
         day_str = " ".join(session.days)
-        lines.append(f"## {session.name}" + (f" -- {day_str}" if day_str else ""))
+        lines.append(f"## {session.name}" + (f" \u00b7 {day_str}" if day_str else ""))
         lines.append("")
         lines.append("| Exercise | Sets x Reps | Intensity | Rest | Notes |")
         lines.append("|----------|-------------|-----------|------|-------|")
