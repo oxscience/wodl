@@ -2,7 +2,19 @@
 @freq 3x/week
 @cycle 4w: w1-3 progress, w4 deload
 
+# ============================================================
 # Nur Compound-Übungen. 45 Minuten pro Session.
+#
+# Evidenz:
+#   Schoenfeld, B. J., Grgic, J., & Krieger, J. W. (2019).
+#   How many times per week should a muscle be trained to maximize muscle hypertrophy?
+#   A systematic review and meta-analysis of studies examining the effects of
+#   resistance training frequency.
+#   Journal of Sports Sciences, 37(11), 1286-1295.
+#   → Bei volumen-matched Training ist die Frequenz für Hypertrophie nicht
+#     entscheidend — 3x/Woche Ganzkörper funktioniert genauso gut wie Splits,
+#     solange das wöchentliche Volumen gleich ist.
+# ============================================================
 
 ---[Day A] Mo
 

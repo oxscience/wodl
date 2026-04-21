@@ -1,0 +1,81 @@
+@plan "Rotator Cuff — Konservative Reha"
+@freq 5x/week
+@unit kg
+
+# ============================================================
+# Konservative Rehabilitation bei Rotator-Cuff-Tendinopathie /
+# Subacromial Pain Syndrome (SAPS) / Impingement-Symptomatik.
+#
+# Quellen (evidence-based):
+#   - Ellenbecker & Cools 2010, "Rehabilitation of shoulder impingement
+#     syndrome and rotator cuff injuries: an evidence-based review"
+#     Br J Sports Med 44(5):319-327
+#   - Kuhn 2009, "Exercise in the treatment of rotator cuff impingement:
+#     a systematic review and a synthesized evidence-based rehabilitation protocol"
+#     JSES 18(1):138-160
+#   - MOON Shoulder Group Protocol (Multicenter Orthopedic Outcomes Network)
+#
+# Progression ist SYMPTOM-GELEITET, nicht rein zeitbasiert.
+# Schmerz während der Übung maximal 3/10 VAS, nachfolgender Tag nicht schlechter.
+# ============================================================
+
+# ----- Phase 1 — Schmerzkontrolle & ROM (Woche 0-2) -----
+# Ziele: Schmerz reduzieren, sanfte ROM wiederherstellen, Skapulär-Ansteuerung.
+
+---[Phase 1: Akut] Mo Di Mi Do Fr
+
+Pendulum              3x30s   r30s           # Passive ROM, schmerzfrei
+Wall Walk             3x10    r30s           # Schulter-Flexion gegen Wand
+Scapular Retraction   3x15    r30s           # Schulterblätter zusammen, 5s halten
+Cat-Cow               3x10    r30s           # Thorakal-Mobilität
+
+> Ice nach Session 10-15 min, 2-3x täglich.
+> Keine Überkopf-Aktivitäten, kein Tragen schwerer Lasten.
+
+# ----- Phase 2 — Isometrisches Strengthening (Woche 2-4) -----
+# Ziele: Rotator Cuff aktivieren ohne Gelenksreiz, Scapula stabilisieren.
+
+---[Phase 2: Isometrics] Mo Di Mi Do Fr
+
+Band External Rotation  3x15  @low    r45s   # Arm am Körper, leichtes Band
+Band Internal Rotation  3x15  @low    r45s
+Scapular Retraction     3x15         r30s
+Isometric Shoulder Hold 5x10s @ISO   r30s    # Arm an Wand, sanft drücken
+Prone T                 3x10         r45s    # Bauchlage, keine Gewichte
+
+> RIR 3-4, keine Annäherung ans Versagen. Schmerz muss abnehmen, nicht zunehmen.
+
+# ----- Phase 3 — Progressive Kraft (Woche 4-8) -----
+# Ziele: Rotator Cuff und Skapula-Muskulatur stärken, Bewegungskontrolle.
+
+---[Phase 3: Strength] Mo Mi Fr
+
+Band External Rotation  4x12  @RPE7  r60s   +1 Stufe/2w
+Band Internal Rotation  4x12  @RPE7  r60s
+Full Can Raise          3x12  @2kg   r60s    # Scaption bis Schulterhöhe
+Prone Y                 3x10  @1kg   r45s
+Prone T                 3x10  @1kg   r45s
+Prone W                 3x10  @1kg   r45s
+Scapular Retraction     3x15         r45s
+
+> Full Can (nicht Empty Can!) — Daumen nach oben, weniger Impingement-Risiko.
+> Last progressiv erhöhen, solange Symptome nicht provoziert werden.
+
+# ----- Phase 4 — Funktion & Überkopf (Woche 8+) -----
+# Ziele: Vollbelastung, Overhead-Training, Rückkehr zu Alltag/Sport.
+
+---[Phase 4: Function] Mo Mi Fr
+
+OHP                     4x8   @RPE7  r120s
+Lat Pulldown            3x10  @RPE7  r90s
+Barbell Row             3x10  @RPE7  r90s
+ss {
+  Band External Rotation  3x15  @RPE7  r45s
+  Prone Y               3x12  @RPE7  r45s
+}
+Face Pull               3x15         r45s
+Full Can Raise          3x12  @3kg   r60s
+
+> Return-to-Activity: Overhead-Sport (Wurf, Schwimmen, Tennis) nur wenn
+> schmerzfrei bei 90% Vorbelastung und volle ROM erreicht.
+> Bei Wiederauftreten der Symptome: zurück zu Phase 2/3, Belastung reduzieren.

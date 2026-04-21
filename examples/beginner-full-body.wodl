@@ -1,0 +1,55 @@
+@plan "Anfänger Full Body"
+@freq 3x/week
+@cycle 4w: w1-3 progress, w4 deload
+@unit kg
+
+# ============================================================
+# Anfänger-Programm: Lineare Progression, 3x/Woche Ganzkörper.
+#
+# Evidenz:
+#   Rhea, M. R., Alvar, B. A., Burkett, L. N., & Ball, S. D. (2003).
+#   A meta-analysis to determine the dose response for strength development.
+#   Medicine and Science in Sports and Exercise, 35(3), 456-464.
+#   → Untrainierte profitieren bereits von ~4 Sets pro Muskelgruppe/Woche,
+#     höhere Volumina bringen bei Anfängern kaum Mehrgewinn.
+#
+# Prinzipien:
+# - Frequenz 3x/Woche Ganzkörper: jedes Muster 2-3x pro Woche getroffen
+# - Volumen am unteren Ende (8-12 Sets/Muskel/Woche) — Anfänger wachsen mit weniger
+# - Fokus auf Compound-Bewegungen und Technik
+# - RIR 2-3 (Reps in Reserve — noch 2-3 Wiederholungen möglich) — Technik vor Last
+# ============================================================
+
+---[Day A] Mo
+
+Squat                 3x8     @RPE7  r180s  +2.5kg/w
+Bench Press           3x8     @RPE7  r180s  +2.5kg/w
+Barbell Row           3x10    @RPE7  r120s  +2.5kg/w
+ss {
+  Plank               3x30s   r60s
+  Band External Rotation  3x12  r45s
+}
+
+---[Day B] Mi
+
+Deadlift              2x5     @RPE7  r240s  +2.5kg/w
+OHP                   3x8     @RPE7  r150s  +1.25kg/w
+Lat Pulldown          3x10    @RPE7  r120s
+Leg Curl              3x12    r90s
+Bird Dog              3x10    r45s
+
+---[Day C] Fr
+
+Squat                 3x8     @RPE7  r180s  +2.5kg/w
+Incline Bench Press   3x10    @RPE7  r150s
+Dumbbell Row          3x10    @RPE7  r90s
+ss {
+  Dumbbell Curl       3x12    r60s
+  Tricep Pushdown     3x12    r60s
+}
+Calf Raise            3x15    r60s
+
+> Progression: Jede Woche +2.5kg (Bench/Squat/DL/Row) oder +1.25kg (OHP)
+> wenn alle Reps sauber geschafft wurden. Sonst gleiches Gewicht wiederholen.
+> Deload (w4): -1 Satz pro Übung, kein Gewicht draufpacken.
+> Nach 12 Wochen: Auf Upper/Lower-Split oder intermediate Programm wechseln.

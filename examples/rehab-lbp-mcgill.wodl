@@ -1,0 +1,73 @@
+@plan "LBP-Reha — McGill Big 3 Protokoll"
+@freq daily
+@unit kg
+
+# ============================================================
+# Rehabilitation bei chronischen unspezifischen Kreuzschmerzen
+# (Chronic Low Back Pain, cLBP) nach dem McGill-Protokoll.
+#
+# Quellen (evidence-based):
+#   - McGill 2016, "Back Mechanic: The Step-by-Step McGill Method to
+#     Fix Back Pain", Backfitpro Inc.
+#   - McGill 2007, "Low Back Disorders: Evidence-Based Prevention
+#     and Rehabilitation", Human Kinetics
+#   - Lee & McGill 2015, "Effect of Long-term Isometric Training on
+#     Core/Torso Stiffness", JSCR 29(6):1515-1526
+#
+# Prinzipien:
+#   - "McGill Big 3": Curl-up, Side Plank, Bird Dog
+#   - REVERSE-PYRAMID Reps (nicht 3x10, sondern 10-8-6 mit Pause)
+#   - Isometrische Haltezeit 8-10s pro Rep (nicht länger!)
+#   - Täglich, idealerweise 2x/Tag
+#   - NEUTRALE Wirbelsäule IMMER — keine Flexion/Rotation gegen Widerstand
+#   - KEINE Sit-ups, KEINE Rotations-Crunches, KEINE Superman-Extensions
+# ============================================================
+
+# ----- Tägliches Kern-Programm (ab Tag 1) -----
+# Reihenfolge wichtig: Curl-up, Side Plank, Bird Dog.
+# Reps als Reverse-Pyramid: 1. Satz 10 Reps, 2. Satz 8 Reps, 3. Satz 6 Reps.
+# Jede Rep = 8-10s halten.
+
+---[McGill Big 3] Mo Di Mi Do Fr Sa So
+
+McGill Curl-up        10,8,6   @ISO   r30s
+> Hände unter Lendenwirbelsäule für neutralen Stand.
+> Schultern minimal vom Boden abheben, KEIN Bauchnabel ziehen.
+> 8-10s oben halten, kontrolliert absenken.
+
+Side Plank            10,8,6   @ISO   r30s
+> Jede Seite: 10-8-6 Reps à 8-10s halten.
+> Knie-Side-Plank für Einsteiger, Fuß-Side-Plank für Fortgeschrittene.
+
+Bird Dog              10,8,6   @ISO   r30s
+> Vierfüßlerstand, gegenüberliegender Arm + Bein.
+> 8-10s halten, Rücken neutral — keine Rotation.
+> Hand und Fuß pro Rep zur Mittellinie zurück und wieder raus.
+
+> Täglich durchführen, idealerweise 2x (morgens + abends).
+> Progressiver Aufbau: Woche 1-2: 1 Durchgang, Woche 3+: 2-3 Durchgänge.
+
+# ----- Ergänzende Hüft-Mobility (ab Woche 2) -----
+
+---[Hip & Spine Hygiene] Mo Mi Fr
+
+Cat-Cow               3x10    r30s           # Thorakale Mobilität
+Glute Bridge          3x10    r30s           # Glute-Aktivierung
+Clamshell             3x15    r30s           # Hüft-Außenrotatoren
+Dead Bug              3x8     r30s           # Core-Kontrolle gegen Arm/Bein
+
+> 10 Minuten Spaziergang nach der Session fördert Disc-Nutrition (McGill).
+> NICHT morgens Stretchen bei LBP (Discs sind noch druckerhöht) — erst 1h nach Aufstehen.
+
+# ----- Progression zu Kraft (ab Woche 4-6, wenn schmerzfrei) -----
+
+---[Strength Addition] Mo Mi
+
+Hip Thrust            3x10    @RPE6  r90s    # Glute-Kraft ohne Spine-Last
+Goblet Squat          3x10    @RPE6  r90s    # Neutrale Spine, kontrolliert
+RDL                   3x8     @RPE6  r120s   # Hip-Hinge-Muster trainieren
+Glute Bridge          3x15    @10kg  r60s
+
+> Deadlift (konventionell) erst nach 8 Wochen Beschwerdefreiheit.
+> Bei Flare-up: Rückfall zu "Big 3 only" für 3-5 Tage.
+> Ziel McGill: Kern-Stabilität = Motor-Kontrolle, nicht Bauchmuskel-Hypertrophie.

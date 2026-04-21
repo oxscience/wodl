@@ -1,0 +1,99 @@
+@plan "ACL-Reha Post-OP (alle 4 Phasen)"
+@freq daily
+@unit kg
+
+# ============================================================
+# Post-operative Rehabilitation nach VKB-Rekonstruktion (ACL Reconstruction).
+#
+# Quellen (evidence-based):
+#   - Wilk & Arrigo 2017, "Rehabilitation Principles of the ACL Reconstructed Knee"
+#     JOSPT 47(11):747-759
+#   - van Melick et al. 2016, "Evidence-based clinical practice update: ACL"
+#     Br J Sports Med 50(24):1506-1515
+#   - Adams et al. 2012, "Current Concepts for ACL Rehab"
+#     JOSPT 42(7):601-614
+#
+# WICHTIG: Dieses Protokoll ersetzt KEINE individuelle ärztliche/physiotherapeutische
+# Betreuung. Meilensteine (Return to Jogging, Return to Sport) werden IMMER vom
+# betreuenden Team freigegeben — nicht zeitbasiert allein!
+#
+# Return-to-Sport Frühestens nach 9 Monaten (Consensus Grindem 2016).
+# ============================================================
+
+# ----- Phase 1 — Akutphase (Woche 0-2) -----
+# Ziele: Schwellung runter, volle Extension (!), Quad-Aktivierung, AROM 0-90°.
+# Täglich 3-5x kurze Einheiten, kein Schmerz über Baseline.
+
+---[Phase 1: Akut (Woche 0-2)] Mo Di Mi Do Fr Sa So
+
+Quad Set              5x10    @ISO    # 5s halten, Quadriceps aktiv anspannen
+Straight Leg Raise    3x10    r30s
+Heel Slide            3x10    r30s    # ROM-Aufbau bis 90° Flexion
+Glute Bridge          3x10    r30s
+Ankle Pumps           3x20    r15s    # Gegen Thromboserisiko
+
+> Kryotherapie (Kühlen) 15-20 min, 4-6x täglich.
+> PROM/AROM durch Physio: volle Extension IMMER als oberste Priorität.
+> Gehen an Krücken, Teilbelastung nach OP-Protokoll.
+> Meilenstein Ende Phase 1: volle Extension, AROM 0-90°, kein Erguss.
+
+# ----- Phase 2 — Kontrolliertes Belastungstraining (Woche 2-6) -----
+# Ziele: AROM komplett, CKC (Closed Kinetic Chain) Aufbau, Gangbild normal.
+# KEIN OKC (Open Kinetic Chain) Leg Extension 0-45° — Scherkräfte auf Graft.
+
+---[Phase 2: Early Strength (Woche 2-6)] Mo Mi Fr
+
+Mini Squat            3x15    r60s    # 0-45° Kniebeuge an der Wand
+Wall Sit              3x20s   r60s    # Isometrisch, schmerzfrei
+Step-up               3x10    r60s    # Niedrige Stufe (10-15cm)
+Terminal Knee Extension 3x12  r45s    # TKE mit Band, 30-0°
+Single Leg Bridge     3x10    r45s    # Glute-Aktivierung operierte Seite
+Clamshell             3x15    r30s
+Calf Raise            3x15    r30s
+
+> Fahrradergometer 10-15 min vor jedem Training als Warm-up sinnvoll.
+> AROM 0-120° bis Woche 4, 0-135° bis Woche 6.
+> KEIN Joggen, keine Sprünge, keine Pivoting-Bewegungen.
+
+# ----- Phase 3 — Progressive Kraftphase (Woche 6-12) -----
+# Ziele: Kraftaufbau Quadrizeps und Hamstrings, Propriozeption, Einbein-Kontrolle.
+
+---[Phase 3: Strength (Woche 6-12)] Mo Mi Fr
+
+Squat                 4x10    @RPE6  r120s  # Voll-ROM, Gewicht nach Toleranz
+Bulgarian Split Squat 3x10    @RPE6  r90s
+Step-down             3x10    r60s           # Kontrollierte Exzentrik
+RDL                   3x10    @RPE6  r90s
+Leg Curl              3x12    r60s
+Single Leg Balance    3x45s   r30s
+ss {
+  Side-Lying Hip Abduction  3x15  r30s
+  Plank                     3x45s r30s
+}
+
+> Ab Woche 8: evtl. leichtes Jogging auf Laufband 0.5-1 min Intervalle —
+> NUR bei >85% Quad-Strength (LSI, Limb Symmetry Index) und OK vom Physio.
+> Einbein-Test: Single-Leg Squat sauber? Single-Leg Balance 30s sicher?
+
+# ----- Phase 4 — Return to Activity (Woche 12-24+) -----
+# Ziele: Plyometrie, Agility, Sport-spezifische Muster.
+# Return to Sport: IMMER Testbatterie (LSI ≥90%, Hop Tests, psychologische Readiness).
+
+---[Phase 4: Return to Sport (Woche 12-24)] Mo Mi Fr
+
+Squat                 4x8     @RPE7  r120s  +2.5kg/w
+Deadlift              3x8     @RPE7  r150s
+Bulgarian Split Squat 3x8     @RPE7  r90s
+Box Jump              3x5     r120s          # Woche 14+, niedrige Box
+ss {
+  Lateral Bound       3x6     r60s           # Seitwärts-Sprung
+  Single Leg Bridge   3x12    r45s
+}
+Step-up               3x12    @10kg   r60s   # Progression mit KH (2x 5kg)
+
+> Return-to-Sport-Kriterien (van Melick 2016):
+> - Quad-LSI ≥90% (Isokinetic)
+> - Single-Leg Hop-Tests LSI ≥90% (4 Tests)
+> - Keine Schwellung nach Belastung
+> - Psychologische Readiness (ACL-RSI Score)
+> - Frühestens 9 Monate post-OP (Grindem 2016: Risiko halbiert sich alle 30 Tage später)

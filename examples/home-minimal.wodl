@@ -1,0 +1,62 @@
+@plan "Home Minimal — Bodyweight & Bänder"
+@freq 3x/week
+@cycle 4w: w1-3 progress, w4 deload
+
+# ============================================================
+# Nur Bodyweight + Resistance-Bänder (1-2 mittlere Bänder reichen).
+#
+# Evidenz:
+#   Schoenfeld, B. J., Grgic, J., Ogborn, D., & Krieger, J. W. (2017).
+#   Strength and hypertrophic adaptations between low- vs. high-load resistance
+#   training: a systematic review and meta-analysis.
+#   Journal of Strength and Conditioning Research, 31(12), 3508-3523.
+#   → Low-load (<60% 1RM) erreicht vergleichbare Hypertrophie zu high-load,
+#     WENN Sätze bis nahe ans Muskelversagen geführt werden (RIR 0-2).
+#     Kraft-Adaptationen sind bei high-load zwar überlegen, Hypertrophie nicht.
+# ============================================================
+
+---[Full Body A] Mo
+
+Push-up               4x12-15  @RIR1  r90s   +1rep/w
+Pull-up               4x5-8    @BW    r120s  +1rep/w
+ss {
+  Bulgarian Split Squat  3x10  r60s
+  Glute Bridge           3x15  r60s
+}
+ss {
+  Band External Rotation 3x15  r45s
+  Plank                  3x45s r60s
+}
+
+---[Full Body B] Mi
+
+Dip                   4x8-12   @BW    r120s  +1rep/w
+Band Internal Rotation 3x12    r45s
+Band External Rotation 3x15    r45s
+ss {
+  Lunge               3x12     r60s
+  Single Leg Bridge   3x10     r60s
+}
+ss {
+  Hammer Curl         3x12     r60s    # mit Band
+  Dead Bug            3x10     r60s
+}
+
+---[Full Body C] Fr
+
+Chin-up               4x5-8    @BW    r120s  +1rep/w
+Push-up               3x15-20  @RIR1  r60s
+ss {
+  Step-up             3x12     r60s
+  Side-Lying Hip Abduction  3x15 r45s
+}
+ss {
+  Scapular Retraction 3x15     r45s    # Band Pull-Apart
+  Bird Dog            3x10     r45s
+}
+Wall Sit              3x45s    r60s
+
+> Progression ohne schwere Gewichte: mehr Reps, langsamere Exzentrik,
+> Pause-Reps, einbeinige Varianten, kürzere Pausen.
+> Bei Pull-up: erst Negatives (5s Ablassen), dann Chin-up, dann Pull-up.
+> Deload (w4): Alle Sätze -1, Reps -3, keine Progressionen.

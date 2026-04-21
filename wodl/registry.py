@@ -401,6 +401,265 @@ EXERCISES: dict[str, dict] = {
         "equipment": "machine",
         "aliases": ["Air Bike", "Airbike", "Fan Bike"],
     },
+
+    # ========================================================================
+    # REHAB — Evidenzbasierte Reha-Übungen (ACL, Rotator Cuff, LBP, Achilles)
+    # Quellen: Wilk & Arrigo 2017 (ACL), Ellenbecker 2017 (Shoulder),
+    # McGill 2016 (Low Back), Alfredson 1998 (Achilles Tendinopathy)
+    # ========================================================================
+
+    # --- Knee Rehab ---
+    "Quad Set": {
+        "muscles": ["quads"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Quad Sets", "Quadrizeps-Anspannung", "Quad Contraction", "VMO Set"],
+    },
+    "Straight Leg Raise": {
+        "muscles": ["quads", "hip_flexors"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["SLR", "Gestrecktes Beinheben", "Aktives Beinheben"],
+    },
+    "Terminal Knee Extension": {
+        "muscles": ["quads"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["TKE", "Knie-Endstreckung", "Endstreckung Knie"],
+    },
+    "Heel Slide": {
+        "muscles": ["hamstrings", "knee_rom"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Heel Slides", "Fersenrutschen", "Knieflexion-Slide"],
+    },
+    "Mini Squat": {
+        "muscles": ["quads", "glutes"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Mini Squats", "Teilkniebeuge", "Partial Squat"],
+    },
+    "Wall Sit": {
+        "muscles": ["quads", "glutes"],
+        "category": "isometric",
+        "equipment": "bodyweight",
+        "aliases": ["Wall Squat", "Wandsitz"],
+    },
+    "Step-up": {
+        "muscles": ["quads", "glutes"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Step Up", "Stepups", "Aufsteiger"],
+    },
+    "Step-down": {
+        "muscles": ["quads", "glutes"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Step Down", "Stepdowns", "Absteiger"],
+    },
+    "Single Leg Bridge": {
+        "muscles": ["glutes", "hamstrings"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["SL Bridge", "Einbeinige Brücke", "One-Leg Bridge"],
+    },
+    "Glute Bridge": {
+        "muscles": ["glutes", "hamstrings"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Bridge", "Hüftbrücke", "Hip Bridge", "Bridging"],
+    },
+    "Clamshell": {
+        "muscles": ["glute_med", "hip_abductors"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Clamshells", "Muschel", "Hip Clamshell"],
+    },
+    "Side-Lying Hip Abduction": {
+        "muscles": ["glute_med", "hip_abductors"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Side Leg Raise", "Seitheben Bein", "Hip Abduction"],
+    },
+    "Single Leg Balance": {
+        "muscles": ["proprioception"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["SL Balance", "Einbeinstand", "One Leg Stance"],
+    },
+
+    # --- Shoulder Rehab ---
+    "Pendulum": {
+        "muscles": ["shoulder_rom"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Pendelübung", "Pendulum Exercise", "Codman Pendulum"],
+    },
+    "Wall Walk": {
+        "muscles": ["shoulder_rom", "front_delt"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Wall Climb", "Finger Walk", "Wandklettern"],
+    },
+    "Band External Rotation": {
+        "muscles": ["rotator_cuff", "infraspinatus", "teres_minor"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": [
+            "External Rotation", "ER Band", "Theraband Außenrotation",
+            "Band ER", "Rotator Cuff ER",
+        ],
+    },
+    "Band Internal Rotation": {
+        "muscles": ["rotator_cuff", "subscapularis"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": [
+            "Internal Rotation", "IR Band", "Theraband Innenrotation",
+            "Band IR",
+        ],
+    },
+    "Scapular Retraction": {
+        "muscles": ["rhomboids", "mid_traps"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": [
+            "Scap Retraction", "Schulterblatt-Retraktion",
+            "Band Pull-Apart", "Pull Apart",
+        ],
+    },
+    "Prone Y": {
+        "muscles": ["lower_traps", "rotator_cuff"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Y Raise", "Prone Y Raise", "Bauchlage Y"],
+    },
+    "Prone T": {
+        "muscles": ["mid_traps", "rear_delt"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["T Raise", "Prone T Raise", "Bauchlage T"],
+    },
+    "Prone W": {
+        "muscles": ["rotator_cuff", "mid_traps"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["W Raise", "Prone W Raise", "Bauchlage W"],
+    },
+    "Full Can Raise": {
+        "muscles": ["supraspinatus", "side_delt"],
+        "category": "rehab",
+        "equipment": "dumbbell",
+        "aliases": ["Full Can", "Scaption", "Scaption Raise"],
+    },
+
+    # --- Low Back / Core Rehab (McGill Big 3 + progression) ---
+    "McGill Curl-up": {
+        "muscles": ["rectus_abdominis"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Curl-up", "Modified Curl-up", "McGill Curl Up"],
+    },
+    "Side Plank": {
+        "muscles": ["obliques", "qlm", "core"],
+        "category": "isometric",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Side Bridge", "Seitstütz", "Seitliche Planke",
+            "Lateral Plank",
+        ],
+    },
+    "Bird Dog": {
+        "muscles": ["erectors", "glutes", "core"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Bird-Dog", "Vierfüßlerstand", "Quadruped",
+            "Opposite Arm Leg",
+        ],
+    },
+    "Dead Bug": {
+        "muscles": ["core", "transverse_abdominis"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Dead-Bug", "Toter Käfer", "Dying Bug"],
+    },
+    "Cat-Cow": {
+        "muscles": ["spine_mobility"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Cat Cow", "Katzenbuckel", "Katze-Kuh"],
+    },
+
+    # --- Achilles / Calf Rehab (Alfredson Protocol) ---
+    "Eccentric Heel Drop": {
+        "muscles": ["gastrocnemius", "achilles_tendon"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Alfredson Heel Drop", "Eccentric Calf Drop",
+            "Exzentrisches Fersensenken", "Heel Drops",
+        ],
+    },
+    "Bent-Knee Heel Drop": {
+        "muscles": ["soleus", "achilles_tendon"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Bent Knee Heel Drop", "Soleus Heel Drop",
+            "Gebeugtes Fersensenken",
+        ],
+    },
+    "Single-Leg Calf Raise": {
+        "muscles": ["calves"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "SL Calf Raise", "One-Leg Calf Raise",
+            "Einbeiniges Wadenheben",
+        ],
+    },
+    "Isometric Calf Hold": {
+        "muscles": ["calves", "achilles_tendon"],
+        "category": "isometric",
+        "equipment": "bodyweight",
+        "aliases": ["Iso Calf", "Wadenheben Halten", "Static Calf Hold"],
+    },
+
+    # --- Zusätzliche Reha / Plyo / Funktionell ---
+    "Ankle Pumps": {
+        "muscles": ["calves", "circulation"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Ankle Pump", "Fußwippe", "Sprunggelenkspumpe"],
+    },
+    "Box Jump": {
+        "muscles": ["quads", "glutes", "calves"],
+        "category": "plyometric",
+        "equipment": "box",
+        "aliases": ["Box Jumps", "Kastensprung", "Kastensprünge"],
+    },
+    "Lateral Bound": {
+        "muscles": ["glutes", "quads", "hip_abductors"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Lateral Bounds", "Seitwärtssprung", "Side Bound"],
+    },
+    "Goblet Squat": {
+        "muscles": ["quads", "glutes", "core"],
+        "category": "compound",
+        "equipment": "dumbbell",
+        "aliases": ["Goblet Kniebeuge", "DB Goblet Squat", "KH Goblet Squat"],
+    },
+    "Isometric Shoulder Hold": {
+        "muscles": ["rotator_cuff", "front_delt"],
+        "category": "isometric",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Iso Shoulder", "Shoulder Iso Press",
+            "Isometrisches Schulterhalten", "Wall Press",
+        ],
+    },
 }
 
 

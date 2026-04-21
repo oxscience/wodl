@@ -47,7 +47,37 @@ python playground.py
 # Oeffnet http://localhost:5051
 ```
 
-Links `.wodl` schreiben, rechts live das Ergebnis sehen.
+Links `.wodl` schreiben, rechts live das Ergebnis sehen. Features:
+
+- **Tabelle / JSON / Summary** — drei Ansichten im Live-Preview
+- **Branding** — eigenes Logo, Praxis-/Coach-Name, Primärfarbe (6 Presets + Custom Hex)
+- **Dark & Light Mode** — umschaltbar, persistiert in localStorage
+- **PDF-Export** — via Browser-Print, mit Coach/Klient-Header und Datum
+- **Share-Link** — URL enthält Branding und Plan (bei kurzen Plänen)
+
+### Self-host (Railway / Docker)
+
+```bash
+# Lokal mit gunicorn
+pip install -r requirements.txt && pip install -e .
+gunicorn playground:app --bind 0.0.0.0:5051
+
+# Docker
+docker build -t wodl-playground .
+docker run -p 5051:5051 wodl-playground
+
+# Railway: railway.json ist vorhanden, `railway up` reicht
+```
+
+Health-Check: `GET /healthz` → `{"status": "ok"}`
+
+### URL-Branding (für Coaches)
+
+Coaches können ihre Klient:innen direkt zu einer gebrandeten Instanz linken:
+
+```
+https://your-wodl.app/?primary=%23ff4477&logo=https://.../logo.png&coach=Praxis%20M%C3%BCller
+```
 
 ## Install
 
@@ -106,7 +136,8 @@ Name    SETSxREPS  @INTENSITY  rREST  MODIFIERS
 | Token | Beispiel | Bedeutung |
 |-------|----------|-----------|
 | Saetze x Reps | `4x8`, `3x8-12`, `5x5`, `3x30s` | Volumen |
-| Intensitaet | `@RPE8`, `@85%`, `@100kg`, `@BW+10kg` | Belastung |
+| Reverse Pyramid | `10,8,6` | Absteigende Reps pro Satz (z.B. McGill-Protokoll) |
+| Intensitaet | `@RPE8`, `@RIR1`, `@ISO`, `@85%`, `@100kg`, `@BW+10kg`, `@low` | Belastung |
 | Pause | `r90s`, `r2m`, `r60-90s` | Satzpause |
 | Tempo | `t3010` | Exzentrisch-Pause-Konzentrisch-Pause |
 | Progression | `+2.5kg/w`, `+1rep/w` | Woechentliche Steigerung |
@@ -161,13 +192,30 @@ Unbekannte Uebungen werden trotzdem geparst — es gibt nur eine Warnung.
 
 ## Beispiel-Plaene
 
-Im [`examples/`](examples/) Ordner:
+Im [`examples/`](examples/) Ordner — alle Pläne mit peer-reviewed Paper-Quellen direkt im File-Kommentar.
 
-| Datei | Split | Frequenz | Fokus |
-|-------|-------|----------|-------|
-| `ppl-hypertrophy.wodl` | Push/Pull/Legs | 6x/Woche | Hypertrophie, Supersets |
-| `upper-lower-strength.wodl` | Upper/Lower | 4x/Woche | 5x5 Kraft + Volumen |
-| `minimalist-3day.wodl` | Full Body | 3x/Woche | Nur Compounds, 45 min |
+### Training
+
+| Datei | Split | Frequenz | Evidenz |
+|-------|-------|----------|---------|
+| `beginner-full-body.wodl` | Full Body | 3x/Woche | Rhea et al. (2003), Med Sci Sports Exerc |
+| `minimalist-3day.wodl` | Full Body | 3x/Woche | Schoenfeld et al. (2019), J Sports Sci |
+| `home-minimal.wodl` | Full Body | 3x/Woche | Schoenfeld et al. (2017), J Strength Cond Res |
+| `push-pull-4day.wodl` | Push/Pull | 4x/Woche | Schoenfeld et al. (2016), Sports Med |
+| `upper-lower-strength.wodl` | Upper/Lower | 4x/Woche | Peterson et al. (2005), J Strength Cond Res |
+| `ppl-hypertrophy.wodl` | Push/Pull/Legs | 6x/Woche | Schoenfeld et al. (2017), J Sports Sci |
+| `powerbuilding-5day.wodl` | Upper/Lower + Arms | 5x/Woche | Schoenfeld et al. (2014), J Strength Cond Res |
+
+### Rehabilitation (evidenzbasiert)
+
+Diese Protokolle sind als **Referenz für Physiotherapeut:innen** gedacht, nicht als Ersatz für individuelle Betreuung. Jedes File enthält Phasen, Progressionskriterien und die Quellen-Papers als Kommentare.
+
+| Datei | Indikation | Quellen |
+|-------|-----------|---------|
+| `rehab-acl-postop.wodl` | VKB-Rekonstruktion, 4 Phasen (0-24 Wo) | Wilk & Arrigo 2017, van Melick 2016 |
+| `rehab-rotator-cuff.wodl` | Rotator Cuff / SAPS, konservativ | Ellenbecker 2010, Kuhn 2009, MOON |
+| `rehab-lbp-mcgill.wodl` | Chronic Low Back Pain, McGill Big 3 | McGill 2016, Lee & McGill 2015 |
+| `rehab-achilles-alfredson.wodl` | Achilles-Tendinopathie (midportion) | Alfredson 1998, Beyer 2015 |
 
 ## Was kann man damit bauen?
 

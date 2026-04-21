@@ -1,0 +1,75 @@
+@plan "Powerbuilding 5x/Woche"
+@freq 5x/week
+@cycle 4w: w1-3 progress, w4 deload
+@unit kg
+
+# ============================================================
+# Powerbuilding = Kraft + Hypertrophie Hybrid
+#
+# Evidenz:
+#   Schoenfeld, B. J., Ratamess, N. A., Peterson, M. D., Contreras, B.,
+#   Sonmez, G. T., & Alvar, B. A. (2014). Effects of different volume-equated
+#   resistance training loading strategies on muscular adaptations in
+#   well-trained men. Journal of Strength and Conditioning Research, 28(10), 2909-2918.
+#   → Gemischte Rep-Ranges (heavy + moderate, volumen-matched) erzielen
+#     beide Adaptationen parallel: Maximalkraft durch schwere Primer-Lifts,
+#     Hypertrophie durch moderates Volumen im 6-15 RM-Bereich.
+#
+# Prinzipien:
+# - Kraft: 1-8 RM, 3-10 Sets/Übung/Woche, 2-5min Pause
+# - Hypertrophie: 6-20 RM, 10-20 Sets/Muskel/Woche, 1-3min Pause
+# - Primer-Lift (schwer, niedrige Reps) + Volumen-Arbeit (moderate Reps) pro Session
+# ============================================================
+
+---[Upper Heavy] Mo
+
+Bench Press           5x3     @RPE8  r240s  +2.5kg/w
+Barbell Row           5x5     @RPE8  r180s  +2.5kg/w
+OHP                   3x6     @RPE7  r150s
+Pull-up               3x8     @BW    r120s
+Tricep Pushdown       3x12    r60s
+
+---[Lower Heavy] Di
+
+Squat                 5x3     @RPE8  r240s  +2.5kg/w
+RDL                   3x6     @RPE7  r180s
+Leg Press             3x10    @RPE7  r120s
+Leg Curl              3x12    r90s
+Calf Raise            4x12    r60s
+
+---[Upper Volume] Do
+
+Incline Bench Press   4x8     @RPE7  r120s
+Cable Row             4x10    @RPE7  r90s
+Dumbbell OHP          3x10    @RPE7  r90s
+ss {
+  Incline DB Fly      3x12    r60s
+  Hammer Curl         3x12    r60s
+}
+ss {
+  Lateral Raise       4x15    r60s
+  Overhead Tricep Extension   3x12  r60s
+}
+
+---[Lower Volume] Fr
+
+Front Squat           4x6     @RPE7  r180s
+Bulgarian Split Squat 3x10    @RPE7  r90s
+Leg Extension         3x12    r60s
+Leg Curl              3x12    r60s
+Hip Thrust            3x10    @RPE7  r120s
+Calf Raise            4x15    r60s
+
+---[Arms & Weaknesses] Sa
+
+Barbell Curl          4x8     @RPE7  r90s
+Skull Crusher         4x10    r90s
+Incline Curl          3x12    r60s
+Overhead Tricep Extension   3x12  r60s
+Face Pull             4x15    r60s
+Rear Delt Fly         4x15    r60s
+
+> Wochenvolumen: Chest 11, Back 15, Quads 10, Hams/Glutes 9, Shoulders 14, Arms 16
+> Heavy-Tage: Primer-Lift bestimmt RPE — Technik vor Last
+> Volume-Tage: Pump-orientiert, RIR 1-2
+> Deload (w4): Heavy-Sätze auf 3x3 @60%, Volume-Sätze halbiert

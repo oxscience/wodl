@@ -1,0 +1,86 @@
+@plan "Achilles-Tendinopathie — Alfredson Protokoll"
+@freq 14x/week
+@unit kg
+
+# ============================================================
+# Rehabilitation bei chronischer (midportion) Achilles-Tendinopathie
+# nach dem ursprünglichen Alfredson-Protokoll.
+#
+# Quellen (evidence-based):
+#   - Alfredson et al. 1998, "Heavy-load eccentric calf muscle training
+#     for the treatment of chronic Achilles tendinosis"
+#     Am J Sports Med 26(3):360-366  (ORIGINAL-PROTOKOLL)
+#   - Rowe et al. 2012, "Conservative management of midportion Achilles
+#     tendinopathy: a mixed methods study"
+#     Sports Medicine 42(11):941-967
+#   - Beyer et al. 2015, "Heavy Slow Resistance vs. Eccentric Training
+#     as Treatment for Achilles Tendinopathy"
+#     Am J Sports Med 43(7):1704-1711
+#
+# ORIGINAL-PROTOKOLL (Alfredson 1998):
+#   - 3 Sätze à 15 Wiederholungen, gestreckt-kniig (Gastrocnemius)
+#   - 3 Sätze à 15 Wiederholungen, gebeugt-kniig (Soleus)
+#   - ZWEIMAL TÄGLICH
+#   - 7 Tage pro Woche = 14 Einheiten/Woche
+#   - 12 Wochen Gesamtdauer
+#   - Nur die EXZENTRISCHE Phase (Absenken) einbeinig,
+#     Hochkommen mit dem anderen Bein oder beiden Beinen
+#
+# SCHMERZ-REGEL (Alfredson):
+#   "Pain is OK during exercise — as long as it is not worse the next morning."
+#   Schmerz während der Übung bis 5/10 VAS erlaubt.
+#   Wenn Frühmorgen-Schmerz zunimmt → Last reduzieren.
+#
+# PROGRESSION:
+#   Wenn 3x15 schmerzfrei möglich → Last im Rucksack steigern (2.5-5kg Schritte).
+# ============================================================
+
+# ----- Morgens -----
+# Stufe/Treppenkante, Ferse absenken unter Niveau, 3s kontrollierte Exzentrik.
+
+---[AM Session] Mo Di Mi Do Fr Sa So
+
+Eccentric Heel Drop    3x15   @BW   r60s   # Gastrocnemius, Knie gestreckt
+Bent-Knee Heel Drop    3x15   @BW   r60s   # Soleus, Knie leicht gebeugt
+
+> Einbeinig absenken (exzentrische Phase), mit anderem Bein oder beiden hoch.
+> 3 Sekunden Absenken, kurz unten halten, dann aktiv hochkommen.
+> Ferse muss UNTER Stufenniveau kommen — voller ROM entscheidend.
+
+# ----- Abends (gleiches Protokoll) -----
+
+---[PM Session] Mo Di Mi Do Fr Sa So
+
+Eccentric Heel Drop    3x15   @BW   r60s
+Bent-Knee Heel Drop    3x15   @BW   r60s
+
+> Zweite tägliche Einheit — mindestens 6 Stunden Abstand zur Morgen-Session.
+> Dauer gesamt: 12 Wochen durchgehend.
+
+# ----- Woche 4+: Progression mit Last -----
+# Wenn 3x15 komplett schmerzfrei: Rucksack mit Gewicht nutzen.
+
+---[Progression (Woche 4+)] Mo Di Mi Do Fr Sa So
+
+Eccentric Heel Drop    3x15   @BW+5kg   r60s   # Rucksack mit Gewicht
+Bent-Knee Heel Drop    3x15   @BW+5kg   r60s
+
+> Last in 2.5-5kg Schritten steigern, sobald schmerzfrei.
+> Einige Studien zeigen erfolgreiche Progression bis 20-30kg Zusatzlast.
+> Alfredson original: Steigerung bis Last provokativ genug für moderaten Schmerz.
+
+# ----- Alternative: Heavy Slow Resistance (HSR) -----
+# Vergleichbar wirksam zu Alfredson, aber nur 3x/Woche (Beyer 2015).
+# Geeignet als Alternative oder Fortsetzung nach 12 Wochen Alfredson.
+
+---[HSR Alternative] Mo Mi Fr
+
+Single-Leg Calf Raise  4x12-15  @RPE7  r120s  # Voll-ROM, 6s pro Rep (3s up, 3s down)
+
+> Langsame Bewegung (6 Sekunden pro Rep) auf Stufe, Voll-ROM.
+> Progression: Gewicht alle 2 Wochen erhöhen (Smith Machine / Kurzhantel).
+> Beyer-Protokoll: 3 Sätze in Woche 1, bis 4 Sätze in Woche 12.
+
+> WICHTIG: Bei Insertional Achilles Tendinopathy (ansatznahe Schmerzen am Kalkaneus)
+> KEIN Absenken unter Niveau — Flaches Heel Drop (bis Bodenniveau) verwenden.
+> Evidenz für Insertional: weniger robust als midportion.

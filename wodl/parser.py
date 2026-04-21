@@ -33,6 +33,7 @@ class ExerciseLine:
 
     raw_name: str
     canonical_name: str | None  # resolved via registry
+    display_name: str = ""  # what to render in output (respects user language)
     sets: int | None = None
     reps: str | None = None  # "8", "8-12", "AMRAP", "30s"
     intensity: str | None = None  # "@RPE8", "@70%", "@60kg", "@BW"
@@ -113,9 +114,10 @@ RE_SETS_REPS = re.compile(
 
 RE_SETS_ONLY = re.compile(r"^(\d+)x$")  # e.g. "3x" (AMRAP)
 RE_TIME_ONLY = re.compile(r"^(\d+)s$")  # e.g. "60s" standalone
+RE_PYRAMID = re.compile(r"^(\d+(?:,\d+){1,5})$")  # reverse pyramid "10,8,6" or "12,10,8,6"
 
 RE_INTENSITY = re.compile(
-    r"@(RPE\d+\.?\d*|\d+%|\d+(?:\.\d+)?kg|\d+(?:\.\d+)?lb|BW(?:[+-]\d+(?:\.\d+)?kg)?)",
+    r"@(RPE\d+\.?\d*|RIR\d+|ISO|\d+%|\d+(?:\.\d+)?kg|\d+(?:\.\d+)?lb|BW(?:[+-]\d+(?:\.\d+)?kg)?|low|mid|high)",
     re.IGNORECASE,
 )
 RE_REST = re.compile(r"r(\d+(?:-\d+)?(?:s|m))", re.IGNORECASE)
@@ -189,6 +191,15 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
             consumed.add(i)
             continue
 
+        # Reverse pyramid reps: "10,8,6" = 3 Sätze mit absteigenden Reps
+        m = RE_PYRAMID.fullmatch(tok)
+        if m and i not in consumed:
+            reps_list = tok.split(",")
+            ex.sets = len(reps_list)
+            ex.reps = tok  # behält die Originalnotation "10,8,6"
+            consumed.add(i)
+            continue
+
         m = RE_SETS_REPS.fullmatch(tok)
         if m and i not in consumed:
             ex.sets = int(m.group(1)) if m.group(1) else 1
@@ -240,11 +251,17 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
     raw_name = " ".join(name_tokens).strip()
     ex.raw_name = raw_name
 
-    # Resolve canonical name
-    canonical = resolve(raw_name)
-    if canonical is None:
-        canonical = resolve_fuzzy(raw_name, threshold=0.7)
-    ex.canonical_name = canonical
+    # Resolve canonical name. Exact match (canonical or alias) respects the
+    # user's language in output; fuzzy match overrides with canonical so
+    # typos get corrected.
+    canonical_exact = resolve(raw_name)
+    if canonical_exact:
+        ex.canonical_name = canonical_exact
+        ex.display_name = raw_name
+    else:
+        canonical_fuzzy = resolve_fuzzy(raw_name, threshold=0.7)
+        ex.canonical_name = canonical_fuzzy
+        ex.display_name = canonical_fuzzy if canonical_fuzzy else raw_name
 
     return ex
 
@@ -401,7 +418,7 @@ def to_markdown(plan: Plan) -> str:
         lines.append("|----------|-------------|-----------|------|-------|")
 
         def _fmt_exercise(ex: ExerciseLine, prefix: str = "") -> str:
-            name = prefix + (ex.canonical_name or ex.raw_name)
+            name = prefix + (ex.display_name or ex.canonical_name or ex.raw_name)
             sr = ""
             if ex.sets and ex.reps:
                 sr = f"{ex.sets}x{ex.reps}"
@@ -444,5 +461,235 @@ def to_markdown(plan: Plan) -> str:
         lines.append("### Warnings")
         for w in plan.warnings:
             lines.append(f"- {w}")
+
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
+# Cycle matrix — Progression über Wochen projizieren
+# ---------------------------------------------------------------------------
+
+RE_CYCLE_WEEKS = re.compile(r"^(\d+)w$", re.IGNORECASE)
+RE_WEEK_RANGE = re.compile(r"^w(\d+)(?:-(\d+))?$", re.IGNORECASE)
+RE_PROG_KG = re.compile(r"^\+(\d+(?:\.\d+)?)kg/w$", re.IGNORECASE)
+RE_PROG_REP = re.compile(r"^\+(\d+)reps?/w$", re.IGNORECASE)
+RE_PROG_PCT = re.compile(r"^\+(\d+(?:\.\d+)?)%/w$", re.IGNORECASE)
+RE_INT_KG = re.compile(r"^@(\d+(?:\.\d+)?)kg$", re.IGNORECASE)
+RE_INT_PCT = re.compile(r"^@(\d+)%$", re.IGNORECASE)
+RE_INT_BW_ADD = re.compile(r"^@BW\+(\d+(?:\.\d+)?)kg$", re.IGNORECASE)
+
+# Deload-Standardregel (wenn keine explizite Angabe im Plan): Last -20%, Sets & Reps wie Vorwoche.
+DELOAD_LOAD_FACTOR = 0.80
+
+
+def _total_cycle_weeks(plan: Plan, default: int = 4) -> int:
+    """Extrahiert die Anzahl Wochen aus `@cycle 4w: ...`. Fallback: default."""
+    if not plan.cycle_length:
+        return default
+    m = RE_CYCLE_WEEKS.match(plan.cycle_length.strip())
+    if m:
+        return int(m.group(1))
+    return default
+
+
+def _phase_for_week(week: int, phases: list) -> str | None:
+    """Gibt den Phasen-Namen für eine gegebene Woche zurück (progress/deload/...)."""
+    for ph in phases:
+        m = RE_WEEK_RANGE.match(ph.weeks.strip())
+        if not m:
+            continue
+        start = int(m.group(1))
+        end = int(m.group(2)) if m.group(2) else start
+        if start <= week <= end:
+            return ph.phase.lower()
+    return None
+
+
+def _parse_load_kg(intensity: str | None) -> tuple[float | None, str]:
+    """Extrahiert numerisches kg-Gewicht aus einer Intensity-Angabe.
+
+    Returns:
+        (load_kg, suffix) — suffix ist Kontext wie "" oder "BW+" für Bodyweight-Add.
+        Gibt (None, intensity) zurück wenn nicht numerisch auflösbar.
+    """
+    if not intensity:
+        return None, ""
+    m = RE_INT_KG.match(intensity.strip())
+    if m:
+        return float(m.group(1)), ""
+    m = RE_INT_BW_ADD.match(intensity.strip())
+    if m:
+        return float(m.group(1)), "BW+"
+    return None, intensity
+
+
+def _parse_progression(prog: str | None) -> tuple[str, float] | None:
+    """Parse progression token into (kind, value).
+
+    Returns:
+        ("kg", 2.5) für "+2.5kg/w"
+        ("rep", 1) für "+1rep/w"
+        ("pct", 5.0) für "+5%/w"
+        None wenn keine oder nicht parsbar.
+    """
+    if not prog:
+        return None
+    s = prog.strip().lstrip("+")
+    s = "+" + s  # sicherstellen dass + vorhanden
+    m = RE_PROG_KG.match(s)
+    if m:
+        return ("kg", float(m.group(1)))
+    m = RE_PROG_REP.match(s)
+    if m:
+        return ("rep", float(m.group(1)))
+    m = RE_PROG_PCT.match(s)
+    if m:
+        return ("pct", float(m.group(1)))
+    return None
+
+
+def _project_exercise_week(ex: ExerciseLine, week: int, phase: str | None) -> dict:
+    """Projiziert eine Übung auf eine konkrete Trainingswoche.
+
+    Args:
+        ex: ExerciseLine
+        week: 1-indexierte Wochennummer
+        phase: "progress", "deload", "intensity", etc. (oder None)
+
+    Returns:
+        dict mit keys: sets, reps, intensity (als String), deload (bool)
+    """
+    load_kg, load_prefix = _parse_load_kg(ex.intensity)
+    prog = _parse_progression(ex.progression)
+    is_deload = (phase == "deload")
+
+    # Sets & Reps: default von der Übung übernommen
+    sets = ex.sets
+    reps = ex.reps
+
+    # Progression anwenden: (week-1) * step, solange es keine Deload-Woche ist
+    if prog and not is_deload:
+        kind, step = prog
+        weeks_progressed = week - 1  # Woche 1 = Start
+        if kind == "kg" and load_kg is not None:
+            load_kg = load_kg + step * weeks_progressed
+        elif kind == "pct" and load_kg is not None:
+            load_kg = load_kg * (1 + step / 100) ** weeks_progressed
+        elif kind == "rep" and reps:
+            try:
+                # Einfachste Form: reps ist "8" oder "8-12" → heuristisch Endwert
+                base = reps.split("-")[-1] if "-" in reps else reps
+                base_n = int(base.rstrip("s"))
+                reps = str(base_n + int(step * weeks_progressed))
+            except (ValueError, AttributeError):
+                pass
+
+    # Deload: Last -20% von der fortgeschrittenen Progression bzw. Start
+    if is_deload and load_kg is not None:
+        # Nimm Last der letzten Progress-Woche (week-1) und reduziere
+        if prog and prog[0] == "kg":
+            prior_load = load_kg + prog[1] * (week - 2)
+            load_kg = prior_load * DELOAD_LOAD_FACTOR
+        elif prog and prog[0] == "pct":
+            prior_load = load_kg * (1 + prog[1] / 100) ** max(0, week - 2)
+            load_kg = prior_load * DELOAD_LOAD_FACTOR
+        else:
+            load_kg = load_kg * DELOAD_LOAD_FACTOR
+
+    # Intensity-String neu bauen
+    if load_kg is not None:
+        # Runde auf 0.5kg
+        rounded = round(load_kg * 2) / 2
+        intensity_str = f"@{load_prefix}{rounded:g}kg"
+    else:
+        intensity_str = ex.intensity or ""
+
+    return {
+        "sets": sets,
+        "reps": reps,
+        "intensity": intensity_str,
+        "deload": is_deload,
+    }
+
+
+def to_cycle_matrix(plan: Plan) -> str:
+    """Rendert einen Plan als Wochen-Matrix (Markdown-Tabelle).
+
+    Zeigt pro Session eine Tabelle: Zeilen = Übungen, Spalten = Wochen.
+    Progressions-Tokens (+2.5kg/w etc.) werden automatisch über die Wochen
+    angewandt. Deload-Wochen (aus @cycle) werden mit -20% Last markiert.
+    """
+    lines: list[str] = []
+    total_weeks = _total_cycle_weeks(plan, default=4)
+
+    if plan.name:
+        lines.append(f"# {plan.name} — Wochen-Matrix")
+    if plan.cycle_length:
+        cycle_desc = plan.cycle_length
+        if plan.cycle_phases:
+            phases = ", ".join(f"{p.weeks} {p.phase}" for p in plan.cycle_phases)
+            cycle_desc += f" ({phases})"
+        lines.append(f"**Zyklus:** {cycle_desc}")
+    lines.append("")
+    lines.append(f"_Progression wird pro Woche automatisch angewandt. **💤 Deload** = Last -{round((1-DELOAD_LOAD_FACTOR)*100)}% vs. Vorwoche · **🔥 Intensity** = Peak-/Test-Woche · **🎯 Test** = 1RM-Testing_")
+    lines.append("")
+
+    # Header-Zellen: Übung + W1, W2, ... Wn
+    week_headers = []
+    for w in range(1, total_weeks + 1):
+        phase = _phase_for_week(w, plan.cycle_phases)
+        label = f"W{w}"
+        if phase == "deload":
+            label += " 💤"
+        elif phase == "intensity":
+            label += " 🔥"
+        elif phase == "test":
+            label += " 🎯"
+        week_headers.append(label)
+
+    for session in plan.sessions:
+        day_str = " ".join(session.days)
+        lines.append(f"## {session.name}" + (f" \u00b7 {day_str}" if day_str else ""))
+        lines.append("")
+
+        # Tabellen-Header
+        header_row = "| Übung | Sets×Reps | " + " | ".join(week_headers) + " |"
+        sep_row = "|" + "|".join(["---"] * (len(week_headers) + 2)) + "|"
+        lines.append(header_row)
+        lines.append(sep_row)
+
+        def render_exercise_row(ex: ExerciseLine, prefix: str = "") -> str:
+            name = prefix + (ex.display_name or ex.canonical_name or ex.raw_name)
+            base_sets_reps = ""
+            if ex.sets and ex.reps:
+                base_sets_reps = f"{ex.sets}×{ex.reps}"
+            elif ex.reps:
+                base_sets_reps = ex.reps
+
+            cells = [name, base_sets_reps]
+            for w in range(1, total_weeks + 1):
+                phase = _phase_for_week(w, plan.cycle_phases)
+                proj = _project_exercise_week(ex, w, phase)
+                intensity = proj["intensity"]
+                if proj["deload"]:
+                    cell = f"_{intensity}_" if intensity else "_Deload_"
+                else:
+                    cell = intensity if intensity else "—"
+                # Falls reps sich durch +rep/w geändert haben, zeig es
+                if proj.get("reps") and proj["reps"] != ex.reps:
+                    cell = f"{proj['reps']} reps {cell}".strip()
+                cells.append(cell)
+            return "| " + " | ".join(cells) + " |"
+
+        for item in session.items:
+            if isinstance(item, ExerciseGroup):
+                label_map = {"superset": "SS", "circuit": "Circuit", "giant": "Giant"}
+                for j, sub in enumerate(item.exercises):
+                    pfx = f"{label_map.get(item.kind, 'SS')}: " if j == 0 else "  + "
+                    lines.append(render_exercise_row(sub, pfx))
+            else:
+                lines.append(render_exercise_row(item))
+
+        lines.append("")
 
     return "\n".join(lines)
