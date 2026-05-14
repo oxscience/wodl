@@ -7,3 +7,9 @@ build/
 *.egg
 .pytest_cache/
 .venv/
+
+# Claude
+.claude/
+
+# Python venv (without dot)
+venv/
