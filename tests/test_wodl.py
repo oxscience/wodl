@@ -225,6 +225,143 @@ class TestNotesWarnings:
 
 
 # ===================================================================
+# Regressions — Name-Tokenizer (drop-Modifier, Ziffern im Namen)
+# ===================================================================
+
+
+class TestNameTokenizerRegressions:
+    """'drop' & Co. duerfen nur NACH dem Sets/Reps-Block Modifier sein."""
+
+    def test_unknown_name_ending_in_drop_stays_intact(self):
+        plan = parse("---[T]\nSeated Eccentric Heel Drop  3x15")
+        ex = plan.sessions[0].items[0]
+        assert ex.raw_name == "Seated Eccentric Heel Drop"
+        assert ex.modifiers == []
+        assert ex.canonical_name is None  # ehrliche Warning statt Verstuemmelung
+        assert len(plan.warnings) == 1
+
+    def test_known_name_ending_in_drop_resolves_exactly(self):
+        plan = parse("---[T]\nEccentric Heel Drop  3x15  @BW+10kg  r60s")
+        ex = plan.sessions[0].items[0]
+        assert ex.raw_name == "Eccentric Heel Drop"
+        assert ex.canonical_name == "Eccentric Heel Drop"
+        assert ex.modifiers == []
+
+    def test_drop_modifier_after_sets_reps_still_works(self):
+        plan = parse("---[T]\nLateral Raise  3x12  r60s  drop")
+        ex = plan.sessions[0].items[0]
+        assert ex.modifiers == ["drop"]
+        assert ex.raw_name == "Lateral Raise"
+
+    def test_alias_containing_modifier_word(self):
+        # "Drop Jump" ist ein Alias von Depth Jump — kein drop-Modifier
+        plan = parse("---[T]\nDrop Jump  3x5  r120s")
+        ex = plan.sessions[0].items[0]
+        assert ex.canonical_name == "Depth Jump"
+        assert ex.modifiers == []
+
+    def test_digit_in_name_before_sets_reps(self):
+        plan = parse("---[T]\nAbduction to 90  3x10")
+        ex = plan.sessions[0].items[0]
+        assert ex.raw_name == "Abduction to 90"
+        assert ex.sets == 3
+        assert ex.reps == "10"
+
+    def test_figure_8_walk_keeps_digit_and_resolves(self):
+        plan = parse("---[T]\nFigure 8 Walk  3x30s")
+        ex = plan.sessions[0].items[0]
+        assert ex.raw_name == "Figure 8 Walk"
+        assert ex.canonical_name == "Figure-Eight Walk"
+        assert ex.sets == 3
+        assert ex.reps == "30s"
+
+    def test_bare_number_reps_still_parse(self):
+        # Ohne expliziten Sets/Reps-Block bleibt eine nachgestellte Zahl Reps
+        plan = parse("---[T]\nSit-up  15")
+        ex = plan.sessions[0].items[0]
+        assert ex.raw_name == "Sit-up"
+        assert ex.sets == 1
+        assert ex.reps == "15"
+
+    def test_bare_number_reps_followed_by_params(self):
+        plan = parse("---[T]\nSit-up  20  @BW  r60s")
+        ex = plan.sessions[0].items[0]
+        assert ex.raw_name == "Sit-up"
+        assert ex.reps == "20"
+        assert ex.intensity == "@BW"
+        assert ex.rest == "60s"
+
+
+# ===================================================================
+# Regressions — Fuzzy-Matching (Schwelle & Wort-Guards)
+# ===================================================================
+
+
+class TestFuzzyRegressions:
+    """Fuzzy ist ein Tippfehler-Korrektor, kein Synonym-Finder."""
+
+    def test_no_match_across_first_word(self):
+        # 1 Buchstabe Unterschied, aber anderes Wort = andere Uebung
+        assert resolve_fuzzy("Xand External Rotation") is None
+
+    def test_wand_external_rotation_is_own_exercise(self):
+        assert resolve("Wand External Rotation") == "Wand External Rotation"
+        assert resolve_fuzzy("Wand External Rotation") != "Band External Rotation"
+
+    def test_no_match_to_longer_qualified_name(self):
+        # Kuerzerer Name darf nicht auf laengeren qualifizierten Namen matchen
+        assert resolve_fuzzy("Nordic Curl Hold") is None
+
+    def test_d2_extension_not_leg_extension(self):
+        assert resolve_fuzzy("D2 Extension") == "PNF D2 Extension"
+
+    def test_knee_extension_not_terminal(self):
+        assert resolve_fuzzy("Knee Extension") == "Leg Extension"
+
+    def test_typos_still_corrected(self):
+        assert resolve_fuzzy("Squatt") == "Squat"
+        assert resolve_fuzzy("Benchpress") == "Bench Press"
+        assert resolve_fuzzy("Klimmzuge") == "Pull-up"
+        assert resolve_fuzzy("Face Puls") == "Face Pull"
+
+
+# ===================================================================
+# Registry-Ausbau & Integritaet
+# ===================================================================
+
+
+class TestRegistryExpansion:
+    def test_catalog_staples_resolve(self):
+        assert resolve("Nordic Hamstring Curl") == "Nordic Hamstring Curl"
+        assert resolve("Copenhagen Adduction") == "Copenhagen Adduction"
+        assert resolve("Extender") == "Extender"
+        assert resolve("Diver") == "Diver"
+        assert resolve("Glider") == "Glider"
+        assert resolve("Wobble Board") == "Wobble Board Balance"
+        assert resolve("Lateral Band Walk") == "Lateral Band Walk"
+        assert resolve("Power Clean") == "Power Clean"
+
+    def test_german_aliases_resolve(self):
+        assert resolve("Umsetzen") == "Power Clean"
+        assert resolve("Wackelbrett") == "Wobble Board Balance"
+        assert resolve("Kopenhagen-Adduktion") == "Copenhagen Adduction"
+        assert resolve("Kniestreckung mit Band") == "Band Knee Extension"
+
+    def test_no_duplicate_aliases(self):
+        # Doppelte Aliases wuerden sich still gegenseitig ueberschreiben
+        from wodl.registry import EXERCISES
+
+        seen: dict[str, str] = {}
+        for canonical, meta in EXERCISES.items():
+            for key in [canonical, *meta.get("aliases", [])]:
+                key = key.lower().strip()
+                assert key not in seen or seen[key] == canonical, (
+                    f"Alias '{key}' zeigt auf '{seen[key]}' UND '{canonical}'"
+                )
+                seen[key] = canonical
+
+
+# ===================================================================
 # Serialization
 # ===================================================================
 

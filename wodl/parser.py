@@ -165,8 +165,59 @@ def _parse_cycle(text: str) -> tuple[str, list[CycleWeek]]:
     return length, phases
 
 
+def _is_strong_sets_reps(tok: str) -> bool:
+    """Sets/reps forms that cannot be a word of an exercise name.
+
+    "4x8", "8-12", "3x", "30s", "10,8,6" — but NOT a bare number like "90",
+    which may belong to the name ("Abduction to 90").
+    """
+    if RE_SETS_ONLY.match(tok) or RE_TIME_ONLY.match(tok) or RE_PYRAMID.fullmatch(tok):
+        return True
+    m = RE_SETS_REPS.fullmatch(tok)
+    return bool(m and (m.group(1) or m.group(3) or m.group(4)))
+
+
+def _is_param_token(tok: str) -> bool:
+    """Tokens that may follow the sets/reps block (intensity, rest, ...)."""
+    return bool(
+        RE_INTENSITY.match(tok)
+        or RE_REST.fullmatch(tok)
+        or RE_TEMPO.fullmatch(tok)
+        or RE_PROGRESSION.fullmatch(tok)
+        or RE_MODIFIER.fullmatch(tok)
+    )
+
+
+def _apply_sets_reps(ex: ExerciseLine, tok: str) -> None:
+    """Write sets/reps from a matching token onto the exercise."""
+    if RE_SETS_ONLY.match(tok):
+        ex.sets = int(tok[:-1])
+        ex.reps = "AMRAP"
+        return
+    # Reverse pyramid reps: "10,8,6" = 3 Sätze mit absteigenden Reps
+    if RE_PYRAMID.fullmatch(tok):
+        ex.sets = len(tok.split(","))
+        ex.reps = tok  # behält die Originalnotation "10,8,6"
+        return
+    m = RE_SETS_REPS.fullmatch(tok)
+    if m:
+        ex.sets = int(m.group(1)) if m.group(1) else 1
+        if m.group(4):  # time-based
+            ex.reps = m.group(4)
+        elif m.group(2):
+            ex.reps = f"{m.group(2)}-{m.group(3)}" if m.group(3) else m.group(2)
+
+
 def _parse_exercise_line(line: str) -> ExerciseLine:
-    """Parse a single exercise line into an ExerciseLine."""
+    """Parse a single exercise line into an ExerciseLine.
+
+    Grammar: `<name> <sets/reps> <params...>`. The name runs up to the
+    sets/reps block, so digits inside names ("Figure 8 Walk", "Abduction
+    to 90") and modifier words at the end of names ("... Heel Drop") stay
+    part of the name. Known limitation: without an explicit sets/reps
+    block, a trailing bare number is read as reps ("Abduction to 90"
+    alone becomes reps=90 — write "Abduction to 90  3x10" instead).
+    """
     # Strip inline comment
     comment = None
     if "#" in line:
@@ -178,41 +229,34 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
     if not tokens:
         return ExerciseLine(raw_name="", canonical_name=None)
 
-    # Strategy: scan tokens consuming known patterns.
-    # What remains is the exercise name.
     consumed = set()
     ex = ExerciseLine(raw_name="", canonical_name=None, comment=comment)
 
+    # Anchor = first token of the sets/reps block. Prefer unambiguous forms;
+    # fall back to a bare number ("Sit-up 15") only when everything after it
+    # is a param token, so mid-name digits are never swallowed.
+    anchor = None
     for i, tok in enumerate(tokens):
-        # Sets x Reps
-        if not consumed and RE_SETS_ONLY.match(tok):
-            ex.sets = int(tok[:-1])
-            ex.reps = "AMRAP"
-            consumed.add(i)
-            continue
+        if _is_strong_sets_reps(tok):
+            anchor = i
+            break
+    if anchor is None:
+        for i, tok in enumerate(tokens):
+            if RE_SETS_REPS.fullmatch(tok) and all(
+                _is_param_token(t) for t in tokens[i + 1:]
+            ):
+                anchor = i
+                break
 
-        # Reverse pyramid reps: "10,8,6" = 3 Sätze mit absteigenden Reps
-        m = RE_PYRAMID.fullmatch(tok)
-        if m and i not in consumed:
-            reps_list = tok.split(",")
-            ex.sets = len(reps_list)
-            ex.reps = tok  # behält die Originalnotation "10,8,6"
-            consumed.add(i)
-            continue
-
-        m = RE_SETS_REPS.fullmatch(tok)
-        if m and i not in consumed:
-            ex.sets = int(m.group(1)) if m.group(1) else 1
-            if m.group(4):  # time-based
-                ex.reps = m.group(4)
-            elif m.group(2):
-                ex.reps = f"{m.group(2)}-{m.group(3)}" if m.group(3) else m.group(2)
-            consumed.add(i)
-            continue
-
-        if RE_TIME_ONLY.match(tok) and i not in consumed:
-            ex.sets = 1
-            ex.reps = tok
+    for i, tok in enumerate(tokens):
+        # Sets/reps: the anchor plus any later sets/reps-shaped token
+        # (last one wins, as before).
+        if anchor is not None and i >= anchor and (
+            i == anchor
+            or _is_strong_sets_reps(tok)
+            or RE_SETS_REPS.fullmatch(tok)
+        ):
+            _apply_sets_reps(ex, tok)
             consumed.add(i)
             continue
 
@@ -240,8 +284,10 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
             consumed.add(i)
             continue
 
+        # Modifiers count only AFTER the sets/reps block — a trailing name
+        # word like "... Heel Drop" must not become a drop-set modifier.
         m = RE_MODIFIER.fullmatch(tok)
-        if m and i not in consumed:
+        if m and anchor is not None and i > anchor and i not in consumed:
             ex.modifiers.append(tok.lower())
             consumed.add(i)
             continue
@@ -259,7 +305,7 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
         ex.canonical_name = canonical_exact
         ex.display_name = raw_name
     else:
-        canonical_fuzzy = resolve_fuzzy(raw_name, threshold=0.7)
+        canonical_fuzzy = resolve_fuzzy(raw_name)
         ex.canonical_name = canonical_fuzzy
         ex.display_name = canonical_fuzzy if canonical_fuzzy else raw_name
 

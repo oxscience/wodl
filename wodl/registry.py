@@ -184,7 +184,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "dumbbell",
         "aliases": [
             "Seitheben", "Side Raise", "Lat Raise",
-            "KH Seitheben", "DB Lateral Raise",
+            "KH Seitheben", "DB Lateral Raise", "Shoulder Abduction",
         ],
     },
     "Face Pull": {
@@ -247,7 +247,7 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["biceps"],
         "category": "isolation",
         "equipment": "dumbbell",
-        "aliases": ["Incline DB Curl", "Schrägbank Curl"],
+        "aliases": ["Incline DB Curl", "Incline Dumbbell Curl", "Schrägbank Curl"],
     },
     "Tricep Pushdown": {
         "muscles": ["triceps"],
@@ -304,7 +304,7 @@ EXERCISES: dict[str, dict] = {
         "category": "isolation",
         "equipment": "machine",
         "aliases": [
-            "Leg Ext", "Beinstrecker", "Beinstrecken",
+            "Leg Ext", "Knee Extension", "Beinstrecker", "Beinstrecken",
         ],
     },
     "Leg Curl": {
@@ -312,7 +312,7 @@ EXERCISES: dict[str, dict] = {
         "category": "isolation",
         "equipment": "machine",
         "aliases": [
-            "Lying Leg Curl", "Seated Leg Curl",
+            "Lying Leg Curl", "Seated Leg Curl", "Standing Leg Curl",
             "Beinbeuger", "Beinbeugen",
         ],
     },
@@ -343,6 +343,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "machine",
         "aliases": [
             "Standing Calf Raise", "Seated Calf Raise",
+            "Double-Leg Calf Raise", "Beidbeiniges Wadenheben",
             "Wadenheben", "Calf Raises",
         ],
     },
@@ -437,7 +438,10 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["quads", "glutes"],
         "category": "rehab",
         "equipment": "bodyweight",
-        "aliases": ["Mini Squats", "Teilkniebeuge", "Partial Squat"],
+        "aliases": [
+            "Mini Squats", "Teilkniebeuge", "Partial Squat",
+            "Knee Bend", "Knee Bends",
+        ],
     },
     "Wall Sit": {
         "muscles": ["quads", "glutes"],
@@ -479,13 +483,19 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["glute_med", "hip_abductors"],
         "category": "rehab",
         "equipment": "bodyweight",
-        "aliases": ["Side Leg Raise", "Seitheben Bein", "Hip Abduction"],
+        "aliases": [
+            "Side Leg Raise", "Side-Lying Leg Raise",
+            "Seitheben Bein", "Hip Abduction",
+        ],
     },
     "Single Leg Balance": {
         "muscles": ["proprioception"],
         "category": "rehab",
         "equipment": "bodyweight",
-        "aliases": ["SL Balance", "Einbeinstand", "One Leg Stance"],
+        "aliases": [
+            "SL Balance", "Einbeinstand", "One Leg Stance", "One Leg Stand",
+            "Single Leg Balance Eyes Closed", "Single Leg Ball Toss",
+        ],
     },
 
     # --- Shoulder Rehab ---
@@ -660,6 +670,574 @@ EXERCISES: dict[str, dict] = {
             "Isometrisches Schulterhalten", "Wall Press",
         ],
     },
+
+    # ========================================================================
+    # KATALOG-AUSBAU — Übungen aus den 29 Default-Katalog-Protokollen
+    # (Nordic/Copenhagen-Prevention, Askling, Otago, Thrower's Ten,
+    # Tennis-Elbow, Ankle/Achilles, Knie-OA-Zirkel, S&C-Klassiker)
+    # ========================================================================
+
+    # --- Strength & Conditioning Klassiker ---
+    "Close Grip Bench Press": {
+        "muscles": ["triceps", "chest"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Close-Grip Bench Press", "CG Bench Press",
+            "Enges Bankdrücken", "Enges Bankdruecken",
+        ],
+    },
+    "Back Extension": {
+        "muscles": ["erectors", "glutes", "hamstrings"],
+        "category": "isolation",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Hyperextension", "Hyperextensions",
+            "Rückenstrecken", "Rueckenstrecken",
+        ],
+    },
+    "Dumbbell Pullover": {
+        "muscles": ["chest", "lats"],
+        "category": "isolation",
+        "equipment": "dumbbell",
+        "aliases": ["DB Pullover", "Pullover", "Überzüge", "Ueberzuege"],
+    },
+    "Trap Bar Deadlift": {
+        "muscles": ["back", "glutes", "quads"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": ["Hex Bar Deadlift", "Trap Bar DL", "Trapbar-Kreuzheben"],
+    },
+    "Power Clean": {
+        "muscles": ["quads", "glutes", "traps"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": ["Power Cleans", "Umsetzen", "Standumsetzen"],
+    },
+    "Push Press": {
+        "muscles": ["front_delt", "triceps", "quads"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": ["Push-Press", "Schwungdrücken", "Schwungdruecken"],
+    },
+    "Jump Squat": {
+        "muscles": ["quads", "glutes"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Jump Squats", "Squat Jump", "Sprungkniebeuge"],
+    },
+    "Jumping Chin-up": {
+        "muscles": ["back", "biceps"],
+        "category": "compound",
+        "equipment": "bodyweight",
+        "aliases": ["Jumping Chin Up", "Jumping Pull-up", "Sprungklimmzug"],
+    },
+    "Sit-up": {
+        "muscles": ["core", "hip_flexors"],
+        "category": "isolation",
+        "equipment": "bodyweight",
+        "aliases": ["Situp", "Sit Up", "Sit-ups", "Situps", "Rumpfbeugen"],
+    },
+    "Pallof Press": {
+        "muscles": ["core", "obliques"],
+        "category": "isometric",
+        "equipment": "cable",
+        "aliases": ["Palloff Press", "Pallof-Press", "Anti-Rotation Press"],
+    },
+    "Reverse Curl": {
+        "muscles": ["brachioradialis", "forearms"],
+        "category": "isolation",
+        "equipment": "barbell",
+        "aliases": ["Reverse Curls", "Reverse Barbell Curl", "Reverse-Curl"],
+    },
+    "Lateral Lunge": {
+        "muscles": ["adductors", "quads", "glutes"],
+        "category": "compound",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Side Lunge", "Seitlicher Ausfallschritt", "Seitausfallschritt",
+        ],
+    },
+    "Cable Hip Adduction": {
+        "muscles": ["adductors"],
+        "category": "isolation",
+        "equipment": "cable",
+        "aliases": ["Standing Cable Hip Adduction", "Kabel-Adduktion"],
+    },
+
+    # --- Prevention (Nordic / Copenhagen / Groin) ---
+    "Nordic Hamstring Curl": {
+        "muscles": ["hamstrings"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Nordic Curl", "Nordic Curls", "Nordics", "NHE",
+            "Nordic Hamstring Exercise", "Nordischer Hamstring-Curl",
+        ],
+    },
+    "Copenhagen Adduction": {
+        "muscles": ["adductors", "core"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Copenhagen Plank", "Copenhagen Adductor Exercise",
+            "Copenhagen", "Kopenhagen-Adduktion", "Kopenhagen-Plank",
+        ],
+    },
+    "Adductor Squeeze": {
+        "muscles": ["adductors"],
+        "category": "isometric",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Adductor Squeeze Feet", "Adductor Squeeze Knees",
+            "Isometric Adduction", "Adduktorenpressen",
+        ],
+    },
+
+    # --- Plyometrie / Return-to-Sport ---
+    "Broad Jump": {
+        "muscles": ["glutes", "quads"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Broad Jumps", "Standing Long Jump", "Standweitsprung"],
+    },
+    "Depth Jump": {
+        "muscles": ["quads", "glutes", "calves"],
+        "category": "plyometric",
+        "equipment": "box",
+        "aliases": ["Depth Jumps", "Drop Jump", "Tiefsprung"],
+    },
+    "Vertical Jump": {
+        "muscles": ["quads", "glutes", "calves"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Countermovement Jump", "CMJ", "Vertikalsprung"],
+    },
+    "Single-Leg Hop": {
+        "muscles": ["calves", "quads", "glutes"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Single Leg Hop", "SL Hop", "Einbeinsprung"],
+    },
+    "Double-Leg Hop": {
+        "muscles": ["calves", "quads"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Double Leg Hop", "Beidbeinsprung"],
+    },
+    "Pogo Hop": {
+        "muscles": ["calves"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Pogo Hops", "Pogos", "Pogo-Sprünge", "Pogo-Spruenge"],
+    },
+    "Bound": {
+        "muscles": ["glutes", "hamstrings"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Bounds", "Bounding", "Sprunglauf"],
+    },
+
+    # --- Hamstring Rehab (Askling L-Protokoll) ---
+    "Extender": {
+        "muscles": ["hamstrings"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["The Extender", "Askling Extender"],
+    },
+    "Diver": {
+        "muscles": ["hamstrings", "glutes"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["The Diver", "Askling Diver"],
+    },
+    "Glider": {
+        "muscles": ["hamstrings", "adductors"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["The Glider", "Askling Glider"],
+    },
+
+    # --- Balance & Gangschule (Otago, Sturzprävention) ---
+    "Sit to Stand": {
+        "muscles": ["quads", "glutes"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Chair Stand", "Chair Rise", "STS", "Aufstehen vom Stuhl",
+        ],
+    },
+    "Wobble Board Balance": {
+        "muscles": ["proprioception"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": [
+            "Wobble Board", "Balance Board", "Balance Board Stand",
+            "Wackelbrett", "Therapiekreisel",
+        ],
+    },
+    "Tandem Stance": {
+        "muscles": ["proprioception"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Tandemstand", "Heel-to-Toe Stance"],
+    },
+    "Tandem Walk": {
+        "muscles": ["proprioception"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Tandemgang", "Heel-to-Toe Walk", "Backwards Tandem Walk",
+        ],
+    },
+    "Heel Walking": {
+        "muscles": ["tibialis_anterior"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Heel Walk", "Fersengang"],
+    },
+    "Toe Walking": {
+        "muscles": ["calves"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Toe Walk", "Zehengang", "Zehenspitzengang"],
+    },
+    "Backwards Walking": {
+        "muscles": ["full_body"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Backward Walking", "Rückwärtsgehen", "Rueckwaertsgehen",
+        ],
+    },
+    "Sideways Walking": {
+        "muscles": ["glute_med"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Side Stepping", "Seitwärtsgehen", "Seitwaertsgehen"],
+    },
+    "Figure-Eight Walk": {
+        "muscles": ["proprioception"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Figure 8 Walk", "Figure-8 Walk", "Achtergang", "Achterschleife",
+        ],
+    },
+    "Toe Raise": {
+        "muscles": ["tibialis_anterior"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Toe Raises", "Tibialis Raise", "Zehenheben"],
+    },
+    "Lateral Band Walk": {
+        "muscles": ["glute_med", "hip_abductors"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": [
+            "Band Walk", "Lateral Walk", "Monster Walk",
+            "Seitwärtsgehen mit Band", "Seitwaertsgehen mit Band",
+        ],
+    },
+
+    # --- Sprunggelenk (Ankle Sprain / Achilles-Ruptur) ---
+    "Ankle Plantarflexion": {
+        "muscles": ["calves"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Active Plantarflexion", "Plantarflexion",
+            "Aktive Plantarflexion",
+        ],
+    },
+    "Ankle Dorsiflexion": {
+        "muscles": ["tibialis_anterior"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Active Dorsiflexion", "Dorsiflexion",
+            "Aktive Dorsalextension",
+        ],
+    },
+    "Ankle Inversion": {
+        "muscles": ["tibialis_posterior"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Active Inversion", "Inversion", "Aktive Inversion"],
+    },
+    "Ankle Eversion": {
+        "muscles": ["peroneals"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Active Eversion", "Eversion", "Aktive Eversion"],
+    },
+    "Band Plantarflexion": {
+        "muscles": ["calves"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Theraband Plantarflexion", "Plantarflexion mit Band"],
+    },
+    "Band Dorsiflexion": {
+        "muscles": ["tibialis_anterior"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Theraband Dorsalextension", "Dorsalextension mit Band"],
+    },
+    "Band Inversion": {
+        "muscles": ["tibialis_posterior"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Theraband Inversion", "Inversion mit Band"],
+    },
+    "Band Eversion": {
+        "muscles": ["peroneals"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Theraband Eversion", "Eversion mit Band"],
+    },
+    "Ankle Circles": {
+        "muscles": ["ankle_rom"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Ankle Circle", "Fußkreisen", "Fusskreisen"],
+    },
+    "Ankle Alphabet": {
+        "muscles": ["ankle_rom"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Fuß-Alphabet", "Fuss-Alphabet"],
+    },
+
+    # --- Achilles / Wade / Fuß (Silbernagel, Plantarfasziitis) ---
+    "Quick Rebounding Toe Raise": {
+        "muscles": ["calves", "achilles_tendon"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Quick Rebounding Toe Raises", "Quick Rebounding Calf Raise",
+            "Federndes Wadenheben",
+        ],
+    },
+    "Seated Eccentric Calf Raise": {
+        "muscles": ["soleus", "achilles_tendon"],
+        "category": "rehab",
+        "equipment": "machine",
+        "aliases": [
+            "Seated Eccentric Heel Raise",
+            "Sitzendes exzentrisches Wadenheben",
+        ],
+    },
+    "Calf Stretch": {
+        "muscles": ["calves"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Gastrocnemius Stretch", "Wall Calf Stretch", "Wadendehnung",
+        ],
+    },
+    "Towel Scrunch": {
+        "muscles": ["foot_intrinsics"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": [
+            "Towel Scrunches", "Towel Curl",
+            "Handtuch-Krallen", "Zehenkrallen",
+        ],
+    },
+
+    # --- Knie-OA / Neuromuskulärer Zirkel ---
+    "Band Knee Extension": {
+        "muscles": ["quads"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Banded Knee Extension", "Kniestreckung mit Band"],
+    },
+    "Standing Hip Abduction": {
+        "muscles": ["glute_med", "hip_abductors"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": [
+            "Hip Abduction Standing",
+            "Hüftabduktion im Stand", "Hueftabduktion im Stand",
+        ],
+    },
+    "Sliding Board Skating": {
+        "muscles": ["adductors", "glutes"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": [
+            "Slide Board Skating", "Slideboard Skating",
+            "Gleitbrett-Skating",
+        ],
+    },
+    "Slide Forward-Backward": {
+        "muscles": ["quads", "hamstrings"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": [
+            "Forward-Backward Slide", "Slide Vor-Zurück", "Slide Vor-Zurueck",
+        ],
+    },
+    "Slide Sideways": {
+        "muscles": ["adductors", "glute_med"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": ["Sideways Slide", "Slide Seitwärts", "Slide Seitwaerts"],
+    },
+
+    # --- Schulter (Frozen Shoulder, Thrower's Ten) ---
+    "Wand External Rotation": {
+        "muscles": ["rotator_cuff", "shoulder_rom"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": [
+            "Stick External Rotation",
+            "Außenrotation mit Stab", "Aussenrotation mit Stab",
+        ],
+    },
+    "External Rotation Stretch with Stick": {
+        "muscles": ["shoulder_rom"],
+        "category": "mobility",
+        "equipment": "other",
+        "aliases": [
+            "Wand External Rotation Stretch",
+            "Außenrotationsdehnung mit Stab",
+            "Aussenrotationsdehnung mit Stab",
+        ],
+    },
+    "Cross-Body Stretch": {
+        "muscles": ["posterior_capsule", "shoulder_rom"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Cross Body Stretch", "Posterior Capsule Stretch",
+            "Cross-Body-Dehnung",
+        ],
+    },
+    "Behind-Back Towel Stretch": {
+        "muscles": ["shoulder_rom"],
+        "category": "mobility",
+        "equipment": "other",
+        "aliases": [
+            "Behind the Back Towel Stretch", "Handtuchdehnung",
+        ],
+    },
+    "Sleeper Stretch": {
+        "muscles": ["posterior_capsule"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Sleeper-Stretch", "Schläfer-Dehnung", "Schlaefer-Dehnung"],
+    },
+    "Doorway Stretch": {
+        "muscles": ["chest", "shoulder_rom"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Pec Stretch", "Türrahmen-Dehnung", "Tuerrahmen-Dehnung"],
+    },
+    "PNF D2 Flexion": {
+        "muscles": ["rotator_cuff", "front_delt"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["D2 Flexion", "PNF-Diagonale D2 Flexion"],
+    },
+    "PNF D2 Extension": {
+        "muscles": ["rotator_cuff", "lats"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["D2 Extension", "PNF-Diagonale D2 Extension"],
+    },
+    "Sidelying External Rotation": {
+        "muscles": ["rotator_cuff", "infraspinatus"],
+        "category": "rehab",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Sidelying Dumbbell External Rotation",
+            "Side-Lying External Rotation",
+            "Außenrotation in Seitenlage", "Aussenrotation in Seitenlage",
+        ],
+    },
+    "Prone Horizontal Abduction": {
+        "muscles": ["rear_delt", "mid_traps"],
+        "category": "rehab",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Prone Horizontal Abduction Full ER",
+            "Horizontale Abduktion in Bauchlage",
+        ],
+    },
+    "Prone Rowing": {
+        "muscles": ["back", "rear_delt"],
+        "category": "rehab",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Prone Row", "Prone Rowing into ER", "Rudern in Bauchlage",
+        ],
+    },
+    "Seated Press-up": {
+        "muscles": ["scapular_depressors", "triceps"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Seated Press Up", "Sitzender Stütz", "Sitzender Stuetz",
+        ],
+    },
+
+    # --- Nacken (Deep Neck Flexor Training) ---
+    "Craniocervical Flexion": {
+        "muscles": ["deep_neck_flexors"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": [
+            "CCF", "Kraniozervikale Flexion",
+            "Deep Neck Flexor Activation", "Tiefe Nackenbeuger",
+        ],
+    },
+    "Chin Tuck": {
+        "muscles": ["deep_neck_flexors"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Chin Tucks", "Kinnretraktion"],
+    },
+
+    # --- Unterarm / Tennisellenbogen ---
+    "Wrist Extension": {
+        "muscles": ["forearm_extensors"],
+        "category": "isolation",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Wrist Extensions", "Reverse Wrist Curl", "Handgelenkstreckung",
+        ],
+    },
+    "Wrist Flexion": {
+        "muscles": ["forearm_flexors"],
+        "category": "isolation",
+        "equipment": "dumbbell",
+        "aliases": ["Wrist Curl", "Handgelenkbeugung"],
+    },
+    "Wrist Supination": {
+        "muscles": ["forearms"],
+        "category": "isolation",
+        "equipment": "dumbbell",
+        "aliases": ["Forearm Supination", "Unterarm-Supination"],
+    },
+    "Wrist Pronation": {
+        "muscles": ["forearms"],
+        "category": "isolation",
+        "equipment": "dumbbell",
+        "aliases": ["Forearm Pronation", "Unterarm-Pronation"],
+    },
+    "Tyler Twist": {
+        "muscles": ["forearm_extensors"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": ["FlexBar Tyler Twist", "Tyler-Twist"],
+    },
+    "Grip Squeeze": {
+        "muscles": ["forearms"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": ["Grip Squeezes", "Ball Squeeze", "Ballpressen"],
+    },
 }
 
 
@@ -667,6 +1245,12 @@ EXERCISES: dict[str, dict] = {
 # Lookup index  (built once on import)
 # ---------------------------------------------------------------------------
 _ALIAS_MAP: dict[str, str] = {}
+_NORMALIZED_MAP: dict[str, str] = {}  # spaces/hyphens stripped -> canonical
+
+
+def _normalize(name: str) -> str:
+    """Compact form for spacing-insensitive lookup ("Push-up" -> "pushup")."""
+    return name.lower().replace("-", "").replace(" ", "")
 
 
 def _build_index() -> None:
@@ -674,8 +1258,10 @@ def _build_index() -> None:
     for canonical, meta in EXERCISES.items():
         key = canonical.lower().strip()
         _ALIAS_MAP[key] = canonical
+        _NORMALIZED_MAP.setdefault(_normalize(canonical), canonical)
         for alias in meta.get("aliases", []):
             _ALIAS_MAP[alias.lower().strip()] = canonical
+            _NORMALIZED_MAP.setdefault(_normalize(alias), canonical)
 
 
 _build_index()
@@ -689,10 +1275,36 @@ def resolve(name: str) -> str | None:
     return _ALIAS_MAP.get(name.lower().strip())
 
 
-def resolve_fuzzy(name: str, threshold: float = 0.75) -> str | None:
+def _bigrams(s: str) -> set[str]:
+    return {s[i : i + 2] for i in range(len(s) - 1)}
+
+
+def _dice(a: set[str], b: set[str]) -> float:
+    if not a or not b:
+        return 0.0
+    return (2 * len(a & b)) / (len(a) + len(b))
+
+
+# Ein Wortpaar gilt als Tippfehler-Variante ab dieser Bigram-Ähnlichkeit.
+# 0.7 trennt "squatt"/"squat" (0.89) von "wand"/"band" (0.67) — ein anderes
+# erstes Wort ist meist eine andere Übung, kein Tippfehler.
+_WORD_SIMILARITY = 0.7
+
+
+def resolve_fuzzy(name: str, threshold: float = 0.8) -> str | None:
     """Best-effort fuzzy match when exact lookup fails.
 
-    Uses bigram similarity (Sorensen-Dice coefficient).
+    Fuzzy matching is a typo-corrector, not a synonym finder — variants
+    belong in the registry as aliases. Three stages:
+
+    1. Exact lookup.
+    2. Spacing-insensitive lookup ("Benchpress" -> "Bench Press").
+    3. Bigram similarity (Sorensen-Dice) with guards: the candidate must
+       have the same word count (so "Knee Extension" never matches
+       "Terminal Knee Extension"), and every aligned word pair must itself
+       be similar (so "Wand External Rotation" never matches
+       "Band External Rotation").
+
     Returns None if below threshold.
     """
     name_lower = name.lower().strip()
@@ -702,27 +1314,32 @@ def resolve_fuzzy(name: str, threshold: float = 0.75) -> str | None:
     if exact:
         return exact
 
-    # Ratio-based similarity (Sorensen-Dice on bigrams)
-    def bigrams(s: str) -> set[str]:
-        return {s[i : i + 2] for i in range(len(s) - 1)}
+    normalized = _NORMALIZED_MAP.get(_normalize(name_lower))
+    if normalized:
+        return normalized
 
-    name_bi = bigrams(name_lower)
+    name_bi = _bigrams(name_lower)
     if not name_bi:
         return None
+    name_words = name_lower.split()
 
     best_score = 0.0
     best_match = None
     for alias, canonical in _ALIAS_MAP.items():
-        alias_bi = bigrams(alias)
-        if not alias_bi:
+        alias_words = alias.split()
+        if len(alias_words) != len(name_words):
             continue
-        overlap = len(name_bi & alias_bi)
-        score = (2 * overlap) / (len(name_bi) + len(alias_bi))
-        if score > best_score:
+        score = _dice(name_bi, _bigrams(alias))
+        if score < threshold or score <= best_score:
+            continue
+        if all(
+            nw == aw or _dice(_bigrams(nw), _bigrams(aw)) >= _WORD_SIMILARITY
+            for nw, aw in zip(name_words, alias_words)
+        ):
             best_score = score
             best_match = canonical
 
-    return best_match if best_score >= threshold else None
+    return best_match
 
 
 def get_muscles(canonical_name: str) -> list[str]:

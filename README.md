@@ -143,6 +143,12 @@ Name    SETSxREPS  @INTENSITY  rREST  MODIFIERS
 | Progression | `+2.5kg/w`, `+1rep/w` | Woechentliche Steigerung |
 | Modifier | `drop`, `cluster`, `pause-rep` | Satzmethode |
 
+Der Name laeuft bis zum Sets/Reps-Block — Ziffern und Modifier-Woerter im
+Namen sind damit erlaubt (`Figure 8 Walk  3x30s`, `Eccentric Heel Drop  3x15`).
+Modifier zaehlen nur nach dem Sets/Reps-Block. Bekannte Grenze: Ohne
+expliziten Sets/Reps-Block wird eine nachgestellte Zahl als Reps gelesen —
+`Abduction to 90` allein wird zu Reps=90, also `Abduction to 90  3x10` schreiben.
+
 ### Gruppierungen
 
 ```wodl
