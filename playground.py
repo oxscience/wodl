@@ -19,124 +19,47 @@ from wodl import parse, to_json, to_markdown, to_cycle_matrix
 
 app = Flask(__name__)
 
-EXAMPLES_DIR = Path(__file__).parent / "examples"
+ROOT_DIR = Path(__file__).parent
+EXAMPLES_DIR = ROOT_DIR / "examples"
+CATALOG_DIR = ROOT_DIR / "catalog"
+CATALOG_JSON = ROOT_DIR / "catalog.json"
 
-# Bibliothek: Metadata für jedes Beispiel. Reihenfolge bestimmt UI-Reihenfolge.
-EXAMPLE_LIBRARY: list[dict] = [
-    # --- Training ---
-    {
-        "file": "beginner-full-body",
-        "title": "Anfänger Full Body",
-        "category": "training",
-        "level": "Anfänger",
-        "freq": "3x/Woche",
-        "split": "Full Body",
-        "desc": "Lineare Progression, nur Compounds, RPE 7, +2.5kg/Woche. Für Menschen im ersten Trainingsjahr.",
-        "source": "Rhea et al. (2003), Med Sci Sports Exerc — untrainierte profitieren von niedrigen Volumina (~4 Sets/Muskel/Woche)",
-    },
-    {
-        "file": "minimalist-3day",
-        "title": "Minimalist 3-Day Full Body",
-        "category": "training",
-        "level": "Anfänger / Fortgeschritten",
-        "freq": "3x/Woche",
-        "split": "Full Body",
-        "desc": "Nur Compounds, 45 Minuten pro Session. Für Menschen mit wenig Zeit oder Wiedereinsteiger.",
-        "source": "Schoenfeld et al. (2019), J Sports Sci — Volumen-matched ist Frequenz für Hypertrophie nicht entscheidend",
-    },
-    {
-        "file": "home-minimal",
-        "title": "Home Minimal — Bodyweight & Bänder",
-        "category": "training",
-        "level": "Alle Stufen",
-        "freq": "3x/Woche",
-        "split": "Full Body",
-        "desc": "Nur Bodyweight + Resistance-Bänder. Kein Gym nötig. Progression durch Reps, Tempo, Einbein-Varianten.",
-        "source": "Schoenfeld et al. (2017), J Strength Cond Res — low-load (<60% 1RM) mit RIR 0-2 ergibt vergleichbare Hypertrophie",
-    },
-    {
-        "file": "push-pull-4day",
-        "title": "Push-Pull 4x/Woche",
-        "category": "training",
-        "level": "Fortgeschritten",
-        "freq": "4x/Woche",
-        "split": "Push / Pull",
-        "desc": "Hypertrophie-Fokus ohne dedizierten Bein-Tag. Pro Muskelgruppe 2x pro Woche getroffen.",
-        "source": "Schoenfeld et al. (2016), Sports Med — Meta-Analyse: ≥2x/Woche pro Muskelgruppe > 1x/Woche für Hypertrophie",
-    },
-    {
-        "file": "upper-lower-strength",
-        "title": "Upper / Lower Strength",
-        "category": "training",
-        "level": "Fortgeschritten",
-        "freq": "4x/Woche",
-        "split": "Upper / Lower",
-        "desc": "5x5 Kraft-Fokus auf den großen Lifts, moderate Volumen-Arbeit drumherum.",
-        "source": "Peterson et al. (2005), J Strength Cond Res — Meta-Analyse: 80-85% 1RM bei 2-3 Sets optimal für Kraftentwicklung",
-    },
-    {
-        "file": "ppl-hypertrophy",
-        "title": "Push / Pull / Legs Hypertrophy",
-        "category": "training",
-        "level": "Fortgeschritten",
-        "freq": "6x/Woche",
-        "split": "Push / Pull / Legs",
-        "desc": "Hohes Volumen pro Muskelgruppe. 2x/Woche pro Muskel. Supersets für Isolation-Arbeit.",
-        "source": "Schoenfeld et al. (2017), J Sports Sci — Dose-Response: ≥10 Sets/Muskel/Woche maximiert Hypertrophie",
-    },
-    {
-        "file": "powerbuilding-5day",
-        "title": "Powerbuilding 5x/Woche",
-        "category": "training",
-        "level": "Fortgeschritten / Advanced",
-        "freq": "5x/Woche",
-        "split": "Upper/Lower + Arms",
-        "desc": "Hybrid Kraft + Hypertrophie. Heavy-Tage mit Primer-Lift, Volume-Tage pump-orientiert.",
-        "source": "Schoenfeld et al. (2014), J Strength Cond Res — gemischte Rep-Ranges optimieren beide Adaptationen parallel",
-    },
+# Katalog-Kinds jenseits von reha landen im Training-Tab; das Label wird
+# als Karten-Tag angezeigt.
+_KIND_LABELS = {
+    "praevention": "Prävention",
+    "spezial": "Spezial",
+    "leistungssport": "Leistungssport",
+}
 
-    # --- Rehabilitation ---
-    {
-        "file": "rehab-acl-postop",
-        "title": "VKB-Rekonstruktion — Post-OP Reha",
-        "category": "rehab",
-        "level": "Klinisch",
-        "freq": "täglich → 3-5x/Woche",
-        "indication": "Nach VKB-Rekonstruktion (ACL Reconstruction)",
-        "desc": "4 Phasen über 24+ Wochen: Akut → Early Strength → Kraft → Return to Sport. Mit Meilensteinen und LSI-Kriterien.",
-        "source": "Wilk & Arrigo 2017 (JOSPT), van Melick 2016 (BJSM)",
-    },
-    {
-        "file": "rehab-rotator-cuff",
-        "title": "Rotator Cuff — Konservative Reha",
-        "category": "rehab",
-        "level": "Klinisch",
-        "freq": "5x/Woche",
-        "indication": "Rotator-Cuff-Tendinopathie / SAPS / Impingement",
-        "desc": "4 Phasen: Akut → Isometrics → Strength → Function. Symptom-geleitet, nicht zeitbasiert.",
-        "source": "Ellenbecker & Cools 2010, Kuhn 2009, MOON-Protokoll",
-    },
-    {
-        "file": "rehab-lbp-mcgill",
-        "title": "LBP — McGill Big 3",
-        "category": "rehab",
-        "level": "Klinisch",
-        "freq": "täglich",
-        "indication": "Chronische unspezifische Kreuzschmerzen (cLBP)",
-        "desc": "Curl-up, Side Plank, Bird Dog mit Reverse-Pyramid 10-8-6. Neutrale Spine, keine Sit-ups.",
-        "source": "McGill 2016, Lee & McGill 2015",
-    },
-    {
-        "file": "rehab-achilles-alfredson",
-        "title": "Achilles-Tendinopathie — Alfredson",
-        "category": "rehab",
-        "level": "Klinisch",
-        "freq": "2x täglich, 7 Tage/Woche",
-        "indication": "Chronische midportion Achilles-Tendinopathie",
-        "desc": "Original-Protokoll: 3x15 exzentrische Heel Drops, straight-knee + bent-knee, 12 Wochen durchgehend.",
-        "source": "Alfredson et al. 1998, Beyer 2015",
-    },
-]
+
+def _build_library() -> list[dict]:
+    """Plan-Bibliothek aus catalog.json (Index über examples/ + catalog/).
+
+    Mappt die Katalog-Felder auf die Karten-Felder des Frontends:
+    level <- difficulty, freq <- duration, indication <- target_area,
+    source <- erste Zitation. Reihenfolge = catalog.json.
+    """
+    plans = json.loads(CATALOG_JSON.read_text(encoding="utf-8"))["plans"]
+    library = []
+    for p in plans:
+        kind = p.get("kind", "training")
+        sources = p.get("sources") or []
+        library.append({
+            "file": Path(p["file"]).stem,
+            "title": p.get("title_de") or p["id"],
+            "category": "rehab" if kind == "reha" else "training",
+            "level": (p.get("difficulty") or "").capitalize(),
+            "freq": p.get("duration", ""),
+            "split": _KIND_LABELS.get(kind, ""),
+            "indication": p.get("target_area", ""),
+            "desc": p.get("excerpt", ""),
+            "source": sources[0].get("citation", "") if sources else "",
+        })
+    return library
+
+
+EXAMPLE_LIBRARY: list[dict] = _build_library()
 
 SAMPLE_WODL = """\
 @plan "Full Body Basics"
@@ -1786,10 +1709,11 @@ def get_example(name: str):
     if "/" in name or ".." in name or "\\" in name:
         abort(400)
     safe_name = name.replace(".wodl", "")
-    path = EXAMPLES_DIR / f"{safe_name}.wodl"
-    if not path.is_file() or path.parent != EXAMPLES_DIR:
-        abort(404)
-    return path.read_text(encoding="utf-8"), 200, {"Content-Type": "text/plain; charset=utf-8"}
+    for base_dir in (EXAMPLES_DIR, CATALOG_DIR):
+        path = base_dir / f"{safe_name}.wodl"
+        if path.is_file() and path.parent == base_dir:
+            return path.read_text(encoding="utf-8"), 200, {"Content-Type": "text/plain; charset=utf-8"}
+    abort(404)
 
 
 @app.route("/healthz")

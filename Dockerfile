@@ -9,6 +9,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 COPY requirements.txt pyproject.toml ./
 COPY wodl/ ./wodl/
 COPY examples/ ./examples/
+COPY catalog/ ./catalog/
+COPY catalog.json ./
 COPY static/ ./static/
 COPY playground.py ./
 
