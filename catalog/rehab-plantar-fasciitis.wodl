@@ -1,0 +1,75 @@
+@plan "Plantarfasziitis — High-Load Krafttraining"
+@freq 4x/week
+@unit kg
+
+# ============================================================
+# High-Load Strength Training (HLST) bei Plantarfasziitis nach Rathleff:
+# einbeiniges Wadenheben auf der Stufe mit HANDTUCH UNTER DEN ZEHEN,
+# langsames Tempo, schwere Last, JEDEN 2. TAG (~3-4 Einheiten/Woche).
+#
+# Quelle (evidence-based, via Crossref/PubMed verifiziert):
+#   - Rathleff, M. S., et al. (2015). High-load strength training improves
+#     outcome in patients with plantar fasciitis: A randomized controlled
+#     trial with 12-month follow-up. Scandinavian Journal of Medicine &
+#     Science in Sports, 25(3), e292-e300.
+#     DOI: 10.1111/sms.12313  (ORIGINAL-RCT)
+#
+# WARUM DAS HANDTUCH: Ein zusammengerolltes Handtuch unter den Zehen bringt
+# die Zehen in maximale Dorsalextension — das spannt die Plantarfaszie über
+# den Windlass-Mechanismus vor und belastet sie gezielt mit.
+#
+# TEMPO (Rathleff 2015): 3s hochdrücken, 2s oben halten, 3s absenken.
+# In WODL-Notation (exzentrisch-Pause-konzentrisch-Pause): t3032.
+#
+# PROGRESSION (Original-Protokoll):
+#   Woche 1-2:  3x12 (12RM — so schwer, dass 12 saubere Wdh gerade gelingen)
+#   Woche 3-4:  4x10 (10RM)
+#   ab Woche 5: 5x8  (8RM)
+#   Last steigern per Rucksack mit Büchern/Gewichten.
+#
+# HINWEIS: Im RCT erhielten BEIDE Gruppen zusätzlich Einlagen und Aufklärung.
+# HLST war dem plantarspezifischen Dehnen nach 3 Monaten überlegen; nach
+# 6 und 12 Monaten waren die Gruppen nicht mehr signifikant verschieden.
+#
+# WICHTIG: Ersetzt keine individuelle Betreuung. Fersenschmerz, der sich
+# trotz 2-3 Monaten Training nicht bessert, gehört erneut abgeklärt.
+# ============================================================
+
+# ----- Ausführung -----
+# Auf einer Stufe/Treppenkante stehen, Handtuchrolle unter den Zehen,
+# Vorfuß auf der Kante, Ferse frei. Einbeinig (betroffene Seite) über den
+# vollen Bewegungsumfang: tief absenken, hoch bis in den Zehenstand.
+# Wer einbeinig noch nicht kann: beidbeinig starten und zügig progressieren.
+
+# ----- Phase 1 — Einstieg (Woche 1-2) -----
+
+---[Phase 1: Einstieg (Woche 1-2)] Mo Mi Fr So
+
+Single-Leg Calf Raise  3x12   @BW   t3032   r120s   # Handtuch unter den Zehen!
+
+> JEDEN 2. TAG trainieren — die Tagesangaben sind nur ein Raster.
+> Last so wählen, dass 12 saubere Wiederholungen gerade eben gelingen (12RM).
+> Reicht das Körpergewicht nicht mehr aus: Rucksack mit Büchern aufsetzen.
+> Leichter Schmerz während der Übung ist üblich; nimmt der Schmerz von
+> Einheit zu Einheit zu, Last reduzieren.
+
+# ----- Phase 2 — Aufbau (Woche 3-4) -----
+
+---[Phase 2: Aufbau (Woche 3-4)] Mo Mi Fr So
+
+Single-Leg Calf Raise  4x10   @BW+5kg   t3032   r120s   # Last rauf, Wdh runter (10RM)
+
+> Rucksack-Last so wählen, dass 10 Wiederholungen gerade gelingen.
+> Tempo strikt beibehalten: 3s hoch, 2s halten, 3s runter.
+
+# ----- Phase 3 — Schwer (Woche 5-12) -----
+
+---[Phase 3: Schwer (Woche 5-12)] Mo Mi Fr So
+
+Single-Leg Calf Raise  5x8   @BW+10kg   t3032   r120s   # 8RM, weiter steigern
+
+> Last weiter in kleinen Schritten erhöhen, sobald 8 Wiederholungen sauber gelingen.
+> Konsequent jeden 2. Tag über mindestens 12 Wochen — Sehnen- und
+> Faszienanpassung braucht Monate, nicht Wochen.
+> Ergänzend sinnvoll (aus dem RCT-Setting): Einlagen und Belastungsberatung
+> über das Behandlungsteam.

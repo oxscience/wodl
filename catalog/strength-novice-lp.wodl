@@ -1,0 +1,60 @@
+@plan "Anfänger-Langhantel-LP — A/B Ganzkörper 3x/Woche"
+@freq 3x/week
+@unit kg
+
+# ============================================================
+# Lineare Langhantel-Progression für Anfänger:innen: zwei
+# Ganzkörper-Workouts (A/B) im Wechsel, 3 Einheiten pro Woche an
+# nicht aufeinanderfolgenden Tagen (Woche 1: A-B-A, Woche 2: B-A-B).
+# Das Gewicht steigt bei JEDER Einheit, solange alle Arbeitssätze
+# sauber gelingen — der klassische Novizen-Effekt.
+#
+# Kern-Parameter (frei publizierte Fakten, keine Buchtexte):
+# - Arbeitssätze 3x5 (Starting-Strength-Schema) bzw. 5x5
+#   (StrongLifts-Variante); Deadlift immer nur 1x5
+# - Steigerung PRO EINHEIT: Squat +2.5 kg, Deadlift +5 kg
+#   (zu Beginn sind größere Sprünge möglich), Bench/OHP/Row +2.5 kg,
+#   später Microplates (+1-1.25 kg), wenn 2.5 kg zu viel werden
+# - Deload-Regel (StrongLifts): 3 Einheiten in Folge nicht alle
+#   Reps geschafft -> Gewicht dieser Übung -10%, wieder hocharbeiten
+#
+# Quellen (Konzept-Attribution, Parameter frei publiziert):
+#   - Rippetoe, M. — Starting Strength (Konzept-Attribution).
+#     Programm-Parameter frei publiziert unter
+#     startingstrength.com/get-started/programs
+#   - Mehdi, F. — "Stronglifts 5x5: The Complete Workout Guide".
+#     stronglifts.com/stronglifts-5x5/ (frei publiziert)
+#
+# WICHTIG: Vor den Arbeitssätzen immer Steigerungssätze
+# (leere Stange -> ~50% -> ~70% -> ~85% des Arbeitsgewichts).
+# ============================================================
+
+# ----- Workout A — Squat, Bench, Deadlift -----
+# Die Tageszuordnung rotiert mit der A/B-Alternierung:
+# Woche 1 fällt A auf Mo+Fr, Woche 2 nur auf Mi.
+
+---[Workout A] Mo Fr
+
+Squat         3x5   r180s   # +2.5 kg pro Einheit — Squat in JEDER Einheit
+Bench Press   3x5   r180s   # +2.5 kg pro Einheit, alterniert mit OHP (Workout B)
+Deadlift      1x5   r240s   # +5 kg pro Einheit, bewusst nur EIN schwerer Satz
+
+> StrongLifts-Variante: alle Übungen außer Deadlift mit 5x5 statt 3x5.
+> Startgewichte bewusst leicht wählen (Technik vor Last) — lieber zwei
+> Wochen "zu leicht" anlaufen als früh stallen.
+
+# ----- Workout B — Squat, OHP, Row -----
+
+---[Workout B] Mi
+
+Squat         3x5   r180s   # gleiche Progression wie in Workout A weiterführen
+OHP           3x5   r180s   # +2.5 kg; hier am frühesten auf Microplates umsteigen
+Barbell Row   3x5   r120s   # StrongLifts-Slot — Starting-Strength-Original: Power Clean 5x3
+
+> Progressions-Kriterium: Gewicht NUR steigern, wenn alle Arbeitssätze
+> der letzten Einheit technisch sauber komplett waren.
+> Stall-Regel: 3 Einheiten in Folge nicht geschafft -> -10% auf dieser
+> Übung, neu anlaufen (StrongLifts-Deload).
+> Meilenstein: Wiederholte Stalls trotz Deload und Microloading auf
+> mehreren Übungen -> Novizen-Phase beendet, Wechsel auf ein
+> Intermediate-Programm mit Wochenzyklus (z.B. Texas Method).

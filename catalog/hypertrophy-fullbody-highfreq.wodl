@@ -1,0 +1,115 @@
+@plan "Ganzkörper Hochfrequenz-Hypertrophie 4x/Woche"
+@freq 4x/week
+@cycle 4w: w1-3 progress, w4 deload
+@unit kg
+
+# ============================================================
+# Wissenschaftsbasiertes Ganzkörper-Programm mit hoher Frequenz:
+# Jede Muskelgruppe wird 3-4x/Woche mit wenigen, hochwertigen
+# Sätzen getroffen, statt 1-2x/Woche mit vielen.
+#
+# Rationale (rein peer-reviewed aufgebaut):
+# - Frequenz ≥2x/Woche pro Muskel schlägt 1x/Woche (Schoenfeld 2016).
+# - Bei gleichem Wochenvolumen bringt noch höhere Frequenz keinen
+#   klaren Zusatzeffekt (Schoenfeld 2019) — hohe Frequenz ist hier
+#   also ein WERKZEUG, um 10-16 Sätze/Muskel/Woche auf kurze,
+#   erholsame Einheiten zu verteilen: wenig lokale Ermüdung pro
+#   Session, jeder Satz nah an voller Leistungsfähigkeit.
+# - Volumen-Ziel: 10-16 Sätze/Muskelgruppe/Woche (Schoenfeld 2017).
+# - Steuerung über RIR: Compounds @RIR2, Isolation @RIR1 (Helms 2016).
+#
+# Abgrenzung zu examples/beginner-full-body.wodl: Dort 3x/Woche mit
+# linearer Progression für Einsteiger; hier 4x/Woche mit rotierenden
+# Übungen und RIR-Steuerung für Trainierende mit Grundtechnik.
+#
+# Quellen (alle via Crossref verifiziert):
+#   - Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2016). Effects of
+#     Resistance Training Frequency on Measures of Muscle Hypertrophy:
+#     A Systematic Review and Meta-Analysis. Sports Medicine, 46(11),
+#     1689-1697. doi:10.1007/s40279-016-0543-8
+#   - Schoenfeld, B. J., Grgic, J., & Krieger, J. (2019). How many times
+#     per week should a muscle be trained to maximize muscle hypertrophy?
+#     A systematic review and meta-analysis of studies examining the
+#     effects of resistance training frequency. Journal of Sports
+#     Sciences, 37(11), 1286-1295. doi:10.1080/02640414.2018.1555906
+#   - Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2017). Dose-response
+#     relationship between weekly resistance training volume and increases
+#     in muscle mass: A systematic review and meta-analysis.
+#     Journal of Sports Sciences, 35(11), 1073-1082.
+#     doi:10.1080/02640414.2016.1210197
+#   - Helms, E. R., Cronin, J., Storey, A., & Zourdos, M. C. (2016).
+#     Application of the Repetitions in Reserve-Based Rating of Perceived
+#     Exertion Scale for Resistance Training. Strength and Conditioning
+#     Journal, 38(4), 42-49. doi:10.1519/SSC.0000000000000218
+#
+# Hinweis: Hochfrequenz-Ganzkörper-Konzepte werden auch von Science-
+# based-Creators populär vertreten; konkrete Parameter dieses Templates
+# stammen ausschließlich aus den oben zitierten Meta-Analysen —
+# kein bezahltes Creator-Programm wurde übernommen.
+# ============================================================
+
+# ----- Tag 1 — schwer unten, horizontal drücken/ziehen -----
+# Pro Muskel nur 2-3 Sätze pro Einheit — Qualität vor Masse.
+
+---[Ganzkörper 1] Mo
+
+Squat                  3x6-8    @RIR2  r180s  +1rep/w
+Bench Press            3x6-8    @RIR2  r180s  +1rep/w
+Seated Cable Row       3x8-10   @RIR2  r120s
+Leg Curl               2x10-12  @RIR1  r90s
+ss {
+  Lateral Raise        2x12-15  @RIR1  r60s
+  Tricep Pushdown      2x10-12  @RIR1  r60s
+}
+
+> Aufwärmen: 5 min Ergometer + 2 Steigerungssätze vor Squat und Bench.
+
+# ----- Tag 2 — Hinge, vertikal drücken/ziehen -----
+
+---[Ganzkörper 2] Di
+
+RDL                    3x8-10   @RIR2  r150s
+OHP                    3x8-10   @RIR2  r120s
+Lat Pulldown           3x8-10   @RIR2  r120s
+Leg Press              3x10-12  @RIR2  r120s
+ss {
+  Dumbbell Curl        2x10-12  @RIR1  r60s
+  Calf Raise           3x10-15  @RIR1  r60s
+}
+
+# ----- Tag 3 — Kniebeuge-Variante, Schrägbank, Row -----
+
+---[Ganzkörper 3] Do
+
+Front Squat            3x8-10   @RIR2  r150s
+Incline Dumbbell Press 3x8-10   @RIR2  r120s
+Barbell Row            3x8-10   @RIR2  r120s
+Leg Curl               2x12-15  @RIR1  r90s
+ss {
+  Cable Fly            2x12-15  @RIR1  r60s
+  Face Pull            2x12-15  @RIR1  r60s
+}
+
+# ----- Tag 4 — Glute-Hinge, Dips, Einbein -----
+
+---[Ganzkörper 4] Fr
+
+Hip Thrust             3x8-10   @RIR2  r120s
+Dip                    3x8-12   @RIR2  r120s   # @BW, bei >12 Reps Zusatzgewicht
+Lat Pulldown           3x10-12  @RIR2  r120s
+Bulgarian Split Squat  2x10-12  @RIR2  r90s
+ss {
+  Lateral Raise        2x12-15  @RIR1  r60s
+  Hammer Curl          2x10-12  @RIR1  r60s
+}
+Calf Raise             3x10-15  @RIR1  r60s
+
+> Progression (w1-3): Double Progression — Reps innerhalb der Range steigern,
+> am oberen Ende bei Ziel-RIR angekommen → +2.5 kg (Isolation kleinste Stufe)
+> und zurück ans untere Ende.
+> Deload (w4): Satzzahl halbieren, Last ca. -10%, RIR 4-5.
+> Ermüdungs-Kriterium: Sinken die Reps bei gleicher Last über mehrere
+> Einheiten oder schmerzen Gelenke/Sehnen → erst Isolation kürzen, dann
+> Frequenz auf 3x/Woche reduzieren. Hohe Frequenz ist Mittel, kein Zweck.
+> Sessions dauern bewusst nur ~45-60 min — keine Übungen hinzufügen,
+> das Wochenvolumen (10-16 Sätze/Muskel) ist bereits über 4 Tage verteilt.

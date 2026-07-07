@@ -1,0 +1,115 @@
+@plan "Laterale Sprunggelenksdistorsion — Funktionelle Reha"
+@freq daily
+@unit kg
+
+# ============================================================
+# Progressives funktionelles Programm nach lateraler Sprunggelenksdistorsion
+# (Supinationstrauma) inkl. Gleichgewichts-Heimprogramm zur Rezidivprophylaxe.
+#
+# Quellen (evidence-based, via Crossref/PubMed verifiziert):
+#   - Vuurberg, G., et al. (2018). Diagnosis, treatment and prevention of
+#     ankle sprains: update of an evidence-based clinical guideline.
+#     British Journal of Sports Medicine, 52(15), 956.
+#     DOI: 10.1136/bjsports-2017-098106  (LEITLINIE)
+#   - Bleakley, C. M., et al. (2010). Effect of accelerated rehabilitation on
+#     function after ankle sprain: randomised controlled trial. BMJ, 340, c1964.
+#     DOI: 10.1136/bmj.c1964  (frühe Übungen in Woche 1 beschleunigen Funktion)
+#   - Hupperets, M. D. W., et al. (2009). Effect of unsupervised home based
+#     proprioceptive training on recurrences of ankle sprain: randomised
+#     controlled trial. BMJ, 339, b2684.
+#     DOI: 10.1136/bmj.b2684  (8-Wochen-Balance-Heimprogramm senkt Rezidive)
+#
+# LEITPLANKEN (Vuurberg 2018):
+#   - Funktionelle Unterstützung (Tape/Orthese) für 4-6 Wochen statt starrer
+#     Ruhigstellung; bei schweren Verletzungen kurze Immobilisation (<10 Tage)
+#     erwägen.
+#   - Übungstherapie inkl. Gleichgewichtstraining ist Kern der Behandlung
+#     und der Rezidivprophylaxe. RICE allein reicht nicht.
+#   - Frühe Belastung nach Toleranz; Schmerz und Schwellung sind die Leitplanken.
+#
+# WICHTIG: Dieses Protokoll ersetzt KEINE ärztliche/physiotherapeutische
+# Abklärung (Frakturausschluss, z.B. Ottawa Ankle Rules, macht das Behandlungsteam).
+# Phasenwechsel kriterienbasiert, nicht rein zeitlich.
+# ============================================================
+
+# ----- Phase 1 — Akutphase, frühe Mobilisation (Tag 1-7) -----
+# Ziele: Schwellung kontrollieren, Beweglichkeit früh zurückholen (Bleakley 2010),
+# Belastung nach Toleranz aufbauen.
+
+---[Phase 1: Akut (Tag 1-7)] Mo Di Mi Do Fr Sa So
+
+Ankle Pumps           3x20    r15s   # aktiv auf/ab, schmerzadaptiert
+Ankle Circles         3x10    r15s   # langsame Kreise in beide Richtungen
+Ankle Alphabet        3x1     r30s   # das ganze ABC mit der Fußspitze = 1 Wdh
+Isometric Eversion    3x10s   @ISO   r15s   # gegen Wand/Hand spannen, ohne Bewegung
+Towel Scrunch         3x15    r30s   # Handtuch mit den Zehen heranziehen
+
+> Mehrmals täglich kurze Übungsblöcke — frühe Bewegung beschleunigt die
+> Funktionsrückkehr (Bleakley 2010).
+> Kühlen/Kompression/Hochlagern in den ersten Tagen, Gehen nach Toleranz
+> (ggf. kurz Stützen). Tape oder Orthese anlegen (4-6 Wochen, Vuurberg 2018).
+> Meilenstein: Gehen ohne starkes Hinken, Schwellung rückläufig.
+
+# ----- Phase 2 — Kräftigung (Woche 1-3) -----
+# Ziele: Peroneal-/Wadenkraft, volle Beweglichkeit, normales Gangbild.
+
+---[Phase 2: Kräftigung (Woche 1-3)] Mo Di Mi Do Fr Sa So
+
+Band Eversion          3x15   r30s   # wichtigste Richtung (Peronealmuskulatur)
+Band Inversion         3x15   r30s
+Band Dorsiflexion      3x15   r30s
+Band Plantarflexion    3x15   r30s
+Double-Leg Calf Raise  3x15   @BW   r30s
+Single Leg Balance     3x30s  r30s   # fester Boden, nahe einer Wand
+
+> Widerstand des Bands steigern, sobald 3x15 leicht fallen.
+> Meilenstein für Phase 3: hinkfreies Gehen, volle aktive Beweglichkeit,
+> Eversion gegen Widerstand ohne Schmerz.
+
+# ----- Phase 3 — Funktion & Kraft einbeinig (Woche 3-6) -----
+# Ziele: einbeinige Kraft und Kontrolle, Beginn Impact-Belastung.
+
+---[Phase 3: Funktion (Woche 3-6)] Mo Mi Fr
+
+Single-Leg Calf Raise  3x12   @BW   r45s
+Step-up                3x10   r60s   # Stufe 10-20cm
+Band Eversion          3x15   @high  r30s   # stärkeres Band
+Single Leg Balance     3x30s  r30s   # instabile Unterlage (Kissen/Pad)
+Double-Leg Hop         3x10   r60s   # beidbeinige kleine Sprünge am Ort
+
+> Parallel läuft das Balance-Heimprogramm (eigene Session unten) weiter.
+> Meilenstein für Phase 4: einbeiniges Wadenheben seitengleich,
+> beidbeinige Sprünge schmerzfrei.
+
+# ----- Balance-Heimprogramm (Woche 2-10) -----
+# Propriozeptives 8-Wochen-Heimprogramm nach Hupperets 2009:
+# 3x/Woche, max. 30 min pro Einheit, unbeaufsichtigt zuhause durchführbar.
+# Senkte im RCT das Rezidivrisiko innerhalb eines Jahres um ~35%.
+
+---[Balance-Heimprogramm (Woche 2-10)] Di Do Sa
+
+Single Leg Balance             4x30s   r30s   # Progression: Arme verschränken, Untergrund weicher
+Single Leg Balance Eyes Closed 3x30s   r30s   # erst wenn mit offenen Augen stabil
+Balance Board Stand            4x30s   r30s   # erst beidbeinig, dann einbeinig
+Single Leg Ball Toss           3x10    r30s   # einbeinig stehen + Ball werfen/fangen
+
+> Schwierigkeit alle 1-2 Wochen steigern: fester Boden → Kissen → Balance Board,
+> Augen offen → geschlossen, ohne → mit Zusatzaufgabe.
+> Volle 8 Wochen durchziehen — der Präventionseffekt kommt aus der Kontinuität.
+
+# ----- Phase 4 — Return to Sport (Woche 6-12) -----
+# Ziele: reaktive Sprünge, Richtungswechsel, sportartspezifische Muster.
+
+---[Phase 4: Return to Sport (Woche 6-12)] Mo Mi Fr
+
+Single-Leg Hop         3x10   r60s   # einbeinig vorwärts, weich landen
+Lateral Bound          3x6    r60s   # seitliche Sprünge, kontrollierte Landung
+Single-Leg Calf Raise  3x15   @BW    r45s
+Agility Drill          3x30s  r60s   # Richtungswechsel/Leiter/Slalom, Tempo steigern
+Single Leg Balance     3x45s  r30s   # instabile Unterlage, Augen zu als Progression
+
+> Return-to-Sport-Kriterien: schmerzfreie einbeinige Hops seitengleich,
+> volle Beweglichkeit, sicheres Gefühl bei Richtungswechseln.
+> Für Risikosportarten (Ball-/Kontaktsport): Tape oder Orthese für die ersten
+> Monate nach Rückkehr erwägen — senkt das Rezidivrisiko (Vuurberg 2018).
+> Nach Abschluss: Balance-Training 1-2x/Woche als Prävention beibehalten.

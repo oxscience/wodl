@@ -1,0 +1,93 @@
+@plan "Hypertrophie Novize — Ganzkörper (Pyramid-Prinzipien)"
+@freq 3x/week
+@unit kg
+
+# ============================================================
+# Ganzkörper-Hypertrophie für Novizen nach den Prinzipien der
+# Muscle & Strength Pyramid (Helms/Morgan/Valdez): RIR-basierte
+# Steuerung + Double Progression.
+#
+# Abgrenzung zu examples/beginner-full-body.wodl: Dort klassische
+# lineare Gewichts-Progression mit RPE-Deckel. Hier die explizite
+# Pyramid-Umsetzung — feste Rep-Ranges 8-12, Steuerung über RIR
+# (Reps in Reserve = Wiederholungen im Tank), Progression zuerst
+# über Wiederholungen, dann über Last (Double Progression).
+#
+# Parameter (Pyramid-Logik, Novizen-Stufe):
+# - Frequenz: 3x/Woche Ganzkörper → jede Muskelgruppe 2-3x/Woche
+# - Volumen: ~10 harte Sätze pro Muskelgruppe/Woche (inkl. Synergisten)
+# - Intensität: 8-12 Wiederholungen, @RIR2-3 (Compounds eher RIR3)
+# - Progression: +1 Rep/Woche bis alle Sätze 12 Reps erreichen,
+#   dann +2.5 kg (Oberkörper +1.25-2.5 kg) und zurück auf 8 Reps
+#
+# Quellen (Konzept-Attribution + peer-reviewed Basis, keine Buchinhalte kopiert):
+#   - Helms, E., Morgan, A., & Valdez, A. (2019). The Muscle and Strength
+#     Pyramid: Training (2. Aufl.). Prinzipien-Attribution: Prioritäten
+#     Volumen → Intensität → Frequenz, RIR-basierte Autoregulation.
+#   - Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2017). Dose-response
+#     relationship between weekly resistance training volume and increases
+#     in muscle mass: A systematic review and meta-analysis.
+#     Journal of Sports Sciences, 35(11), 1073-1082.
+#     doi:10.1080/02640414.2016.1210197
+#     → ~10+ Sätze/Muskel/Woche als Dose-Response-Schwelle; Novizen
+#       profitieren bereits am unteren Ende des Spektrums.
+#   - Helms, E. R., Cronin, J., Storey, A., & Zourdos, M. C. (2016).
+#     Application of the Repetitions in Reserve-Based Rating of Perceived
+#     Exertion Scale for Resistance Training. Strength and Conditioning
+#     Journal, 38(4), 42-49. doi:10.1519/SSC.0000000000000218
+#     → RIR-basierte RPE-Skala: RIR 2-3 entspricht ca. RPE 7-8.
+# ============================================================
+
+# ----- Tag A — Kniebeuge-Fokus + horizontales Drücken/Ziehen -----
+# Compounds @RIR3 (Technik vor Last), kleinere Übungen @RIR2.
+
+---[Tag A] Mo
+
+Squat                  3x8-12  @RIR3  r150s  +1rep/w
+Bench Press            3x8-12  @RIR3  r150s  +1rep/w
+Barbell Row            3x8-12  @RIR2  r120s  +1rep/w
+Leg Curl               2x8-12  @RIR2  r90s
+ss {
+  Lateral Raise        2x8-12  @RIR2  r60s
+  Plank                2x30s   r60s
+}
+
+> Aufwärmen pro Compound: 2 leichte Sätze (ca. 50% und 70% des Arbeitsgewichts).
+> Startgewicht so wählen, dass 8 saubere Reps mit 3 Reps im Tank möglich sind.
+
+# ----- Tag B — Hüft-Hinge + vertikales Drücken/Ziehen -----
+
+---[Tag B] Mi
+
+RDL                    3x8-12  @RIR3  r150s  +1rep/w
+OHP                    3x8-12  @RIR3  r120s  +1rep/w
+Lat Pulldown           3x8-12  @RIR2  r120s  +1rep/w
+Leg Press              2x8-12  @RIR2  r120s
+ss {
+  Dumbbell Curl        2x8-12  @RIR2  r60s
+  Tricep Pushdown      2x8-12  @RIR2  r60s
+}
+
+# ----- Tag C — zweite Kniebeuge-Einheit + Schrägbank/Row -----
+
+---[Tag C] Fr
+
+Squat                  3x8-12  @RIR2  r150s  +1rep/w
+Incline Dumbbell Press 3x8-12  @RIR2  r120s  +1rep/w
+Seated Cable Row       3x8-12  @RIR2  r120s
+Leg Curl               2x8-12  @RIR2  r90s
+ss {
+  Lateral Raise        2x8-12  @RIR2  r60s
+  Face Pull            2x8-12  @RIR2  r60s
+}
+Calf Raise             2x8-12  @RIR2  r60s
+
+> Double Progression (kriterienbasiert, nicht zeitbasiert): Gewicht erst
+> erhöhen, wenn ALLE Sätze einer Übung 12 saubere Reps bei RIR 2-3 schaffen.
+> Dann +2.5 kg Unterkörper bzw. +1.25-2.5 kg Oberkörper, zurück auf 8 Reps.
+> Stagniert eine Übung 2-3 Wochen (keine Reps dazu, RIR sinkt Richtung 0):
+> Gewicht 5-10% reduzieren und neu anlaufen — nicht die RIR-Vorgabe brechen.
+> Deload nach Bedarf (Schlaf/Gelenke/Motivation), nicht nach Kalender:
+> 1 Woche halbes Volumen, gleiche Übungen, RIR 4-5.
+> Meilenstein: Nach 4-6 Monaten konstanter Progression → Wechsel auf
+> Upper/Lower 4x/Woche (catalog/hypertrophy-helms-intermediate.wodl).

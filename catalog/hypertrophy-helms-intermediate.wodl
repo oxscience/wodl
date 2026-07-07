@@ -1,0 +1,118 @@
+@plan "Hypertrophie Intermediate — Upper/Lower (Pyramid-Prinzipien)"
+@freq 4x/week
+@cycle 4w: w1-3 progress, w4 deload
+@unit kg
+
+# ============================================================
+# Upper/Lower-Hypertrophie für Fortgeschrittene (1-3 Jahre
+# Trainingserfahrung) nach den Prinzipien der Muscle & Strength
+# Pyramid (Helms/Morgan/Valdez): RIR-Steuerung, breite Rep-Ranges,
+# 4-Wochen-Zyklus mit Deload.
+#
+# Abgrenzung zu examples/upper-lower-strength.wodl (Kraft-Fokus, 5x5,
+# %1RM) und examples/ppl-hypertrophy.wodl (6x/Woche, RPE): Hier die
+# Pyramid-Umsetzung für Hypertrophie — Volumen 10-15 Sätze/Muskel/Woche
+# (Spielraum bis 20), Rep-Bereiche 6-15, alles über RIR gesteuert.
+#
+# Parameter (Pyramid-Logik, Intermediate-Stufe):
+# - Frequenz: Upper/Lower 4x/Woche → jede Muskelgruppe 2x/Woche
+# - Volumen: 10-15 Sätze pro Muskelgruppe/Woche (bei guter Erholung
+#   in w1-3 schrittweise Richtung 15-20 erweiterbar)
+# - Intensität: 6-15 Reps; schwere Compounds @RIR2, Isolation @RIR1
+# - Progression: Double Progression innerhalb der Range (w1-3),
+#   w4 Deload: halbes Volumen, ca. -10% Last, RIR 4-5
+#
+# Quellen (Konzept-Attribution + peer-reviewed Basis, keine Buchinhalte kopiert):
+#   - Helms, E., Morgan, A., & Valdez, A. (2019). The Muscle and Strength
+#     Pyramid: Training (2. Aufl.). Prinzipien-Attribution.
+#   - Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2017). Dose-response
+#     relationship between weekly resistance training volume and increases
+#     in muscle mass: A systematic review and meta-analysis.
+#     Journal of Sports Sciences, 35(11), 1073-1082.
+#     doi:10.1080/02640414.2016.1210197
+#     → 10+ Sätze/Muskel/Woche, Nutzen flacht Richtung 20 ab.
+#   - Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2016). Effects of
+#     Resistance Training Frequency on Measures of Muscle Hypertrophy:
+#     A Systematic Review and Meta-Analysis. Sports Medicine, 46(11),
+#     1689-1697. doi:10.1007/s40279-016-0543-8
+#     → 2x/Woche pro Muskel schlägt 1x/Woche — Basis für Upper/Lower.
+#   - Schoenfeld, B. J., Grgic, J., Van Every, D. W., & Plotkin, D. L. (2021).
+#     Loading Recommendations for Muscle Strength, Hypertrophy, and Local
+#     Endurance: A Re-Examination of the Repetition Continuum.
+#     Sports, 9(2), 32. doi:10.3390/sports9020032
+#     → Hypertrophie über breites Lastspektrum ähnlich — Rep-Ranges 6-15
+#       kombinierbar (schwer für Compounds, moderat/leicht für Isolation).
+#   - Helms, E. R., Cronin, J., Storey, A., & Zourdos, M. C. (2016).
+#     Application of the Repetitions in Reserve-Based Rating of Perceived
+#     Exertion Scale for Resistance Training. Strength and Conditioning
+#     Journal, 38(4), 42-49. doi:10.1519/SSC.0000000000000218
+# ============================================================
+
+# ----- Upper A — schwer (6-10 Reps, Fokus Bank/Row) -----
+
+---[Upper A] Mo
+
+Bench Press            4x6-8    @RIR2  r180s  +1rep/w
+Barbell Row            4x6-8    @RIR2  r150s  +1rep/w
+OHP                    3x8-10   @RIR2  r120s
+Lat Pulldown           3x8-10   @RIR2  r120s
+ss {
+  Cable Fly            2x12-15  @RIR1  r60s
+  Face Pull            2x12-15  @RIR1  r60s
+}
+ss {
+  Dumbbell Curl        2x10-12  @RIR1  r60s
+  Tricep Pushdown      2x10-12  @RIR1  r60s
+}
+
+> Aufwärmen: 2-3 Steigerungssätze vor Bench Press und Barbell Row.
+
+# ----- Lower A — schwer (Kniebeuge-Fokus) -----
+
+---[Lower A] Di
+
+Squat                  4x6-8    @RIR2  r180s  +1rep/w
+RDL                    3x8-10   @RIR2  r150s
+Leg Press              3x10-12  @RIR2  r120s
+Leg Curl               3x10-12  @RIR1  r90s
+Calf Raise             4x10-15  @RIR1  r60s
+Cable Crunch           3x10-15  @RIR1  r60s
+
+# ----- Upper B — Volumen (8-15 Reps, Fokus Schrägbank/vertikaler Zug) -----
+
+---[Upper B] Do
+
+Incline Bench Press    4x8-10   @RIR2  r150s  +1rep/w
+Pull-up                3x6-10   @RIR2  r120s   # Alternativ: Lat Pulldown
+Dumbbell OHP           3x10-12  @RIR2  r90s
+Seated Cable Row       3x10-12  @RIR2  r120s
+ss {
+  Lateral Raise        3x12-15  @RIR1  r60s
+  Rear Delt Fly        3x12-15  @RIR1  r60s
+}
+ss {
+  Incline Dumbbell Curl     2x12-15  @RIR1  r60s
+  Overhead Tricep Extension 2x12-15  @RIR1  r60s
+}
+
+# ----- Lower B — Volumen (Hinge-Fokus + Einbein) -----
+
+---[Lower B] Fr
+
+Deadlift               3x6-8    @RIR2  r180s  +1rep/w
+Front Squat            3x8-10   @RIR2  r150s
+Bulgarian Split Squat  3x10-12  @RIR2  r90s
+Leg Curl               3x12-15  @RIR1  r90s
+Calf Raise             4x10-15  @RIR1  r60s
+Hanging Leg Raise      3x10-15  r60s
+
+> Progression (w1-3): Double Progression — Reps innerhalb der Range steigern;
+> erreicht eine Übung in allen Sätzen das obere Ende bei Ziel-RIR, +2.5 kg
+> (Isolation +1-2 kg bzw. nächste Steckstufe) und zurück ans untere Ende.
+> Deload (w4): Satzzahl halbieren, Last ca. -10%, RIR 4-5 — Übungen beibehalten.
+> Volumen-Autoregulation: Erholst du dich gut (Reps steigen, keine Gelenk-
+> beschwerden), ab dem 2. Zyklus pro schwacher Muskelgruppe +1-2 Sätze/Woche
+> Richtung 15-20 Sätze. Schlechte Erholung → zurück auf 10-12 Sätze.
+> Meilenstein Zyklus-Review: Rep- oder Lastzuwachs in den Hauptübungen über
+> den 4-Wochen-Zyklus? Wenn 2 Zyklen ohne Progression: Volumen, Schlaf und
+> Energiezufuhr prüfen, bevor mehr Intensität (RIR0) gesucht wird.

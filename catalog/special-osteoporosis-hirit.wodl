@@ -1,0 +1,68 @@
+@plan "Osteoporose: HiRIT Knochen-Krafttraining"
+@freq 2x/week
+@unit kg
+
+# ============================================================
+# High-Intensity Resistance and Impact Training (HiRIT) für
+# postmenopausale Frauen mit Osteopenie/Osteoporose — nach dem
+# LIFTMOR-Trial: 8 Monate, 2x/Woche à 30 min, supervidiert.
+# Ergebnis im Trial: signifikant verbesserte Knochendichte (LWS,
+# Schenkelhals), Körpergröße und Funktion — bei nur 1 leichtem
+# unerwünschten Ereignis (Rückenverspannung).
+#
+# Quelle (verifiziert):
+#   - Watson, S. L., Weeks, B. K., Weis, L. J., Harding, A. T.,
+#     Horan, S. A., & Beck, B. R. (2018). High-Intensity Resistance and
+#     Impact Training Improves Bone Mineral Density and Physical Function
+#     in Postmenopausal Women With Osteopenia and Osteoporosis: The LIFTMOR
+#     Randomized Controlled Trial. Journal of Bone and Mineral Research,
+#     33(2), 211-220. DOI: 10.1002/jbmr.3284
+#
+# WICHTIG — SICHERHEIT:
+#   - Im Trial war JEDE Einheit von qualifiziertem Personal supervidiert
+#     (max. 8 Teilnehmerinnen pro Trainer:in). Dieses Programm NICHT
+#     unbeaufsichtigt als Einsteiger:in mit Osteoporose durchführen!
+#   - Vorab ärztliche Freigabe. Bei frischen Frakturen, instabilen
+#     Wirbelkörpern oder unklarem Status: erst Abklärung.
+#   - Technik vor Last: neutrale Wirbelsäule, Hüftbeuge-Muster (Hip Hinge)
+#     sauber, keine endgradige Rumpfflexion unter Last.
+#   - Schmerz, Schwindel, neue Rückenschmerzen → Abbruch + Abklärung.
+# ============================================================
+
+# ----- Phase 1 — Anlauf/Technik (Monat 1, Woche 1-4) -----
+# Ziele: Bewegungsmuster der 4 Kernübungen mit Körpergewicht und
+# niedriger Last erlernen. Im Trial konnten alle Teilnehmerinnen die
+# 4 Übungen innerhalb von 2 Monaten voll ausführen.
+
+---[Phase 1: Anlauf mit niedriger Last (Woche 1-4)] Di Fr
+
+Squat                5x5   @BW    r90s   # Back-Squat-Muster, erst Körpergewicht/Leerstange
+Deadlift             5x5   @low   r90s   # leichte Stange/Kettlebell — Hip Hinge einschleifen
+OHP                  5x5   @low   r90s   # leichte Kurzhanteln/Leerstange
+Jumping Chin-up      5x5   @low   r90s   # Anbahnung: kleiner Sprung zur Stange, leise + weich landen
+
+> Einheit ~30 min inkl. kurzem Aufwärmen.
+> Fokus: neutrale Wirbelsäule, kontrollierte Landung, Atemtechnik.
+> Meilenstein zu Phase 2: alle 4 Übungen technisch sauber, schmerzfrei,
+> Freigabe durch Trainer:in — dann 1RM-Testung für die Lastensteuerung.
+
+# ----- Phase 2 — HiRIT (Monat 2-8) -----
+# Ziele: Hohe mechanische Knochenreize. 5x5 bei 80-85% 1RM, im Verlauf
+# >85% 1RM (Originalprotokoll). Impact-Reiz über Jumping Chin-ups mit
+# betont aktiver Drop-Landung.
+
+---[Phase 2: HiRIT (Monat 2-8)] Di Fr
+
+Deadlift             5x5   @85%   r2m    # 80-85% 1RM, progressiv >85% — Kreuzheben
+Squat                5x5   @85%   r2m    # Back Squat, gleiche Lastzone
+OHP                  5x5   @85%   r2m    # Überkopfdrücken
+Jumping Chin-up      5x5   @BW    r90s   # Sprung-Klimmzug, Absprung + möglichst steife Drop-Landung
+
+> Einheit 30 min, 2x/Woche, mind. 48 h Pause zwischen den Einheiten.
+> Last regelmäßig anpassen (1RM-Retest bzw. Steigerung, sobald 5x5 sauber).
+> Impact: Landung ist der Knochenreiz — aktiv, aufrecht, nicht abfedern
+> bis in tiefe Rumpfbeuge. Wer (noch) keinen Sprung-Klimmzug kann:
+> Absprung von erhöhter Stange/Griff, Fokus bleibt auf der Landung.
+> Supervision beibehalten — die Sicherheit im Trial galt NUR unter Aufsicht.
+> Nach 8 Monaten: Fortführung als Erhaltungsprogramm sinnvoll; DXA-Verlauf
+> mit Ärzt:in besprechen.

@@ -1,0 +1,87 @@
+@plan "Nordic Hamstring Präventionsprogramm (10 Wochen)"
+@freq 3x/week
+
+# ============================================================
+# Exzentrisches Hamstring-Präventionsprogramm über 10 Wochen mit dem
+# Nordic Hamstring Curl (Partnerübung). Original-Progression aus dem
+# Trainingsprotokoll von Mjølsnes et al., identisch übernommen in der
+# großen Präventionsstudie von Petersen et al.
+#
+# Quellen:
+#   Mjølsnes, R., Arnason, A., Østhagen, T., Raastad, T., & Bahr, R. (2004).
+#   A 10-week randomized trial comparing eccentric vs. concentric hamstring
+#   strength training in well-trained soccer players.
+#   Scandinavian Journal of Medicine & Science in Sports, 14(5), 311-317.
+#   DOI: 10.1046/j.1600-0838.2003.367.x
+#
+#   Petersen, J., Thorborg, K., Nielsen, M. B., Budtz-Jørgensen, E., &
+#   Hölmich, P. (2011). Preventive Effect of Eccentric Training on Acute
+#   Hamstring Injuries in Men's Soccer: A Cluster-Randomized Controlled Trial.
+#   The American Journal of Sports Medicine, 39(11), 2296-2303.
+#   DOI: 10.1177/0363546511419277
+#   → 3.8 vs. 13.1 Verletzungen pro 100 Spieler-Saisons; Rezidive
+#     7.1 vs. 45.8 zugunsten der Trainingsgruppe.
+#
+#   van Dyk, N., Behan, F. P., & Whiteley, R. (2019). Including the Nordic
+#   hamstring exercise in injury prevention programmes halves the rate of
+#   hamstring injuries: a systematic review and meta-analysis of 8459
+#   athletes. British Journal of Sports Medicine, 53(21), 1362-1370.
+#   DOI: 10.1136/bjsports-2018-100045
+#
+# Ausführung: Kniestand, Partner fixiert die Unterschenkel. Aus komplett
+# geradem Körper (Kopf bis Knie) so langsam wie möglich nach vorn "fallen"
+# und mit den Hamstrings bremsen; mit den Händen abfangen und aktiv
+# zurückdrücken, um die konzentrische Phase zu minimieren.
+# Anfangs ist deutlicher Muskelkater normal — Progression genau deshalb
+# langsam aufbauen und NICHT überspringen.
+# ============================================================
+
+# ----- Woche 1: Gewöhnung -----
+
+---[Woche 1 — 1 Einheit/Woche]
+
+Nordic Hamstring Curl    2x5    @BW    # So langsam wie möglich nach vorn abbremsen
+
+> Pausen zwischen den Sätzen nach Bedarf — Qualität vor Tempo.
+> Muskelkater in den ersten 2 Wochen ist normal und kein Abbruchgrund.
+
+# ----- Woche 2 -----
+
+---[Woche 2 — 2 Einheiten/Woche]
+
+Nordic Hamstring Curl    2x6    @BW
+
+# ----- Woche 3 -----
+
+---[Woche 3 — 3 Einheiten/Woche]
+
+Nordic Hamstring Curl    3x6-8    @BW
+
+# ----- Woche 4 -----
+
+---[Woche 4 — 3 Einheiten/Woche]
+
+Nordic Hamstring Curl    3x8-10    @BW
+
+# ----- Woche 5-10: volles Volumen -----
+
+---[Woche 5-10 — 3 Einheiten/Woche]
+
+Nordic Hamstring Curl    12,10,8    @BW    # 3 Sätze: 12, dann 10, dann 8 Wiederholungen
+
+> Lastprogression nicht über mehr Wiederholungen, sondern über die Übung:
+> Fallgeschwindigkeit erhöhen; wer den gesamten Bewegungsweg kontrolliert
+> bremst, bekommt vom Partner leichten Druck auf die Schultern (Zusatzlast).
+
+# ----- Ab Woche 10: Erhaltung (Petersen et al. 2011) -----
+# Nach der 10-Wochen-Progression läuft in der Saison ein wöchentliches
+# Erhaltungsprogramm weiter.
+
+---[Ab Woche 10 — Erhaltung, 1 Einheit/Woche]
+
+Nordic Hamstring Curl    12,10,8    @BW
+
+> Erhaltung über die gesamte Saison fortführen — der Kraftgewinn geht
+> nach Absetzen innerhalb weniger Wochen wieder verloren.
+> Nach längerer Pause (z.B. Saisonpause) wieder mit reduzierter
+> Progression einsteigen statt direkt mit vollem Volumen.

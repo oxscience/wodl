@@ -1,0 +1,112 @@
+@plan "Powerlifting Novize — SBD 4x/Woche (Pyramid-Prinzipien)"
+@freq 4x/week
+@unit kg
+
+# ============================================================
+# Powerlifting-Programm für Novizen/Early-Intermediates nach den
+# Prinzipien der Muscle & Strength Pyramid (Helms/Morgan/Valdez):
+# RPE-gesteuerte Hauptarbeit an Squat/Bench/Deadlift (SBD),
+# Backoff- und Hypertrophie-Assistance, wöchentliche Progression.
+#
+# Abgrenzung zu examples/upper-lower-strength.wodl (%1RM-basiert)
+# und examples/powerbuilding-5day.wodl: Hier die Pyramid-Umsetzung
+# fürs Kraftdreikampf-Ziel — Last über RPE/RIR autoreguliert statt
+# über fixe Prozente, Spezifität auf die Wettkampfübungen.
+#
+# Parameter (Pyramid-Logik, Novize/Early-Intermediate):
+# - Frequenz: 4x/Woche; Squat 2x, Bench 3x, Deadlift 1x schwer
+#   + 1x Hinge-Variante (RDL) = 2x Hinge-Pattern
+# - Hauptarbeit: 3-5 Reps @RPE7-8 (entspricht 2-3 Reps im Tank)
+# - Backoff/Volumen: 6-8 Reps @RPE7 mit reduzierter Last
+# - Assistance: 8-12 Reps @RIR1-2 (Hypertrophie-Basis für spätere Kraft)
+# - Progression: +2.5 kg/Woche auf der Hauptarbeit, solange die
+#   Ziel-RPE gehalten wird (RPE-Deckel statt starrem Plan)
+#
+# Quellen (Konzept-Attribution + peer-reviewed Basis, keine Buchinhalte kopiert):
+#   - Helms, E., Morgan, A., & Valdez, A. (2019). The Muscle and Strength
+#     Pyramid: Training (2. Aufl.). Prinzipien-Attribution: Spezifität,
+#     RPE-Autoregulation, Volumen-Hierarchie.
+#   - Helms, E. R., Cronin, J., Storey, A., & Zourdos, M. C. (2016).
+#     Application of the Repetitions in Reserve-Based Rating of Perceived
+#     Exertion Scale for Resistance Training. Strength and Conditioning
+#     Journal, 38(4), 42-49. doi:10.1519/SSC.0000000000000218
+#     → RPE 7-8 = 2-3 Reps im Tank; Skala fürs Krafttraining definiert.
+#   - Helms, E. R., Byrnes, R. K., Cooke, D. M., Haischer, M. H.,
+#     Carzoli, J. P., Johnson, T. K., et al. (2018). RPE vs. Percentage 1RM
+#     Loading in Periodized Programs Matched for Sets and Repetitions.
+#     Frontiers in Physiology, 9, 247. doi:10.3389/fphys.2018.00247
+#     → RPE-basierte Laststeuerung mindestens gleichwertig zu %1RM.
+#   - Grgic, J., Schoenfeld, B. J., Davies, T. B., Lazinica, B.,
+#     Krieger, J. W., & Pedisic, Z. (2018). Effect of Resistance Training
+#     Frequency on Gains in Muscular Strength: A Systematic Review and
+#     Meta-Analysis. Sports Medicine, 48(5), 1207-1220.
+#     doi:10.1007/s40279-018-0872-x
+#     → Frequenz wirkt auf Kraft primär über verteiltes Volumen;
+#       2-3x/Woche pro Übung ist der praktikable Bereich.
+#
+# WICHTIG: Vor der Hauptarbeit immer vollständige Steigerungssätze
+# (z.B. leere Stange → 50% → 70% → 85% des Arbeitsgewichts).
+# ============================================================
+
+# ----- Tag 1 — Squat schwer + Bench Volumen -----
+
+---[Squat schwer] Mo
+
+Squat                  4x4     @RPE8  r240s  +2.5kg/w
+Bench Press            4x6     @RPE7  r180s          # Volumen-Slot, Last unter Di-Arbeitssätzen
+RDL                    3x8     @RIR2  r150s          # Hinge-Variante, hält das Kreuzheben-Muster warm
+ss {
+  Leg Press            3x10    @RIR2  r90s
+  Ab Wheel             3x10    r60s
+}
+
+> RPE-Deckel: Wird aus der 4x4 @RPE8 eine RPE9, Gewicht NICHT steigern.
+
+# ----- Tag 2 — Bench schwer + Rücken -----
+
+---[Bench schwer] Di
+
+Bench Press            4x4     @RPE8  r240s  +2.5kg/w
+Close Grip Bench Press 3x8     @RIR2  r120s          # Backoff/Trizeps-Spezifität
+Barbell Row            4x8     @RIR2  r120s
+ss {
+  Lateral Raise        3x12    @RIR1  r60s
+  Tricep Pushdown      3x12    @RIR1  r60s
+}
+
+# ----- Tag 3 — Deadlift schwer + Squat Backoff -----
+
+---[Deadlift schwer] Do
+
+Deadlift               4x3     @RPE8  r240s  +2.5kg/w
+Squat                  3x6     @RPE7  r180s          # Backoff, ca. -10-15% der Mo-Last
+Leg Curl               3x10    @RIR2  r90s
+ss {
+  Lat Pulldown         3x10    @RIR2  r90s
+  Plank                3x45s   r60s
+}
+
+# ----- Tag 4 — Bench Volumen + Schulter/Assistance -----
+
+---[Bench Volumen] Fr
+
+Bench Press            3x6     @RPE7  r180s          # 3. Bench-Frequenz, submaximal
+OHP                    3x8     @RIR2  r120s
+Dumbbell Row           3x10    @RIR2  r90s
+Back Extension         3x12    @RIR2  r60s
+ss {
+  Dumbbell Curl        3x12    @RIR1  r60s
+  Face Pull            3x15    @RIR1  r60s
+}
+
+> Progression (kriterienbasiert): +2.5 kg/Woche auf Squat/Bench/Deadlift-
+> Hauptarbeit NUR wenn die Vorwoche bei Ziel-RPE (≤8) sauber war.
+> Stall-Regel: 2 Wochen in Folge über Ziel-RPE → Last -5%, neu anlaufen.
+> Deload nach Bedarf statt nach Kalender (typisch alle 6-8 Wochen):
+> 1 Woche, Hauptarbeit 3x3 @RPE6, Assistance halbieren.
+> Meilenstein: Läuft die wöchentliche Progression nicht mehr an (2 Stalls
+> auf derselben Übung trotz Reset), ist die Novizen-Phase vorbei →
+> Wechsel auf blockperiodisiertes Intermediate-Programm mit geplanten
+> Volumen-/Intensitätswellen.
+> Technik-Kriterium: RPE-Angaben setzen stabile Technik voraus — Videos
+> der Top-Sätze checken (Tiefe beim Squat, Pause auf der Brust beim Bench).

@@ -1,0 +1,93 @@
+@plan "GZCLP — Lineare Progression in drei Tiers"
+@freq 4x/week
+@unit kg
+
+# ============================================================
+# GZCLP: Cody Lefevers linear progressierende Einsteiger-Variante
+# der GZCL-Methode. Jede Einheit hat drei Slots:
+#   T1 = schwere Grundübung, 5 Sätze à 3 (letzter Satz AMRAP "3+")
+#   T2 = zweite Grundübung, 3x10 (moderat, alle Sätze sauber)
+#   T3 = Isolations-/Maschinenübung, 3x15 (letzter Satz AMRAP "15+")
+# 4 Workouts (A1/B1/A2/B2) rotieren fortlaufend — bei 3 Einheiten
+# pro Woche einfach weiterzählen (A1-B1-A2, B2-A1-B1, ...).
+#
+# Kern-Parameter (frei auf Lefevers Blog publiziert):
+# - Steigerung pro Einheit: T1 +2.5 kg (Bench/OHP) bzw. +5 kg
+#   (Squat/Deadlift); T2 gleiches Muster, gern halbierte Sprünge
+# - T1-Stall-Leiter: 5x3+ -> 6x2+ -> 10x1+ (jeweils gleiches
+#   Gewicht weiter steigern); scheitert auch 10x1 -> 2-3 Tage
+#   Pause, neues 5RM testen, Neustart 5x3+ mit 85% des neuen 5RM
+# - T2-Stall-Leiter: 3x10 -> 3x8 -> 3x6; nach dem 3x6-Stall
+#   zurück auf 3x10 mit leicht höherem Startgewicht als im
+#   letzten 3x10-Durchgang
+# - T3: Gewicht konstant, bis der AMRAP-Satz >=25 Reps erreicht,
+#   dann kleinste mögliche Steigerung
+# - T1-Startgewicht: ~85% des 5RM (Umsteiger von 5x5-Programmen:
+#   das letzte 5x5-Gewicht als 5x3+ weiterführen)
+#
+# Hinweis zur Notation: Lefever schreibt Reps x Sätze ("3x5+" =
+# 5 Sätze à 3). Diese Datei nutzt die WODL-Konvention Sätze x Reps.
+#
+# Quellen (frei publiziert):
+#   - Lefever, C. (2016). "GZCL Applications & Adaptations."
+#     Swole at Every Height (Blog):
+#     swoleateveryheight.blogspot.com/2016/02/gzcl-applications-adaptations.html
+#   - GZCLP-Infografik/Explainer (Sekundärquelle, in der r/gzcl-
+#     Community etabliert): saynotobroscience.com/gzclp-infographic/
+# ============================================================
+
+# ----- Workout A1 -----
+
+---[A1] Mo
+
+Squat         4x3   r180s   # T1 — Start: ~85% des 5RM
+Squat         1x    r240s   # T1 AMRAP-Satz (3+): schwer, aber nie bis zum technischen Versagen
+Bench Press   3x10  r120s   # T2 — Last mit Reserve, alle 30 Reps sauber
+Lat Pulldown  2x15  r60s    # T3
+Lat Pulldown  1x    r90s    # T3 AMRAP-Satz (15+): bei >=25 Reps Gewicht erhöhen
+
+> AMRAP-Sätze mit 1-2 Reps im Tank beenden — GZCLP lebt von
+> Frequenz und sauberen Reps, nicht vom Muskelversagen.
+
+# ----- Workout B1 -----
+
+---[B1] Di
+
+OHP           4x3   r180s   # T1
+OHP           1x    r240s   # T1 AMRAP-Satz (3+)
+Deadlift      3x10  r120s   # T2
+Dumbbell Row  2x15  r60s    # T3
+Dumbbell Row  1x    r90s    # T3 AMRAP-Satz (15+)
+
+# ----- Workout A2 -----
+
+---[A2] Do
+
+Bench Press   4x3   r180s   # T1 — Bench und Squat tauschen die Tier-Rollen
+Bench Press   1x    r240s   # T1 AMRAP-Satz (3+)
+Squat         3x10  r120s   # T2
+Lat Pulldown  2x15  r60s    # T3
+Lat Pulldown  1x    r90s    # T3 AMRAP-Satz (15+)
+
+# ----- Workout B2 -----
+
+---[B2] Fr
+
+Deadlift      4x3   r180s   # T1
+Deadlift      1x    r240s   # T1 AMRAP-Satz (3+)
+OHP           3x10  r120s   # T2
+Dumbbell Row  2x15  r60s    # T3
+Dumbbell Row  1x    r90s    # T3 AMRAP-Satz (15+)
+
+> T1-Progression pro Einheit: +5 kg (Squat/Deadlift), +2.5 kg
+> (Bench/OHP). Stall-Kriterium T1: Basis-Volumen verfehlt
+> (15 Reps bei 5x3+) -> gleiche Last als 6x2+ weiterfahren,
+> dann 10x1+; scheitert auch das -> 2-3 Tage Pause, neues 5RM
+> testen, Neustart 5x3+ mit 85% des neuen 5RM.
+> T2-Progression: Gewicht pro Einheit steigern; 30 Reps (3x10)
+> verfehlt -> 3x8, dann 3x6, danach Reset auf 3x10 mit leicht
+> höherem Startgewicht als im letzten 3x10-Durchgang.
+> T3-Kriterium: erst >=25 Reps im AMRAP-Satz, dann steigern.
+> Meilenstein: Häufen sich T1-Resets über mehrere Zyklen, ist die
+> lineare Phase vorbei -> Wechsel auf ein GZCL-Programm für
+> Fortgeschrittene (z.B. wochenbasierte Progression).

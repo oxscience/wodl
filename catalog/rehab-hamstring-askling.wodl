@@ -1,0 +1,65 @@
+@plan "Hamstring-Reha: Askling L-Protokoll"
+@freq daily
+
+# ============================================================
+# Rehabilitation nach akuter Hamstring-Zerrung — L-Protokoll
+# (Lengthening-Protokoll): drei Übungen, die die Hamstrings vor allem
+# exzentrisch und bei großer Muskellänge belasten (Extender, Diver, Glider).
+#
+# Quelle (Original-Protokoll):
+#   Askling, C. M., Tengvar, M., & Thorstensson, A. (2013).
+#   Acute hamstring injuries in Swedish elite football: a prospective
+#   randomised controlled clinical trial comparing two rehabilitation
+#   protocols. British Journal of Sports Medicine, 47(15), 953-959.
+#   DOI: 10.1136/bjsports-2013-092165
+#   → Return to Play mit L-Protokoll im Mittel 28 Tage vs. 51 Tage
+#     mit konventionellem Protokoll (C-Protokoll).
+#
+# WICHTIG: Ersetzt KEINE individuelle ärztliche/physiotherapeutische
+# Betreuung. Start, Progression und Return to Play gibt das betreuende
+# Team frei — nicht der Kalender. ALLE Übungen werden schmerzfrei
+# ausgeführt: Bewegung stoppt kurz VOR der Schmerzgrenze, nie hinein.
+# Kein zusätzliches Hamstring-Stretching neben dem Protokoll.
+# ============================================================
+
+# ----- Übung 1: Extender — täglich, 2x pro Tag -----
+# Sanfteste Übung, ab Beginn der Reha: Rückenlage, verletzte Hüfte mit den
+# Händen bei ca. 90° fixiert, langsames Strecken des Knies bis kurz vor
+# den Punkt, an dem Schmerz einsetzen würde.
+
+---[Extender (2x täglich)] Mo Di Mi Do Fr Sa So
+
+Extender    3x12    @BW    # Langsame Knieextension, kurz vor der Schmerzgrenze umkehren
+
+> 2 Einheiten pro Tag (z.B. morgens und abends), Pausen nach Bedarf.
+> Schmerzfreiheit ist das Progressionskriterium — kein Datum.
+
+# ----- Übung 2: Diver — jeden 2. Tag -----
+# Einbeinige Hüftbeuge ("simulierter Kopfsprung"): Stand auf dem verletzten
+# Bein, Oberkörper taucht langsam nach vorn ab, Arme strecken nach vorn,
+# hinteres Bein strebt in die Hüftstreckung. Fordert Balance und
+# exzentrische Kontrolle bei zunehmender Muskellänge.
+
+---[Diver (jeden 2. Tag)]
+
+Diver    3x6    @BW    # Langsam und kontrolliert, Becken horizontal halten
+
+> Erst aufnehmen, wenn die Bewegung schmerzfrei und mit stabiler Balance gelingt.
+> Ausführung bleibt langsam — Qualität vor Tempo.
+
+# ----- Übung 3: Glider — jeden 3. Tag -----
+# Höchste exzentrische Last des Protokolls: Stand, eine Hand hält sich fest,
+# verletztes Bein vorn auf der Ferse, Körpergewicht gleitet auf dem anderen
+# Bein (Socke/Gleitbrett) nach hinten — die Hamstrings der verletzten Seite
+# bremsen die Bewegung.
+
+---[Glider (jeden 3. Tag)]
+
+Glider    3x4    @BW    # Rückführung NUR mit den Armen — keine konzentrische Hamstring-Arbeit
+
+> Als letzte Übung starten, wenn Extender und Diver problemlos schmerzfrei gelingen.
+> Progression: erst Gleitdistanz vergrößern, dann Ausführungsgeschwindigkeit steigern.
+> Bewegung immer VOR der Schmerzgrenze stoppen.
+> Return to Play erst nach Freigabe durch das betreuende Team — im
+> Original-Protokoll u.a. nach unauffälligem Askling-H-Test (aktiver
+> Flexibilitäts-/Provokationstest).

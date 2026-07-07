@@ -1,0 +1,547 @@
+{
+  "name": "WODL Default-Katalog",
+  "description": "Kuratierter Katalog evidenzbasierter Trainings- und Reha-Protokolle im WODL-Format. Quellen (DOIs) stehen als Kommentare in jeder .wodl-Datei; alle DOIs sind gegen Crossref + OpenAlex verifiziert. Reha-Protokolle sind Referenzen für Fachpersonal, kein Ersatz für individuelle Betreuung.",
+  "version": 1,
+  "updated": "2026-07-07",
+  "plans": [
+    {
+      "id": "rehab-acl-melbourne",
+      "file": "catalog/rehab-acl-melbourne.wodl",
+      "title_de": "VKB-Reha nach dem Melbourne ACL Guide 2.0 (kriterienbasiert)",
+      "kind": "reha",
+      "target_area": "Knie",
+      "difficulty": "schwer",
+      "duration": "9+ Monate (kriterienbasiert)",
+      "excerpt": "Kriterienbasiertes VKB-Protokoll nach Cooper & Hughes: Phasenwechsel per Test-Batterie (Hop-LSI, RTS-Score), nicht per Kalender.",
+      "sources": [
+        {"citation": "Cooper, R. & Hughes, M. (2018). Melbourne ACL Rehabilitation Guide 2.0. Frei verfügbares klinisches Protokoll-PDF.", "doi": ""},
+        {"citation": "Grindem, H. et al. (2016). Simple decision rules can reduce reinjury risk by 84% after ACL reconstruction: the Delaware-Oslo ACL cohort study. British Journal of Sports Medicine, 50(13), 804-808.", "doi": "10.1136/bjsports-2016-096031"},
+        {"citation": "van Melick, N. et al. (2016). Evidence-based clinical practice update: practice guidelines for anterior cruciate ligament rehabilitation based on a systematic review and multidisciplinary consensus. British Journal of Sports Medicine, 50(24), 1506-1515.", "doi": "10.1136/bjsports-2015-095898"}
+      ]
+    },
+    {
+      "id": "rehab-patellar-tendinopathy",
+      "file": "catalog/rehab-patellar-tendinopathy.wodl",
+      "title_de": "Patellasehnen-Tendinopathie: Heavy Slow Resistance + Isometrie",
+      "kind": "reha",
+      "target_area": "Knie (Patellasehne)",
+      "difficulty": "mittel",
+      "duration": "12 Wochen",
+      "excerpt": "12 Wochen Heavy Slow Resistance (15RM bis 6RM, 6s-Tempo) nach Kongsgaard, plus isometrische Optionen fürs In-Season-Schmerzmanagement.",
+      "sources": [
+        {"citation": "Kongsgaard, M. et al. (2009). Corticosteroid injections, eccentric decline squat training and heavy slow resistance training in patellar tendinopathy. Scandinavian Journal of Medicine & Science in Sports, 19(6), 790-802.", "doi": "10.1111/j.1600-0838.2009.00949.x"},
+        {"citation": "Rio, E. et al. (2015). Isometric exercise induces analgesia and reduces inhibition in patellar tendinopathy. British Journal of Sports Medicine, 49(19), 1277-1283.", "doi": "10.1136/bjsports-2014-094386"},
+        {"citation": "Malliaras, P. et al. (2015). Patellar Tendinopathy: Clinical Diagnosis, Load Management, and Advice for Challenging Case Presentations. Journal of Orthopaedic & Sports Physical Therapy, 45(11), 887-898.", "doi": "10.2519/jospt.2015.5987"}
+      ]
+    },
+    {
+      "id": "rehab-pfps",
+      "file": "catalog/rehab-pfps.wodl",
+      "title_de": "Patellofemorales Schmerzsyndrom: Hüfte + Knie (JOSPT CPG)",
+      "kind": "reha",
+      "target_area": "Knie (patellofemoral)",
+      "difficulty": "mittel",
+      "duration": "6+ Wochen (kriterienbasiert)",
+      "excerpt": "Hüft- + knie-gerichtete Kräftigung nach der JOSPT-Leitlinie (Grad A): von hüft-dominant zu kombiniert, Progression per Kriterium statt Zeit.",
+      "sources": [
+        {"citation": "Willy, R. W. et al. (2019). Patellofemoral Pain: Clinical Practice Guidelines Linked to the International Classification of Functioning, Disability and Health From the Academy of Orthopaedic Physical Therapy of the American Physical Therapy Association. Journal of Orthopaedic & Sports Physical Therapy, 49(9), CPG1-CPG95.", "doi": "10.2519/jospt.2019.0302"}
+      ]
+    },
+    {
+      "id": "rehab-knee-oa-neuromuscular",
+      "file": "catalog/rehab-knee-oa-neuromuscular.wodl",
+      "title_de": "Neuromuskuläres Training bei Knie-/Hüftarthrose (NEMEX)",
+      "kind": "reha",
+      "target_area": "Knie/Hüfte (Arthrose)",
+      "difficulty": "leicht",
+      "duration": "6-15 Wochen",
+      "excerpt": "Betreutes Gruppen-Neuromuskulärtraining bei Arthrose nach NEMEX: 60-min-Zirkel, 2x/Woche, 3 Schwierigkeitsstufen mit Progression nach Bewegungsqualität.",
+      "sources": [
+        {"citation": "Ageberg, E., Link, A., & Roos, E. M. (2010). Feasibility of neuromuscular training in patients with severe hip or knee OA: The individualized goal-based NEMEX-TJR training program. BMC Musculoskeletal Disorders, 11, 126.", "doi": "10.1186/1471-2474-11-126"},
+        {"citation": "Skou, S. T., & Roos, E. M. (2017). Good Life with osteoArthritis in Denmark: evidence-based education and supervised neuromuscular exercise delivered by certified physiotherapists nationwide. BMC Musculoskeletal Disorders, 18, 72.", "doi": "10.1186/s12891-017-1439-y"}
+      ]
+    },
+    {
+      "id": "rehab-achilles-silbernagel",
+      "file": "catalog/rehab-achilles-silbernagel.wodl",
+      "title_de": "Achilles-Tendinopathie — Silbernagel Kombiprogramm",
+      "kind": "reha",
+      "target_area": "Achillessehne / Wade",
+      "difficulty": "mittel",
+      "duration": "12 Wochen + Erhaltung bis 6 Monate",
+      "excerpt": "Kombiniertes konzentrisch-exzentrisches 4-Phasen-Programm mit Schmerz-Monitoring-Modell — Sport darf nach Regeln weiterlaufen.",
+      "sources": [
+        {"citation": "Silbernagel, K. G., Thomeé, R., Eriksson, B. I., & Karlsson, J. (2007). Continued Sports Activity, Using a Pain-Monitoring Model, during Rehabilitation in Patients with Achilles Tendinopathy: A Randomized Controlled Study. The American Journal of Sports Medicine, 35(6), 897-906.", "doi": "10.1177/0363546506298279"},
+        {"citation": "Silbernagel, K. G., & Crossley, K. M. (2015). A Proposed Return-to-Sport Program for Patients With Midportion Achilles Tendinopathy: Rationale and Implementation. Journal of Orthopaedic & Sports Physical Therapy, 45(11), 876-886.", "doi": "10.2519/jospt.2015.5885"}
+      ]
+    },
+    {
+      "id": "rehab-achilles-rupture",
+      "file": "catalog/rehab-achilles-rupture.wodl",
+      "title_de": "Achillessehnenruptur — Funktionelle Reha (beschleunigt)",
+      "kind": "reha",
+      "target_area": "Achillessehne / Wade",
+      "difficulty": "mittel",
+      "duration": "26+ Wochen (RTS ab ca. 6 Monaten)",
+      "excerpt": "Beschleunigtes funktionelles Protokoll nach Ruptur — identisch für operativ und konservativ, mit Orthesen- und Belastungsfahrplan.",
+      "sources": [
+        {"citation": "Willits, K. et al. (2010). Operative versus Nonoperative Treatment of Acute Achilles Tendon Ruptures: A Multicenter Randomized Trial Using Accelerated Functional Rehabilitation. The Journal of Bone and Joint Surgery, American Volume, 92(17), 2767-2775.", "doi": "10.2106/JBJS.I.01401"},
+        {"citation": "Barfod, K. W. et al. (2014). Nonoperative Dynamic Treatment of Acute Achilles Tendon Rupture: The Influence of Early Weight-Bearing on Clinical Outcome: A Blinded, Randomized Controlled Trial. The Journal of Bone and Joint Surgery, American Volume, 96(18), 1497-1503.", "doi": "10.2106/JBJS.M.01273"}
+      ]
+    },
+    {
+      "id": "rehab-ankle-sprain",
+      "file": "catalog/rehab-ankle-sprain.wodl",
+      "title_de": "Laterale Sprunggelenksdistorsion — Funktionelle Reha",
+      "kind": "reha",
+      "target_area": "Sprunggelenk",
+      "difficulty": "leicht",
+      "duration": "8-12 Wochen",
+      "excerpt": "Progressive funktionelle Reha nach Supinationstrauma mit 8-Wochen-Balance-Heimprogramm zur Rezidivprophylaxe.",
+      "sources": [
+        {"citation": "Vuurberg, G. et al. (2018). Diagnosis, treatment and prevention of ankle sprains: update of an evidence-based clinical guideline. British Journal of Sports Medicine, 52(15), 956.", "doi": "10.1136/bjsports-2017-098106"},
+        {"citation": "Bleakley, C. M. et al. (2010). Effect of accelerated rehabilitation on function after ankle sprain: randomised controlled trial. BMJ, 340, c1964.", "doi": "10.1136/bmj.c1964"},
+        {"citation": "Hupperets, M. D. W. et al. (2009). Effect of unsupervised home based proprioceptive training on recurrences of ankle sprain: randomised controlled trial. BMJ, 339, b2684.", "doi": "10.1136/bmj.b2684"}
+      ]
+    },
+    {
+      "id": "rehab-plantar-fasciitis",
+      "file": "catalog/rehab-plantar-fasciitis.wodl",
+      "title_de": "Plantarfasziitis — High-Load Krafttraining",
+      "kind": "reha",
+      "target_area": "Fuß / Plantarfaszie",
+      "difficulty": "mittel",
+      "duration": "12 Wochen",
+      "excerpt": "Einbeiniges Wadenheben mit Handtuch unter den Zehen — schwer, langsam, jeden zweiten Tag, mit RM-basierter Progression.",
+      "sources": [
+        {"citation": "Rathleff, M. S. et al. (2015). High-load strength training improves outcome in patients with plantar fasciitis: A randomized controlled trial with 12-month follow-up. Scandinavian Journal of Medicine & Science in Sports, 25(3), e292-e300.", "doi": "10.1111/sms.12313"}
+      ]
+    },
+    {
+      "id": "rehab-hamstring-askling",
+      "file": "catalog/rehab-hamstring-askling.wodl",
+      "title_de": "Hamstring-Reha: Askling L-Protokoll",
+      "kind": "reha",
+      "target_area": "Hamstrings",
+      "difficulty": "leicht",
+      "duration": "ca. 4-6 Wochen (Return im Mittel 28 Tage)",
+      "excerpt": "Drei exzentrische Übungen bei großer Muskellänge — Extender, Diver, Glider — brachten Fußballer fast doppelt so schnell zurück (28 vs. 51 Tage).",
+      "sources": [
+        {"citation": "Askling, C. M., Tengvar, M., & Thorstensson, A. (2013). Acute hamstring injuries in Swedish elite football: a prospective randomised controlled clinical trial comparing two rehabilitation protocols. British Journal of Sports Medicine, 47(15), 953-959.", "doi": "10.1136/bjsports-2013-092165"}
+      ]
+    },
+    {
+      "id": "rehab-groin-holmich",
+      "file": "catalog/rehab-groin-holmich.wodl",
+      "title_de": "Leisten-Reha: Aktives Trainingsprogramm (Hölmich-Protokoll)",
+      "kind": "reha",
+      "target_area": "Leiste / Adduktoren",
+      "difficulty": "mittel",
+      "duration": "8-12 Wochen",
+      "excerpt": "Das aktive Trainingsprogramm aus der Lancet-Studie gegen langwierigen adduktorenbezogenen Leistenschmerz: zwei Module, 79% Rückkehr aufs alte Sportniveau.",
+      "sources": [
+        {"citation": "Hölmich, P. et al. (1999). Effectiveness of active physical training as treatment for long-standing adductor-related groin pain in athletes: randomised trial. The Lancet, 353(9151), 439-443.", "doi": "10.1016/S0140-6736(98)03340-6"},
+        {"citation": "Yousefzadeh, A. et al. (2018). Effect of Holmich protocol exercise therapy on long-standing adductor-related groin pain in athletes: an objective evaluation. BMJ Open Sport & Exercise Medicine, 4(1), e000343.", "doi": "10.1136/bmjsem-2018-000343"}
+      ]
+    },
+    {
+      "id": "rehab-throwers-ten",
+      "file": "catalog/rehab-throwers-ten.wodl",
+      "title_de": "Thrower's Ten — Schulterprogramm für Überkopfathleten",
+      "kind": "reha",
+      "target_area": "Schulter/Ellenbogen (Überkopfsport)",
+      "difficulty": "mittel",
+      "duration": "fortlaufend (Off-Season-Aufbau + In-Season-Erhalt)",
+      "excerpt": "Die klassischen 10 Übungsgruppen nach Wilk für Rotatorenmanschette und Skapula bei Wurf- und Überkopfsportlern, mit Advanced-Varianten als Notizen.",
+      "sources": [
+        {"citation": "Wilk, K. E., Yenchak, A. J., Arrigo, C. A., & Andrews, J. R. (2011). The Advanced Throwers Ten Exercise Program: A New Exercise Series for Enhanced Dynamic Shoulder Control in the Overhead Throwing Athlete. The Physician and Sportsmedicine, 39(4), 90-97.", "doi": "10.3810/psm.2011.11.1943"},
+        {"citation": "Wilk, K. E., Meister, K., & Andrews, J. R. (2002). Current Concepts in the Rehabilitation of the Overhead Throwing Athlete. The American Journal of Sports Medicine, 30(1), 136-151.", "doi": "10.1177/03635465020300011201"}
+      ]
+    },
+    {
+      "id": "rehab-tennis-elbow",
+      "file": "catalog/rehab-tennis-elbow.wodl",
+      "title_de": "Tennisarm — Exzentrik & progressive Kräftigung",
+      "kind": "reha",
+      "target_area": "Ellenbogen/Unterarm",
+      "difficulty": "leicht",
+      "duration": "6-12 Wochen",
+      "excerpt": "Exzentrisches Torsionsstab-Training (Tyler Twist, 3x15 täglich mit Stufenprogression) plus progressive Kräftigung bei lateraler Epicondylalgie.",
+      "sources": [
+        {"citation": "Tyler, T. F., Thomas, G. C., Nicholas, S. J., & McHugh, M. P. (2010). Addition of isolated wrist extensor eccentric exercise to standard treatment for chronic lateral epicondylosis: A prospective randomized trial. Journal of Shoulder and Elbow Surgery, 19(6), 917-922.", "doi": "10.1016/j.jse.2010.04.041"},
+        {"citation": "Coombes, B. K., Bisset, L., & Vicenzino, B. (2015). Management of Lateral Elbow Tendinopathy: One Size Does Not Fit All. Journal of Orthopaedic & Sports Physical Therapy, 45(11), 938-949.", "doi": "10.2519/jospt.2015.5841"},
+        {"citation": "Bisset, L. et al. (2006). Mobilisation with movement and exercise, corticosteroid injection, or wait and see for tennis elbow: randomised trial. BMJ, 333(7575), 939.", "doi": "10.1136/bmj.38961.584653.ae"}
+      ]
+    },
+    {
+      "id": "rehab-frozen-shoulder",
+      "file": "catalog/rehab-frozen-shoulder.wodl",
+      "title_de": "Frozen Shoulder — stadiengerechtes Programm",
+      "kind": "reha",
+      "target_area": "Schulter",
+      "difficulty": "leicht",
+      "duration": "stadienabhängig, oft 12+ Monate Gesamtverlauf",
+      "excerpt": "Stadiengerecht nach JOSPT-Leitlinie: sanfte schmerzfreie Mobilisation bei hoher Irritabilität, endgradiges Dehnen und Kräftigung bei Steifigkeitsdominanz.",
+      "sources": [
+        {"citation": "Kelley, M. J. et al. (2013). Shoulder Pain and Mobility Deficits: Adhesive Capsulitis. Journal of Orthopaedic & Sports Physical Therapy, 43(5), A1-A31.", "doi": "10.2519/jospt.2013.0302"}
+      ]
+    },
+    {
+      "id": "rehab-neck-deep-flexor",
+      "file": "catalog/rehab-neck-deep-flexor.wodl",
+      "title_de": "Chronische Nackenschmerzen — tiefe Flexoren bis Kraft",
+      "kind": "reha",
+      "target_area": "HWS/Nacken",
+      "difficulty": "mittel",
+      "duration": "12 Wochen, Kraftphase fortlaufend",
+      "excerpt": "Von der Aktivierung der tiefen Nackenflexoren mit Druckbiofeedback über Ausdauer bis zum progressiven Kraftprogramm nach Ylinen.",
+      "sources": [
+        {"citation": "Jull, G. et al. (2002). A Randomized Controlled Trial of Exercise and Manipulative Therapy for Cervicogenic Headache. Spine, 27(17), 1835-1843.", "doi": "10.1097/00007632-200209010-00004"},
+        {"citation": "Ylinen, J. et al. (2003). Active Neck Muscle Training in the Treatment of Chronic Neck Pain in Women: A Randomized Controlled Trial. JAMA, 289(19), 2509-2516.", "doi": "10.1001/jama.289.19.2509"}
+      ]
+    },
+    {
+      "id": "prevention-nordic-hamstring",
+      "file": "catalog/prevention-nordic-hamstring.wodl",
+      "title_de": "Nordic Hamstring Präventionsprogramm (10 Wochen)",
+      "kind": "praevention",
+      "target_area": "Hamstrings",
+      "difficulty": "mittel",
+      "duration": "10 Wochen + Saison-Erhaltung",
+      "excerpt": "Die 10-Wochen-Original-Progression des Nordic Hamstring Curl — laut Meta-Analyse mit 8459 Athleten halbiert sie die Hamstring-Verletzungsrate.",
+      "sources": [
+        {"citation": "Mjølsnes, R. et al. (2004). A 10-week randomized trial comparing eccentric vs. concentric hamstring strength training in well-trained soccer players. Scandinavian Journal of Medicine & Science in Sports, 14(5), 311-317.", "doi": "10.1046/j.1600-0838.2003.367.x"},
+        {"citation": "Petersen, J. et al. (2011). Preventive Effect of Eccentric Training on Acute Hamstring Injuries in Men's Soccer: A Cluster-Randomized Controlled Trial. The American Journal of Sports Medicine, 39(11), 2296-2303.", "doi": "10.1177/0363546511419277"},
+        {"citation": "van Dyk, N., Behan, F. P., & Whiteley, R. (2019). Including the Nordic hamstring exercise in injury prevention programmes halves the rate of hamstring injuries: a systematic review and meta-analysis of 8459 athletes. British Journal of Sports Medicine, 53(21), 1362-1370.", "doi": "10.1136/bjsports-2018-100045"}
+      ]
+    },
+    {
+      "id": "prevention-copenhagen-adduction",
+      "file": "catalog/prevention-copenhagen-adduction.wodl",
+      "title_de": "Copenhagen Adduction Präventionsprogramm (8 Wochen)",
+      "kind": "praevention",
+      "target_area": "Adduktoren / Leiste",
+      "difficulty": "mittel",
+      "duration": "8 Wochen + Saison-Erhaltung (1x/Woche)",
+      "excerpt": "Eine einzige Partnerübung mit 8-Wochen-Original-Progression: Das Adductor Strengthening Programme senkte Leistenprobleme bei Fußballern um 41%.",
+      "sources": [
+        {"citation": "Harøy, J. et al. (2019). The Adductor Strengthening Programme prevents groin problems among male football players: a cluster-randomised controlled trial. British Journal of Sports Medicine, 53(3), 150-157.", "doi": "10.1136/bjsports-2017-098937"},
+        {"citation": "Ishøi, L. et al. (2016). Large eccentric strength increase using the Copenhagen Adduction exercise in football: A randomized controlled trial. Scandinavian Journal of Medicine & Science in Sports, 26(11), 1334-1342.", "doi": "10.1111/sms.12585"}
+      ]
+    },
+    {
+      "id": "prevention-fifa-11plus",
+      "file": "catalog/prevention-fifa-11plus.wodl",
+      "title_de": "FIFA 11+ Aufwärmprogramm",
+      "kind": "praevention",
+      "target_area": "Ganzkörper (untere Extremität)",
+      "difficulty": "leicht",
+      "duration": "laufend, ~20 min, mind. 2x/Woche",
+      "excerpt": "Das komplette FIFA-11+-Warm-up mit allen drei Teilen und den drei Schwierigkeitsleveln — 20 Minuten pro Einheit mit belegter Verletzungsprävention.",
+      "sources": [
+        {"citation": "Soligard, T. et al. (2008). Comprehensive warm-up programme to prevent injuries in young female footballers: cluster randomised controlled trial. BMJ, 337, a2469.", "doi": "10.1136/bmj.a2469"},
+        {"citation": "Silvers-Granelli, H. et al. (2015). Efficacy of the FIFA 11+ Injury Prevention Program in the Collegiate Male Soccer Player. The American Journal of Sports Medicine, 43(11), 2628-2637.", "doi": "10.1177/0363546515602009"},
+        {"citation": "Bizzini, M., & Dvorak, J. (2015). FIFA 11+: an effective programme to prevent football injuries in various player groups worldwide—a narrative review. British Journal of Sports Medicine, 49(9), 577-579.", "doi": "10.1136/bjsports-2015-094765"}
+      ]
+    },
+    {
+      "id": "strength-novice-lp",
+      "file": "catalog/strength-novice-lp.wodl",
+      "title_de": "Anfänger-Langhantel-LP — A/B Ganzkörper 3x/Woche",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "leicht",
+      "duration": "12-36 Wochen (bis die LP stagniert)",
+      "excerpt": "Klassische Anfänger-Linearprogression: zwei Ganzkörper-Workouts im Wechsel, 3x5 bzw. 5x5, Steigerung jede Einheit plus 10%-Deload-Regel.",
+      "sources": [
+        {"citation": "Rippetoe, M. Starting Strength (Konzept-Attribution; Parameter frei publiziert auf startingstrength.com).", "doi": ""},
+        {"citation": "Mehdi, F. StrongLifts 5x5: The Complete Workout Guide (frei publiziert auf stronglifts.com).", "doi": ""}
+      ]
+    },
+    {
+      "id": "strength-531-basic",
+      "file": "catalog/strength-531-basic.wodl",
+      "title_de": "5/3/1 Grundzyklus (Wendler) — 4-Wochen-Welle",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "mittel",
+      "duration": "4-Wochen-Zyklus, fortlaufend",
+      "excerpt": "Jim Wendlers 5/3/1: vier Einheiten um je eine Grundübung, 4-Wochen-Welle mit AMRAP-Top-Satz und Deload, Training Max = 90% 1RM.",
+      "sources": [
+        {"citation": "Wendler, J. (2009). 5/3/1: How to Build Pure Strength. T-Nation (frei publizierter Original-Artikel).", "doi": ""},
+        {"citation": "Wendler, J. Boring But Big. jimwendler.com (frei publiziert).", "doi": ""}
+      ]
+    },
+    {
+      "id": "strength-texas-method",
+      "file": "catalog/strength-texas-method.wodl",
+      "title_de": "Texas Method — Intermediate-Wochenzyklus",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "schwer",
+      "duration": "fortlaufender Wochenzyklus",
+      "excerpt": "Intermediate-Zyklus nach Rippetoe/Baker: Volume Day 5x5 mit 90% des 5RM, leichter Recovery Day, Intensity Day mit neuem 5RM.",
+      "sources": [
+        {"citation": "Rippetoe, M. The Texas Method. startingstrength.com (frei publiziert).", "doi": ""},
+        {"citation": "Baker, A. Understanding the Texas Method Intensity Day. startingstrength.com (frei publiziert).", "doi": ""}
+      ]
+    },
+    {
+      "id": "strength-gzclp",
+      "file": "catalog/strength-gzclp.wodl",
+      "title_de": "GZCLP — Lineare Progression in drei Tiers",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "mittel",
+      "duration": "12+ Wochen, reset-basiert",
+      "excerpt": "Cody Lefevers GZCLP: pro Einheit drei Tiers (T1 5x3+ schwer, T2 3x10, T3 3x15+) mit den originalen Stall-Leitern als Progressionslogik.",
+      "sources": [
+        {"citation": "Lefever, C. (2016). GZCL Applications & Adaptations. Swole at Every Height (frei publizierter Original-Blogpost).", "doi": ""}
+      ]
+    },
+    {
+      "id": "hypertrophy-helms-novice",
+      "file": "catalog/hypertrophy-helms-novice.wodl",
+      "title_de": "Hypertrophie Novize — Ganzkörper (Pyramid-Prinzipien)",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "leicht",
+      "duration": "fortlaufend (Double Progression)",
+      "excerpt": "Ganzkörper 3x/Woche nach den Muscle-&-Strength-Pyramid-Prinzipien: 8-12 Reps, RIR-Steuerung, Progression erst über Reps, dann Last.",
+      "sources": [
+        {"citation": "Helms, E., Morgan, A., & Valdez, A. (2019). The Muscle and Strength Pyramid: Training (Konzept-Attribution, keine Buchinhalte).", "doi": ""},
+        {"citation": "Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2017). Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis. Journal of Sports Sciences, 35(11), 1073-1082.", "doi": "10.1080/02640414.2016.1210197"},
+        {"citation": "Helms, E. R., Cronin, J., Storey, A., & Zourdos, M. C. (2016). Application of the Repetitions in Reserve-Based Rating of Perceived Exertion Scale for Resistance Training. Strength and Conditioning Journal, 38(4), 42-49.", "doi": "10.1519/SSC.0000000000000218"}
+      ]
+    },
+    {
+      "id": "hypertrophy-helms-intermediate",
+      "file": "catalog/hypertrophy-helms-intermediate.wodl",
+      "title_de": "Hypertrophie Intermediate — Upper/Lower (Pyramid-Prinzipien)",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "mittel",
+      "duration": "4-Wochen-Zyklus, fortlaufend",
+      "excerpt": "Upper/Lower 4x/Woche nach Pyramid-Prinzipien: 10-15+ Sätze pro Muskelgruppe, Rep-Bereiche 6-15, RIR-gesteuert, Deload in Woche 4.",
+      "sources": [
+        {"citation": "Helms, E., Morgan, A., & Valdez, A. (2019). The Muscle and Strength Pyramid: Training (Konzept-Attribution, keine Buchinhalte).", "doi": ""},
+        {"citation": "Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2016). Effects of Resistance Training Frequency on Measures of Muscle Hypertrophy: A Systematic Review and Meta-Analysis. Sports Medicine, 46(11), 1689-1697.", "doi": "10.1007/s40279-016-0543-8"},
+        {"citation": "Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2017). Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis. Journal of Sports Sciences, 35(11), 1073-1082.", "doi": "10.1080/02640414.2016.1210197"}
+      ]
+    },
+    {
+      "id": "powerlifting-helms-novice",
+      "file": "catalog/powerlifting-helms-novice.wodl",
+      "title_de": "Powerlifting Novize — SBD 4x/Woche (Pyramid-Prinzipien)",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "mittel",
+      "duration": "fortlaufend, wöchentliche Progression",
+      "excerpt": "Kraftdreikampf für Novizen: RPE-gesteuerte Hauptarbeit an Squat/Bench/Deadlift, Backoff-Sätze und Hypertrophie-Assistance.",
+      "sources": [
+        {"citation": "Helms, E., Morgan, A., & Valdez, A. (2019). The Muscle and Strength Pyramid: Training (Konzept-Attribution, keine Buchinhalte).", "doi": ""},
+        {"citation": "Helms, E. R., Cronin, J., Storey, A., & Zourdos, M. C. (2016). Application of the Repetitions in Reserve-Based Rating of Perceived Exertion Scale for Resistance Training. Strength and Conditioning Journal, 38(4), 42-49.", "doi": "10.1519/SSC.0000000000000218"},
+        {"citation": "Helms, E. R. et al. (2018). RPE vs. Percentage 1RM Loading in Periodized Programs Matched for Sets and Repetitions. Frontiers in Physiology, 9, 247.", "doi": "10.3389/fphys.2018.00247"}
+      ]
+    },
+    {
+      "id": "hypertrophy-fullbody-highfreq",
+      "file": "catalog/hypertrophy-fullbody-highfreq.wodl",
+      "title_de": "Ganzkörper Hochfrequenz-Hypertrophie 4x/Woche",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "mittel",
+      "duration": "4-Wochen-Zyklus, fortlaufend",
+      "excerpt": "Jede Muskelgruppe 3-4x/Woche mit wenigen hochwertigen Sätzen — Wochenvolumen auf kurze, erholsame Einheiten verteilt, RIR-gesteuert.",
+      "sources": [
+        {"citation": "Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2016). Effects of Resistance Training Frequency on Measures of Muscle Hypertrophy: A Systematic Review and Meta-Analysis. Sports Medicine, 46(11), 1689-1697.", "doi": "10.1007/s40279-016-0543-8"},
+        {"citation": "Schoenfeld, B. J., Grgic, J., & Krieger, J. (2019). How many times per week should a muscle be trained to maximize muscle hypertrophy? A systematic review and meta-analysis of studies examining the effects of resistance training frequency. Journal of Sports Sciences, 37(11), 1286-1295.", "doi": "10.1080/02640414.2018.1555906"}
+      ]
+    },
+    {
+      "id": "special-otago-falls-prevention",
+      "file": "catalog/special-otago-falls-prevention.wodl",
+      "title_de": "Sturzprophylaxe für Ältere (Otago-Programm)",
+      "kind": "spezial",
+      "target_area": "Ganzkörper (Beinkraft, Balance)",
+      "difficulty": "leicht",
+      "duration": "12 Monate (Stufen A-D nach Fähigkeit)",
+      "excerpt": "Heimbasiertes Kraft- und Balance-Programm mit Gehplan für Ältere — in vier kontrollierten Studien rund 35% weniger Stürze.",
+      "sources": [
+        {"citation": "Campbell, A. J. et al. (1997). Randomised controlled trial of a general practice programme of home based exercise to prevent falls in elderly women. BMJ, 315(7115), 1065-1069.", "doi": "10.1136/bmj.315.7115.1065"},
+        {"citation": "Robertson, M. C., Devlin, N., Gardner, M. M., & Campbell, A. J. (2001). Effectiveness and economic evaluation of a nurse delivered home exercise programme to prevent falls. 1: Randomised controlled trial. BMJ, 322(7288), 697.", "doi": "10.1136/bmj.322.7288.697"},
+        {"citation": "ACC New Zealand (2007). Otago Exercise Programme to prevent falls in older adults (ACC1162, offizielles Manual).", "doi": ""}
+      ]
+    },
+    {
+      "id": "special-osteoporosis-hirit",
+      "file": "catalog/special-osteoporosis-hirit.wodl",
+      "title_de": "Osteoporose: HiRIT Knochen-Krafttraining",
+      "kind": "spezial",
+      "target_area": "Ganzkörper (LWS, Schenkelhals)",
+      "difficulty": "schwer",
+      "duration": "8 Monate (Monat 1 = Anlaufphase)",
+      "excerpt": "Supervidiertes 30-Minuten-Protokoll nach dem LIFTMOR-Trial: schweres 5x5 plus Impact-Training verbessert die Knochendichte bei Osteopenie/Osteoporose.",
+      "sources": [
+        {"citation": "Watson, S. L. et al. (2018). High-Intensity Resistance and Impact Training Improves Bone Mineral Density and Physical Function in Postmenopausal Women With Osteopenia and Osteoporosis: The LIFTMOR Randomized Controlled Trial. Journal of Bone and Mineral Research, 33(2), 211-220.", "doi": "10.1002/jbmr.3284"}
+      ]
+    },
+    {
+      "id": "sport-inseason-maintenance",
+      "file": "catalog/sport-inseason-maintenance.wodl",
+      "title_de": "In-Season Krafterhalt (Teamsport)",
+      "kind": "leistungssport",
+      "target_area": "Ganzkörper (Unterkörper-Fokus)",
+      "difficulty": "mittel",
+      "duration": "fortlaufend (ganze Saison)",
+      "excerpt": "Eine schwere Einheit pro Woche bei ~85% 1RM und niedrigem Volumen hält Maximalkraft, Sprint- und Sprungleistung über die Saison.",
+      "sources": [
+        {"citation": "Rønnestad, B. R., Nymark, B. S., & Raastad, T. (2011). Effects of In-Season Strength Maintenance Training Frequency in Professional Soccer Players. Journal of Strength and Conditioning Research, 25(10), 2653-2660.", "doi": "10.1519/JSC.0b013e31822dcd96"}
+      ]
+    },
+    {
+      "id": "sport-offseason-block",
+      "file": "catalog/sport-offseason-block.wodl",
+      "title_de": "Off-Season Kraftblock (Teamsport, 12 Wochen)",
+      "kind": "leistungssport",
+      "target_area": "Ganzkörper",
+      "difficulty": "schwer",
+      "duration": "12 Wochen (kürzbar auf 8)",
+      "excerpt": "Blockperiodisierter Off-Season-Aufbau: anatomische Anpassung, Maximalkraft und Power mit integrierter Plyometrie-Progression in drei Blöcken.",
+      "sources": [
+        {"citation": "Issurin, V. B. (2010). New Horizons for the Methodology and Physiology of Training Periodization. Sports Medicine, 40(3), 189-206.", "doi": "10.2165/11319770-000000000-00000"},
+        {"citation": "Haff, G. G., & Triplett, N. T. (2016). Essentials of Strength Training and Conditioning (4. Aufl., Human Kinetics). Konzept-Attribution.", "doi": ""}
+      ]
+    },
+    {
+      "id": "rehab-acl-postop",
+      "file": "examples/rehab-acl-postop.wodl",
+      "title_de": "VKB-Reha (post-OP)",
+      "kind": "reha",
+      "target_area": "Knie",
+      "difficulty": "mittel",
+      "duration": "24+ Wochen (4 Phasen)",
+      "excerpt": "Kreuzband-Nachbehandlung nach Wilk & Arrigo / van Melick — zeitorientierte 4-Phasen-Referenz.",
+      "sources": [
+        {"citation": "Wilk, K. E., & Arrigo, C. A. (2017). Rehabilitation Principles of the Anterior Cruciate Ligament Reconstructed Knee: Twelve Steps for Successful Progression and Return to Play. Clinics in Sports Medicine (JOSPT-Serie, s. Datei).", "doi": ""},
+        {"citation": "van Melick, N. et al. (2016). Evidence-based clinical practice update: practice guidelines for anterior cruciate ligament rehabilitation. British Journal of Sports Medicine, 50(24), 1506-1515.", "doi": "10.1136/bjsports-2015-095898"}
+      ]
+    },
+    {
+      "id": "rehab-rotator-cuff",
+      "file": "examples/rehab-rotator-cuff.wodl",
+      "title_de": "Rotatorenmanschette-Reha",
+      "kind": "reha",
+      "target_area": "Schulter",
+      "difficulty": "mittel",
+      "duration": "12+ Wochen",
+      "excerpt": "Konservative Schulter-Reha nach Ellenbecker / Kuhn (MOON-Protokoll).",
+      "sources": [
+        {"citation": "Kuhn, J. E. (2009). Exercise in the treatment of rotator cuff impingement: A systematic review and a synthesized evidence-based rehabilitation protocol. Journal of Shoulder and Elbow Surgery, 18(1), 138-160.", "doi": ""}
+      ]
+    },
+    {
+      "id": "rehab-lbp-mcgill",
+      "file": "examples/rehab-lbp-mcgill.wodl",
+      "title_de": "LWS — McGill Big 3",
+      "kind": "reha",
+      "target_area": "LWS / Rumpf",
+      "difficulty": "leicht",
+      "duration": "fortlaufend, täglich",
+      "excerpt": "Unterer Rücken: McGill Big 3 mit Reverse-Pyramide (10-8-6).",
+      "sources": [
+        {"citation": "McGill, S. (2016). Low Back Disorders: Evidence-Based Prevention and Rehabilitation (3. Aufl., Human Kinetics). Konzept-Attribution.", "doi": ""}
+      ]
+    },
+    {
+      "id": "rehab-achilles-alfredson",
+      "file": "examples/rehab-achilles-alfredson.wodl",
+      "title_de": "Achillessehne — Alfredson",
+      "kind": "reha",
+      "target_area": "Achillessehne / Wade",
+      "difficulty": "mittel",
+      "duration": "12 Wochen",
+      "excerpt": "Exzentrisches Alfredson-Protokoll (3x15, 2x täglich), 12 Wochen.",
+      "sources": [
+        {"citation": "Alfredson, H., Pietilä, T., Jonsson, P., & Lorentzon, R. (1998). Heavy-Load Eccentric Calf Muscle Training For the Treatment of Chronic Achilles Tendinosis. The American Journal of Sports Medicine, 26(3), 360-366.", "doi": ""}
+      ]
+    },
+    {
+      "id": "beginner-full-body",
+      "file": "examples/beginner-full-body.wodl",
+      "title_de": "Anfänger Ganzkörper",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "leicht",
+      "duration": "fortlaufend",
+      "excerpt": "Ganzkörper-Einstieg, 3x/Woche — Technik & Grundlagen.",
+      "sources": [{"citation": "Rhea, M. R. et al. (2003). Meta-Analyse Trainingsvolumen (s. Datei).", "doi": ""}]
+    },
+    {
+      "id": "home-minimal",
+      "file": "examples/home-minimal.wodl",
+      "title_de": "Minimal zuhause",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "leicht",
+      "duration": "fortlaufend",
+      "excerpt": "Ohne Geräte, nur Körpergewicht — überall trainierbar.",
+      "sources": [{"citation": "Schoenfeld, B. J. et al. (2017). (s. Datei).", "doi": ""}]
+    },
+    {
+      "id": "minimalist-3day",
+      "file": "examples/minimalist-3day.wodl",
+      "title_de": "Minimalist 3 Tage",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "leicht",
+      "duration": "fortlaufend",
+      "excerpt": "Wenig Volumen, große Grundübungen — zeiteffizient.",
+      "sources": [{"citation": "Schoenfeld, B. J. et al. (2019). (s. Datei).", "doi": ""}]
+    },
+    {
+      "id": "upper-lower-strength",
+      "file": "examples/upper-lower-strength.wodl",
+      "title_de": "Ober-/Unterkörper Kraft",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "mittel",
+      "duration": "fortlaufend",
+      "excerpt": "4x/Woche, Kraftfokus mit 5×5-Progression.",
+      "sources": [{"citation": "Peterson, M. D. et al. (2005). (s. Datei).", "doi": ""}]
+    },
+    {
+      "id": "push-pull-4day",
+      "file": "examples/push-pull-4day.wodl",
+      "title_de": "Push/Pull 4 Tage",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "mittel",
+      "duration": "fortlaufend",
+      "excerpt": "Druck-/Zug-Split, 4x/Woche, ausgewogenes Volumen.",
+      "sources": [{"citation": "Schoenfeld, B. J. et al. (2016). (s. Datei).", "doi": ""}]
+    },
+    {
+      "id": "ppl-hypertrophy",
+      "file": "examples/ppl-hypertrophy.wodl",
+      "title_de": "Push-Pull-Beine Hypertrophie",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "schwer",
+      "duration": "fortlaufend",
+      "excerpt": "6x/Woche PPL, hohes Volumen für Muskelaufbau.",
+      "sources": [{"citation": "Schoenfeld, B. J. et al. (2017). (s. Datei).", "doi": ""}]
+    },
+    {
+      "id": "powerbuilding-5day",
+      "file": "examples/powerbuilding-5day.wodl",
+      "title_de": "Powerbuilding 5 Tage",
+      "kind": "training",
+      "target_area": "Ganzkörper",
+      "difficulty": "schwer",
+      "duration": "fortlaufend",
+      "excerpt": "Kraft + Hypertrophie kombiniert, 5x/Woche.",
+      "sources": [{"citation": "Schoenfeld, B. J. et al. (2014). (s. Datei).", "doi": ""}]
+    }
+  ]
+}

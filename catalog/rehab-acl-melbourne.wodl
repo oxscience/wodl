@@ -1,0 +1,158 @@
+@plan "VKB-Reha nach dem Melbourne ACL Guide 2.0 (kriterienbasiert)"
+@freq daily
+@unit kg
+
+# ============================================================
+# Kriterienbasiertes VKB-Reha-Protokoll (ACL reconstruction) nach dem
+# Melbourne ACL Rehabilitation Guide 2.0 von Randall Cooper & Mick Hughes
+# (frei verfuegbares PDF, aclrehab.com).
+#
+# UNTERSCHIED zum generischen Protokoll (examples/rehab-acl-postop.wodl):
+#   Das generische Protokoll ist ZEITBASIERT (Woche 0-24, van Melick/Wilk).
+#   Dieses Melbourne-Schema ist KRITERIENBASIERT: Die Progression von Phase zu
+#   Phase wird ausschliesslich durch objektive Test-Batterien freigegeben
+#   (Stroke-Test fuer Erguss, Single-Leg-Squat-Rating, Hop-Test-LSI >95%,
+#   Melbourne Return-to-Sport Score >95). Die Kriterien bestimmen das Tempo,
+#   nicht die Uhr. Uebungen sind hier nur Beispiele; das Herzstueck sind die
+#   Progressions-Kriterien in den >-Notizen.
+#
+# Quellen (web-verifiziert):
+#   - Cooper, R. & Hughes, M. (2018). Melbourne ACL Rehabilitation Guide 2.0.
+#     Frei verfuegbares klinisches Protokoll-PDF (aclrehab.com).
+#   - Grindem, H., Snyder-Mackler, L., Moksnes, H., Engebretsen, L., & Risberg,
+#     M. A. (2016). Simple decision rules can reduce reinjury risk by 84% after
+#     ACL reconstruction: the Delaware-Oslo ACL cohort study. British Journal of
+#     Sports Medicine, 50(13), 804-808. DOI: 10.1136/bjsports-2016-096031
+#   - van Melick, N., van Cingel, R. E. H., Brooijmans, F., Neeter, C., et al.
+#     (2016). Evidence-based clinical practice update: practice guidelines for
+#     anterior cruciate ligament rehabilitation based on a systematic review and
+#     multidisciplinary consensus. British Journal of Sports Medicine, 50(24),
+#     1506-1515. DOI: 10.1136/bjsports-2015-095898
+#
+# WICHTIG: Ersetzt KEINE individuelle aerztliche/physiotherapeutische Betreuung.
+# Meilensteine (Return to Running, Return to Sport) gibt das betreuende Team
+# nach Testung frei - nicht die Zeitachse. Return to Sport fruehestens 9 Monate
+# post-OP (Melbourne-Empfehlung + Grindem 2016: Risiko sinkt je 30 Tage spaeter).
+# ============================================================
+
+# ----- Pre-OP Phase -----
+# Ziele (die 3 wichtigsten): Erguss eliminieren, volle ROM, 90% Quad-/Hamstring-
+# Kraft im Seitenvergleich. Praeoperativ optimierter Zustand verbessert Outcome.
+
+---[Pre-OP: Vorbereitung OP] Mo Di Mi Do Fr
+
+Quad Set              5x10    @ISO    # 5s halten, Quadriceps aktiv anspannen
+Straight Leg Raise    3x10    r30s
+Heel Slide            3x10    r30s    # volle ROM zurueckgewinnen
+Glute Bridge          3x12    r30s
+Leg Press             3x12    @RPE6   r90s   # Kraftaufbau soweit schmerzfrei
+Single Leg Balance    3x30s   r30s
+
+> Progressions-Kriterien Pre-OP -> OP (Outcome-Tests):
+> - Passive Extension: 0 Grad (Prone Hang / Goniometer)
+> - Erguss: Stroke-Test Zero bis 1+
+> - Quad- + Hamstring-Kraft (Handheld-Dynamometer): >=90% Seitenvergleich
+> - Single-Hop-Test-LSI: >=90% Seitenvergleich
+> Ziel: mit "ruhigem", starkem Knie in die OP gehen.
+
+# ----- Phase 1 — Recovery from Surgery -----
+# Ziele (die 3 wichtigsten): Knie strecken (volle Extension!), Schwellung auf
+# 'mild' senken, Quadriceps wieder aktivieren. Erste 1-2 Wochen nur Basis-ROM
+# und Quad-Setting, Kompression, Hochlagern.
+
+---[Phase 1: Recovery from Surgery] Mo Di Mi Do Fr Sa So
+
+Quad Set              5x10    @ISO    # oberste Prioritaet: Quad-Ansteuerung
+Straight Leg Raise    3x10    r30s    # ohne Extension-Lag
+Heel Slide            3x10    r30s
+Ankle Pumps           3x20    r15s    # gegen Thromboserisiko
+Glute Bridge          3x10    r30s
+
+> Kryotherapie + Kompression mehrmals taeglich, Bein hochlagern.
+> Volle passive Extension IMMER hoechste Prioritaet (Prone-Hang-Test).
+> Progressions-Kriterien Phase 1 -> Phase 2:
+> - Passive Extension: 0 Grad (voll gestreckt), Flexion 125+
+> - Quadriceps-Lag-Test: 0 bis 5 Grad Lag (Quad feuert, kann Bein aktiv halten)
+> - Erguss: Stroke-Test Zero bis 1+ (Schwellung 'mild')
+
+# ----- Phase 2 — Strength & Neuromuscular Control -----
+# Groesster Teil der Reha. Ziele (die 3 wichtigsten): Single-Leg-Balance
+# wiederherstellen, Muskelkraft wiederherstellen, Single-Leg-Squat mit sauberer
+# Technik/Alignment. KEIN Lauf-/Sprungtraining - das gehoert in Phase 3.
+
+---[Phase 2: Strength & Neuromuscular Control] Mo Mi Fr
+
+Leg Press             4x12    @RPE7   r120s   # progressiver Kraftaufbau
+Mini Squat            3x15    r60s
+Step-up               3x12    r60s            # niedrige Stufe, Alignment betonen
+Step-down             3x10    r60s            # kontrollierte Exzentrik
+Single Leg Bridge     3x12    r45s
+Single-Leg Calf Raise 3x15    r45s
+ss {
+  Side-Lying Hip Abduction  3x15  r30s
+  Side Plank                3x30s r30s
+}
+Single Leg Balance    3x45s   r30s            # Propriozeption, ggf. instabile Unterlage
+
+> Fahrradergometer 10-15 min als Warm-up sinnvoll.
+> Progressions-Kriterien Phase 2 -> Phase 3 (Hurdle-Kriterien vor Phase-3-Test):
+> - Volle ROM (Prone-Hang + Flexion 125+)
+> - Kein Erguss (Stroke-Test Zero)
+> - Single-Leg-Squat-Test: Rating "good" (Crossley 2011, saubere Achse, 5x)
+> - Kein Seitenunterschied bei Single-Leg-Bridge, Single-Leg-Calf-Raise,
+>   Side-Bridge-Endurance (jeweils >85% als Hurdle, kein Side-to-Side-Defizit)
+
+# ----- Phase 3 — Running, Agility & Landings -----
+# Knie ist schmerz- und schwellungsfrei. Ziele (die 3 wichtigsten): exzellente
+# Hopping-Leistung (Technik, Distanz, Ausdauer), erfolgreiches Agility-Programm +
+# modifiziertes Spiel, volle Kraft und Balance. Fokus auf saubere Lande- und
+# Decel-Biomechanik VOR Rueckkehr zum Sport. Patellofemoral-Ueberlastung beobachten.
+
+---[Phase 3: Running, Agility & Landings] Mo Mi Fr
+
+Squat                 4x8     @RPE7   r150s   +2.5kg/w   t3010
+Leg Press             4x8     @RPE7   r120s
+Bulgarian Split Squat 3x10    @RPE7   r90s
+RDL                   3x10    @RPE7   r90s
+Leg Curl              3x12    r60s
+Box Jump              3x5     r120s           # Landetechnik, niedrige Box zuerst
+ss {
+  Lateral Bound       3x6     r60s            # kontrollierte Seit-Landung
+  Single Leg Bridge   3x12    r45s
+}
+
+> Agility separat: Slalom, Shuttle-Runs, Ladder-Drills; Scissor-/Single-Hops
+> progressiv zu Box Jumps und Single-Leg-Landings mit Perturbationen.
+> Rest/Recovery wichtig (viel Exzentrik). Change-of-Direction unter Supervision.
+> Progressions-Kriterien Phase 3 -> Phase 4 (Hop-Test-Batterie, LSI-Ziele):
+> - Single-Hop-Test: LSI >95% UND >= praeoperativer Bestwert
+> - Triple-Hop-Test: LSI >95%
+> - Triple-Crossover-Hop-Test: LSI >95%
+> - Side-Hop-Test bestanden
+> Supplementaer (Bonus, kein Roadblock): 1RM Single-Leg-Press 1.8x KG,
+> Squat-1RM 1.8x KG.
+
+# ----- Phase 4 — Return to Sport (+ Phase 5 Prevention) -----
+# Hochindividuell. Sport-uebliche Uebungen integrieren. Fokus: gesamter Mensch,
+# nicht nur das Knie - Vertrauen und mentale Readiness durch erfolgreiche
+# Trainings-/Spielsituationen. Progressiv von eingeschraenkt zu uneingeschraenkt.
+
+---[Phase 4: Return to Sport] Mo Mi Fr
+
+Squat                 4x6     @RPE8   r180s   +2.5kg/w
+Deadlift              3x6     @RPE7   r180s
+Bulgarian Split Squat 3x8     @RPE7   r90s
+Box Jump              4x5     r120s
+ss {
+  Lateral Bound       3x6     r60s
+  Single-Leg Calf Raise  3x15  r45s
+}
+Leg Curl              3x12    r60s
+
+> Return-to-Sport-Kriterien (die 3 Schluessel, Melbourne Guide):
+> - Melbourne Return to Sport Score >95 (Hop-Batterie + IKDC + ACL-RSI kombiniert)
+> - Athlet ist bequem, sicher und motiviert zurueckzukehren (ACL-RSI & IKDC)
+> - Verletzungspraeventions-Programm besprochen, implementiert und fortgefuehrt
+>   (>=15 min vor jedem Training/Spiel - Phase 5 Prevention, dauerhaft)
+> Fruehestens 9 Monate post-OP (Melbourne + Grindem 2016). Zeit ist Voraussetzung,
+> die Test-Kriterien sind die Freigabe.

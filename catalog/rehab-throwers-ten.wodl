@@ -1,0 +1,71 @@
+@plan "Thrower's Ten — Schulterprogramm für Überkopfathleten"
+@freq 3x/week
+@unit kg
+
+# ============================================================
+# Thrower's Ten (Wilk / ASMI): die klassischen 10 Übungsgruppen zur Kräftigung
+# der Rotatorenmanschette, Skapula- und Arm-Muskulatur bei Wurf- und
+# Überkopfsportlern (Baseball, Handball, Volleyball, Tennis, Speer).
+#
+# Quellen (evidence-based, verifiziert via Crossref):
+#   - Wilk, K. E., Yenchak, A. J., Arrigo, C. A., & Andrews, J. R. (2011).
+#     The Advanced Throwers Ten Exercise Program: A New Exercise Series for
+#     Enhanced Dynamic Shoulder Control in the Overhead Throwing Athlete.
+#     The Physician and Sportsmedicine, 39(4), 90-97. DOI 10.3810/psm.2011.11.1943
+#   - Wilk, K. E., Meister, K., & Andrews, J. R. (2002).
+#     Current Concepts in the Rehabilitation of the Overhead Throwing Athlete.
+#     The American Journal of Sports Medicine, 30(1), 136-151.
+#     DOI 10.1177/03635465020300011201
+#   - Dosierung und Übungsfolge nach frei publizierten Programm-Handouts
+#     (kevinwilk.com, UF Health Orthopaedics).
+#
+# WICHTIG: Im Reha-Kontext (z.B. nach Wurfschulter-Verletzung) ersetzt dieses
+# Programm keine individuelle Betreuung — Belastungssteigerung und Rückkehr
+# zum Wurf gibt das betreuende Team frei, nicht die Zeitachse.
+# ============================================================
+
+# ----- Das Kernprogramm -----
+# Off-Season/Aufbau: 2x10 pro Übung, 2-3x/Woche.
+# In-Season-Erhalt: auf 1x10 reduzieren, 1-2x/Woche.
+# Last bewusst leicht (1-2kg Kurzhantel, leichtes Band) — Qualität vor Gewicht.
+
+---[Thrower's Ten (Aufbau / Off-Season)] Mo Mi Fr
+
+PNF D2 Flexion                    2x10  @low  r30s   # PNF-Diagonale mit Band: von Gegenhüfte nach schräg oben-außen
+PNF D2 Extension                  2x10  @low  r30s   # PNF-Diagonale zurück: von oben-außen zur Gegenhüfte
+Band External Rotation            2x10  @low  r30s   # Ellbogen 90° am Körper fixiert
+Band Internal Rotation            2x10  @low  r30s
+External Rotation at Shoulder Level 2x10 @low r30s   # Optional: Band, 90° Abduktion — nur bei guter Toleranz
+Internal Rotation at Shoulder Level 2x10 @low r30s   # Optional: wurfspezifischere Position
+Shoulder Abduction                2x10  @1kg  r30s   # Kurzhantel, nur bis 90° (Schulterhöhe)
+Full Can Raise                    2x10  @1kg  r30s   # Scaption 30° vor der Frontalebene, Daumen hoch, 2s halten
+Sidelying Dumbbell External Rotation 2x10 @1kg r30s  # Seitlage, Ellbogen am Körper, 2s halten
+Prone Horizontal Abduction        2x10  @1kg  r30s   # Bauchlage, Arm neutral bis parallel zum Boden, 2s halten
+Prone Horizontal Abduction Full ER 2x10 @1kg  r30s   # Daumen hoch ("Hitchhiker"), ~100° Abduktion
+Prone Rowing                      2x10  @1kg  r30s   # Bauchlage, Ellbogen nach oben ziehen, 2s halten
+Prone Rowing into ER              2x10  @1kg  r30s   # Zweiphasig: rudern, 1s Pause, dann außenrotieren
+Seated Press-up                   2x10  @BW   r30s   # Sitzend an Stuhllehne/Tischkante hochdrücken
+Push-up                           2x10  @BW   r30s   # Progression: Wand → Knie → Boden
+Dumbbell Curl                     2x10  @2kg  r30s
+Overhead Tricep Extension         2x10  @2kg  r30s   # Gegenhand stützt am Ellbogen
+Wrist Extension                   2x10  @1kg  r30s   # Unterarm aufgelegt, 2s halten
+Wrist Flexion                     2x10  @1kg  r30s
+Wrist Supination                  2x10  @1kg  r30s   # Hammer-Griff, Handfläche dreht nach oben
+Wrist Pronation                   2x10  @1kg  r30s
+
+> Alle Übungen langsam und kontrolliert, am Endpunkt jeweils ca. 2s halten.
+> In-Season: Volumen auf 1x10 pro Übung senken, 1-2x/Woche als Erhaltungsdosis.
+> Progressionskriterium: erst Last steigern, wenn 2x10 ohne Ausweichbewegung
+> (Schulterhochziehen, Rumpf-Schwung) und ohne Ermüdungs-Zittern gelingen.
+>
+> ADVANCED-VARIANTE (Wilk et al. 2011, Advanced Throwers Ten):
+> Übungen auf dem Gymnastikball sitzend bzw. bäuchlings ausführen und als
+> 3-Satz-Serie strukturieren — Satz 1 beidarmig, Satz 2 einarmig, während der
+> Gegenarm die Endposition isometrisch hält (sustained hold), Satz 3 alternierend.
+> Das erhöht Zeit unter Spannung, Rumpfarbeit und Ermüdungsresistenz.
+> Weitere Advanced-Elemente: Tilt-Board Push-ups, Seated Scapular Retraction
+> into ER, Seated Low Trap, Seated Neuromuscular Control (manueller Widerstand).
+> Erst einsetzen, wenn das Basisprogramm sauber und beschwerdefrei läuft.
+>
+> Rückkehr zum Wurf: nur über ein graduiertes Interval Throwing Program
+> und nach Freigabe durch das betreuende Team.

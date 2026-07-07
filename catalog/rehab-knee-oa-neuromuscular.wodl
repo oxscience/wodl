@@ -1,0 +1,123 @@
+@plan "Neuromuskulaeres Training bei Knie-/Hueftarthrose (NEMEX)"
+@freq 2x/week
+@unit kg
+
+# ============================================================
+# Neuromuskulaeres Trainingsprogramm bei Knie- oder Hueftarthrose (OA) nach dem
+# NEMEX-Programm (NEuroMuscular EXercise) von Ageberg, Link & Roos 2010.
+# Ziel: sensomotorische Kontrolle und funktionelle Gelenkstabilitaet verbessern,
+# indem die BEWEGUNGSQUALITAET in allen drei Ebenen adressiert wird
+# (Knie-ueber-Fuss-Alignment, kein medialer Knie-Kollaps).
+#
+# Format: betreutes Gruppentraining (im Schnitt ~10 Teilnehmende, erfahrene
+# Physiotherapie-Leitung), 2x/Woche, je 60 min. Individuelle Progression trotz
+# Gruppe: jede/r trainiert auf dem eigenen Schwierigkeitslevel. Session = 3 Teile:
+# Aufwaermen (10 min Ergometer), Zirkel-Programm, Cool-down (~10 min Gehen/
+# Mobilitaet/Stretch). Typische Programmdauer 6-15 Wochen (median ~11 Wochen).
+#
+# Quellen (web-verifiziert):
+#   - Ageberg, E., Link, A., & Roos, E. M. (2010). Feasibility of neuromuscular
+#     training in patients with severe hip or knee OA: The individualized
+#     goal-based NEMEX-TJR training program. BMC Musculoskeletal Disorders, 11, 126.
+#     DOI: 10.1186/1471-2474-11-126  (inkl. frei verfuegbarem Uebungs-Appendix)
+#   - Skou, S. T., & Roos, E. M. (2017). Good Life with osteoArthritis in Denmark:
+#     evidence-based education and supervised neuromuscular exercise delivered by
+#     certified physiotherapists nationwide. BMC Musculoskeletal Disorders, 18, 72.
+#     DOI: 10.1186/s12891-017-1439-y
+#     (Belegt Wirksamkeit des betreuten neuromuskulaeren Trainings + Edukation im
+#      landesweiten Roll-out. Die dort untersuchte Marke wird hier bewusst NICHT
+#      als Produktname gefuehrt - generisch: "neuromuskulaeres OA-Programm".)
+#
+# Zirkel-Struktur (4 Kreise, je 1-2 Uebungen A/B, 2-3 Saetze x 10-15 Reps,
+# Pause = 1 Satz zwischen Saetzen/Uebungen):
+#   Kreis 1 Rumpfstabilitaet/posturale Funktion
+#   Kreis 2 posturale Orientierung (Gelenk-Alignment)
+#   Kreis 3 Kraft untere Extremitaet (offene + geschlossene Kette)
+#   Kreis 4 funktionelle Uebungen (Alltagsnah)
+#
+# Schmerz-Monitoring (VAS 0-10): bis 2 "safe", bis 5 "acceptable", ueber 5
+# "high risk". Am Folgetag zurueck auf "Schmerz wie gewohnt", nicht ansteigend.
+#
+# WICHTIG: Ersetzt keine individuelle Betreuung. Die 3 Stufen sind PHASEN nach
+# Bewegungsqualitaet, nicht nach Zeit: Aufstieg erst bei guter sensomotorischer
+# Kontrolle und guter Ausfuehrungsqualitaet (Sichtkontrolle Therapeut:in) mit
+# minimaler gefuehlter Anstrengung/Kontrolle - Progression per Kriterium.
+# ============================================================
+
+# ----- Stufe 1 — Einstieg (Basis-Kontrolle) -----
+# Ziele: Grundlegende Ansteuerung und Alignment lernen. Kurze Hebel, beidbeinige
+# Last, viel Hand-/Balance-Unterstuetzung. Fokus: Knie-ueber-Fuss halten.
+
+---[Stufe 1: Einstieg] Mo Do
+
+# Aufwaermen: 10 min Ergometer, Belastung individuell bis "etwas anstrengend".
+circuit {
+  Glute Bridge          3x12   r45s   # Kreis 1: Pelvic-Lift, gebeugte Knie, kurzer Hebel
+  Sit-up                3x12   r45s   # Kreis 1: Sit-up auf Ball, Arme seitlich (kurzer Hebel)
+  Slide Forward-Backward 3x12  r45s   # Kreis 2: Einbeinstand, Gleitbein vor/zurueck, Alignment
+  Slide Sideways        3x12   r45s   # Kreis 2: Gleitbein seitlich, Standbein beugt/streckt
+  Standing Hip Abduction 3x12  r45s   # Kreis 3: Band, offene Kette, Becken stabil
+  Band Knee Extension   3x12   r45s   # Kreis 3: sitzend, Band um Fuss (Ext/Flex)
+  Chair Stand           3x12   r45s   # Kreis 4: Aufstehen mit leichter Handstuetze
+  Step-up               3x12   r45s   # Kreis 4: niedriges Board, Step-up/Step-down
+}
+# Cool-down: ~10 min Gehen vor/rueckwaerts vor Spiegel, Mobilitaet, Stretch.
+
+> Alignment ist das Ziel, nicht die Last: Huefte-Knie-Fuss ausgerichtet, Knie NICHT
+> medial zum Fuss kippen (Sichtkontrolle vor Spiegel/Therapeut:in).
+> Schmerz-Regel: VAS bis 2 "safe", bis 5 "acceptable", Folgetag nicht ansteigend.
+> Progressions-Kriterien Stufe 1 -> Stufe 2 (pro Uebung individuell):
+> - Uebung mit guter sensomotorischer Kontrolle + guter Qualitaet ausgefuehrt
+> - minimale gefuehlte Anstrengung, Bewegung sicher kontrolliert
+> - Alignment durchgehend gehalten -> Hebel/Last/Unterlage steigern
+
+# ----- Stufe 2 — Progression (Last & Instabilitaet) -----
+# Ziele: laengere Hebel, mehr Widerstand, teils instabile Unterlage. Chair Stands
+# ohne Handstuetze, mittelhohes Step-Board. Weiterhin Qualitaet vor Quantitaet.
+
+---[Stufe 2: Progression] Mo Do
+
+# Aufwaermen: 10 min Ergometer.
+circuit {
+  Glute Bridge          3x12   r45s   # Kreis 1: halb-gebeugte Knie, langer Hebel
+  Sit-up                3x12   r45s   # Kreis 1: Arme vor Brust gekreuzt (mittlerer Hebel)
+  Slide Forward-Backward 3x12  r45s   # Kreis 2: auf unebener Unterlage (Schaumkissen)
+  Slide Sideways        3x12   r45s   # Kreis 2: auf unebener Unterlage
+  Standing Hip Abduction 3x12  r45s   # Kreis 3: Band mit hoeherem Widerstand
+  Band Knee Extension   3x12   r45s   # Kreis 3: hoeherer Band-Widerstand
+  Chair Stand           3x12   r45s   # Kreis 4: ohne Handstuetze
+  Step-up               3x12   r45s   # Kreis 4: mittelhohes Board, ggf. Kurzhanteln
+}
+# Cool-down: ~10 min Gehen/Mobilitaet/Stretch.
+
+> Progression durch: Anzahl/Richtung/Tempo der Bewegung variieren, Last erhoehen,
+> Unterlage veraendern. Immer erst bei erfuellter Qualitaets-Bedingung.
+> Progressions-Kriterien Stufe 2 -> Stufe 3:
+> - saubere Ausfuehrung auch auf instabiler Unterlage / mit hoeherer Last
+> - Alignment unter Ermuedung gehalten, Schmerz-Regel eingehalten
+
+# ----- Stufe 3 — Fortgeschritten (funktionell, hohe Anforderung) -----
+# Ziele: Lunges, hohes Step-Board, versetzte Chair Stands, alle Kraft-Uebungen
+# auf unebener Unterlage. Hoechste sensomotorische Anforderung.
+
+---[Stufe 3: Fortgeschritten] Mo Do
+
+# Aufwaermen: 10 min Ergometer.
+circuit {
+  Glute Bridge          3x12   r45s   # Kreis 1: alternierend Last auf betroffenes/anderes Bein
+  Sit-up                3x12   r45s   # Kreis 1: Haende hinter Nacken (langer Hebel)
+  Lunge                 3x10   r60s   # Kreis 2: Forward Lunge, Handstuetze nur bei Bedarf
+  Lateral Lunge         3x10   r60s   # Kreis 2: Sideway Lunge
+  Standing Hip Abduction 3x12  r45s   # Kreis 3: auf unebener Unterlage
+  Band Knee Extension   3x12   r45s   # Kreis 3: hoeherer Widerstand
+  Chair Stand           3x10   r60s   # Kreis 4: ein Fuss vorgesetzt (versetzt)
+  Step-up               3x10   r60s   # Kreis 4: hohes Board, ggf. Kurzhanteln
+}
+# Cool-down: ~10 min Gehen/Mobilitaet/Stretch.
+
+> Abschluss/Uebergang: Programm typ. 6-15 Wochen (median ~11). Ziel ist verbesserte
+> funktionelle Gelenkstabilitaet und Symptomkontrolle - kombiniert mit Edukation
+> (Skou & Roos 2017). Kein fixes Enddatum: Weiterfuehrung als dauerhafte
+> Bewegungsroutine empfohlen (OA ist chronisch, Effekt braucht Kontinuitaet).
+> Mobilitaets-Uebung Hueft-Rotation im Cool-down nur bei Hueft-OA, NICHT bei
+> Knie-OA (dort Schmerz/Instabilitaetsgefuehl - Original-Hinweis Ageberg 2010).

@@ -1,0 +1,79 @@
+@plan "Texas Method — Intermediate-Wochenzyklus"
+@freq 3x/week
+@unit kg
+
+# ============================================================
+# Texas Method für Intermediates: Der Stress-Erholungs-
+# Adaptations-Zyklus wird auf EINE WOCHE gestreckt (statt von
+# Einheit zu Einheit wie beim Novizen-Programm). Drei Rollen:
+# Volume Day (Stressor), Recovery Day (leicht), Intensity Day
+# (neuer 5RM-Rekord).
+#
+# Kern-Parameter (vielfach frei publiziert):
+# - Volume Day (Mo): Squat 5x5 "across" (gleiches Gewicht) mit
+#   90% des aktuellen 5RM (~75-80% 1RM), Druckübung 5x5,
+#   Deadlift 1x5 schwer
+# - Recovery Day (Mi): Squat 2x5 mit 80% des Montags-Gewichts,
+#   die jeweils andere Druckübung leicht 3x5, Chins, Rückenstrecker
+# - Intensity Day (Fr): 1x5 NEUES 5RM auf Squat und Druckübung
+#   (~85% 1RM), dazu Power Clean 5x3 (oder Power Snatch 6x2)
+# - Bench und OHP alternieren WOCHENWEISE, konsistent über alle
+#   drei Tage (Woche 1 Bench schwer, Woche 2 OHP schwer)
+# - Wochen-Progression: Freitag schlägt die Vorwoche um den
+#   kleinsten sinnvollen Sprung; Montag hängt daran (90% des 5RM)
+#
+# Die %-Angaben an den Übungen sind 1RM-Äquivalente zur
+# Orientierung — gesteuert wird das Programm über das 5RM.
+#
+# Quellen (Konzept-Attribution + frei publizierte Artikel):
+#   - Rippetoe, M. "The Texas Method." startingstrength.com/article/
+#     the_texas_method (frei publiziert)
+#   - Baker, A. "Understanding the Texas Method Intensity Day."
+#     startingstrength.com/article/understanding-the-texas-method-
+#     intensity-day (frei publiziert)
+#   - Rippetoe, M., & Baker, A. — Practical Programming for Strength
+#     Training (Konzept-Attribution, keine Buchtexte übernommen)
+# ============================================================
+
+# ----- Volume Day — der Stressor der Woche -----
+
+---[Volume Day] Mo
+
+Squat         5x5   @77%  r300s   # 90% des aktuellen 5RM, alle 5 Sätze gleiches Gewicht
+Bench Press   5x5   @77%  r240s   # Woche 2: stattdessen OHP 5x5 (Wochenwechsel)
+Deadlift      1x5   @85%  r240s   # ein schwerer Satz, kein Volumen
+
+> Pausen großzügig nehmen (3-5+ min) — die 5x5 sollen schwer,
+> aber ohne technisches Versagen durchgehen.
+> Wer hier regelmäßig scheitert: zuerst Volumen-Gewicht prüfen
+> (wirklich nur 90% des 5RM?), nicht sofort Sätze streichen.
+
+# ----- Recovery Day — leicht heißt leicht -----
+
+---[Recovery Day] Mi
+
+Squat           2x5   @62%  r180s   # 80% des Montags-Gewichts — bewusst locker
+OHP             3x5   r180s          # die "andere" Druckübung, deutlich reduziert
+Chin-up         3x    @BW   r120s    # 3 Sätze, nicht bis zum Versagen
+Back Extension  5x10  r90s           # alternativ Glute Ham Raise
+
+> Der Tag dient der aktiven Erholung bei erhaltener Bewegungs-
+> qualität. Gewichte hier NIE hochtreiben — wer den Mittwoch
+> schwer macht, ruiniert den Freitag.
+
+# ----- Intensity Day — neuer 5RM-Rekord -----
+
+---[Intensity Day] Fr
+
+Squat         1x5   @85%  r300s   # neues 5RM — der einzige All-out-Satz der Woche
+Bench Press   1x5   @85%  r300s   # bzw. OHP im Wochenwechsel, neues 5RM
+Power Clean   5x3   r120s          # alternativ Power Snatch 6x2
+
+> Progressions-Kriterium: Freitag zählt nur, wenn alle 5 Reps mit
+> sauberer Technik stehen — bricht die Technik ein, war der Sprung
+> zu groß. Danach Montag neu rechnen: 90% des neuen 5RM.
+> Stall-Regel: Laufen die 5RMs aus, zuerst den Intensity Day
+> variieren (z.B. auf Doubles/Triples wechseln, siehe Baker),
+> bevor am Montags-Volumen gedreht wird.
+> Meilenstein: Greift auch das nicht mehr über mehrere Wochen,
+> ist Wochenprogression ausgereizt -> Blockperiodisierung.

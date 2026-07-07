@@ -1,0 +1,89 @@
+@plan "Tennisarm — Exzentrik & progressive Kräftigung"
+@freq daily
+@unit kg
+
+# ============================================================
+# Laterale Epicondylalgie ("Tennisarm"): exzentrisches Training der
+# Handgelenksextensoren mit Gummi-Torsionsstab (Tyler Twist) plus
+# progressives Kräftigungsprogramm für Unterarm, Griff und Schulter.
+#
+# Quellen (evidence-based, verifiziert via Crossref):
+#   - Tyler, T. F., Thomas, G. C., Nicholas, S. J., & McHugh, M. P. (2010).
+#     Addition of isolated wrist extensor eccentric exercise to standard treatment
+#     for chronic lateral epicondylosis: A prospective randomized trial.
+#     Journal of Shoulder and Elbow Surgery, 19(6), 917-922.
+#     DOI 10.1016/j.jse.2010.04.041
+#     → Exzentrik-Gruppe: DASH -76%, Schmerz -81% vs. 13%/22% unter
+#       Standardtherapie allein; Behandlungsdauer im Mittel ~7 Wochen.
+#   - Coombes, B. K., Bisset, L., & Vicenzino, B. (2015).
+#     Management of Lateral Elbow Tendinopathy: One Size Does Not Fit All.
+#     Journal of Orthopaedic & Sports Physical Therapy, 45(11), 938-949.
+#     DOI 10.2519/jospt.2015.5841
+#   - Bisset, L., et al. (2006). Mobilisation with movement and exercise,
+#     corticosteroid injection, or wait and see for tennis elbow: randomised trial.
+#     BMJ, 333(7575), 939. DOI 10.1136/bmj.38961.584653.ae
+#     → Übungstherapie schlägt Abwarten; Kortison-Injektion kurzfristig besser,
+#       langfristig SCHLECHTER (mehr Rückfälle) — Injektion kritisch abwägen.
+#
+# WICHTIG: Ersetzt keine individuelle Betreuung. Bei Taubheit, Kribbeln oder
+# nächtlichem Ruheschmerz differenzialdiagnostisch abklären lassen (HWS,
+# Nervenkompression). Progression symptomgeleitet, nicht kalendarisch.
+# ============================================================
+
+# ----- Phase 1 — Exzentrik-Start (Woche 0-2) -----
+# Ziele: Sehne an Last gewöhnen, Schmerz modulieren, tägliche Routine etablieren.
+# Tyler Twist: gesunde Hand verdreht den Stab, betroffene Hand lässt ihn über
+# ~4 Sekunden kontrolliert zurückdrehen (nur die Exzentrik läuft über die
+# betroffene Seite). Widerstandsstufe so wählen, dass 15 Wdh fordernd sind.
+
+---[Phase 1: Exzentrik-Start (Woche 0-2)] Mo Di Mi Do Fr Sa So
+
+Tyler Twist                 3x15   @low   r60s  t4010  # Torsionsstab, ~4s exzentrisch pro Wdh
+Isometric Wrist Extension   4x30s  @ISO   r30s         # Schmerzmodulation bei gereizter Sehne (Coombes 2015)
+Wrist Extensor Stretch      3x30s         r15s         # Ellbogen gestreckt, Handgelenk in Flexion ziehen
+
+> Schmerzregel: bis 3-4/10 während der Übung akzeptabel, sofern die Symptome
+> am Folgetag nicht schlechter sind. Sonst Widerstandsstufe/Volumen senken.
+> Tyler Twist TÄGLICH ausführen — das war die Original-Dosierung der Studie
+> (3x15 pro Tag über die gesamte Behandlungsdauer).
+> Provozierende Belastungen (festes Greifen mit gestrecktem Arm) vorerst reduzieren.
+
+# ----- Phase 2 — Progressive Kräftigung (Woche 2-6) -----
+# Ziele: Belastbarkeit von Extensoren, Griff und kinetischer Kette aufbauen.
+# Tyler Twist läuft täglich weiter — die Kräftigung kommt 3x/Woche dazu.
+
+---[Phase 2: Kräftigung (Woche 2-6)] Mo Mi Fr
+
+Tyler Twist                 3x15   @low   r60s  t4010  # weiterhin täglich, auch an den übrigen Tagen
+Wrist Extension             3x12   @1kg   r45s  t3010  # Kurzhantel, langsam konzentrisch-exzentrisch
+Wrist Flexion               3x12   @1kg   r45s
+Wrist Supination            3x10   @1kg   r30s         # Hammer-Griff
+Wrist Pronation             3x10   @1kg   r30s
+Grip Squeeze                3x10   @low   r30s         # Ball/Griptrainer, schmerzarm
+Band External Rotation      3x15   @low   r45s         # Schulter-/Skapula-Defizite mitbehandeln (Coombes 2015)
+Cable Row                   3x12   @RPE6  r60s
+
+> Progression Tyler Twist: nächste Widerstandsstufe des Stabs, sobald 3x15 auf
+> der aktuellen Stufe mühelos und weitgehend schmerzfrei gelingen.
+> Progression Hanteln: +0.5 bis +1kg, wenn 3x12 sauber und ohne Symptomanstieg.
+> Meilenstein Ende Phase 2: fester Händedruck und Heben einer vollen Tasse /
+> Kanne ohne Schmerz, Druckschmerz am Epicondylus deutlich rückläufig.
+
+# ----- Phase 3 — Belastungsaufbau & Rückkehr (Woche 6-12) -----
+# Ziele: volle Alltags-/Sport-Belastbarkeit, schnellere Kraftentwicklung,
+# graduierte Rückkehr zu Racket-Sport bzw. manueller Arbeit.
+
+---[Phase 3: Rückkehr (Woche 6-12)] Mo Mi Fr
+
+Tyler Twist                 3x15   @mid   r60s  t4010  # Erhalt, höhere Widerstandsstufe
+Wrist Extension             3x10   @2kg   r45s  t3010
+Reverse Curl                3x10   @RPE7  r60s         # Langhantel/SZ, Extensoren unter Last
+Hammer Curl                 3x10   @RPE7  r60s
+Grip Squeeze                3x8    @high  r45s         # kräftiger Griff, auch mit gestrecktem Ellbogen
+Band External Rotation      3x15   @mid   r45s
+Cable Row                   3x10   @RPE7  r60s
+
+> Rückkehr zum Sport graduiert: erst Technik/leichte Schläge, dann Dauer,
+> zuletzt Intensität — Symptom-Monitoring über 24h nach jeder Steigerung.
+> Rückfall (Schmerz >4/10 oder anhaltend am Folgetag): eine Stufe zurück.
+> Tendinopathie-Zeitrahmen realistisch kommunizieren: 6-12 Wochen, teils länger.

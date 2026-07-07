@@ -1,0 +1,90 @@
+@plan "Off-Season Kraftblock (Teamsport, 12 Wochen)"
+@freq 3x/week
+@cycle 12w: w1-4 aufbau, w5-8 maxkraft, w9-12 power
+@unit kg
+
+# ============================================================
+# Off-Season Kraftblock für Teamsportler:innen (8-12 Wochen; hier als
+# 12-Wochen-Version, kürzbar auf 8 durch je 1 Woche weniger pro Block
+# plus gestrichenen Block-1-Puffer).
+# Blockperiodisierung: konzentrierte Trainingsreize in Blöcken —
+# Akkumulation (anatomische Anpassung/Hypertrophie) → Transmutation
+# (Maximalkraft) → Realisation (Power/Schnellkraft), mit integrierter
+# Plyometrie-Progression (niedrig → moderat → hoch intensiv).
+#
+# Quellen (verifiziert bzw. Standardwerk):
+#   - Issurin, V. B. (2010). New Horizons for the Methodology and
+#     Physiology of Training Periodization. Sports Medicine, 40(3),
+#     189-206. DOI: 10.2165/11319770-000000000-00000
+#     → Rationale der Blockstruktur: konzentrierte Belastung, sequenzierte
+#       Blöcke, Resteffekte der Trainingsformen.
+#   - Haff, G. G., & Triplett, N. T. (Hrsg.) (2016). Essentials of Strength
+#     Training and Conditioning (4. Aufl.). Human Kinetics. (NSCA-Lehrbuch:
+#     Phasenparameter anatomische Anpassung/Maximalkraft/Power sowie
+#     Plyometrie-Progression und -Sicherheit.)
+#
+# HINWEIS: Kein Studienprotokoll, sondern Prinzipien-basierte Vorlage
+# nach NSCA/Issurin. Lasten an Trainingsalter anpassen; Plyometrie
+# setzt Landetechnik und Basiskraft voraus.
+# ============================================================
+
+# ----- Block 1 — Anatomische Anpassung / Hypertrophie (Woche 1-4) -----
+# Ziele: Gewebe auf hohe Lasten vorbereiten, Arbeitskapazität, Muskelmasse.
+# Moderate Lasten, höhere Wiederholungen, kurze Pausen.
+# Plyo Stufe 1 (niedrig): beidbeinige Hüpfer am Ort, Landetechnik.
+
+---[Block 1: Aufbau (Woche 1-4)] Mo Mi Fr
+
+Squat                 3x10  @RPE7  r90s   +2.5kg/w
+RDL                   3x10  @RPE7  r90s
+Bench Press           3x10  @RPE7  r90s   +2.5kg/w
+Barbell Row           3x10  @RPE7  r90s
+Split Squat           2x10  @RPE6  r60s   # je Bein
+Plank                 3x45s r45s
+Pogo Hop              3x10  @BW    r60s   # Plyo Stufe 1: flache, federnde Sprünge am Ort
+Box Landing Drill     3x5   @BW    r60s   # von niedriger Box abtreten, leise + stabil landen
+
+> Woche 4 = Deload: Sätze halbieren, Last ~10% runter, Plyo nur Technik.
+> Meilenstein zu Block 2: 10er-Sätze technisch stabil, Landungen leise
+> und ausbalanciert, keine Sehnen-/Gelenkreizungen.
+
+# ----- Block 2 — Maximalkraft (Woche 5-8) -----
+# Ziele: Neuronale Kraftgewinne bei schweren Lasten (ca. 80-87% 1RM),
+# lange Pausen. Volumen pro Übung sinkt, Intensität steigt.
+# Plyo Stufe 2 (moderat): Box Jumps, Standweitsprünge.
+
+---[Block 2: Maximalkraft (Woche 5-8)] Mo Mi Fr
+
+Squat                 4x4   @85%   r3m    +2.5kg/w
+Deadlift              3x4   @85%   r3m
+Bench Press           4x4   @85%   r3m    +2.5kg/w
+Pull-up               3x5   @RPE8  r2m    # ggf. mit Zusatzgewicht
+Hip Thrust            3x6   @RPE8  r2m
+Box Jump              4x5   @BW    r90s   # Plyo Stufe 2: auf Box — Höhe über Absprungqualität wählen
+Broad Jump            3x5   @BW    r90s   # Standweitsprung, Landung sauber halten
+
+> Woche 8 = Deload: 2 Sätze pro Übung @70%, Plyo-Umfang halbieren.
+> Plyo-Sicherheit: 48-72 h zwischen intensiven Sprungeinheiten,
+> Bodenkontakte pro Einheit begrenzen (Einsteiger ~80-100).
+> Meilenstein zu Block 3: 4er-Sätze bei ~85% sauber, Sprünge reaktiv
+> und ohne Einknicken der Knie (Valgus).
+
+# ----- Block 3 — Power / Realisation (Woche 9-12) -----
+# Ziele: Kraft in Schnelligkeit übersetzen — ballistische Übungen bei
+# niedriger Last, maximale Bewegungsabsicht; Maximalkraft nur erhalten.
+# Plyo Stufe 3 (hoch): Tiefsprünge, Mehrfachsprünge.
+
+---[Block 3: Power (Woche 9-12)] Mo Mi Fr
+
+Power Clean           5x3   @75%   r3m    # Alternative: Trap Bar Jump / Hang Power Clean
+Jump Squat            4x4   @30%   r2m    # ballistisch, Absprung mit maximaler Absicht
+Squat                 2x3   @85%   r3m    # Erhaltungsdosis Maximalkraft
+Push Press            3x4   @RPE8  r2m
+Depth Jump            3x4   @BW    r2m    # Plyo Stufe 3: von 30-45 cm, minimale Bodenkontaktzeit
+Bound                 3x6   @BW    r90s   # Mehrfachsprünge/Wechselsprünge, je Seite
+
+> Qualität vor Menge: jeder Sprung/Zug maximal explosiv — bei sichtbarem
+> Geschwindigkeitsverlust Satz beenden.
+> Tiefsprünge nur nach sauberem Block 2; Boxhöhe senken statt Technik opfern.
+> Übergang in die Saison: letzte Woche Volumen ~50% (Taper), danach in den
+> In-Season Krafterhalt (1-2x/Woche, Intensität halten) wechseln.

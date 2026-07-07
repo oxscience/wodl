@@ -1,0 +1,91 @@
+@plan "5/3/1 Grundzyklus (Wendler) — 4-Wochen-Welle"
+@freq 4x/week
+@cycle 4w: w1-3 progress, w4 deload
+@unit kg
+
+# ============================================================
+# Jim Wendlers 5/3/1: 4 Einheiten pro Woche, jede Einheit ist um
+# EINE Grundübung gebaut (OHP, Deadlift, Bench, Squat), nie an
+# aufeinanderfolgenden Tagen. Progression in 4-Wochen-Wellen statt
+# von Einheit zu Einheit.
+#
+# Kern-Parameter (von Wendler frei publiziert, T-Nation 2009):
+# - Training Max (TM) = 90% des echten 1RM. ALLE %-Angaben in
+#   dieser Datei beziehen sich auf das TM, nicht aufs 1RM!
+# - Wochenwelle (immer 3 Arbeitssätze):
+#     W1: 65% x5, 75% x5, 85% x5+
+#     W2: 70% x3, 80% x3, 90% x3+
+#     W3: 75% x5, 85% x3, 95% x1+   ("5/3/1-Woche")
+#     W4: 40% x5, 50% x5, 60% x5    (Deload, KEIN AMRAP)
+# - Letzter Satz W1-W3 = AMRAP ("+"): so viele saubere Reps wie
+#   möglich, Rep-Rekorde notieren
+# - Nach jedem 4-Wochen-Zyklus: TM +2.5 kg (OHP/Bench),
+#   +5 kg (Squat/Deadlift)  [Original: +5/+10 lb]
+# - Assistance-Philosophie: simpel, sie ergänzt das Training und
+#   darf nicht davon ablenken. Option "Boring But Big" (BBB):
+#   nach der Hauptübung dieselbe Übung 5x10 @50-60% TM
+#   (frei publiziert auf jimwendler.com), Assistance dann minimal.
+#
+# Die Übungszeilen unten zeigen Woche 1; die W2/W3/W4-Prozente
+# stehen in den Kommentaren und Session-Notizen.
+#
+# Quellen (frei publizierte Original-Artikel):
+#   - Wendler, J. (2009). "5/3/1: How to Build Pure Strength."
+#     T-Nation. t-nation.com/workouts/5-3-1-how-to-build-pure-strength/
+#   - Wendler, J. "Boring But Big." jimwendler.com (frei publiziert):
+#     jimwendler.com/blogs/jimwendler-com/101077382-boring-but-big
+# ============================================================
+
+# ----- Tag 1 — Press -----
+
+---[Tag 1: Press] Mo
+
+OHP           1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
+OHP           1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5
+OHP           1x    @85%  r180s   # AMRAP-Top-Satz: W1 5+ | W2 90% 3+ | W3 95% 1+ | W4 60% x5 ohne AMRAP
+Chin-up       5x10  @BW   r90s
+Dips          5x10  @BW   r90s
+
+> BBB-Option statt Assistance: OHP 5x10 @50-60% TM, danach nur noch
+> eine leichte Zug-Übung.
+
+# ----- Tag 2 — Deadlift -----
+
+---[Tag 2: Deadlift] Di
+
+Deadlift           1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
+Deadlift           1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5
+Deadlift           1x    @85%  r180s   # AMRAP: W1 5+ | W2 90% 3+ | W3 95% 1+
+Hanging Leg Raise  5x10  @BW   r90s
+Back Extension     5x10  r90s
+
+> AMRAP heißt: saubere Reps, keine Schleif-Wiederholungen —
+> "Anything over and above builds strength" gilt nur bei guter Technik.
+
+# ----- Tag 3 — Bench -----
+
+---[Tag 3: Bench] Do
+
+Bench Press   1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
+Bench Press   1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5
+Bench Press   1x    @85%  r180s   # AMRAP: W1 5+ | W2 90% 3+ | W3 95% 1+
+Dumbbell Row  5x10  r90s
+Face Pull     3x15  r60s
+
+# ----- Tag 4 — Squat -----
+
+---[Tag 4: Squat] Fr
+
+Squat         1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
+Squat         1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5
+Squat         1x    @85%  r180s   # AMRAP: W1 5+ | W2 90% 3+ | W3 95% 1+
+Leg Curl      5x10  r90s
+Ab Wheel      5x10  r60s
+
+> Zyklus-Progression: nach Woche 4 TM +2.5 kg (OHP/Bench) bzw.
+> +5 kg (Squat/Deadlift), dann Welle von vorn.
+> Kriterium statt Kalender: Werden die Mindest-Reps im AMRAP-Satz
+> verfehlt (z.B. W3 keine 1 saubere Rep @95% TM), TM NICHT erhöhen,
+> sondern neu ansetzen: TM = 90% des aktuellen echten 1RM.
+> Wendlers Startregel: lieber zu leicht anfangen — das erste TM
+> darf sich "zu einfach" anfühlen.

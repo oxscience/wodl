@@ -1,0 +1,151 @@
+@plan "Sturzprophylaxe für Ältere (Otago-Programm)"
+@freq 3x/week
+@unit kg
+
+# ============================================================
+# Sturzprophylaxe für ältere Menschen (65+, besonders wirksam ab 80)
+# nach dem Otago Exercise Programme (OEP) — heimbasiertes, individuell
+# angepasstes Kraft- und Balance-Training plus Gehprogramm.
+# In 4 kontrollierten Studien: ~35% weniger Stürze und Sturzverletzungen.
+#
+# Quellen (verifiziert):
+#   - Campbell, A. J., Robertson, M. C., Gardner, M. M., Norton, R. N.,
+#     Tilyard, M. W., & Buchner, D. M. (1997). Randomised controlled trial
+#     of a general practice programme of home based exercise to prevent
+#     falls in elderly women. BMJ, 315(7115), 1065-1069.
+#     DOI: 10.1136/bmj.315.7115.1065
+#   - Robertson, M. C., Devlin, N., Gardner, M. M., & Campbell, A. J. (2001).
+#     Effectiveness and economic evaluation of a nurse delivered home
+#     exercise programme to prevent falls. 1: Randomised controlled trial.
+#     BMJ, 322(7288), 697. DOI: 10.1136/bmj.322.7288.697
+#   - Offizielles Manual: "Otago Exercise Programme to prevent falls in
+#     older adults" (ACC Neuseeland, 2007, ACC1162) — frei publiziert.
+#
+# WICHTIG: Dieses Protokoll ersetzt KEINE individuelle physiotherapeutische
+# Betreuung. Im Original wird das Programm über 4-5 Hausbesuche von einer
+# geschulten Fachkraft individuell verschrieben und progressiv angepasst.
+# Vorab ärztliche Freigabe einholen. Die Stufen A-D vergibt die betreuende
+# Fachkraft nach Assessment (Chair-Stand-Test, 4-Stufen-Balance-Skala) —
+# nicht jede Person startet auf Stufe A, nicht jede erreicht Stufe D.
+#
+# Dosierung im Original:
+#   - Kraft + Balance: ~30 min, 3x/Woche mit Ruhetagen dazwischen
+#   - Gehen: bis 30 min, mind. 2x/Woche (sofern sicher)
+#   - Kraftübungen mit Knöchelmanschetten (Start meist 1-2 kg, bis 8 kg);
+#     Startgewicht = Last, mit der 8-10 saubere Wdh. möglich sind.
+#     Progression: erst auf 2x10 steigern, dann Gewicht erhöhen.
+#   - Immer zuerst 5 min Aufwärmen (5 Beweglichkeitsübungen).
+#   - Tempo Kraftübungen: 2-3 s heben, 4-5 s senken; 1-2 min Satzpause.
+# ============================================================
+
+# ----- Stufe A — Einstieg (mit Festhalten) -----
+# Ziele: Bewegungsmuster lernen, Grundkraft, Balance mit Abstützung.
+# Balance-Übungen an stabiler Fläche (Bank, massiver Tisch) — nie an
+# beweglichen Objekten (Stuhl!) festhalten.
+
+---[Stufe A: Einstieg (mit Halt)] Mo Mi Fr
+
+# Aufwärmen (5 min): Kopfdrehen 5x/Seite, Nackenbewegung 5x,
+# Rückenstrecken 5x, Rumpfdrehen 5x/Seite, Sprunggelenk kreisen 10x.
+
+Leg Extension            1x10   @1kg   r90s   # sitzend, Knöchelmanschette — vorderer Oberschenkel
+Standing Leg Curl        1x10   @1kg   r90s   # stehend, Knöchelmanschette — hinterer Oberschenkel
+Standing Hip Abduction   1x10   @1kg   r90s   # stehend, Bein seitlich abspreizen
+Calf Raise               2x10   @BW    r60s   # mit Festhalten
+Toe Raise                2x10   @BW    r60s   # Fußspitzen heben, auf Fersen zurück — mit Festhalten
+Knee Bend                1x10   @BW    r60s   # Kniebeugen-Ansatz, mit Festhalten
+Backwards Walking        4x10   @BW    r30s   # 10 Schritte rückwärts, 4 Durchgänge — mit Halt
+Sideways Walking         4x10   @BW    r30s   # 10 Schritte seitwärts, 4 Durchgänge — ggf. Gehhilfe
+Tandem Stance            1x10s  @BW    r30s   # Ferse-an-Spitze-Stand, mit Festhalten
+Sit to Stand             1x5    @BW    r60s   # Aufstehen vom Stuhl, beide Hände stützen
+
+> Treppensteigen nach Anleitung der Fachkraft in den Alltag einbauen.
+> Progression Kraft: sobald 2x10 sauber gelingen, Gewicht der Manschette erhöhen.
+> Meilenstein zu Stufe B: Balance-Übungen sicher MIT Halt, Gleichgewicht
+> wird mit Beinen (nicht durch Greifen) zurückgewonnen — Freigabe durch Fachkraft.
+> STOPP + Arzt kontaktieren bei Schwindel, Brustschmerz oder Atemnot.
+
+# ----- Stufe B — Fortschritt (Halt lösen) -----
+# Ziele: Balance-Übungen zunehmend ohne Abstützung, Einbeinstand einführen.
+
+---[Stufe B: Fortschritt (ohne Halt)] Mo Mi Fr
+
+# Aufwärmen (5 min) wie Stufe A.
+
+Leg Extension            2x10   @2kg   r90s   # Gewicht nach 2x10-Regel gesteigert
+Standing Leg Curl        2x10   @2kg   r90s
+Standing Hip Abduction   2x10   @2kg   r90s
+Calf Raise               2x10   @BW    r60s   # noch mit Festhalten
+Toe Raise                2x10   @BW    r60s   # noch mit Festhalten
+Knee Bend                1x10   @BW    r60s   # ohne Festhalten
+Backwards Walking        4x10   @BW    r30s   # ohne Halt
+Figure-Eight Walk           1x2    @BW    r60s   # Gehen + Umdrehen als Achterschleife, 2 Runden — ggf. Gehhilfe
+Sideways Walking         4x10   @BW    r30s   # ohne Gehhilfe
+Tandem Stance            1x10s  @BW    r30s   # ohne Festhalten
+One Leg Stand            1x10s  @BW    r30s   # 10 s je Bein, mit Festhalten
+Sit to Stand             1x5    @BW    r60s   # nur EINE Hand stützt (oder 10 Wdh. mit beiden Händen)
+
+> Treppensteigen nach Anleitung fortführen.
+> Meilenstein zu Stufe C: Tandemstand 10 s frei, Aufstehen mit einer Hand
+> sicher, kein Greifen nach Halt bei Balance-Übungen — Freigabe durch Fachkraft.
+
+# ----- Stufe C — Aufbau (Volumen + neue Muster) -----
+# Ziele: Doppelte Durchgänge, Tandemgang, Fersen-/Zehengang einführen.
+
+---[Stufe C: Aufbau] Mo Mi Fr
+
+# Aufwärmen (5 min) wie Stufe A.
+
+Leg Extension            2x10   @3kg   r90s   # Gewicht weiter nach 2x10-Regel
+Standing Leg Curl        2x10   @3kg   r90s
+Standing Hip Abduction   2x10   @3kg   r90s
+Calf Raise               2x10   @BW    r60s   # mit Festhalten, 2 Durchgänge
+Toe Raise                2x10   @BW    r60s   # mit Festhalten, 2 Durchgänge
+Knee Bend                2x10   @BW    r60s   # ohne Halt, 2 Durchgänge
+Figure-Eight Walk           1x2    @BW    r60s   # Achterschleife ohne Gehhilfe
+Tandem Walk              2x10   @BW    r60s   # 10 Schritte Ferse-an-Spitze, mit Halt, 2 Durchgänge
+One Leg Stand            1x10s  @BW    r30s   # je Bein, OHNE Festhalten
+Heel Walking             4x10   @BW    r30s   # 10 Schritte auf Fersen, 4 Durchgänge — mit Halt
+Toe Walking              4x10   @BW    r30s   # 10 Schritte auf Zehenspitzen, 4 Durchgänge — mit Halt
+Sit to Stand             2x10   @BW    r60s   # ohne Hände (oder 1 Hand), 2 Durchgänge
+
+> Treppensteigen nach Anleitung fortführen.
+> Meilenstein zu Stufe D: Einbeinstand 10 s frei je Seite, Tandemgang
+> mit Halt sicher und kontrolliert — Freigabe durch Fachkraft.
+
+# ----- Stufe D — Höchste Stufe -----
+# Ziele: Alle Balance-Muster frei, Einbeinstand 30 s, Rückwärts-Tandemgang.
+
+---[Stufe D: Fortgeschritten] Mo Mi Fr
+
+# Aufwärmen (5 min) wie Stufe A.
+
+Leg Extension            2x10   @4kg   r90s   # individuell — in den Studien bis 8 kg
+Standing Leg Curl        2x10   @4kg   r90s
+Standing Hip Abduction   2x10   @4kg   r90s
+Calf Raise               2x10   @BW    r60s   # OHNE Festhalten
+Toe Raise                2x10   @BW    r60s   # OHNE Festhalten
+Knee Bend                3x10   @BW    r60s   # ohne Halt, 3 Durchgänge
+Tandem Walk              2x10   @BW    r60s   # ohne Halt, 2 Durchgänge
+One Leg Stand            1x30s  @BW    r30s   # 30 s je Bein, ohne Halt
+Heel Walking             4x10   @BW    r30s   # ohne Halt
+Toe Walking              4x10   @BW    r30s   # ohne Halt
+Backwards Tandem Walk    2x10   @BW    r60s   # 10 Schritte Ferse-an-Spitze RÜCKWÄRTS, 2 Durchgänge
+Sit to Stand             2x10   @BW    r60s   # ohne Hände, 2 Durchgänge
+
+> Stufe D wird langfristig weitergeführt — die Effekte bleiben nur bei
+> fortgesetztem Training erhalten ("maintain to sustain").
+> Nach Krankheitspausen: erst Rücksprache mit der Fachkraft, dann
+> auf niedrigerer Stufe wieder einsteigen.
+
+# ----- Gehprogramm (parallel zu allen Stufen) -----
+# Gehen erhöht die Fitness, senkt allein aber NICHT das Sturzrisiko —
+# es ergänzt Kraft + Balance, ersetzt sie nicht.
+
+---[Gehprogramm (alle Stufen)] Di Sa
+
+Walking                  3x600s  @low  r60s   # 3x10 min (oder 1x30 min) im eigenen Tempo
+
+> Mind. 2x/Woche, nur wenn sicher möglich; an Ruhetagen zwischen den Einheiten.
+> Vorher/nachher 2 min auf der Stelle marschieren (Warm-up/Cool-down).
+> Bequeme Schuhe, Blick nach vorn, Ferse zuerst aufsetzen.

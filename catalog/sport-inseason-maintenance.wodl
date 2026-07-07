@@ -1,0 +1,60 @@
+@plan "In-Season Krafterhalt (Teamsport)"
+@freq 1-2x/week
+@unit kg
+
+# ============================================================
+# Krafterhalt während der Wettkampfsaison für Teamsportler:innen
+# (Fußball, Handball, Basketball u.ä.). Prinzip: INTENSITÄT halten
+# (~85% 1RM), VOLUMEN niedrig (2-3 Sätze pro Übung), 1-2 Einheiten
+# pro Woche.
+#
+# Quelle (verifiziert):
+#   - Rønnestad, B. R., Nymark, B. S., & Raastad, T. (2011). Effects of
+#     In-Season Strength Maintenance Training Frequency in Professional
+#     Soccer Players. Journal of Strength and Conditioning Research,
+#     25(10), 2653-2660. DOI: 10.1519/JSC.0b013e31822dcd96
+#   → Nach 10 Wochen Kraftaufbau (2x/Woche) in der Vorbereitung reichte
+#     in der Saison 1 Einheit/Woche, um Maximalkraft, Sprint- und
+#     Sprungleistung zu HALTEN. Nur 1 Einheit alle 2 Wochen: Kraft und
+#     40-m-Sprintleistung fielen ab.
+#
+# VORAUSSETZUNG: Das Kraftniveau wurde in der Vorbereitung aufgebaut
+# (z.B. mit dem Off-Season Kraftblock). Dieses Programm ERHÄLT, es
+# baut nicht auf. Übungsauswahl hier praxisüblich ergänzt — das
+# Studienprotokoll selbst war unterkörperfokussiert (Halbkniebeuge).
+# ============================================================
+
+# ----- Einheit A — Pflichteinheit (1x/Woche) -----
+# Ziele: Schwere Grundübungen, wenige Sätze, volle Pausen.
+# Timing: mind. 48-72 h vor dem nächsten Spiel, ideal am Tag nach
+# dem Spiel oder früh in der Trainingswoche.
+
+---[Einheit A: Krafterhalt (Pflicht)]
+
+Squat                3x4   @85%   r3m    # im Original Halbkniebeuge — Variante nach Sportart/Historie
+RDL                  2x6   @RPE7  r2m    # hintere Kette, kein Muskelversagen
+Bench Press          3x4   @85%   r2m    # Oberkörper-Erhalt (Praxis-Ergänzung)
+Pull-up              2x6   @RPE7  r2m    # oder schweres Rudern
+Pallof Press         2x10  r60s          # Rumpf, anti-rotatorisch
+
+> Kein Satz bis zum Muskelversagen — Frische für Training + Spiel hat Vorrang.
+> Intensität halten heißt: Last NICHT absenken, lieber einen Satz streichen.
+> In englischen Wochen (2 Spiele): auf diese eine Einheit reduzieren und
+> ggf. auf 2 Sätze pro Übung kürzen — Frequenz nie unter 1x/Woche fallen
+> lassen (alle 2 Wochen war in der Studie zu wenig).
+
+# ----- Einheit B — Optionale 2. Einheit -----
+# Ziele: Explosivkraft-Impuls bei niedrigem Volumen. Nur in Wochen mit
+# genug Abstand zwischen den Spielen (1 Spiel/Woche).
+
+---[Einheit B: Power (optional)]
+
+Trap Bar Deadlift    2x3   @85%   r3m    # schwer, technisch sauber
+Jump Squat           3x4   @30%   r2m    # explosiv, Absprungqualität vor Last
+Box Jump             3x3   r90s          # maximal explosiv, weiche Landung
+Push Press           2x4   @RPE7  r2m
+
+> Nur ansetzen, wenn ≥72 h Abstand zu beiden Spielen bleiben.
+> Bei hoher Spiel-/Reisebelastung ersatzlos streichen — Einheit A ist der Anker.
+> Monitoring: fällt die Sprung- oder Sprintleistung über Wochen ab,
+> Gesamtbelastung prüfen statt mehr Krafttraining stapeln.

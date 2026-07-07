@@ -1,0 +1,106 @@
+@plan "Achilles-Tendinopathie — Silbernagel Kombiprogramm"
+@freq daily
+@unit kg
+
+# ============================================================
+# Kombiniertes Belastungsprogramm bei chronischer (midportion)
+# Achilles-Tendinopathie nach Silbernagel — konzentrisch + exzentrisch +
+# schnellkräftig, gesteuert über ein Schmerz-Monitoring-Modell.
+#
+# ABGRENZUNG zu examples/rehab-achilles-alfredson.wodl:
+#   Alfredson = reines EXZENTRIK-Protokoll (2x täglich Heel Drops).
+#   Silbernagel = KOMBINIERTES 4-Phasen-Programm (konzentrisch, exzentrisch,
+#   schnellkräftig-plyometrisch) — und erlaubt die Fortführung von Sport
+#   (Laufen/Springen), solange das Schmerz-Monitoring-Modell eingehalten wird.
+#
+# Quellen (evidence-based, via Crossref/PubMed verifiziert):
+#   - Silbernagel, K. G., Thomee, R., Eriksson, B. I., & Karlsson, J. (2007).
+#     Continued Sports Activity, Using a Pain-Monitoring Model, during
+#     Rehabilitation in Patients with Achilles Tendinopathy: A Randomized
+#     Controlled Study. The American Journal of Sports Medicine, 35(6), 897-906.
+#     DOI: 10.1177/0363546506298279  (ORIGINAL-RCT)
+#   - Silbernagel, K. G., & Crossley, K. M. (2015). A Proposed Return-to-Sport
+#     Program for Patients With Midportion Achilles Tendinopathy: Rationale
+#     and Implementation. Journal of Orthopaedic & Sports Physical Therapy,
+#     45(11), 876-886. DOI: 10.2519/jospt.2015.5885  (Programm im Detail)
+#
+# SCHMERZ-MONITORING-MODELL (Kern des Programms, Silbernagel 2007):
+#   Schmerz auf Skala 0-10 einordnen: 0-2 = sicher, 2-5 = akzeptabel, >5 = Stopp.
+#   - Schmerz darf WÄHREND Übung/Sport bis 5/10 gehen.
+#   - Schmerz nach der Einheit darf 5/10 nicht überschreiten.
+#   - Schmerz/Steifigkeit am NÄCHSTEN MORGEN darf 5/10 nicht überschreiten.
+#   - Schmerz und Steifigkeit dürfen von Woche zu Woche NICHT zunehmen.
+#   Wird eine Regel verletzt: Belastung (Sport + Zusatzlast) reduzieren.
+#
+# WICHTIG: Dieses Protokoll ersetzt KEINE individuelle ärztliche/
+# physiotherapeutische Betreuung. Phasenwechsel sind kriterienbasiert und
+# werden vom betreuenden Team freigegeben — nicht allein von der Zeitachse.
+# Sehnenheilung ist langsam: mit 3-6 Monaten (bis 1 Jahr) rechnen.
+# ============================================================
+
+# ----- Phase 1 — Einstieg & Aufklärung (Woche 1-2) -----
+# Ziele: Schmerzmodell verstehen, Belastung beginnen, Wadenaktivierung.
+# Alle Übungen auf ebenem Boden, noch KEINE Stufenkante.
+
+---[Phase 1: Einstieg (Woche 1-2)] Mo Di Mi Do Fr Sa So
+
+Ankle Pumps                 3x20   r15s   # Zirkulation, Fuß aktiv auf/ab
+Double-Leg Calf Raise       3x15   @BW   r30s   # beidbeinig, ebener Boden
+Single-Leg Calf Raise       3x10   @BW   r30s   # einbeinig, ebener Boden
+Seated Calf Raise           3x10   @BW   r30s   # sitzend, Soleus
+Seated Eccentric Calf Raise 3x10   @BW   r30s   # sitzend, betont langsames Absenken
+
+> Täglich üben. Schmerz bis 5/10 während der Übung erlaubt (siehe Modell oben).
+> Alltagsaktivität und lockerer Sport nach Schmerzmodell erlaubt — kein Komplettstopp.
+> Meilenstein Ende Phase 1: Übungen werden toleriert, Schmerzmodell verstanden,
+> Morgensteifigkeit nimmt nicht zu.
+
+# ----- Phase 2 — Aufbau auf der Stufe (Woche 2-5) -----
+# Ziele: Kraftaufbau über vollen ROM (Stufenkante), Einstieg Schnellkraft.
+
+---[Phase 2: Aufbau (Woche 2-5)] Mo Di Mi Do Fr Sa So
+
+Double-Leg Calf Raise       3x15   @BW   r30s   # auf Stufenkante, Ferse unter Niveau
+Single-Leg Calf Raise       3x15   @BW   r45s   # auf Stufenkante
+Seated Calf Raise           3x15   @BW   r30s
+Eccentric Heel Drop         3x15   @BW   r45s   # Stufenkante, langsames einbeiniges Absenken
+Quick Rebounding Toe Raise  3x20   @BW   r30s   # schnelle, federnde Zehenstände
+
+> Täglich üben, weiterhin Schmerzmodell als Leitplanke.
+> Meilenstein für Phase 3: Phase-2-Programm wird bewältigt, kein Schmerz
+> distal am Sehnenansatz, Morgensteifigkeit stabil oder rückläufig.
+
+# ----- Phase 3 — Schwerer Kraftaufbau + Rückkehr Laufen/Springen (Woche 3-12) -----
+# Ziele: Zusatzlast (Rucksack), Schnellkraft/Plyometrie, Lauf-/Sprungaufbau.
+# Täglich üben; die SCHWEREN Einheiten mit Zusatzlast nur 2-3x/Woche,
+# an den übrigen Tagen ohne Zusatzlast.
+
+---[Phase 3: Schwerer Aufbau (Woche 3-12)] Mo Di Mi Do Fr Sa So
+
+Single-Leg Calf Raise       3x15   @BW+5kg   r60s   # Rucksack, Last schrittweise steigern
+Eccentric Heel Drop         3x15   @BW+5kg   r60s   # Stufenkante, mit Zusatzlast
+Seated Calf Raise           3x15   @BW       r30s
+Quick Rebounding Toe Raise  3x20   @BW       r30s
+
+> Zusatzlast in kleinen Schritten (2-5kg) erhöhen, solange das Schmerzmodell hält.
+> Lauf- und Sprungaufbau parallel starten bzw. steigern — Umfang so wählen,
+> dass Schmerz ≤5/10 bleibt und morgens nicht zunimmt.
+> Plyometrie (z.B. beidbeinige Sprünge, Seilspringen) dosiert einbauen,
+> sobald Quick Rebounding Toe Raises problemlos gehen.
+> Diese Phase dauert so lange wie nötig — 12 Wochen sind der Richtwert.
+
+# ----- Phase 4 — Erhaltung (Woche 12 bis 6 Monate) -----
+# Ziele: Kraft halten, Rückfall vermeiden, voller Sport.
+# 2-3 Einheiten pro Woche reichen in der Erhaltungsphase.
+
+---[Phase 4: Erhaltung (Woche 12-26)] Mo Do
+
+Single-Leg Calf Raise       3x15   @BW+10kg   r60s   # Last nach Toleranz weiter steigern
+Eccentric Heel Drop         3x15   @BW+10kg   r60s
+Quick Rebounding Toe Raise  3x20   @BW        r30s
+
+> Erhaltungstraining bis mindestens 6 Monate fortführen — Sehnenumbau ist langsam,
+> auch wenn die Symptome früher verschwinden.
+> Rückkehr zu vollem Sport: symptomarm im Alltag, einbeiniges Wadenheben
+> seitengleich kräftig, Sprünge/Läufe ohne Verstoß gegen das Schmerzmodell.
+> Bei Symptomanstieg: zurück zu Phase 3 (schwerer Kraftaufbau, weniger Sprungvolumen).

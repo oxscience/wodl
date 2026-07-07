@@ -1,0 +1,78 @@
+@plan "FIFA 11+ Aufwärmprogramm"
+@freq 2x/week
+
+# ============================================================
+# Komplettes Aufwärm-/Verletzungspräventionsprogramm für Fußball
+# (frei publiziert von FIFA/F-MARC, entwickelt u.a. von Bizzini & Dvorak).
+# 3 Teile, ~20 min: Laufübungen — Kraft/Plyometrie/Balance (je 3 Level) —
+# schnelle Laufübungen. Mindestens 2x/Woche als Standard-Warm-up,
+# ideal zu Beginn JEDES Trainings. Vor Spielen nur Teil 1 und Teil 3.
+#
+# Quellen:
+#   Soligard, T., Myklebust, G., Steffen, K., Holme, I., Silvers, H.,
+#   Bizzini, M., Junge, A., Dvorak, J., Bahr, R., & Andersen, T. E. (2008).
+#   Comprehensive warm-up programme to prevent injuries in young female
+#   footballers: cluster randomised controlled trial. BMJ, 337, a2469.
+#   DOI: 10.1136/bmj.a2469
+#
+#   Silvers-Granelli, H., Mandelbaum, B., Adeniji, O., Insler, S.,
+#   Bizzini, M., Pohlig, R., Junge, A., Snyder-Mackler, L., & Dvorak, J.
+#   (2015). Efficacy of the FIFA 11+ Injury Prevention Program in the
+#   Collegiate Male Soccer Player. The American Journal of Sports Medicine,
+#   43(11), 2628-2637. DOI: 10.1177/0363546515602009
+#
+#   Bizzini, M., & Dvorak, J. (2015). FIFA 11+: an effective programme to
+#   prevent football injuries in various player groups worldwide — a
+#   narrative review. British Journal of Sports Medicine, 49(9), 577-579.
+#   DOI: 10.1136/bjsports-2015-094765
+#
+# Level-Progression (Teil 2): Alle starten auf Level 1. Pro Übung erst
+# dann ein Level höher, wenn die vorgegebene Dauer/Wiederholungszahl
+# mühelos und technisch sauber gelingt (individuell pro Spieler:in;
+# vereinfacht: Teamwechsel alle 3-4 Wochen). Durchgehend gilt:
+# Knie nie nach innen knicken lassen, weich auf dem Vorfuß landen.
+# ============================================================
+
+# ----- Teil 1: Laufübungen (~8 min) -----
+# Parcours aus 6 Kegelpaaren (~5-6 m Abstand): hin = Übung entlang der
+# Kegel, zurück = locker auslaufen mit steigendem Tempo. Je 2 Durchgänge.
+
+---[Teil 1: Laufübungen (8 min)]
+
+Running Straight Ahead              1x2    @low    # Locker vorlaufen, zurück etwas schneller
+Running Hip Out                     1x2    @low    # Am Kegel: Knie heben, Hüfte nach außen drehen
+Running Hip In                      1x2    @low    # Am Kegel: Knie heben, Hüfte nach innen drehen
+Running Circling Partner            1x2    @low    # Sidesteps, Partner einmal umkreisen
+Jumping with Shoulder Contact       1x2    @mid    # Sidestep + beidbeiniger Sprung mit Schulterkontakt
+Running Quick Forwards Backwards    1x2    @mid    # 2 Kegel vor, 1 Kegel rückwärts, Knie leicht gebeugt
+
+# ----- Teil 2: Kraft, Plyometrie, Balance (~10 min) -----
+# 6 Übungen mit je 3 Schwierigkeitsleveln. Inline steht die
+# Level-1-Dosierung; Level 2/3 in den Kommentaren und Notizen.
+
+---[Teil 2: Kraft, Plyometrie, Balance (10 min)]
+
+Plank                    3x30s      @ISO   # 20-30 s halten. L1 statisch; L2: Beine abwechselnd anheben, 3x 40-60 s; L3: ein Bein anheben und halten, 3x 20-30 s pro Seite
+Side Plank               3x30s      @ISO   # 20-30 s pro Seite. L1 statisch (Knie 90° aufgestellt); L2: Hüfte heben und senken; L3: gestreckt mit Beinheben
+Nordic Hamstring Curl    1x3-5      @BW    # L1: 3-5 / L2: 7-10 / L3: min. 12-15 Wdh.; Fall so lange wie möglich bremsen
+Single Leg Balance       2x30s      @BW    # Pro Bein. L1: Ball in beiden Händen halten; L2: Ballzuwerfen mit Partner; L3: Partner versuchen sich aus dem Gleichgewicht zu bringen
+Squat                    2x30s      @BW    # L1: bis 90° + Zehenstand beim Aufrichten; L2: gehende Ausfallschritte, 2x10 pro Bein; L3: Einbein-Kniebeuge, 2x10 pro Bein
+Vertical Jump            2x30s      @BW    # L1: vertikale Sprünge; L2: seitliche Sprünge (einbeinig, ~1 m); L3: Kreuzsprünge vor/zurück/seitlich/diagonal
+
+> Weiche, gefederte Landung auf dem Vorfuß ist wichtiger als Sprunghöhe.
+> Beim Nordic Hamstring Curl: Hüfte gestreckt lassen, mit den Händen
+> abfangen, aktiv zurückdrücken.
+
+# ----- Teil 3: Laufübungen (~2 min) -----
+# Zum Abschluss Tempo aufnehmen — danach direkt ins Training.
+
+---[Teil 3: Laufübungen (2 min)]
+
+Running Across the Pitch    1x2    @high    # ~40 m bei 75-80% des Maximaltempos, Rest locker
+Bounding                    1x2    @high    # 6-8 Sprungschritte mit hohem Knieeinsatz, Gegenarm schwingt
+Plant and Cut               1x2    @high    # 4-5 Schritte anlaufen, Richtungswechsel, 5-7 Schritte Sprint bei 80-90%
+
+> Vor Spielen nur Teil 1 und Teil 3 durchführen.
+> Wirksamkeit hängt an der Compliance: Teams mit regelmäßiger,
+> korrekter Durchführung hatten in den Studien deutlich weniger
+> Verletzungen — Qualität der Ausführung aktiv coachen.

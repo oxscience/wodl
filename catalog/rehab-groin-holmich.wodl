@@ -1,0 +1,77 @@
+@plan "Leisten-Reha: Aktives Trainingsprogramm (Hölmich-Protokoll)"
+@freq 3x/week
+@unit kg
+
+# ============================================================
+# Aktives Trainingsprogramm bei LANGWIERIGEM adduktorenbezogenem
+# Leistenschmerz (in der Originalstudie median 40 Wochen Beschwerdedauer).
+# Zwei Module: Modul 1 (Woche 1-2, isometrisch + Koordination) und
+# Modul 2 (ab Woche 3, dynamische Kräftigung), 3 Einheiten/Woche,
+# Behandlungsdauer 8-12 Wochen.
+#
+# Quellen:
+#   Hölmich, P., Uhrskou, P., Ulnits, L., Kanstrup, I.-L., Nielsen, M. B.,
+#   Bjerg, A. M., & Krogsgaard, K. (1999). Effectiveness of active physical
+#   training as treatment for long-standing adductor-related groin pain in
+#   athletes: randomised trial. The Lancet, 353(9151), 439-443.
+#   DOI: 10.1016/S0140-6736(98)03340-6
+#   → 79% der Trainingsgruppe kehrten ohne Leistenschmerz auf ihr altes
+#     Sportniveau zurück (im Mittel nach 18.5 Wochen).
+#
+#   Details zu Pausenzeiten/Gewichtswahl (im Lancet-Original nicht
+#   spezifiziert) nach der Protokoll-Reproduktion:
+#   Yousefzadeh, A., Shadmehr, A., Olyaei, G. R., Naseri, N., &
+#   Khazaeipour, Z. (2018). Effect of Holmich protocol exercise therapy
+#   on long-standing adductor-related groin pain in athletes: an objective
+#   evaluation. BMJ Open Sport & Exercise Medicine, 4(1), e000343.
+#   DOI: 10.1136/bmjsem-2018-000343
+#
+# WICHTIG: Ersetzt KEINE individuelle ärztliche/physiotherapeutische
+# Betreuung — Diagnose (adduktorenbezogen!) und Freigaben gehören in
+# fachliche Hände. Während der Behandlung KEIN Sport; schmerzfreies
+# Radfahren ist erlaubt. KEIN Adduktoren-Stretching während des Programms.
+# ============================================================
+
+# ----- Modul 1 (Woche 1-2) -----
+# Ziele: schmerzfreie isometrische Aktivierung der Adduktoren,
+# Rumpfkraft, Balance und Koordination. Einheiten ~90 min.
+
+---[Modul 1 (Woche 1-2)] Mo Mi Fr
+
+Adductor Squeeze Feet     10x30s   @ISO   r30s   # Rückenlage, Fußball zwischen den Füßen
+Sit-up                    5x10     r60s          # Gerade und schräg im Wechsel
+Adductor Squeeze Knees    10x30s   @ISO   r30s   # Rückenlage, Ball zwischen den Knien
+Folding Knife Sit-up      5x10     r60s          # Sit-up + Hüftbeugung, Ball zwischen den Knien ("Klappmesser")
+Wobble Board Balance      1x300s                 # Balancebrett, 5 min am Stück
+Sliding Board Skating     5x60s    r60s          # Pro Bein und Position: Füße parallel UND 90° zueinander
+
+> Alle Übungen schmerzfrei bzw. ohne Schmerzverstärkung ausführen.
+> Meilenstein Ende Woche 2: Übungen technisch sauber und ohne
+> zunehmenden Leistenschmerz — dann Modul 2 dazunehmen.
+> Kein Sport, kein Laufen in dieser Phase.
+
+# ----- Modul 2 (ab Woche 3) -----
+# Dynamische Kräftigung von Adduktoren, Abduktoren, Rumpf und unterem
+# Rücken plus Koordination. Einheiten ~120 min; ALLE Übungen des Moduls
+# werden pro Einheit ZWEIMAL durchlaufen (2 Runden).
+
+---[Modul 2 (ab Woche 3)] Mo Mi Fr
+
+Side-Lying Leg Raise           5x10   r60s   # Seitlage: Adduktion (unteres Bein) UND Abduktion (oberes Bein), je 5x10
+Back Extension                 5x10   r60s   # Bauchlage über dem Bankende
+Standing Cable Hip Adduction   5x10   r60s   # UND Abduktion: je 5x10 pro Bein am Zugapparat/Gewichtszug
+Sit-up                         5x10   r60s   # Gerade und schräg
+Cross-Country Skiing One Leg   5x10   r60s   # Einbeinig Knie beugen/strecken + gegengleicher Armschwung, pro Bein
+Fitter Sideways Training       1x300s        # Seitliches Gleittraining ("Fitter"), 5 min; alternativ Slideboard seitlich
+Wobble Board Balance           1x300s        # 5 min am Stück
+Sliding Board Skating          5x60s  r60s   # Schlittschuhbewegung, kontinuierlich
+
+> Startgewicht am Zugapparat: maximales Gewicht, das schmerzfrei für
+> 10 Wiederholungen geht — wöchentlich steigern (kriterienbasiert).
+> Modul-1-Übungen laufen zusätzlich weiter: an den trainingsfreien Tagen
+> jeden 2. Tag zu Hause.
+> Ab Woche 6: lockeres Joggen erlaubt, solange es keinen Leistenschmerz
+> auslöst.
+> Behandlungsdauer 8-12 Wochen. Rückkehr in den Sport erst nach klinischer
+> Freigabe (schmerzfreie Untersuchung inkl. Squeeze-Test) — nicht nach
+> Kalender. Im Original dauerte die Rückkehr im Mittel 18.5 Wochen.

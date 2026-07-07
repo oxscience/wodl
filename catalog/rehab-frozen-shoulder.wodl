@@ -1,0 +1,98 @@
+@plan "Frozen Shoulder — stadiengerechtes Programm"
+@freq daily
+@unit kg
+
+# ============================================================
+# Adhäsive Kapsulitis ("Frozen Shoulder"): stadiengerechtes Übungsprogramm.
+# Die Phasen richten sich nach der GEWEBEIRRITABILITÄT (Schmerzverhalten),
+# nicht nach dem Kalender — schmerzdominant wird sanft mobilisiert,
+# steifigkeitsdominant wird intensiver gedehnt und belastet.
+#
+# Quelle (Clinical Practice Guideline, verifiziert via Crossref):
+#   - Kelley, M. J., Shaffer, M. A., Kuhn, J. E., Michener, L. A., Seitz, A. L.,
+#     Uhl, T. L., et al. (2013). Shoulder Pain and Mobility Deficits: Adhesive
+#     Capsulitis. Journal of Orthopaedic & Sports Physical Therapy, 43(5), A1-A31.
+#     DOI 10.2519/jospt.2013.0302
+#
+# Irritabilitäts-Stadien nach Kelley et al. 2013:
+#   HOCH:    Schmerz ≥7/10, Nacht-/Ruheschmerz, Schmerz VOR dem Bewegungsende,
+#            aktive ROM deutlich kleiner als passive ROM.
+#   MODERAT: Schmerz 4-6/10, intermittierender Nachtschmerz, Schmerz AM
+#            Bewegungsende, aktive ≈ passive ROM.
+#   NIEDRIG: Schmerz ≤3/10, kein Ruheschmerz, Schmerz erst bei Überdruck
+#            ins Endrange.
+#
+# WICHTIG: Ersetzt keine individuelle Betreuung. Diagnose ärztlich sichern
+# (Assoziation mit Diabetes/Schilddrüse abklären). Die CPG empfiehlt zusätzlich
+# Patientenedukation (natürlicher Verlauf über Monate!), Gelenkmobilisation
+# durch Therapeut:in und ggf. intraartikuläre Kortikoid-Injektion PLUS Dehnen
+# (ärztliche Entscheidung). Phasenwechsel nach Kriterien, nicht nach Wochen.
+# ============================================================
+
+# ----- Phase 1 — Hohe Irritabilität (schmerzdominant) -----
+# Ziele: Schmerz modulieren, schmerzfreie Beweglichkeit erhalten, Angst nehmen.
+# Nur schmerzfreie passive/aktiv-assistierte ROM. Wärme vor den Übungen.
+# Dosierung: kurze Haltezeiten (5-10s), 10 Wdh, 3-5 kurze Einheiten täglich.
+
+---[Phase 1: Schmerzdominant (hohe Irritabilität)] Mo Di Mi Do Fr Sa So
+
+Pendulum                    3x30s        r30s   # locker auspendeln lassen, kein aktives Führen
+Supine Assisted Flexion     10x5s  @low  r15s   # Rückenlage, gesunder Arm hebt mit — VOR der Schmerzgrenze stoppen
+External Rotation Stretch with Stick 10x5s @low r15s # Stock, Ellbogen 90° am Körper, sanft nach außen schieben
+Table Slide                 10x5s  @low  r15s   # Hände auf Tisch nach vorn gleiten, Oberkörper neigt sich mit
+Scapular Retraction         3x10         r30s   # Schulterblätter sanft zusammenziehen
+
+> 3-5 kurze Einheiten über den Tag verteilen, jede Wiederholung 5-10s halten.
+> Strikt schmerzarm arbeiten: Übungen dürfen ziehen, aber keinen Schmerz
+> auslösen, der danach anhält (Kelley 2013: schmerzfreie ROM bei hoher Irritabilität).
+> Aktivität modifizieren statt Arm ruhigstellen — Schonhaltung verlängert den Verlauf.
+> Weiter zu Phase 2, wenn: Nacht-/Ruheschmerz rückläufig, Schmerz ≤6/10 und
+> erst AM Bewegungsende spürbar (nicht davor).
+
+# ----- Phase 2 — Moderate Irritabilität -----
+# Ziele: Beweglichkeit ausbauen, Dehnreiz moderat bis an den Gewebswiderstand,
+# Aktivitäten schrittweise zurückerobern. 2-3 Einheiten täglich.
+
+---[Phase 2: Übergang (moderate Irritabilität)] Mo Di Mi Do Fr Sa So
+
+Wall Walk                   3x10         r30s   # Wand hochwandern (Flexion), oben kurz halten
+External Rotation Stretch with Stick 5x20s @low r20s # jetzt bis an den Gewebswiderstand dehnen
+Cross-Body Stretch          5x20s  @low  r20s   # Arm horizontal vor den Körper ziehen
+Pulley Flexion              3x10         r30s   # Seilzug/Umlenkrolle, gesunder Arm zieht hoch
+Behind-Back Towel Stretch   5x20s  @low  r20s   # Handtuch hinter dem Rücken hochziehen (Innenrotation)
+Scapular Retraction         3x12         r30s
+Band External Rotation      2x15   @low  r45s   # sanfte Kräftigung erst, wenn der Schmerz es zulässt
+
+> Dehnintensität moderat: bis an den Widerstand, ohne dass danach eine
+> Schmerz-/Entzündungsreaktion auftritt (Symptom-Check am Folgetag).
+> Amplitude und Haltedauer schrittweise steigern — nicht die Härte des Ziehens.
+> Weiter zu Phase 3, wenn: Schmerz ≤3/10, kein Nacht-/Ruheschmerz mehr,
+> Schmerz nur noch bei Überdruck am Endrange, aktive = passive ROM.
+
+# ----- Phase 3 — Niedrige Irritabilität (steifigkeitsdominant) -----
+# Ziele: Endgradige Beweglichkeit erarbeiten (lange Dehnhaltungen IN den
+# Widerstand), Kraft aufbauen, Mobilität in Alltag/Überkopf integrieren.
+# Dehnen 1-2x täglich, Kräftigung 3x/Woche.
+
+---[Phase 3: Steifigkeitsdominant (niedrige Irritabilität)] Mo Di Mi Do Fr Sa So
+
+External Rotation Stretch with Stick 4x30s @mid r20s # in den Widerstand, deutliches Dehngefühl ist jetzt ok
+Cross-Body Stretch          4x30s  @mid  r20s
+Sleeper Stretch             3x30s  @mid  r20s   # Seitlage, Unterarm Richtung Boden drücken
+Doorway Stretch             3x30s  @mid  r20s   # Türrahmen, Flexion/Außenrotation endgradig
+Behind-Back Towel Stretch   4x30s  @mid  r20s   # Innenrotations-Dehnung
+Band External Rotation      3x12   @mid  r45s
+Band Internal Rotation      3x12   @mid  r45s
+Full Can Raise              3x12   @2kg  r45s   # Scaption mit Daumen hoch
+Scapular Retraction         3x15         r30s
+
+> Längere Haltezeiten (30s+) und Dehnen in den Gewebswiderstand — solange
+> keine anhaltende Schmerzreaktion folgt (Kelley 2013: hohe Amplitude/Dauer
+> nur bei niedriger Irritabilität).
+> Ergänzend sinnvoll: endgradige Gelenkmobilisation durch Physiotherapeut:in.
+> Mobilitätsgewinne aktiv in Alltags- und Überkopfaktivitäten überführen
+> (neuromuskuläre Reintegration).
+> Bei Rückfall in höhere Irritabilität (Nachtschmerz kehrt zurück): Intensität
+> wieder auf Phase-2-Niveau senken.
+> Geduld: Gesamtverlauf einer Frozen Shoulder zieht sich häufig über 12+ Monate —
+> Restdefizite in Außenrotation/Abduktion können lange bestehen bleiben.

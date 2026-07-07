@@ -1,0 +1,101 @@
+@plan "Patellofemorales Schmerzsyndrom: Huefte + Knie (JOSPT CPG)"
+@freq 3x/week
+@unit kg
+
+# ============================================================
+# Reha bei Patellofemoralem Schmerzsyndrom (PFPS, "Runner's Knee") nach der
+# JOSPT Clinical Practice Guideline. Kern-Empfehlung (Evidenzgrad A):
+# uebungsbasierte Therapie, die HUEFT- UND KNIE-Muskulatur kombiniert
+# adressiert. Frueh Huefte-dominant (posterolaterale Huefte), im Verlauf
+# kombiniert Huefte + Knie. Progression kriterienbasiert (Schmerz/Funktion),
+# nicht rein zeitbasiert.
+#
+# Quelle (web-verifiziert):
+#   - Willy, R. W., Hoglund, L. T., Barton, C. J., Bolgla, L. A., Scalzitti,
+#     D. A., Logerstedt, D. S., Lynch, A. D., Snyder-Mackler, L., & McDonough,
+#     C. M. (2019). Patellofemoral Pain: Clinical Practice Guidelines Linked to
+#     the International Classification of Functioning, Disability and Health From
+#     the Academy of Orthopaedic Physical Therapy of the American Physical
+#     Therapy Association. Journal of Orthopaedic & Sports Physical Therapy,
+#     49(9), CPG1-CPG95. DOI: 10.2519/jospt.2019.0302
+#
+# Kern-Statements der Leitlinie (paraphrasiert):
+#   - Exercise Therapy Grad A: kombiniert huefte- und knie-gerichtet ist der
+#     bevorzugte Ansatz gegen Schmerz und fuer Funktion (kurz-, mittel-, langfristig).
+#   - Frueh posterolaterale Huefte (Abduktoren, Aussenrotatoren) bevorzugen,
+#     spaeter Knie-Muskulatur zwingend ergaenzen.
+#   - Kombination > isolierte Knie-Kraeftigung.
+#
+# WICHTIG: Ersetzt keine individuelle Betreuung. Uebungen im schmerzarmen
+# Bereich (VAS moeglichst <=2-3), 24h-Regel beachten. Freigabe der Progression
+# durch das betreuende Team anhand Schmerz/Funktion, nicht der Kalender.
+# ============================================================
+
+# ----- Phase 1 — Huefte-dominant (Aktivierung posterolaterale Huefte) -----
+# Ziele: posterolaterale Huefte (Abduktoren, Aussenrotatoren, Glutealkette)
+# aktivieren und kraeftigen; frontale/transversale Beckenkontrolle. Knie-Last
+# niedrig halten, damit patellofemoraler Reiz gering bleibt.
+
+---[Phase 1: Huefte-dominant] Mo Mi Fr
+
+Side-Lying Hip Abduction  3x15   r45s   # posterolaterale Huefte, Fokus
+Clamshell                 3x15   r30s   # Aussenrotatoren
+Glute Bridge              3x15   r45s
+Single Leg Bridge         3x10   r45s   # unilaterale Glutealkontrolle
+ss {
+  Side Plank              3x30s  r30s   # laterale Rumpf-/Beckenkontrolle
+  Lateral Band Walk       3x12   r45s   # Monster/Side-Walk mit Band
+}
+
+> Uebungen schmerzarm halten (VAS <=2-3), 24h-Schmerzantwort stabil.
+> Progressions-Kriterien Phase 1 -> Phase 2:
+> - Huefte-Uebungen sauber mit gutem Becken-Alignment (kein Trendelenburg)
+> - Single-Leg-Bridge/Side-Plank symmetrisch belastbar
+> - Alltag/leichte Kniebelastung ohne Reizzunahme (24h-Regel erfuellt)
+
+# ----- Phase 2 — Kombiniert Huefte + Knie -----
+# Ziele: knie-gerichtete Kraft (Quadriceps, geschlossene Kette) HINZUFUEGEN,
+# waehrend Huefte weiter gekraeftigt wird. Kombination ist der Kern der
+# Grad-A-Empfehlung. Bewegungsqualitaet (Knie-ueber-Fuss) betonen.
+
+---[Phase 2: Kombiniert Huefte + Knie] Mo Mi Fr
+
+Squat                 3x12   @RPE6   r90s    # geschlossene Kette, schmerzarme ROM
+Leg Press             3x12   @RPE6   r90s
+Step-up               3x12   r60s            # Alignment Knie ueber Fuss
+Step-down             3x10   r60s            # kontrollierte Exzentrik
+ss {
+  Side-Lying Hip Abduction  3x15  r30s       # Huefte weiterfuehren
+  Clamshell                 3x15  r30s
+}
+Wall Sit              3x30s  @ISO   r45s     # isometrischer Quad-Reiz, schmerzarm
+
+> Bewegungsqualitaet vor Last: Knie folgt der 2.-3.-Zehen-Achse, kein Kollaps.
+> Progressions-Kriterien Phase 2 -> Phase 3:
+> - Squat/Step-down schmerzarm mit sauberem Frontal-Alignment
+> - Kein Anstieg der Symptome bei Alltag/Sport-Vorstufen (24h-Regel)
+> - Wenn Ziel nur Schmerzfreiheit im Alltag: Phase 3 optional
+
+# ----- Phase 3 — Belastungssteigerung & funktionelle Rueckkehr -----
+# Ziele: hoehere Kniebelastung, unilaterale Kraft, funktionelle/sportartspezifische
+# Muster. Weiterhin kombiniert Huefte + Knie. Laufende/springende Belastung
+# schrittweise, wenn tolerier.
+
+---[Phase 3: Belastung & Funktion] Mo Mi Fr
+
+Squat                 4x8    @RPE7   r120s   +2.5kg/w
+Bulgarian Split Squat 3x10   @RPE7   r90s
+Leg Press             3x10   @RPE7   r90s
+Step-down             3x12   r60s
+ss {
+  Single Leg Bridge   3x12   r45s
+  Side Plank          3x40s  r30s
+}
+Single Leg Balance    3x45s  r30s
+
+> Return-to-Activity kriterienbasiert:
+> - Symmetrische Kraft Huefte + Knie, gutes Single-Leg-Alignment
+> - Funktionsteste (z.B. Single-Leg-Squat/Step-down) schmerzarm und kontrolliert
+> - Sport-/Laufbelastung schrittweise, keine 24h-Reizzunahme
+> - Adjunkte laut CPG optional (patellofemorales Taping, Fussorthesen bei
+>   passendem Subtyp) - immer als Ergaenzung zur Uebungstherapie, nie Ersatz.

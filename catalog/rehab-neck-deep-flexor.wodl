@@ -1,0 +1,96 @@
+@plan "Chronische Nackenschmerzen — tiefe Flexoren bis Kraft"
+@freq daily
+@unit kg
+
+# ============================================================
+# Chronische Nackenschmerzen: dreistufiges Programm von der Aktivierung der
+# tiefen Nackenflexoren (kraniozervikale Flexion mit Druckbiofeedback) über
+# Ausdauer bis zur progressiven Kräftigung.
+#
+# Quellen (evidence-based, verifiziert via Crossref):
+#   - Jull, G., Trott, P., Potter, H., Zito, G., Niere, K., Shirley, D., et al. (2002).
+#     A Randomized Controlled Trial of Exercise and Manipulative Therapy for
+#     Cervicogenic Headache. Spine, 27(17), 1835-1843.
+#     DOI 10.1097/00007632-200209010-00004
+#     → 6 Wochen niedrigintensives Übungsprogramm (kraniozervikale Flexion mit
+#       Druckbiofeedback + Skapula-/Haltungstraining); Effekte auf Schmerz und
+#       Frequenz bis 12 Monate erhalten.
+#   - Ylinen, J., Takala, E.-P., Nykänen, M., Häkkinen, A., Mälkiä, E.,
+#     Pohjolainen, T., et al. (2003). Active Neck Muscle Training in the Treatment
+#     of Chronic Neck Pain in Women: A Randomized Controlled Trial.
+#     JAMA, 289(19), 2509-2516. DOI 10.1001/jama.289.19.2509
+#     → Sowohl Kraft- als auch Ausdauertraining senken Schmerz und Disability
+#       deutlich gegenüber Kontrolle; Krafttraining mit den größten Kraftgewinnen
+#       (Flexion +110%). Trainiert wurde langfristig (12-Monats-Programm).
+#
+# WICHTIG: Ersetzt keine individuelle Betreuung. Red Flags (Trauma, neurologische
+# Ausfälle, Schwindel, unerklärter Gewichtsverlust) vorher ärztlich abklären.
+# Druckbiofeedback-Einheit (aufblasbares Kissen, z.B. Stabilizer) für Phase 1
+# ideal — Alternative ohne Gerät: sanftes Kopfnicken an der Wand ("Chin Tuck").
+# ============================================================
+
+# ----- Phase 1 — Aktivierung der tiefen Flexoren (Woche 0-2) -----
+# Ziele: M. longus colli/capitis gezielt ansteuern, ohne dass die oberflächlichen
+# Muskeln (Sternocleidomastoideus) übernehmen. 2x täglich üben.
+# Setup: Rückenlage, Biofeedback-Kissen unter dem Nacken auf 20 mmHg aufpumpen.
+# Sanftes "Ja"-Nicken: Zielwert zunächst 22 mmHg, 10 Sekunden ruhig halten.
+
+---[Phase 1: Aktivierung (Woche 0-2)] Mo Di Mi Do Fr Sa So
+
+Craniocervical Flexion      10x10s  @ISO  r10s   # Biofeedback: 20 → 22 mmHg, SCM bleibt tastbar weich
+Chin Tuck                   3x10          r30s   # Variante im Sitzen/an der Wand für zwischendurch
+Scapular Retraction         3x10          r30s   # Skapula-Setting, unteres Trapez-Gefühl
+
+> 2x täglich üben — die Übung ist ANSTEUERUNG, kein Kraftakt: minimale,
+> präzise Nickbewegung, keine Kopfheber, kein Pressen, ruhig weiteratmen.
+> Selbstkontrolle: Finger seitlich am Hals — der oberflächliche SCM darf beim
+> Halten nicht hart anspannen.
+> Haltungskorrektur in den Alltag einbauen: mehrmals pro Stunde aufrichten,
+> sanft nicken (Jull-Programm enthielt explizit Haltungs-Reedukation).
+> Progression: +2 mmHg, sobald 10x10s auf dem aktuellen Level sauber gehalten
+> werden — Stufen 22 → 24 → 26 → 28 → 30 mmHg.
+
+# ----- Phase 2 — Ausdauer (Woche 2-6) -----
+# Ziele: Haltefähigkeit der tiefen Flexoren auf höheren Stufen ausbauen,
+# dynamische Ausdauer der Nacken- und Schultermuskulatur beginnen
+# (Ausdauer-Schema nach Ylinen 2003: hohe Wiederholungszahlen, leichte Last).
+
+---[Phase 2: Ausdauer (Woche 2-6)] Mo Di Mi Do Fr Sa So
+
+Craniocervical Flexion      10x10s  @ISO  r10s   # Level weiter steigern Richtung 26-30 mmHg, 2x täglich
+Supine Head Lift            3x20    @BW   r45s   # Rückenlage: Kinn einziehen, Kopf 2-3cm anheben
+Prone Head Lift             3x20    @BW   r45s   # Bauchlage: Kopf gegen Schwerkraft anheben, Nacken lang
+Shrug                       3x20    @2kg  r45s   # leichtes Kurzhantel-Programm (Ylinen-Ausdauergruppe)
+Dumbbell OHP                3x20    @2kg  r45s
+Dumbbell Row                3x20    @2kg  r45s
+Dumbbell Curl               3x20    @2kg  r45s
+
+> Kopfhebungen klein und kontrolliert — Zittern oder Kinn-Vorschieben heißt:
+> Satz beenden. Leichte Muskelermüdung ok, kein Symptomanstieg am Folgetag.
+> Kriterium für Phase 3: 28-30 mmHg über 10x10s sauber gehalten UND
+> Alltagsschmerz rückläufig.
+
+# ----- Phase 3 — Kraft (Woche 6-12+) -----
+# Ziele: Maximalkraft der Nackenmuskulatur aufbauen (Kraft-Schema nach
+# Ylinen 2003: isometrisch gegen Gummiband bei ~80% der Maximalkraft,
+# 15 Wdh je Richtung, plus Hantelübungen für Schulter/Arme), 3x/Woche.
+
+---[Phase 3: Kraft (Woche 6-12+)] Mo Mi Fr
+
+Craniocervical Flexion      5x10s   @ISO  r10s   # Erhalt, 1x täglich auf Ziel-Level
+Isometric Neck Flexion      1x15    @80%  r60s   # Gummiband um die Stirn, gegen Zug nach vorn halten
+Isometric Neck Flexion Diagonal 1x15 @80% r60s   # je Schrägrichtung links/rechts einmal durchführen
+Isometric Neck Extension    1x15    @80%  r60s   # Band am Hinterkopf, gegen Zug nach hinten
+Shrug                       1x15    @RPE7 r60s   # Last jetzt so, dass 15 Wdh fordernd sind
+Dumbbell OHP                1x15    @RPE7 r60s
+Dumbbell Row                1x15    @RPE7 r60s
+Dumbbell Curl               1x15    @RPE7 r60s
+Dumbbell Pullover           1x15    @RPE7 r60s
+
+> Ergänzend nach Ylinen-Gesamtprogramm: ~20 min Dehnen (Nacken/Schulter) und
+> ~30 min aerobes Training an den Trainingstagen.
+> Die JAMA-Studie trainierte über 12 MONATE — Kraftphase langfristig
+> weiterführen, sonst gehen die Effekte verloren. 3x/Woche als Dauerprogramm.
+> Jede Steigerung (Bandspannung, Hantellast) nur, wenn die vorige Stufe ohne
+> Symptomanstieg über eine Woche toleriert wurde.
+> Bei akuter Schmerz-Exazerbation: zurück zu Phase-1/2-Intensität.

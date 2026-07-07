@@ -1,0 +1,140 @@
+@plan "Achillessehnenruptur — Funktionelle Reha (beschleunigt)"
+@freq daily
+@unit kg
+
+# ============================================================
+# Beschleunigtes funktionelles Reha-Protokoll nach akuter Achillessehnenruptur.
+# Gilt weitgehend IDENTISCH für operativ und konservativ behandelte Rupturen —
+# im Willits-RCT durchliefen beide Gruppen dasselbe Protokoll.
+#
+# Quellen (evidence-based, via Crossref/PubMed verifiziert):
+#   - Willits, K., et al. (2010). Operative versus Nonoperative Treatment of
+#     Acute Achilles Tendon Ruptures: A Multicenter Randomized Trial Using
+#     Accelerated Functional Rehabilitation. The Journal of Bone and Joint
+#     Surgery (American), 92(17), 2767-2775.
+#     DOI: 10.2106/JBJS.I.01401  (ORIGINAL-PROTOKOLL, Phasenstruktur)
+#   - Barfod, K. W., et al. (2014). Nonoperative Dynamic Treatment of Acute
+#     Achilles Tendon Rupture: The Influence of Early Weight-Bearing on
+#     Clinical Outcome: A Blinded, Randomized Controlled Trial. The Journal
+#     of Bone and Joint Surgery (American), 96(18), 1497-1503.
+#     DOI: 10.2106/JBJS.M.01273  (frühe Belastung in Orthese ist sicher)
+#
+# ORTHESEN-/BELASTUNGSFAHRPLAN (Willits 2010):
+#   Woche 0-2:  Gips/Schiene in Plantarflexion, KEINE Belastung (Krücken).
+#   Woche 2-4:  Walker-Boot mit 2cm Fersenkeil, geschützte Belastung nach Toleranz.
+#   Woche 4-6:  Boot mit Fersenkeil, Belastung nach Toleranz.
+#   Woche 6-8:  Fersenkeil entfernen, Belastung nach Toleranz im Boot.
+#   Woche 8-12: Boot schrittweise abtrainieren.
+#   Barfod 2014: sofortige Belastung in Orthese ab Tag 1 verschlechterte das
+#   Ergebnis nicht — die konkrete Vorgabe macht das behandelnde Team.
+#
+# WICHTIG: Dieses Protokoll ersetzt KEINE ärztliche/physiotherapeutische
+# Betreuung. Orthese, Keilhöhe und Belastungsfreigabe legt IMMER das
+# behandelnde Team fest. Phasenwechsel kriterienbasiert, nicht rein zeitlich.
+# Größte Risiken: Re-Ruptur (Stolpern, forcierte Dorsalextension!) und
+# Sehnen-Elongation durch zu frühes/aggressives Dehnen.
+# ============================================================
+
+# ----- Phase 0 — Schutzphase (Woche 0-2) -----
+# Ziele: Sehne schützen, Schwellung kontrollieren, Rest des Körpers trainieren.
+# Sprunggelenk ruhigstellen — hier NUR Hüfte/Knie/Rumpf der betroffenen Seite
+# und die Gegenseite trainieren.
+
+---[Phase 0: Schutz (Woche 0-2)] Mo Di Mi Do Fr Sa So
+
+Straight Leg Raise        3x10   r30s   # Bein gestreckt anheben, Boot bleibt an
+Glute Bridge              3x12   r30s
+Clamshell                 3x15   r30s
+Side-Lying Hip Abduction  3x12   r30s
+
+> Gips/Schiene in Spitzfußstellung, KEINE Belastung — Gehen an Krücken.
+> Bein hochlagern, Zehen regelmäßig bewegen. Thromboseprophylaxe nach
+> ärztlicher Vorgabe. Oberkörpertraining ist ausdrücklich erlaubt.
+> Meilenstein: Wunde/Weichteile reizlos, Schmerz kontrolliert.
+
+# ----- Phase 1 — Geschützte Mobilisation (Woche 2-4) -----
+# Ziele: aktive Beweglichkeit BIS Neutralstellung, Belastungsaufbau im Boot.
+# Walker-Boot mit 2cm Fersenkeil, Belastung nach Toleranz mit Krücken.
+
+---[Phase 1: Mobilisation (Woche 2-4)] Mo Di Mi Do Fr Sa So
+
+Active Plantarflexion     3x15   r30s   # aktiv Richtung Spitzfuß, frei
+Active Dorsiflexion       3x10   r30s   # NUR bis Neutral-Null — nie darüber!
+Ankle Inversion           3x10   r30s   # unterhalb der Neutralstellung
+Ankle Eversion            3x10   r30s   # unterhalb der Neutralstellung
+Straight Leg Raise        3x10   r30s
+Glute Bridge              3x12   r30s
+
+> Boot mit Fersenkeil tragen, Belastung nach Toleranz steigern (Krücken nach Bedarf).
+> KEINE passive Dehnung in Dorsalextension — Elongationsgefahr.
+> Fitness ohne Belastung der Sehne: Radfahren mit dem gesunden Bein, Schwimmen
+> (sobald Wunde geschlossen).
+
+# ----- Phase 2 — Belastungsaufbau (Woche 4-6) -----
+# Ziele: volle Belastung im Boot, Bewegungsumfang festigen.
+
+---[Phase 2: Belastungsaufbau (Woche 4-6)] Mo Di Mi Do Fr Sa So
+
+Active Plantarflexion     3x20   r30s
+Active Dorsiflexion       3x12   r30s   # weiterhin nur bis Neutral-Null
+Ankle Inversion           3x12   r30s
+Ankle Eversion            3x12   r30s
+Seated Calf Raise         3x12   @BW   r30s   # leicht, ohne Zusatzlast
+Glute Bridge              3x15   r30s
+
+> Ziel Ende Phase 2: volle Belastung im Boot ohne Krücken, reizfreies Gelenk.
+> Weiter Radergometer/Schwimmen als Fitness-Baustein.
+
+# ----- Phase 3 — Dosierter Widerstand (Woche 6-8) -----
+# Ziele: Fersenkeil raus, sanfte Dorsalextension, Kraftaufbau mit Band,
+# Beginn Propriozeption.
+
+---[Phase 3: Widerstand (Woche 6-8)] Mo Di Mi Do Fr Sa So
+
+Band Plantarflexion       3x15   r30s   # Theraband, dosierter Widerstand
+Band Dorsiflexion         3x12   r30s
+Band Eversion             3x12   r30s
+Band Inversion            3x12   r30s
+Seated Calf Raise         3x15   @BW    r30s
+Single Leg Balance        3x30s  r30s   # fester Boden, anfangs mit Festhalten
+Calf Stretch              3x20s  r15s   # SANFTE Dorsalextensions-Dehnung, ohne Zwang
+
+> Fersenkeil entfernen, Belastung nach Toleranz. Dehnung nur sanft und
+> schmerzfrei — aggressive Dehnung riskiert Elongation.
+> Meilenstein: normales Abrollen im Boot, Dorsalextension nähert sich Neutral+.
+
+# ----- Phase 4 — Boot abtrainieren & Kraft (Woche 8-12) -----
+# Ziele: Übergang in normales Schuhwerk, Wadenkraft beidbeinig aufbauen,
+# Gangbild normalisieren.
+
+---[Phase 4: Übergang (Woche 8-12)] Mo Mi Fr
+
+Double-Leg Calf Raise     3x15   @BW   r45s   # beidbeinig, ebener Boden
+Seated Calf Raise         3x15   @BW   r30s
+Step-up                   3x10   r60s   # niedrige Stufe (10-15cm)
+Band Eversion             3x15   r30s
+Single Leg Balance        3x30s  r30s   # Progression: instabile Unterlage
+
+> Boot schrittweise abtrainieren (erst zuhause, dann draußen), ggf. übergangsweise
+> kleiner Fersenkeil im Schuh nach Vorgabe des Teams.
+> Gangschule: gleichmäßige Schrittlänge, aktives Abrollen.
+> Meilenstein Ende Phase 4: hinkfreies Gehen in normalen Schuhen,
+> beidbeiniges Wadenheben über vollen ROM.
+
+# ----- Phase 5 — Kraft, Power & Rückkehr zum Sport (Woche 12+) -----
+# Ziele: einbeinige Wadenkraft, Ausdauer, sportspezifische Belastungen.
+
+---[Phase 5: Return to Activity (Woche 12+)] Mo Mi Fr
+
+Single-Leg Calf Raise     3x8-12   @BW    r60s   # DER Meilenstein dieser Phase
+Double-Leg Calf Raise     4x15     @BW+10kg  r60s  # Zusatzlast nach Toleranz
+Step-down                 3x10     r60s   # kontrollierte Exzentrik
+Single Leg Balance        3x45s    r30s   # instabile Unterlage / Augen zu
+Leg Press                 3x12     @RPE6  r90s
+
+> Jogging-Start erst, wenn einbeiniges Wadenheben mehrfach sauber gelingt
+> und das Team freigibt (typisch Woche 12-16).
+> Sprünge/Richtungswechsel erst nach Lauf-Aufbau ohne Reizung.
+> Return to Sport meist ab 6 Monaten — Kriterien: seitengleiche Heel-Rise-Höhe
+> und -Wiederholungszahl, symmetrisches Gang-/Laufbild, Freigabe des Teams.
+> Wadenkraft-Defizite können >1 Jahr bestehen — Krafttraining fortführen.
