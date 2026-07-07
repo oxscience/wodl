@@ -1,21 +1,39 @@
-@plan "Achilles-Tendinopathie — Alfredson Protokoll"
+@plan "Achilles-Tendinopathie — Alfredson Protokoll (klassisch)"
 @freq 14x/week
 @unit kg
 
 # ============================================================
-# Rehabilitation bei chronischer (midportion) Achilles-Tendinopathie
-# nach dem ursprünglichen Alfredson-Protokoll.
+# Rehabilitation bei chronischer (midportion) Achilles-Tendinopathie.
+# Dies ist das HISTORISCHE Alfredson-Original von 1998 (rein exzentrisch,
+# 2x taeglich, 12 Wochen). Es wirkt — ist aber NICHT mehr der Goldstandard.
 #
-# Quellen (evidence-based):
-#   - Alfredson et al. 1998, "Heavy-load eccentric calf muscle training
-#     for the treatment of chronic Achilles tendinosis"
-#     Am J Sports Med 26(3):360-366  (ORIGINAL-PROTOKOLL)
-#   - Rowe et al. 2012, "Conservative management of midportion Achilles
-#     tendinopathy: a mixed methods study"
-#     Sports Medicine 42(11):941-967
-#   - Beyer et al. 2015, "Heavy Slow Resistance vs. Eccentric Training
-#     as Treatment for Achilles Tendinopathy"
-#     Am J Sports Med 43(7):1704-1711
+# MODERNE EINORDNUNG (Loading-Prinzip vor Modalitaet):
+#   - Heavy Slow Resistance (HSR) ist gleich wirksam bei nur 3x/Woche statt
+#     14 Einheiten/Woche und mit hoeherer Zufriedenheit/Adhaerenz (Beyer 2015).
+#   - Kombiniertes konzentrisch-exzentrisches Laden mit Schmerz-Monitoring
+#     erlaubt fortgesetzte sportliche Aktivitaet (Silbernagel 2007).
+#   - Systematische Reviews finden keine klare Ueberlegenheit einer einzelnen
+#     Loading-Modalitaet (Malliaras 2013). Entscheidend ist progressive,
+#     schmerzmonitorierte Last — nicht die Wahl exzentrisch vs. HSR.
+#   → Fuer die meisten ist HSR (siehe unten) die pragmatischere Wahl; das
+#     Alfredson-Original bleibt eine evidenzstarke, aber aufwaendige Option.
+#
+# Quellen:
+#   - Alfredson, H., Pietilae, T., Jonsson, P., & Lorentzon, R. (1998).
+#     Heavy-load eccentric calf muscle training for the treatment of chronic
+#     Achilles tendinosis. Am J Sports Med, 26(3), 360-366.  (ORIGINAL)
+#     DOI: 10.1177/03635465980260030301
+#   - Beyer, R., Kongsgaard, M., Hougs Kjaer, B., et al. (2015). Heavy Slow
+#     Resistance versus eccentric training as treatment for Achilles
+#     tendinopathy: a randomized controlled trial. Am J Sports Med, 43(7),
+#     1704-1711. DOI: 10.1177/0363546515584760
+#   - Silbernagel, K. G., Thomee, R., Eriksson, B. I., & Karlsson, J. (2007).
+#     Continued sports activity, using a pain-monitoring model, during
+#     rehabilitation in patients with Achilles tendinopathy. Am J Sports Med,
+#     35(6), 897-906. DOI: 10.1177/0363546506298279
+#   - Malliaras, P., Barton, C. J., Reeves, N. D., & Langberg, H. (2013).
+#     Achilles and patellar tendinopathy loading programmes: a systematic
+#     review. Sports Medicine, 43(4), 267-286. DOI: 10.1007/s40279-013-0019-z
 #
 # ORIGINAL-PROTOKOLL (Alfredson 1998):
 #   - 3 Sätze à 15 Wiederholungen, gestreckt-kniig (Gastrocnemius)

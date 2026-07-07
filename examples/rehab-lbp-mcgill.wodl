@@ -4,15 +4,27 @@
 
 # ============================================================
 # Rehabilitation bei chronischen unspezifischen Kreuzschmerzen
-# (Chronic Low Back Pain, cLBP) nach dem McGill-Protokoll.
+# (Chronic Low Back Pain, cLBP) nach dem McGill-Ansatz.
 #
-# Quellen (evidence-based):
-#   - McGill 2016, "Back Mechanic: The Step-by-Step McGill Method to
-#     Fix Back Pain", Backfitpro Inc.
-#   - McGill 2007, "Low Back Disorders: Evidence-Based Prevention
-#     and Rehabilitation", Human Kinetics
-#   - Lee & McGill 2015, "Effect of Long-term Isometric Training on
-#     Core/Torso Stiffness", JSCR 29(6):1515-1526
+# EINORDNUNG DER EVIDENZ (nicht ueberverkaufen):
+#   Die "Big 3" sind ein verbreiteter, gut tolerierbarer Motor-Control-Ansatz
+#   — aber NICHT das nachweislich ueberlegene cLBP-Programm. Die hochwertigste
+#   Evidenz (Cochrane-Review, Saragiotto et al. 2016) zeigt: Motor Control
+#   Exercise ist etwa GLEICHWERTIG zu anderen Trainingsformen, nicht ueberlegen.
+#   McGills eigene Buecher sind Methoden-Referenz, kein Wirksamkeitsbeleg.
+#   Entscheidend ist regelmaessiges, schmerzangepasstes Training, das der/die
+#   Betroffene durchhaelt — die konkrete Uebungsauswahl ist zweitrangig.
+#
+# Quellen:
+#   - Saragiotto, B. T., Maher, C. G., Yamato, T. P., et al. (2016). Motor
+#     control exercise for chronic non-specific low-back pain. Cochrane
+#     Database of Systematic Reviews, (1), CD012004.
+#     DOI: 10.1002/14651858.CD012004  (EVIDENZ-ANKER)
+#   - McGill, S. (2016). Low Back Disorders: Evidence-Based Prevention and
+#     Rehabilitation (3. Aufl.). Human Kinetics.  (Methoden-Referenz)
+#   - Lee, B., & McGill, S. (2015). Effect of long-term isometric training on
+#     core/torso stiffness. Journal of Strength & Conditioning Research,
+#     29(6), 1515-1526. DOI: 10.1519/JSC.0000000000000740
 #
 # Prinzipien:
 #   - "McGill Big 3": Curl-up, Side Plank, Bird Dog

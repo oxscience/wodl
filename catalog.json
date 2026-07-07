@@ -448,22 +448,27 @@
       "target_area": "LWS / Rumpf",
       "difficulty": "leicht",
       "duration": "fortlaufend, täglich",
-      "excerpt": "Unterer Rücken: McGill Big 3 mit Reverse-Pyramide (10-8-6).",
+      "excerpt": "McGill Big 3 (Curl-up, Side Plank, Bird Dog) mit Reverse-Pyramide 10-8-6. Verbreiteter Motor-Control-Ansatz — die hochwertige Evidenz zeigt Gleichwertigkeit zu anderem Training, keine Überlegenheit.",
       "sources": [
-        {"citation": "McGill, S. (2016). Low Back Disorders: Evidence-Based Prevention and Rehabilitation (3. Aufl., Human Kinetics). Konzept-Attribution.", "doi": ""}
+        {"citation": "Saragiotto, B. T. et al. (2016). Motor control exercise for chronic non-specific low-back pain. Cochrane Database of Systematic Reviews, (1), CD012004. Evidenz-Anker: gleichwertig zu anderem Training.", "doi": "10.1002/14651858.CD012004"},
+        {"citation": "McGill, S. (2016). Low Back Disorders: Evidence-Based Prevention and Rehabilitation (3. Aufl., Human Kinetics). Methoden-Referenz.", "doi": ""},
+        {"citation": "Lee, B., & McGill, S. (2015). Effect of long-term isometric training on core/torso stiffness. Journal of Strength & Conditioning Research, 29(6), 1515-1526.", "doi": "10.1519/JSC.0000000000000740"}
       ]
     },
     {
       "id": "rehab-achilles-alfredson",
       "file": "examples/rehab-achilles-alfredson.wodl",
-      "title_de": "Achillessehne — Alfredson",
+      "title_de": "Achillessehne — Alfredson (klassisch)",
       "kind": "reha",
       "target_area": "Achillessehne / Wade",
       "difficulty": "mittel",
       "duration": "12 Wochen",
-      "excerpt": "Exzentrisches Alfredson-Protokoll (3x15, 2x täglich), 12 Wochen.",
+      "excerpt": "Historisches Alfredson-Exzentrik-Original (3x15, 2x täglich). Wirksam, aber nicht mehr Goldstandard: HSR ist bei 3x/Woche gleich wirksam (Beyer 2015), entscheidend ist progressive schmerzmonitorierte Last, nicht die Modalität.",
       "sources": [
-        {"citation": "Alfredson, H., Pietilä, T., Jonsson, P., & Lorentzon, R. (1998). Heavy-Load Eccentric Calf Muscle Training For the Treatment of Chronic Achilles Tendinosis. The American Journal of Sports Medicine, 26(3), 360-366.", "doi": ""}
+        {"citation": "Alfredson, H., Pietilä, T., Jonsson, P., & Lorentzon, R. (1998). Heavy-Load Eccentric Calf Muscle Training For the Treatment of Chronic Achilles Tendinosis. The American Journal of Sports Medicine, 26(3), 360-366.", "doi": "10.1177/03635465980260030301"},
+        {"citation": "Beyer, R. et al. (2015). Heavy Slow Resistance versus eccentric training as treatment for Achilles tendinopathy: a randomized controlled trial. The American Journal of Sports Medicine, 43(7), 1704-1711.", "doi": "10.1177/0363546515584760"},
+        {"citation": "Silbernagel, K. G. et al. (2007). Continued sports activity, using a pain-monitoring model, during rehabilitation in patients with Achilles tendinopathy. The American Journal of Sports Medicine, 35(6), 897-906.", "doi": "10.1177/0363546506298279"},
+        {"citation": "Malliaras, P. et al. (2013). Achilles and patellar tendinopathy loading programmes: a systematic review. Sports Medicine, 43(4), 267-286.", "doi": "10.1007/s40279-013-0019-z"}
       ]
     },
     {
