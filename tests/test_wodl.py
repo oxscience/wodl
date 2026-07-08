@@ -1,7 +1,27 @@
 """Tests for the WODL parser and exercise registry."""
 
+import glob
+from pathlib import Path
+
 from wodl import parse, to_json, to_markdown, resolve, resolve_fuzzy
 from wodl import list_exercises, get_muscles, ExerciseLine, ExerciseGroup
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+CATALOG_FILES = sorted(
+    glob.glob(str(REPO_ROOT / "catalog" / "*.wodl"))
+    + glob.glob(str(REPO_ROOT / "examples" / "*.wodl"))
+)
+
+
+def _distinct_exercises(plan):
+    names = set()
+    for session in plan.sessions:
+        for item in session.items:
+            if isinstance(item, ExerciseGroup):
+                names.update(e.raw_name for e in item.exercises)
+            else:
+                names.add(item.raw_name)
+    return names
 
 
 # ===================================================================
@@ -359,6 +379,46 @@ class TestRegistryExpansion:
                     f"Alias '{key}' zeigt auf '{seen[key]}' UND '{canonical}'"
                 )
                 seen[key] = canonical
+
+    def test_fifa_and_reha_exercises_resolve(self):
+        # Ehemalige Unknowns aus den Praeventions-/Reha-Protokollen
+        for name in [
+            "Running Straight Ahead", "Plant and Cut",
+            "Jumping with Shoulder Contact", "Isometric Neck Flexion",
+            "Wrist Extensor Stretch", "External Rotation at Shoulder Level",
+            "Folding Knife Sit-up", "Table Slide", "Walking",
+            "Box Landing Drill",
+        ]:
+            assert resolve(name) == name, f"{name!r} loest nicht exakt auf"
+
+
+# ===================================================================
+# Katalog-Integritaet — kein File mit Unknowns oder nur einer Uebung
+# ===================================================================
+
+
+class TestCatalogIntegrity:
+    def test_catalog_files_present(self):
+        assert len(CATALOG_FILES) == 37
+
+    def test_no_unknown_exercises_in_catalog(self):
+        offenders = {}
+        for path in CATALOG_FILES:
+            plan = parse(Path(path).read_text(encoding="utf-8"))
+            if plan.warnings:
+                offenders[Path(path).name] = plan.warnings
+        assert not offenders, f"Unknown-Uebungen im Katalog: {offenders}"
+
+    def test_no_single_exercise_plans(self):
+        # Ein-Uebungs-Plaene sind albern (Pat 2026-07-08) — jeder Plan
+        # muss mindestens zwei verschiedene Uebungen haben.
+        offenders = {}
+        for path in CATALOG_FILES:
+            plan = parse(Path(path).read_text(encoding="utf-8"))
+            distinct = _distinct_exercises(plan)
+            if len(distinct) <= 1:
+                offenders[Path(path).name] = distinct
+        assert not offenders, f"Ein-Uebungs-Plaene: {offenders}"
 
 
 # ===================================================================

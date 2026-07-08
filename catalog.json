@@ -105,19 +105,6 @@
       ]
     },
     {
-      "id": "rehab-plantar-fasciitis",
-      "file": "catalog/rehab-plantar-fasciitis.wodl",
-      "title_de": "Plantarfasziitis — High-Load Krafttraining",
-      "kind": "reha",
-      "target_area": "Fuß / Plantarfaszie",
-      "difficulty": "mittel",
-      "duration": "12 Wochen",
-      "excerpt": "Einbeiniges Wadenheben mit Handtuch unter den Zehen — schwer, langsam, jeden zweiten Tag, mit RM-basierter Progression.",
-      "sources": [
-        {"citation": "Rathleff, M. S. et al. (2015). High-load strength training improves outcome in patients with plantar fasciitis: A randomized controlled trial with 12-month follow-up. Scandinavian Journal of Medicine & Science in Sports, 25(3), e292-e300.", "doi": "10.1111/sms.12313"}
-      ]
-    },
-    {
       "id": "rehab-hamstring-askling",
       "file": "catalog/rehab-hamstring-askling.wodl",
       "title_de": "Hamstring-Reha: Askling L-Protokoll",
@@ -198,35 +185,6 @@
       "sources": [
         {"citation": "Jull, G. et al. (2002). A Randomized Controlled Trial of Exercise and Manipulative Therapy for Cervicogenic Headache. Spine, 27(17), 1835-1843.", "doi": "10.1097/00007632-200209010-00004"},
         {"citation": "Ylinen, J. et al. (2003). Active Neck Muscle Training in the Treatment of Chronic Neck Pain in Women: A Randomized Controlled Trial. JAMA, 289(19), 2509-2516.", "doi": "10.1001/jama.289.19.2509"}
-      ]
-    },
-    {
-      "id": "prevention-nordic-hamstring",
-      "file": "catalog/prevention-nordic-hamstring.wodl",
-      "title_de": "Nordic Hamstring Präventionsprogramm (10 Wochen)",
-      "kind": "praevention",
-      "target_area": "Hamstrings",
-      "difficulty": "mittel",
-      "duration": "10 Wochen + Saison-Erhaltung",
-      "excerpt": "Die 10-Wochen-Original-Progression des Nordic Hamstring Curl — laut Meta-Analyse mit 8459 Athleten halbiert sie die Hamstring-Verletzungsrate.",
-      "sources": [
-        {"citation": "Mjølsnes, R. et al. (2004). A 10-week randomized trial comparing eccentric vs. concentric hamstring strength training in well-trained soccer players. Scandinavian Journal of Medicine & Science in Sports, 14(5), 311-317.", "doi": "10.1046/j.1600-0838.2003.367.x"},
-        {"citation": "Petersen, J. et al. (2011). Preventive Effect of Eccentric Training on Acute Hamstring Injuries in Men's Soccer: A Cluster-Randomized Controlled Trial. The American Journal of Sports Medicine, 39(11), 2296-2303.", "doi": "10.1177/0363546511419277"},
-        {"citation": "van Dyk, N., Behan, F. P., & Whiteley, R. (2019). Including the Nordic hamstring exercise in injury prevention programmes halves the rate of hamstring injuries: a systematic review and meta-analysis of 8459 athletes. British Journal of Sports Medicine, 53(21), 1362-1370.", "doi": "10.1136/bjsports-2018-100045"}
-      ]
-    },
-    {
-      "id": "prevention-copenhagen-adduction",
-      "file": "catalog/prevention-copenhagen-adduction.wodl",
-      "title_de": "Copenhagen Adduction Präventionsprogramm (8 Wochen)",
-      "kind": "praevention",
-      "target_area": "Adduktoren / Leiste",
-      "difficulty": "mittel",
-      "duration": "8 Wochen + Saison-Erhaltung (1x/Woche)",
-      "excerpt": "Eine einzige Partnerübung mit 8-Wochen-Original-Progression: Das Adductor Strengthening Programme senkte Leistenprobleme bei Fußballern um 41%.",
-      "sources": [
-        {"citation": "Harøy, J. et al. (2019). The Adductor Strengthening Programme prevents groin problems among male football players: a cluster-randomised controlled trial. British Journal of Sports Medicine, 53(3), 150-157.", "doi": "10.1136/bjsports-2017-098937"},
-        {"citation": "Ishøi, L. et al. (2016). Large eccentric strength increase using the Copenhagen Adduction exercise in football: A randomized controlled trial. Scandinavian Journal of Medicine & Science in Sports, 26(11), 1334-1342.", "doi": "10.1111/sms.12585"}
       ]
     },
     {

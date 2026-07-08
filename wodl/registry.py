@@ -1238,6 +1238,192 @@ EXERCISES: dict[str, dict] = {
         "equipment": "other",
         "aliases": ["Grip Squeezes", "Ball Squeeze", "Ballpressen"],
     },
+
+    # ========================================================================
+    # KATALOG-RESTE — verbleibende Übungen aus Prävention/Reha-Protokollen
+    # (FIFA 11+ Lauf-/Agility-Drills, Nacken-Isometrie, Frozen-Shoulder-
+    # Mobilisation, Hölmich-Leiste, Thrower's-Ten-90°, Otago, Landetechnik)
+    # ========================================================================
+
+    # --- FIFA 11+ (Lauf- & Agility-Drills, Warm-up) ---
+    "Running Straight Ahead": {
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "bodyweight",
+        "aliases": ["Geradeauslaufen", "Straight Ahead Run"],
+    },
+    "Running Hip Out": {
+        "muscles": ["hip_abductors", "hip_rotators"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Hüfte nach außen", "Hip Out Run"],
+    },
+    "Running Hip In": {
+        "muscles": ["hip_adductors", "hip_rotators"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Hüfte nach innen", "Hip In Run"],
+    },
+    "Running Circling Partner": {
+        "muscles": ["full_body", "hip_abductors"],
+        "category": "cardio",
+        "equipment": "bodyweight",
+        "aliases": ["Partner umkreisen", "Circle Partner"],
+    },
+    "Jumping with Shoulder Contact": {
+        "muscles": ["quads", "glutes", "core"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Sprung mit Schulterkontakt", "Shoulder Contact Jump"],
+    },
+    "Running Quick Forwards Backwards": {
+        "muscles": ["quads", "glutes"],
+        "category": "cardio",
+        "equipment": "bodyweight",
+        "aliases": ["Schnell vor und zurück", "Quick Forward-Backward"],
+    },
+    "Running Across the Pitch": {
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "bodyweight",
+        "aliases": ["Über das Feld laufen", "Straight Sprint"],
+    },
+    "Plant and Cut": {
+        "muscles": ["quads", "glutes", "hip_abductors"],
+        "category": "plyometric",
+        "equipment": "bodyweight",
+        "aliases": ["Richtungswechsel", "Cutting Drill", "Plant-and-Cut"],
+    },
+
+    # --- Sprunggelenk (Ankle Sprain) ---
+    "Isometric Eversion": {
+        "muscles": ["peroneals"],
+        "category": "isometric",
+        "equipment": "bodyweight",
+        "aliases": ["Iso Eversion", "Isometrische Eversion"],
+    },
+    "Agility Drill": {
+        "muscles": ["full_body", "proprioception"],
+        "category": "plyometric",
+        "equipment": "other",
+        "aliases": ["Agility Drills", "Koordinationsleiter", "Agility-Übung"],
+    },
+
+    # --- Frozen Shoulder (Mobilisation) ---
+    "Supine Assisted Flexion": {
+        "muscles": ["shoulder_rom"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Assistierte Flexion Rückenlage", "Assisted Flexion"],
+    },
+    "Table Slide": {
+        "muscles": ["shoulder_rom"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Table Slides", "Tischgleiten", "Tisch-Slide"],
+    },
+    "Pulley Flexion": {
+        "muscles": ["shoulder_rom"],
+        "category": "mobility",
+        "equipment": "other",
+        "aliases": ["Seilzug-Flexion", "Pulley Exercise", "Umlenkrolle Flexion"],
+    },
+
+    # --- Leiste (Hölmich) ---
+    "Folding Knife Sit-up": {
+        "muscles": ["adductors", "core", "hip_flexors"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": ["Klappmesser", "Folding Knife", "Jackknife Sit-up"],
+    },
+    "Cross-Country Skiing One Leg": {
+        "muscles": ["quads", "glutes", "coordination"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Einbeiniges Skilanglauf-Imitat", "One-Leg Ski"],
+    },
+    "Fitter Sideways Training": {
+        "muscles": ["adductors", "glute_med"],
+        "category": "rehab",
+        "equipment": "other",
+        "aliases": ["Fitter seitlich", "Slideboard seitlich", "Sideways Slide Training"],
+    },
+
+    # --- Nacken (Deep Neck Flexor / Extensor) ---
+    "Supine Head Lift": {
+        "muscles": ["deep_neck_flexors"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Kopfheben Rückenlage", "Supine Neck Lift"],
+    },
+    "Prone Head Lift": {
+        "muscles": ["neck_extensors"],
+        "category": "rehab",
+        "equipment": "bodyweight",
+        "aliases": ["Kopfheben Bauchlage", "Prone Neck Lift"],
+    },
+    "Isometric Neck Flexion": {
+        "muscles": ["deep_neck_flexors"],
+        "category": "isometric",
+        "equipment": "band",
+        "aliases": ["Iso Nackenbeugung", "Isometrische Nackenflexion"],
+    },
+    "Isometric Neck Flexion Diagonal": {
+        "muscles": ["deep_neck_flexors", "sternocleidomastoid"],
+        "category": "isometric",
+        "equipment": "band",
+        "aliases": ["Iso Nackenbeugung diagonal", "Isometrische Nackenflexion diagonal"],
+    },
+    "Isometric Neck Extension": {
+        "muscles": ["neck_extensors"],
+        "category": "isometric",
+        "equipment": "band",
+        "aliases": ["Iso Nackenstreckung", "Isometrische Nackenextension"],
+    },
+
+    # --- Tennisarm (Isometrie & Dehnung) ---
+    "Isometric Wrist Extension": {
+        "muscles": ["forearm_extensors"],
+        "category": "isometric",
+        "equipment": "dumbbell",
+        "aliases": ["Iso Handgelenkstreckung", "Isometrische Handgelenkextension"],
+    },
+    "Wrist Extensor Stretch": {
+        "muscles": ["forearm_extensors"],
+        "category": "mobility",
+        "equipment": "bodyweight",
+        "aliases": ["Handgelenkstrecker-Dehnung", "Unterarmstrecker-Dehnung"],
+    },
+
+    # --- Thrower's Ten (90°-Abduktion) ---
+    "External Rotation at Shoulder Level": {
+        "muscles": ["rotator_cuff", "infraspinatus"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Außenrotation Schulterhöhe", "ER at 90 Degrees", "ER 90 Abduktion"],
+    },
+    "Internal Rotation at Shoulder Level": {
+        "muscles": ["rotator_cuff", "subscapularis"],
+        "category": "rehab",
+        "equipment": "band",
+        "aliases": ["Innenrotation Schulterhöhe", "IR at 90 Degrees", "IR 90 Abduktion"],
+    },
+
+    # --- Otago (Ausdauer) ---
+    "Walking": {
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "bodyweight",
+        "aliases": ["Gehen", "Spazieren", "Gehtraining"],
+    },
+
+    # --- Landetechnik / Plyo ---
+    "Box Landing Drill": {
+        "muscles": ["quads", "glutes", "calves"],
+        "category": "plyometric",
+        "equipment": "box",
+        "aliases": ["Landetechnik", "Drop Landing", "Box Landing"],
+    },
 }
 
 
