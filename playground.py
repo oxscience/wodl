@@ -1133,13 +1133,19 @@ HTML = r"""<!DOCTYPE html>
       <span>Vorschau</span>
       <div class="tabs">
         <button class="tab active" data-fmt="markdown" onclick="setFormat('markdown', this)">Tabelle</button>
-        <button class="tab" data-fmt="cycle" onclick="setFormat('cycle', this)" id="cycle-tab">📅 Zyklus</button>
         <button class="tab" data-fmt="progression" onclick="setFormat('progression', this)" id="progression-tab">📈 Progression</button>
         <button class="tab" data-fmt="json" onclick="setFormat('json', this)">JSON</button>
         <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Summary</button>
       </div>
     </div>
     <div class="prog-controls" id="prog-controls">
+      <div class="field">
+        <label>Ansicht</label>
+        <select id="prog-view" onchange="progChanged()">
+          <option value="wochen" selected>Wochen</option>
+          <option value="matrix">Matrix</option>
+        </select>
+      </div>
       <div class="field">
         <label>Ziel</label>
         <select id="prog-goal" onchange="progChanged()">
@@ -1237,12 +1243,23 @@ HTML = r"""<!DOCTYPE html>
   }
 
   function parseAndRender() {
-    if (currentFormat === 'progression' || currentFormat === 'cycle') {
+    if (currentFormat === 'progression') {
+      const view = document.getElementById('prog-view');
       const body = progParams();
-      body.set('format', currentFormat === 'cycle' ? 'matrix' : 'weeks');
+      body.set('format', view.value === 'matrix' ? 'matrix' : 'weeks');
       fetch('/progress', { method: 'POST', body })
         .then(r => r.text())
-        .then(html => { outputBody.innerHTML = html; });
+        .then(html => {
+          outputBody.innerHTML = html;
+          // Matrix braucht WODL-Struktur: bei Freitext ausgrauen + zurückfallen
+          const mode = document.getElementById('prog-mode')?.dataset.mode;
+          const matrixOpt = view.querySelector('option[value="matrix"]');
+          matrixOpt.disabled = (mode === 'freetext');
+          if (mode === 'freetext' && view.value === 'matrix') {
+            view.value = 'wochen';
+            parseAndRender();
+          }
+        });
       return;
     }
     const body = new URLSearchParams({ wodl: editor.value, format: currentFormat });
@@ -1255,14 +1272,11 @@ HTML = r"""<!DOCTYPE html>
     currentFormat = fmt;
     document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
     if (btn) btn.classList.add('active');
-    document.getElementById('prog-controls').classList.toggle('open',
-      fmt === 'progression' || fmt === 'cycle');
+    document.getElementById('prog-controls').classList.toggle('open', fmt === 'progression');
     parseAndRender();
   }
 
-  function progChanged() {
-    if (currentFormat === 'progression' || currentFormat === 'cycle') parseAndRender();
-  }
+  function progChanged() { if (currentFormat === 'progression') parseAndRender(); }
 
   function progCopy(btn) {
     const raw = document.getElementById('prog-block-raw');
@@ -1314,19 +1328,13 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#output',
       title: '👁 Live-Vorschau',
-      text: 'Fünf Ansichten: <code>Tabelle</code> zum Lesen, <code>📅 Zyklus</code> als Wochen-Matrix auf einen Blick, <code>📈 Progression</code> baut den kompletten Wochen-Block (auch aus freien Plänen), <code>JSON</code> für Apps, <code>Summary</code> zum Volumen-Check.',
-      pos: 'left',
-    },
-    {
-      target: '#cycle-tab',
-      title: '📅 Killer-Feature: Wochen-Matrix',
-      text: 'Aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100, W2: 102.5, W3: 105. Ziel (Hypertrophie/Kraft/Ausdauer), Doppelprogression und Deload stellst du über die Regler ein. Ein Plan → alle Wochen auf einen Blick. <strong>Das kann Excel nicht automatisch.</strong>',
+      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> baut den kompletten Wochen-Block (als Wochen-Tabellen oder kompakte Matrix, auch aus freien Plänen), <code>JSON</code> für Apps, <code>Summary</code> zum Volumen-Check.',
       pos: 'left',
     },
     {
       target: '#progression-tab',
-      title: '📈 Progression: der ganze Block',
-      text: 'Baut aus deinem Plan den kompletten Trainingsblock — Woche für Woche als fertige Tabellen, mit Doppelprogression (Reps bis zur Schwelle, dann Last hoch) und konfigurierbarem Deload. Funktioniert auch mit frei formatierten Plänen (Copy-Paste aus Notizen reicht).',
+      title: '📈 Killer-Feature: Progression',
+      text: 'Baut aus deinem Plan den kompletten Trainingsblock: Ziel (Hypertrophie/Kraft/Ausdauer), Doppelprogression (Reps bis zur Schwelle, dann Last hoch) und Deload stellst du über Regler ein. Als Wochen-Tabellen oder kompakte Matrix — aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100 → W3: 105. Funktioniert auch mit frei formatierten Plänen (Copy-Paste aus Notizen reicht). <strong>Das kann Excel nicht automatisch.</strong>',
       pos: 'left',
     },
     {
@@ -1918,7 +1926,7 @@ def _progression_config_from_form(form) -> ProgressionConfig:
 
 
 def _render_progression_html(mode: str, weeks: list, total: int) -> str:
-    parts: list[str] = []
+    parts: list[str] = [f'<span id="prog-mode" data-mode="{mode}" hidden></span>']
 
     block_raw = html_mod.escape(block_as_text(weeks))
     badge = ('<span class="prog-badge">WODL erkannt</span>' if mode == "wodl"
@@ -1969,14 +1977,16 @@ def progress_endpoint():
     if fmt == "matrix":
         plan = looks_like_wodl(text)
         if plan is None:
-            return ("<p class='prog-hint'>Die Wochen-Matrix braucht einen Plan im "
-                    "WODL-Format (mit <code>---[Session]</code>-Headern). Für freie "
-                    "Pläne den Tab 📈 Progression nutzen.</p>")
+            return ('<span id="prog-mode" data-mode="freetext" hidden></span>'
+                    "<p class='prog-hint'>Die Matrix-Ansicht braucht einen Plan im "
+                    "WODL-Format (mit <code>---[Session]</code>-Headern) — "
+                    "für freie Pläne gibt es die Wochen-Ansicht.</p>")
         try:
             md = progress_matrix(plan, config)
         except Exception as e:
             return f"<div class='error-msg'>Progressions-Fehler: {e}</div>"
-        return f'<div class="cycle-view">{_md_to_html(md)}</div>'
+        return ('<span id="prog-mode" data-mode="wodl" hidden></span>'
+                f'<div class="cycle-view">{_md_to_html(md)}</div>')
 
     try:
         mode, weeks = progress_auto(text, config)
