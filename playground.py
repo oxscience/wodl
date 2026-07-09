@@ -17,7 +17,13 @@ from pathlib import Path
 from flask import Flask, abort, jsonify, request, render_template_string
 
 from wodl import parse, to_json, to_markdown, to_cycle_matrix
-from wodl.progression import ProgressionConfig, block_as_text, progress_auto
+from wodl.progression import (
+    ProgressionConfig,
+    block_as_text,
+    looks_like_wodl,
+    progress_auto,
+    progress_matrix,
+)
 
 app = Flask(__name__)
 
@@ -1231,8 +1237,10 @@ HTML = r"""<!DOCTYPE html>
   }
 
   function parseAndRender() {
-    if (currentFormat === 'progression') {
-      fetch('/progress', { method: 'POST', body: progParams() })
+    if (currentFormat === 'progression' || currentFormat === 'cycle') {
+      const body = progParams();
+      body.set('format', currentFormat === 'cycle' ? 'matrix' : 'weeks');
+      fetch('/progress', { method: 'POST', body })
         .then(r => r.text())
         .then(html => { outputBody.innerHTML = html; });
       return;
@@ -1247,11 +1255,14 @@ HTML = r"""<!DOCTYPE html>
     currentFormat = fmt;
     document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
     if (btn) btn.classList.add('active');
-    document.getElementById('prog-controls').classList.toggle('open', fmt === 'progression');
+    document.getElementById('prog-controls').classList.toggle('open',
+      fmt === 'progression' || fmt === 'cycle');
     parseAndRender();
   }
 
-  function progChanged() { if (currentFormat === 'progression') parseAndRender(); }
+  function progChanged() {
+    if (currentFormat === 'progression' || currentFormat === 'cycle') parseAndRender();
+  }
 
   function progCopy(btn) {
     const raw = document.getElementById('prog-block-raw');
@@ -1303,13 +1314,19 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#output',
       title: '👁 Live-Vorschau',
-      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📅 Zyklus</code> projiziert die Progression über alle Wochen (z.B. 4 Wochen Bench-Press-Gewicht + Deload), <code>JSON</code> für Apps, <code>Summary</code> zum Volumen-Check.',
+      text: 'Fünf Ansichten: <code>Tabelle</code> zum Lesen, <code>📅 Zyklus</code> als Wochen-Matrix auf einen Blick, <code>📈 Progression</code> baut den kompletten Wochen-Block (auch aus freien Plänen), <code>JSON</code> für Apps, <code>Summary</code> zum Volumen-Check.',
       pos: 'left',
     },
     {
       target: '#cycle-tab',
       title: '📅 Killer-Feature: Wochen-Matrix',
-      text: 'Aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100, W2: 102.5, W3: 105. Deload-Wochen (<code>@cycle 4w: w4 deload</code>) reduzieren die Last um 20%. Ein Plan → alle Wochen auf einen Blick. <strong>Das kann Excel nicht automatisch.</strong>',
+      text: 'Aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100, W2: 102.5, W3: 105. Ziel (Hypertrophie/Kraft/Ausdauer), Doppelprogression und Deload stellst du über die Regler ein. Ein Plan → alle Wochen auf einen Blick. <strong>Das kann Excel nicht automatisch.</strong>',
+      pos: 'left',
+    },
+    {
+      target: '#progression-tab',
+      title: '📈 Progression: der ganze Block',
+      text: 'Baut aus deinem Plan den kompletten Trainingsblock — Woche für Woche als fertige Tabellen, mit Doppelprogression (Reps bis zur Schwelle, dann Last hoch) und konfigurierbarem Deload. Funktioniert auch mit frei formatierten Plänen (Copy-Paste aus Notizen reicht).',
       pos: 'left',
     },
     {
@@ -1947,6 +1964,20 @@ def progress_endpoint():
     if not text.strip():
         return "<p style='color: var(--text2)'>Trainingsplan eingeben...</p>"
     config = _progression_config_from_form(request.form)
+    fmt = request.form.get("format", "weeks")
+
+    if fmt == "matrix":
+        plan = looks_like_wodl(text)
+        if plan is None:
+            return ("<p class='prog-hint'>Die Wochen-Matrix braucht einen Plan im "
+                    "WODL-Format (mit <code>---[Session]</code>-Headern). Für freie "
+                    "Pläne den Tab 📈 Progression nutzen.</p>")
+        try:
+            md = progress_matrix(plan, config)
+        except Exception as e:
+            return f"<div class='error-msg'>Progressions-Fehler: {e}</div>"
+        return f'<div class="cycle-view">{_md_to_html(md)}</div>'
+
     try:
         mode, weeks = progress_auto(text, config)
     except Exception as e:

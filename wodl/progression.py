@@ -353,6 +353,94 @@ def progress_plan(plan: Plan, config: ProgressionConfig) -> list[WeekResult]:
 
 
 # ---------------------------------------------------------------------------
+# Wochen-Matrix (kompakte Übersicht: Zeilen = Übungen, Spalten = Wochen)
+# ---------------------------------------------------------------------------
+
+
+def _matrix_cell(proj: dict) -> str:
+    if proj["sets"] and proj["reps"]:
+        cell = f"{proj['sets']}×{proj['reps']}"
+    elif proj["reps"]:
+        cell = str(proj["reps"])
+    elif proj["sets"]:
+        cell = f"{proj['sets']}×"
+    else:
+        cell = "—"
+    if proj["intensity"]:
+        cell += f" {proj['intensity']}"
+    if proj["note"]:
+        cell += " ↑"  # Last erhöhen (Anweisung im Progression-Tab)
+    return cell
+
+
+def progress_matrix(plan: Plan, config: ProgressionConfig) -> str:
+    """Rendert den progressierten Block als Wochen-Matrix (Markdown).
+
+    Nutzt dieselbe Zustands-Maschine wie progress_plan — Doppelprogression,
+    Presets, Tokens und der konfigurierte Deload erscheinen in den Zellen.
+    """
+    kinds = week_kinds(config, plan)
+
+    states: dict[tuple, _ExState] = {}
+    for si, session in enumerate(plan.sessions):
+        for ii, item in enumerate(session.items):
+            if isinstance(item, ExerciseGroup):
+                for gi, sub in enumerate(item.exercises):
+                    states[(si, ii, gi)] = _ExState(sub, config)
+            else:
+                states[(si, ii, None)] = _ExState(item, config)
+
+    snaps: dict[tuple, list[dict]] = {k: [] for k in states}
+    deload_weeks: list[bool] = []
+    for w, kind in enumerate(kinds, start=1):
+        if kind == "build" and w > 1:
+            for st in states.values():
+                st.advance()
+        deload = kind == "deload"
+        deload_weeks.append(deload)
+        for k, st in states.items():
+            snaps[k].append(st.project(deload))
+
+    lines: list[str] = []
+    if plan.name:
+        lines.append(f"# {plan.name} — Wochen-Matrix")
+    lines.append("")
+    lines.append("_**💤 Deload** nach eingestellter Definition · "
+                 "**↑** = Last erhöhen (Anweisung im Progression-Tab)_")
+    lines.append("")
+
+    week_headers = [f"W{w} 💤" if deload_weeks[w - 1] else f"W{w}"
+                    for w in range(1, config.weeks + 1)]
+
+    for si, session in enumerate(plan.sessions):
+        day_str = " ".join(session.days)
+        lines.append(f"## {session.name}" + (f" · {day_str}" if day_str else ""))
+        lines.append("")
+        lines.append("| Übung | " + " | ".join(week_headers) + " |")
+        lines.append("|" + "|".join(["---"] * (config.weeks + 1)) + "|")
+
+        def row(key: tuple, ex: ExerciseLine, prefix: str = "") -> str:
+            name = prefix + (ex.display_name or ex.canonical_name or ex.raw_name)
+            cells = []
+            for w in range(config.weeks):
+                cell = _matrix_cell(snaps[key][w])
+                cells.append(f"_{cell}_" if deload_weeks[w] else cell)
+            return "| " + name + " | " + " | ".join(cells) + " |"
+
+        for ii, item in enumerate(session.items):
+            if isinstance(item, ExerciseGroup):
+                label_map = {"superset": "SS", "circuit": "Circuit", "giant": "Giant"}
+                for gi, sub in enumerate(item.exercises):
+                    pfx = f"{label_map.get(item.kind, 'SS')}: " if gi == 0 else "&nbsp;&nbsp;+ "
+                    lines.append(row((si, ii, gi), sub, pfx))
+            else:
+                lines.append(row((si, ii, None), item))
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
 # Freitext-Pfad (portiert aus Progressio, vereinheitlichte Deload-Semantik)
 # ---------------------------------------------------------------------------
 

@@ -8,6 +8,7 @@ from wodl.progression import (
     block_as_text,
     looks_like_wodl,
     progress_auto,
+    progress_matrix,
     progress_plan,
     progress_text,
     transform_line,
@@ -228,6 +229,39 @@ def test_emit_preserves_groups_rest_tempo():
     assert "r120s" in week2.text and "t3010" in week2.text
     reparsed = parse(week2.text)
     assert len(reparsed.sessions[0].items) == 2  # Gruppe + Einzelübung
+
+
+# ---------------------------------------------------------------------------
+# Wochen-Matrix
+# ---------------------------------------------------------------------------
+
+
+def test_matrix_shows_progression_and_deload():
+    plan = parse(WODL_HYP)
+    cfg = ProgressionConfig(weeks=4, rep_increment=1)
+    md = progress_matrix(plan, cfg)
+    assert "W4 💤" in md                    # Deload-Spalte markiert
+    assert "3×8 @40kg" in md                # Woche 1 Range-Boden
+    assert "3×10 @40kg" in md               # Woche 3 Doppelprogression
+    assert "_2×12 @60kg_" in md             # Deload: Squat-Sätze halbiert, Reps eingefroren
+
+
+def test_matrix_strength_load_rises():
+    plan = parse(WODL_STRENGTH)
+    cfg = ProgressionConfig(weeks=3, goal="kraft", deload_rhythm="none")
+    md = progress_matrix(plan, cfg)
+    assert "3×5 @100kg" in md and "3×5 @105kg" in md
+    assert "↑" in md                        # RPE-Übung: Anweisungs-Marker
+
+
+def test_matrix_same_engine_as_weeks():
+    # Matrix und Wochen-Ansicht müssen dieselben Zahlen liefern
+    plan = parse('---[A] Mo\n\nCurl 3x8-12 @10kg\n')
+    cfg = ProgressionConfig(weeks=4, deload_rhythm="none", rep_increment=2)
+    md = progress_matrix(plan, cfg)
+    weeks = progress_plan(plan, cfg)
+    assert "3×8 @12.5kg" in md              # W4: Bump auf 12.5, Reps zurück
+    assert "3x8" in weeks[3].text and "@12.5kg" in weeks[3].text
 
 
 # ---------------------------------------------------------------------------
