@@ -1,4 +1,4 @@
-"""WODL Playground — Try the Workout Definition Language in your browser.
+"""WODL Progressions — Trainingspläne schreiben, parsen und progressieren im Browser.
 
 Features:
   - Live parse & preview (Markdown / JSON / Summary)
@@ -110,7 +110,7 @@ HTML = r"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WODL Playground</title>
+<title>WODL Progressions</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32.png">
 <link rel="icon" type="image/png" sizes="180x180" href="/static/favicon-180.png">
 <link rel="apple-touch-icon" href="/static/favicon-180.png">
@@ -1033,7 +1033,7 @@ HTML = r"""<!DOCTYPE html>
   <div class="brand">
     <img id="brand-logo" src="" alt="" style="display:none">
     <div>
-      <h1><span id="brand-title">WODL</span> <span id="brand-subtitle-heading" style="color:var(--text)">Playground</span></h1>
+      <h1><span id="brand-title">WODL</span> <span id="brand-subtitle-heading" style="color:var(--text)">Progressions</span></h1>
       <div class="subtitle" id="brand-subtitle">Workout Definition Language — schreib links, sieh rechts</div>
     </div>
   </div>

@@ -38,9 +38,9 @@ Trainingsplaene leben in Excel-Tabellen, PDFs, Screenshots und WhatsApp-Nachrich
 
 WODL ist beides: **fuer Menschen lesbar** (jeder Trainer versteht es sofort) und **fuer Maschinen parsbar** (ein Parser macht daraus strukturierte Daten).
 
-## Playground
+## WODL Progressions (Web-App)
 
-Direkt im Browser ausprobieren — ohne Installation:
+Die Web-App zum Projekt — live auf https://wodl.outoftheb-ox.de, lokal ohne Installation:
 
 ```bash
 python playground.py
@@ -49,7 +49,8 @@ python playground.py
 
 Links `.wodl` schreiben, rechts live das Ergebnis sehen. Features:
 
-- **Tabelle / JSON / Summary** — drei Ansichten im Live-Preview
+- **📈 Progression** — baut aus einem Plan den kompletten Trainingsblock: Ziel-Presets (Hypertrophie/Kraft/Ausdauer), Doppelprogression mit Rep-Schwelle, konfigurierbarer Deload; als Wochen-Tabellen oder kompakte Matrix. Funktioniert auch mit frei formatierten Plänen (Copy-Paste reicht)
+- **Tabelle / JSON / Summary** — Ansichten im Live-Preview
 - **Branding** — eigenes Logo, Praxis-/Coach-Name, Primärfarbe (6 Presets + Custom Hex)
 - **Dark & Light Mode** — umschaltbar, persistiert in localStorage
 - **PDF-Export** — via Browser-Print, mit Coach/Klient-Header und Datum
