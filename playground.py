@@ -9,6 +9,7 @@ Features:
 
 from __future__ import annotations
 
+import html as html_mod
 import json
 import os
 from pathlib import Path
@@ -16,6 +17,7 @@ from pathlib import Path
 from flask import Flask, abort, jsonify, request, render_template_string
 
 from wodl import parse, to_json, to_markdown, to_cycle_matrix
+from wodl.progression import ProgressionConfig, block_as_text, progress_auto
 
 app = Flask(__name__)
 
@@ -264,6 +266,83 @@ HTML = r"""<!DOCTYPE html>
     font-size: 0.85rem;
   }
   .field input:focus { outline: none; border-color: var(--primary); }
+
+  /* Progression tab */
+  .prog-controls {
+    display: none;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .prog-controls.open { display: flex; }
+  .prog-controls .field { min-width: 0; }
+  .prog-controls .field select,
+  .prog-controls .field input[type="number"] {
+    padding: 0.4rem 0.55rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.82rem;
+  }
+  .prog-controls .field select:focus,
+  .prog-controls .field input[type="number"]:focus { outline: none; border-color: var(--primary); }
+  .prog-controls .field input[type="number"] { width: 4.5rem; }
+
+  .prog-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    margin-right: 0.5rem;
+  }
+  .prog-badge.freetext { border-color: var(--orange, #e8a33d); color: var(--orange, #e8a33d); }
+  .prog-hint { font-size: 0.78rem; color: var(--text2); margin: 0.4rem 0 0; }
+  .prog-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .prog-week {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem 0.9rem;
+    margin: 0.9rem 0;
+  }
+  .prog-week.deload { border-style: dashed; }
+  .prog-week h3 { margin: 0 0 0.4rem; font-size: 0.95rem; }
+  .prog-week h3 .kind { color: var(--text2); font-weight: 500; }
+  .prog-week pre.freetext {
+    white-space: pre-wrap;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .prog-week details { margin-top: 0.5rem; }
+  .prog-week details summary { cursor: pointer; font-size: 0.75rem; color: var(--text2); }
+  .prog-week details pre {
+    white-space: pre-wrap;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 0.78rem;
+    background: var(--bg2);
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
+    margin: 0.4rem 0 0;
+  }
+  @media print {
+    .prog-controls, .prog-toolbar, .prog-week details, .prog-hint { display: none !important; }
+    .prog-week { border: none; padding: 0; margin: 0.6rem 0; page-break-inside: avoid; }
+  }
 
   .theme-grid {
     display: flex;
@@ -1049,8 +1128,64 @@ HTML = r"""<!DOCTYPE html>
       <div class="tabs">
         <button class="tab active" data-fmt="markdown" onclick="setFormat('markdown', this)">Tabelle</button>
         <button class="tab" data-fmt="cycle" onclick="setFormat('cycle', this)" id="cycle-tab">📅 Zyklus</button>
+        <button class="tab" data-fmt="progression" onclick="setFormat('progression', this)" id="progression-tab">📈 Progression</button>
         <button class="tab" data-fmt="json" onclick="setFormat('json', this)">JSON</button>
         <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Summary</button>
+      </div>
+    </div>
+    <div class="prog-controls" id="prog-controls">
+      <div class="field">
+        <label>Ziel</label>
+        <select id="prog-goal" onchange="progChanged()">
+          <option value="hypertrophie">Hypertrophie</option>
+          <option value="kraft">Kraft</option>
+          <option value="ausdauer">Ausdauer / Reha</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Wochen</label>
+        <select id="prog-weeks" onchange="progChanged()">
+          <option>3</option><option selected>4</option><option>5</option>
+          <option>6</option><option>7</option><option>8</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>+Reps/Woche</label>
+        <select id="prog-repinc" onchange="progChanged()">
+          <option selected>1</option><option>2</option><option>3</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Rep-Schwelle</label>
+        <input type="number" id="prog-threshold" min="3" max="30" placeholder="auto" onchange="progChanged()">
+      </div>
+      <div class="field">
+        <label>Deload</label>
+        <select id="prog-deload" onchange="progChanged()">
+          <option value="auto" selected>Auto</option>
+          <option value="none">Keiner</option>
+          <option value="last">Letzte Woche</option>
+          <option value="every4">Jede 4. Woche</option>
+          <option value="every5">Jede 5. Woche</option>
+          <option value="every6">Jede 6. Woche</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Deload-Volumen</label>
+        <select id="prog-dsets" onchange="progChanged()">
+          <option value="0.5" selected>Sätze -50%</option>
+          <option value="0.67">Sätze -33%</option>
+          <option value="1.0">Sätze halten</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Deload-Last</label>
+        <select id="prog-dload" onchange="progChanged()">
+          <option value="1.0" selected>Last halten</option>
+          <option value="0.9">Last -10%</option>
+          <option value="0.85">Last -15%</option>
+          <option value="0.8">Last -20%</option>
+        </select>
       </div>
     </div>
     <div id="output">
@@ -1082,7 +1217,26 @@ HTML = r"""<!DOCTYPE html>
   let debounceTimer = null;
 
   // ===== Parse =====
+  function progParams() {
+    return new URLSearchParams({
+      wodl: editor.value,
+      goal: document.getElementById('prog-goal').value,
+      weeks: document.getElementById('prog-weeks').value,
+      rep_increment: document.getElementById('prog-repinc').value,
+      rep_threshold: document.getElementById('prog-threshold').value,
+      deload_rhythm: document.getElementById('prog-deload').value,
+      deload_sets_factor: document.getElementById('prog-dsets').value,
+      deload_load_factor: document.getElementById('prog-dload').value,
+    });
+  }
+
   function parseAndRender() {
+    if (currentFormat === 'progression') {
+      fetch('/progress', { method: 'POST', body: progParams() })
+        .then(r => r.text())
+        .then(html => { outputBody.innerHTML = html; });
+      return;
+    }
     const body = new URLSearchParams({ wodl: editor.value, format: currentFormat });
     fetch('/parse', { method: 'POST', body })
       .then(r => r.text())
@@ -1093,7 +1247,31 @@ HTML = r"""<!DOCTYPE html>
     currentFormat = fmt;
     document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
     if (btn) btn.classList.add('active');
+    document.getElementById('prog-controls').classList.toggle('open', fmt === 'progression');
     parseAndRender();
+  }
+
+  function progChanged() { if (currentFormat === 'progression') parseAndRender(); }
+
+  function progCopy(btn) {
+    const raw = document.getElementById('prog-block-raw');
+    if (!raw) return;
+    navigator.clipboard.writeText(raw.value).then(() => {
+      btn.textContent = '✓ Kopiert';
+      setTimeout(() => { btn.textContent = 'Block kopieren'; }, 1500);
+    });
+  }
+
+  function progDownload() {
+    const raw = document.getElementById('prog-block-raw');
+    if (!raw) return;
+    const ext = raw.dataset.mode === 'wodl' ? 'wodl' : 'txt';
+    const blob = new Blob([raw.value], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'progression-block.' + ext;
+    a.click();
+    URL.revokeObjectURL(a.href);
   }
 
   function loadSample() {
@@ -1694,6 +1872,86 @@ def parse_wodl():
 
     md = to_markdown(plan)
     return _md_to_html(md)
+
+
+def _progression_config_from_form(form) -> ProgressionConfig:
+    def _num(key, cast, default, lo, hi):
+        try:
+            val = cast(form.get(key, ""))
+        except (TypeError, ValueError):
+            return default
+        return min(max(val, lo), hi)
+
+    goal = form.get("goal", "hypertrophie")
+    if goal not in ("hypertrophie", "kraft", "ausdauer"):
+        goal = "hypertrophie"
+    rhythm = form.get("deload_rhythm", "auto")
+    if rhythm not in ("auto", "none", "last", "every4", "every5", "every6"):
+        rhythm = "auto"
+    threshold = _num("rep_threshold", int, None, 3, 30)
+    return ProgressionConfig(
+        weeks=_num("weeks", int, 4, 2, 12),
+        goal=goal,
+        rep_increment=_num("rep_increment", int, 1, 1, 5),
+        rep_threshold=threshold,
+        deload_rhythm=rhythm,
+        deload_sets_factor=_num("deload_sets_factor", float, 0.5, 0.25, 1.0),
+        deload_load_factor=_num("deload_load_factor", float, 1.0, 0.5, 1.0),
+    )
+
+
+def _render_progression_html(mode: str, weeks: list, total: int) -> str:
+    parts: list[str] = []
+
+    block_raw = html_mod.escape(block_as_text(weeks))
+    badge = ('<span class="prog-badge">WODL erkannt</span>' if mode == "wodl"
+             else '<span class="prog-badge freetext">Freitext-Modus</span>')
+    parts.append('<div class="prog-toolbar">')
+    parts.append(badge)
+    parts.append('<button class="btn" onclick="progCopy(this)">Block kopieren</button>')
+    parts.append('<button class="btn" onclick="progDownload()">Download</button>')
+    parts.append(f'<textarea id="prog-block-raw" data-mode="{mode}" hidden>{block_raw}</textarea>')
+    parts.append("</div>")
+
+    if mode == "freetext":
+        parts.append('<p class="prog-hint">Freitext-Modus: Reps und Zeiten steigen '
+                     "(bis zur Schwelle), Sätze und kg-Lasten bleiben stabil; im Deload "
+                     "werden Sätze reduziert. Für automatische Last-Progression "
+                     "(Kraft/Doppelprogression) den Plan im WODL-Format schreiben.</p>")
+
+    for week in weeks:
+        cls = "prog-week deload" if week.kind == "deload" else "prog-week"
+        parts.append(f'<div class="{cls}">')
+        parts.append(f'<h3>Woche {week.week}/{total} '
+                     f'<span class="kind">— {html_mod.escape(week.label)}</span></h3>')
+        if mode == "wodl":
+            week_plan = parse(week.text)
+            md = to_markdown(week_plan)
+            # Titel + Frequenz stehen schon in der Wochen-Überschrift bzw. gelten
+            # für den ganzen Block — pro Woche nur die Sessions rendern.
+            md_lines = [ln for ln in md.splitlines()
+                        if not ln.startswith("# ") and not ln.startswith("**Frequenz:**")]
+            parts.append(_md_to_html("\n".join(md_lines).strip()))
+            parts.append('<details><summary>WODL-Quelltext dieser Woche</summary>'
+                         f"<pre>{html_mod.escape(week.text)}</pre></details>")
+        else:
+            parts.append(f'<pre class="freetext">{html_mod.escape(week.text)}</pre>')
+        parts.append("</div>")
+
+    return "".join(parts)
+
+
+@app.route("/progress", methods=["POST"])
+def progress_endpoint():
+    text = request.form.get("wodl", "")
+    if not text.strip():
+        return "<p style='color: var(--text2)'>Trainingsplan eingeben...</p>"
+    config = _progression_config_from_form(request.form)
+    try:
+        mode, weeks = progress_auto(text, config)
+    except Exception as e:
+        return f"<div class='error-msg'>Progressions-Fehler: {e}</div>"
+    return _render_progression_html(mode, weeks, config.weeks)
 
 
 @app.route("/api/examples")
