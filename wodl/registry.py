@@ -19,7 +19,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": [
             "Bankdrücken", "Bankdruecken", "Flat Bench", "BB Bench",
-            "Barbell Bench Press", "Flat Bench Press",
+            "Barbell Bench Press", "Flat Bench Press", "Wide-Grip Barbell Bench Press",
         ],
     },
     "Incline Bench Press": {
@@ -37,7 +37,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "dumbbell",
         "aliases": [
             "KH Bankdrücken", "KH Bankdruecken",
-            "DB Bench Press", "DB Bench",
+            "DB Bench Press", "DB Bench", "One Arm Dumbbell Bench Press",
         ],
     },
     "Incline DB Press": {
@@ -60,7 +60,7 @@ EXERCISES: dict[str, dict] = {
         "category": "isolation",
         "equipment": "cable",
         "aliases": [
-            "Cable Flye", "Kabelzug Fly", "Cable Crossover",
+            "Cable Flye", "Kabelzug Fly", "Cable Crossover", "Low Cable Crossover",
         ],
     },
     "Incline DB Fly": {
@@ -69,14 +69,14 @@ EXERCISES: dict[str, dict] = {
         "equipment": "dumbbell",
         "aliases": [
             "Incline Dumbbell Fly", "Incline Flye",
-            "KH Schrägbank Fly",
+            "KH Schrägbank Fly", "Incline Dumbbell Flyes",
         ],
     },
     "Push-up": {
         "muscles": ["chest", "triceps", "front_delt"],
         "category": "compound",
         "equipment": "bodyweight",
-        "aliases": ["Pushup", "Push Up", "Liegestütz", "Liegestuetz"],
+        "aliases": ["Pushup", "Push Up", "Liegestütz", "Liegestuetz", "Push-Up Wide", "Pushups", "Single-Arm Push-Up"],
     },
 
     # --- Back ---
@@ -85,14 +85,14 @@ EXERCISES: dict[str, dict] = {
         "category": "compound",
         "equipment": "barbell",
         "aliases": [
-            "Kreuzheben", "Conventional Deadlift", "DL",
+            "Kreuzheben", "Conventional Deadlift", "DL", "Barbell Deadlift", "Deadlift with Bands",
         ],
     },
     "Sumo Deadlift": {
         "muscles": ["back", "glutes", "quads"],
         "category": "compound",
         "equipment": "barbell",
-        "aliases": ["Sumo DL", "Sumo Kreuzheben"],
+        "aliases": ["Sumo DL", "Sumo Kreuzheben", "Sumo Deadlift with Bands"],
     },
     "RDL": {
         "muscles": ["hamstrings", "glutes", "lower_back"],
@@ -109,7 +109,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": [
             "LH Rudern", "BB Row", "Bent Over Row",
-            "Vorgebeugtes Rudern", "Barbell Bent Over Row",
+            "Vorgebeugtes Rudern", "Barbell Bent Over Row", "Bent Over Barbell Row",
         ],
     },
     "Dumbbell Row": {
@@ -118,7 +118,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "dumbbell",
         "aliases": [
             "KH Rudern", "DB Row", "One Arm Row",
-            "Einarmiges Rudern",
+            "Einarmiges Rudern", "One-Arm Dumbbell Row",
         ],
     },
     "Pull-up": {
@@ -127,7 +127,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "bodyweight",
         "aliases": [
             "Pullup", "Pull Up", "Klimmzug", "Klimmzüge",
-            "Klimmzuege",
+            "Klimmzuege", "Pullups",
         ],
     },
     "Chin-up": {
@@ -141,7 +141,7 @@ EXERCISES: dict[str, dict] = {
         "category": "compound",
         "equipment": "cable",
         "aliases": [
-            "Latzug", "Lat Pull Down", "Latziehen",
+            "Latzug", "Lat Pull Down", "Latziehen", "One Arm Lat Pulldown", "Wide-Grip Lat Pulldown",
         ],
     },
     "Cable Row": {
@@ -149,7 +149,7 @@ EXERCISES: dict[str, dict] = {
         "category": "compound",
         "equipment": "cable",
         "aliases": [
-            "Seated Cable Row", "Kabelrudern", "Seated Row",
+            "Seated Cable Row", "Kabelrudern", "Seated Row", "Seated Cable Rows",
         ],
     },
     "T-Bar Row": {
@@ -166,7 +166,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": [
             "Overhead Press", "Schulterdrücken", "Schulterdruecken",
-            "Military Press", "Standing Press", "Press",
+            "Military Press", "Standing Press", "Press", "Seated Barbell Military Press", "Standing Military Press",
         ],
     },
     "Dumbbell OHP": {
@@ -175,7 +175,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "dumbbell",
         "aliases": [
             "DB OHP", "KH Schulterdrücken", "Dumbbell Shoulder Press",
-            "DB Shoulder Press",
+            "DB Shoulder Press", "Dumbbell One-Arm Shoulder Press",
         ],
     },
     "Lateral Raise": {
@@ -184,7 +184,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "dumbbell",
         "aliases": [
             "Seitheben", "Side Raise", "Lat Raise",
-            "KH Seitheben", "DB Lateral Raise", "Shoulder Abduction",
+            "KH Seitheben", "DB Lateral Raise", "Shoulder Abduction", "Lying One-Arm Lateral Raise", "Side Lateral Raise",
         ],
     },
     "Face Pull": {
@@ -199,20 +199,20 @@ EXERCISES: dict[str, dict] = {
         "equipment": "dumbbell",
         "aliases": [
             "Reverse Fly", "Butterfly Reverse",
-            "Hintere Schulter Fly",
+            "Hintere Schulter Fly", "Reverse Flyes",
         ],
     },
     "Shrug": {
         "muscles": ["traps"],
         "category": "isolation",
         "equipment": "barbell",
-        "aliases": ["Shrugs", "BB Shrug", "Schulterheben"],
+        "aliases": ["Shrugs", "BB Shrug", "Schulterheben", "Barbell Shrug"],
     },
     "Upright Row": {
         "muscles": ["traps", "side_delt"],
         "category": "compound",
         "equipment": "barbell",
-        "aliases": ["Aufrechtes Rudern"],
+        "aliases": ["Aufrechtes Rudern", "Upright Barbell Row"],
     },
 
     # --- Arms ---
@@ -235,7 +235,7 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["biceps", "brachialis"],
         "category": "isolation",
         "equipment": "dumbbell",
-        "aliases": ["Hammercurl", "Hammer Curls"],
+        "aliases": ["Hammercurl", "Hammer Curls", "Alternate Hammer Curl"],
     },
     "Preacher Curl": {
         "muscles": ["biceps"],
@@ -247,7 +247,7 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["biceps"],
         "category": "isolation",
         "equipment": "dumbbell",
-        "aliases": ["Incline DB Curl", "Incline Dumbbell Curl", "Schrägbank Curl"],
+        "aliases": ["Incline DB Curl", "Incline Dumbbell Curl", "Schrägbank Curl", "Alternate Incline Dumbbell Curl", "Flexor Incline Dumbbell Curls"],
     },
     "Tricep Pushdown": {
         "muscles": ["triceps"],
@@ -255,7 +255,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "cable",
         "aliases": [
             "Cable Pushdown", "Trizepsdrücken", "Trizepsdruecken",
-            "Tricep Push Down", "Pushdown",
+            "Tricep Push Down", "Pushdown", "Triceps Pushdown",
         ],
     },
     "Overhead Tricep Extension": {
@@ -264,7 +264,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "cable",
         "aliases": [
             "Overhead Extension", "French Press",
-            "Trizeps Überkopf", "Cable Overhead Extension",
+            "Trizeps Überkopf", "Cable Overhead Extension", "Cable Rope Overhead Triceps Extension",
         ],
     },
     "Skull Crusher": {
@@ -284,27 +284,27 @@ EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": [
             "Back Squat", "Kniebeuge", "Kniebeugen",
-            "BB Squat", "Barbell Squat",
+            "BB Squat", "Barbell Squat", "Barbell Full Squat", "Olympic Squat", "One Leg Barbell Squat", "Squat with Bands", "Weighted Squat",
         ],
     },
     "Front Squat": {
         "muscles": ["quads", "glutes", "core"],
         "category": "compound",
         "equipment": "barbell",
-        "aliases": ["Frontkniebeuge", "Front Kniebeuge"],
+        "aliases": ["Frontkniebeuge", "Front Kniebeuge", "Front Barbell Squat"],
     },
     "Leg Press": {
         "muscles": ["quads", "glutes"],
         "category": "compound",
         "equipment": "machine",
-        "aliases": ["Beinpresse", "LP"],
+        "aliases": ["Beinpresse", "LP", "Smith Machine Leg Press"],
     },
     "Leg Extension": {
         "muscles": ["quads"],
         "category": "isolation",
         "equipment": "machine",
         "aliases": [
-            "Leg Ext", "Knee Extension", "Beinstrecker", "Beinstrecken",
+            "Leg Ext", "Knee Extension", "Beinstrecker", "Beinstrecken", "Leg Extensions", "Single-Leg Leg Extension",
         ],
     },
     "Leg Curl": {
@@ -313,7 +313,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "machine",
         "aliases": [
             "Lying Leg Curl", "Seated Leg Curl", "Standing Leg Curl",
-            "Beinbeuger", "Beinbeugen",
+            "Beinbeuger", "Beinbeugen", "Lying Leg Curls",
         ],
     },
     "Bulgarian Split Squat": {
@@ -329,13 +329,13 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["quads", "glutes"],
         "category": "compound",
         "equipment": "dumbbell",
-        "aliases": ["Lunges", "Ausfallschritt", "Ausfallschritte"],
+        "aliases": ["Lunges", "Ausfallschritt", "Ausfallschritte", "Dumbbell Lunges"],
     },
     "Hip Thrust": {
         "muscles": ["glutes", "hamstrings"],
         "category": "compound",
         "equipment": "barbell",
-        "aliases": ["Hüftheben", "Hueftheben", "BB Hip Thrust"],
+        "aliases": ["Hüftheben", "Hueftheben", "BB Hip Thrust", "Barbell Hip Thrust"],
     },
     "Calf Raise": {
         "muscles": ["calves"],
@@ -344,7 +344,7 @@ EXERCISES: dict[str, dict] = {
         "aliases": [
             "Standing Calf Raise", "Seated Calf Raise",
             "Double-Leg Calf Raise", "Beidbeiniges Wadenheben",
-            "Wadenheben", "Calf Raises",
+            "Wadenheben", "Calf Raises", "Smith Machine Calf Raise", "Standing Calf Raises",
         ],
     },
     "Hack Squat": {
@@ -485,7 +485,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "bodyweight",
         "aliases": [
             "Side Leg Raise", "Side-Lying Leg Raise",
-            "Seitheben Bein", "Hip Abduction",
+            "Seitheben Bein", "Hip Abduction", "Side Leg Raises",
         ],
     },
     "Single Leg Balance": {
@@ -517,7 +517,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "band",
         "aliases": [
             "External Rotation", "ER Band", "Theraband Außenrotation",
-            "Band ER", "Rotator Cuff ER",
+            "Band ER", "Rotator Cuff ER", "External Rotation with Band",
         ],
     },
     "Band Internal Rotation": {
@@ -526,7 +526,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "band",
         "aliases": [
             "Internal Rotation", "IR Band", "Theraband Innenrotation",
-            "Band IR",
+            "Band IR", "Internal Rotation with Band",
         ],
     },
     "Scapular Retraction": {
@@ -684,7 +684,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": [
             "Close-Grip Bench Press", "CG Bench Press",
-            "Enges Bankdrücken", "Enges Bankdruecken",
+            "Enges Bankdrücken", "Enges Bankdruecken", "Close-Grip Barbell Bench Press",
         ],
     },
     "Back Extension": {
@@ -700,7 +700,7 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["chest", "lats"],
         "category": "isolation",
         "equipment": "dumbbell",
-        "aliases": ["DB Pullover", "Pullover", "Überzüge", "Ueberzuege"],
+        "aliases": ["DB Pullover", "Pullover", "Überzüge", "Ueberzuege", "Bent-Arm Dumbbell Pullover"],
     },
     "Trap Bar Deadlift": {
         "muscles": ["back", "glutes", "quads"],
@@ -724,7 +724,7 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["quads", "glutes"],
         "category": "plyometric",
         "equipment": "bodyweight",
-        "aliases": ["Jump Squats", "Squat Jump", "Sprungkniebeuge"],
+        "aliases": ["Jump Squats", "Squat Jump", "Sprungkniebeuge", "Weighted Jump Squat"],
     },
     "Jumping Chin-up": {
         "muscles": ["back", "biceps"],
@@ -799,7 +799,7 @@ EXERCISES: dict[str, dict] = {
         "muscles": ["glutes", "quads"],
         "category": "plyometric",
         "equipment": "bodyweight",
-        "aliases": ["Broad Jumps", "Standing Long Jump", "Standweitsprung"],
+        "aliases": ["Broad Jumps", "Standing Long Jump", "Standweitsprung", "Side Standing Long Jump"],
     },
     "Depth Jump": {
         "muscles": ["quads", "glutes", "calves"],
@@ -1032,7 +1032,7 @@ EXERCISES: dict[str, dict] = {
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": [
-            "Gastrocnemius Stretch", "Wall Calf Stretch", "Wadendehnung",
+            "Gastrocnemius Stretch", "Wall Calf Stretch", "Wadendehnung", "Seated Calf Stretch",
         ],
     },
     "Towel Scrunch": {
@@ -1424,6 +1424,160 @@ EXERCISES: dict[str, dict] = {
         "equipment": "box",
         "aliases": ["Landetechnik", "Drop Landing", "Box Landing"],
     },
+    # ========================================================================
+    # IMPORT: free-exercise-db (Unlicense) - kuratierte Ergaenzungen fehlender
+    # Grunduebungen. Quelle: data/raw/free-exercise-db/exercises.json,
+    # siehe data/raw/PROVENANCE.md. Entscheidungen: data/review/DECISIONS.csv.
+    # ========================================================================
+
+    "Hang Clean": {
+        "muscles": ["quads", "hamstrings", "glutes", "traps", "front_delt"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Hang Power Clean", "Alternating Hang Clean", "Kettlebell Hang Clean",
+            "KB Hang Clean", "Smith Machine Hang Power Clean", "Double Kettlebell Alternating Hang Clean",
+            "BB Hang Clean", "LH Hang Clean", "Hangumsetzen",
+        ],
+    },
+    "Arnold Press": {
+        "muscles": ["front_delt", "side_delt", "triceps"],
+        "category": "compound",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Arnold Dumbbell Press", "Kettlebell Arnold Press", "KB Arnold Press",
+            "DB Arnold Press", "KH Arnold Press",
+        ],
+    },
+    "Good Morning": {
+        "muscles": ["hamstrings", "lower_back", "glutes"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Good Mornings", "Band Good Morning", "Seated Good Morning",
+            "Seated Good Mornings", "Stiff Leg Barbell Good Morning", "BB Good Morning",
+            "LH Good Morning",
+        ],
+    },
+    "Walking Lunge": {
+        "muscles": ["quads", "glutes", "hamstrings"],
+        "category": "compound",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Walking Lunges", "Barbell Walking Lunge", "Bodyweight Walking Lunge",
+            "BB Walking Lunge", "LH Walking Lunge", "Gehender Ausfallschritt",
+        ],
+    },
+    "Glute-Ham Raise": {
+        "muscles": ["hamstrings", "glutes", "calves"],
+        "category": "compound",
+        "equipment": "machine",
+        "aliases": [
+            "GHR", "GHD Raise", "Glute Ham Raise",
+            "Floor Glute-Ham Raise", "Natural Glute Ham Raise",
+        ],
+    },
+    "Pistol Squat": {
+        "muscles": ["quads", "glutes", "hamstrings"],
+        "category": "compound",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Pistol Squats", "Single Leg Squat", "One Leg Squat",
+            "Kettlebell Pistol Squat", "KB Pistol Squat", "Smith Machine Pistol Squat",
+            "Pistolenkniebeuge", "Einbeinkniebeuge",
+        ],
+    },
+    "Snatch": {
+        "muscles": ["quads", "hamstrings", "glutes", "traps", "front_delt"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Snatches", "One-Arm Kettlebell Snatch", "KB Snatch",
+            "Reißen", "Reissen",
+        ],
+    },
+    "Concentration Curl": {
+        "muscles": ["biceps", "forearms"],
+        "category": "isolation",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Concentration Curls", "Standing Concentration Curl", "Seated Close-Grip Concentration Barbell Curl",
+            "DB Concentration Curl", "KH Concentration Curl", "Konzentrationscurl",
+        ],
+    },
+    "Renegade Row": {
+        "muscles": ["back", "core", "triceps"],
+        "category": "compound",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Renegade Rows", "Alternating Renegade Row", "Kettlebell Renegade Row",
+            "KB Renegade Row", "DB Renegade Row", "KH Renegade Row",
+        ],
+    },
+    "Ab Rollout": {
+        "muscles": ["core", "lower_back", "front_delt"],
+        "category": "isolation",
+        "equipment": "barbell",
+        "aliases": [
+            "Barbell Ab Rollout", "Barbell Ab Rollout - On Knees", "BB Ab Rollout",
+            "LH Ab Rollout",
+        ],
+    },
+    "Russian Twist": {
+        "muscles": ["obliques", "core"],
+        "category": "isolation",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Russian Twists", "Cable Russian Twists", "Weighted Russian Twist",
+            "Russische Drehung",
+        ],
+    },
+    "Farmer's Walk": {
+        "muscles": ["forearms", "traps", "core"],
+        "category": "compound",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Farmers Walk", "Farmer's Carry", "Farmers Carry",
+            "Kettlebell Farmer's Walk", "KB Farmer's Walk", "DB Farmer's Walk",
+            "KH Farmer's Walk",
+        ],
+    },
+    "Windmill": {
+        "muscles": ["obliques", "side_delt", "hamstrings"],
+        "category": "compound",
+        "equipment": "kettlebell",
+        "aliases": [
+            "Windmills", "Kettlebell Windmill", "KB Windmill",
+            "Turkish Windmill",
+        ],
+    },
+    "Cable Pull Through": {
+        "muscles": ["glutes", "hamstrings", "lower_back"],
+        "category": "compound",
+        "equipment": "cable",
+        "aliases": [
+            "Pull Through", "Pull-Through", "Cable Pull-Through",
+            "Rope Pull Through",
+        ],
+    },
+    "Sissy Squat": {
+        "muscles": ["quads"],
+        "category": "isolation",
+        "equipment": "bodyweight",
+        "aliases": [
+            "Sissy Squats", "Weighted Sissy Squat", "BB Sissy Squat",
+            "LH Sissy Squat",
+        ],
+    },
+    "Zercher Squat": {
+        "muscles": ["quads", "glutes", "core"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Zercher Squats", "BB Zercher Squat", "LH Zercher Squat",
+        ],
+    },
+
 }
 
 

@@ -1,0 +1,613 @@
+movement_core,variant_count,example_names,fx_categories,curated_missing_match,example_primary_muscles,example_equipment,example_mechanic,example_level,mapped_category
+press,12,Alternating Floor Press; Alternating Kettlebell Press; Bent Press; Close-Grip Dumbbell Press; Dumbbell Floor Press; Floor Press; Kettlebell Seated Press; Leg-Over Floor Press; One Arm Floor Press; One-Arm Kettlebell Floor Press; Seated Dumbbell Press; Standing Alternating Dumbbell Press,"powerlifting,strength",,chest,kettlebells,compound,beginner,compound
+triceps extension,10,Cable Lying Triceps Extension; Dumbbell One-Arm Triceps Extension; Low Cable Triceps Extension; Machine Triceps Extension; Seated Bent-Over One-Arm Dumbbell Triceps Extension; Seated Bent-Over Two-Arm Dumbbell Triceps Extension; Standing Bent-Over One-Arm Dumbbell Triceps Extension; Standing Bent-Ov,strength,,triceps,cable,isolation,beginner,isolation
+curl,5,Close-Grip Standing Barbell Curl; Lying Cable Curl; Seated Dumbbell Curl; Standing One-Arm Cable Curl; Wide-Grip Standing Barbell Curl,strength,,biceps,barbell,isolation,beginner,isolation
+shoulder press,4,Alternating Cable Shoulder Press; Cable Shoulder Press; Seated Cable Shoulder Press; Shoulder Press - With Bands,strength,,shoulders,cable,compound,beginner,compound
+row,4,Alternating Kettlebell Row; Bent Over Two-Dumbbell Row; Sled Row; Two-Arm Kettlebell Row,strength,,middle back,kettlebells,isolation,intermediate,isolation
+clean,4,Clean; Dumbbell Clean; One-Arm Kettlebell Clean; Two-Arm Kettlebell Clean,"olympic weightlifting,strength",,hamstrings,barbell,compound,intermediate,compound
+front raise,4,Front Cable Raise; Front Dumbbell Raise; Front Plate Raise; Front Two-Dumbbell Raise,strength,,shoulders,cable,isolation,beginner,isolation
+hang clean,3,Alternating Hang Clean; Hang Clean; Kettlebell Hang Clean,"olympic weightlifting,strength",Hang Clean,hamstrings,kettlebells,compound,intermediate,compound
+incline shoulder raise,3,Barbell Incline Shoulder Raise; Dumbbell Incline Shoulder Raise; Smith Incline Shoulder Raise,strength,,shoulders,barbell,compound,beginner,compound
+long bar row,3,Bent Over One-Arm Long Bar Row; Bent Over Two-Arm Long Bar Row; One-Arm Long Bar Row,strength,,middle back,barbell,compound,beginner,compound
+box squat,3,Box Squat; Box Squat with Bands; Single-Leg High Box Squat,"powerlifting,strength",,quadriceps,barbell,compound,intermediate,compound
+crunch,3,Cable Seated Crunch; Rope Crunch; Standing Rope Crunch,strength,,abdominals,cable,isolation,beginner,isolation
+bar curl,3,Close-Grip EZ Bar Curl; Close-Grip EZ-Bar Curl with Band; EZ-Bar Curl,strength,,biceps,e-z curl bar,isolation,beginner,isolation
+decline bench press,3,Decline Barbell Bench Press; Decline Dumbbell Bench Press; Wide-Grip Decline Barbell Bench Press,strength,,chest,barbell,compound,beginner,compound
+incline push up,3,Incline Push-Up; Incline Push-Up Close-Grip; Incline Push-Up Wide,strength,,chest,body only,compound,beginner,compound
+palms down wrist curl,3,Seated Dumbbell Palms-Down Wrist Curl; Seated One-Arm Dumbbell Palms-Down Wrist Curl; Seated Palms-Down Barbell Wrist Curl,strength,,forearms,dumbbell,isolation,beginner,isolation
+stiff legged deadlift,3,Smith Machine Stiff-Legged Deadlift; Stiff-Legged Barbell Deadlift; Stiff-Legged Dumbbell Deadlift,strength,,hamstrings,machine,compound,beginner,compound
+arnold press,2,Arnold Dumbbell Press; Kettlebell Arnold Press,strength,Arnold Press,shoulders,dumbbell,compound,intermediate,compound
+good morning,2,Band Good Morning; Good Morning,powerlifting,Good Morning,hamstrings,bands,compound,beginner,compound
+side bend,2,Barbell Side Bend; Dumbbell Side Bend,strength,,abdominals,barbell,isolation,beginner,isolation
+squat bench,2,Barbell Squat To A Bench; Dumbbell Squat To A Bench,strength,,quadriceps,barbell,compound,expert,compound
+walking lunge,2,Barbell Walking Lunge; Bodyweight Walking Lunge,strength,Walking Lunge,quadriceps,barbell,compound,beginner,compound
+flyes,2,Bodyweight Flyes; Dumbbell Flyes,strength,,chest,e-z curl bar,isolation,intermediate,isolation
+chest press,2,Cable Chest Press; Standing Cable Chest Press,strength,,chest,cable,compound,beginner,compound
+incline triceps extension,2,Cable Incline Triceps Extension; Incline Barbell Triceps Extension,strength,,triceps,cable,isolation,beginner,isolation
+iron cross,2,Cable Iron Cross; Iron Cross,strength,,chest,cable,isolation,beginner,isolation
+reverse crunch,2,Cable Reverse Crunch; Reverse Crunch,strength,,abdominals,cable,isolation,beginner,isolation
+clean jerk,2,Clean and Jerk; One-Arm Kettlebell Clean and Jerk,"olympic weightlifting,strength",,shoulders,barbell,compound,expert,compound
+crunches,2,Crunches; Weighted Crunches,strength,,abdominals,body only,isolation,beginner,isolation
+decline press,2,Decline Smith Press; Smith Machine Decline Press,strength,,chest,machine,compound,beginner,compound
+rear lateral raise,2,Dumbbell Lying One-Arm Rear Lateral Raise; Dumbbell Lying Rear Lateral Raise,strength,,shoulders,dumbbell,isolation,intermediate,isolation
+raise,2,Dumbbell Raise; Single Dumbbell Raise,strength,,shoulders,dumbbell,compound,beginner,compound
+flat bench pull in,2,Flat Bench Leg Pull-In; Seated Flat Bench Leg Pull-In,strength,,abdominals,body only,compound,beginner,compound
+glute ham raise,2,Floor Glute-Ham Raise; Glute Ham Raise,"powerlifting,strength",Glute-Ham Raise,hamstrings,,isolation,intermediate,isolation
+hamstring stretch,2,Hamstring Stretch; Seated Floor Hamstring Stretch,stretching,,hamstrings,,isolation,beginner,mobility
+pistol squat,2,Kettlebell Pistol Squat; Smith Machine Pistol Squat,strength,Pistol Squat,quadriceps,kettlebells,compound,expert,compound
+kneeling pulley row,2,Kneeling High Pulley Row; Kneeling Single-Arm High Pulley Row,strength,,lats,cable,compound,beginner,compound
+lift,2,Leg Lift; Standing Cable Lift,strength,,glutes,body only,isolation,beginner,isolation
+crossover,2,Lying Crossover; Single-Arm Cable Crossover,"strength,stretching",,abductors,body only,,expert,mobility
+glute,2,Lying Glute; Seated Glute,stretching,,glutes,body only,,expert,mobility
+hamstring,2,Lying Hamstring; Seated Hamstring,stretching,,hamstrings,other,,expert,mobility
+rear delt raise,2,Lying Rear Delt Raise; Seated Bent-Over Rear Delt Raise,strength,,shoulders,dumbbell,isolation,intermediate,isolation
+triceps press,2,Lying Triceps Press; Seated Triceps Press,strength,,triceps,e-z curl bar,isolation,intermediate,isolation
+oblique crunches,2,Oblique Crunches; Oblique Crunches - On The Floor,strength,,abdominals,body only,isolation,beginner,isolation
+jerk,2,One-Arm Kettlebell Jerk; Two-Arm Kettlebell Jerk,strength,,shoulders,kettlebells,compound,intermediate,compound
+snatch,2,One-Arm Kettlebell Snatch; Snatch,"olympic weightlifting,strength",Snatch,shoulders,kettlebells,compound,expert,compound
+split jerk,2,One-Arm Kettlebell Split Jerk; Split Jerk,"olympic weightlifting,strength",,shoulders,kettlebells,compound,intermediate,compound
+split snatch,2,One-Arm Kettlebell Split Snatch; Split Snatch,"olympic weightlifting,strength",,shoulders,kettlebells,compound,expert,compound
+open palm clean,2,One-Arm Open Palm Kettlebell Clean; Open Palm Kettlebell Clean,strength,,hamstrings,kettlebells,compound,intermediate,compound
+overhead stretch,2,Overhead Stretch; Seated Overhead Stretch,stretching,,abdominals,,compound,beginner,mobility
+palms down wrist curl bench,2,Palms-Down Dumbbell Wrist Curl Over A Bench; Palms-Down Wrist Curl Over A Bench,strength,,forearms,dumbbell,isolation,beginner,isolation
+palms up wrist curl bench,2,Palms-Up Barbell Wrist Curl Over A Bench; Palms-Up Dumbbell Wrist Curl Over A Bench,strength,,forearms,barbell,isolation,beginner,isolation
+twist,2,Plate Twist; Seated Barbell Twist,strength,,abdominals,other,compound,intermediate,compound
+straight pulldown,2,Rope Straight-Arm Pulldown; Straight-Arm Pulldown,strength,,lats,cable,isolation,beginner,isolation
+concentration curl,2,Seated Close-Grip Concentration Barbell Curl; Standing Concentration Curl,strength,Concentration Curl,biceps,barbell,isolation,intermediate,isolation
+inner biceps curl,2,Seated Dumbbell Inner Biceps Curl; Standing Inner-Biceps Curl,strength,,biceps,dumbbell,isolation,beginner,isolation
+palms up wrist curl,2,Seated Dumbbell Palms-Up Wrist Curl; Seated One-Arm Dumbbell Palms-Up Wrist Curl,strength,,forearms,dumbbell,isolation,beginner,isolation
+hamstring calf stretch,2,Seated Hamstring and Calf Stretch; Standing Hamstring and Calf Stretch,stretching,,hamstrings,other,,intermediate,mobility
+supine overhead throw,2,Supine One-Arm Overhead Throw; Supine Two-Arm Overhead Throw,plyometrics,,abdominals,medicine ball,compound,beginner,plyometric
+3 4 sit up,1,3/4 Sit-Up,strength,,abdominals,body only,compound,beginner,compound
+90 90 hamstring,1,90/90 Hamstring,stretching,,hamstrings,body only,,beginner,mobility
+ab crunch,1,Ab Crunch Machine,strength,,abdominals,machine,isolation,intermediate,isolation
+adductor,1,Adductor,stretching,,adductors,foam roll,isolation,intermediate,mobility
+adductor groin,1,Adductor/Groin,stretching,,adductors,,,intermediate,mobility
+advanced windmill,1,Advanced Kettlebell Windmill,strength,,abdominals,kettlebells,isolation,intermediate,isolation
+all fours quad stretch,1,All Fours Quad Stretch,stretching,,quadriceps,body only,,intermediate,mobility
+heel touchers,1,Alternate Heel Touchers,strength,,abdominals,body only,isolation,beginner,isolation
+diagonal bound,1,Alternate Leg Diagonal Bound,plyometrics,,quadriceps,,compound,beginner,plyometric
+deltoid raise,1,Alternating Deltoid Raise,strength,,shoulders,dumbbell,isolation,beginner,isolation
+renegade row,1,Alternating Renegade Row,strength,Renegade Row,middle back,kettlebells,compound,expert,compound
+ankle knee,1,Ankle On The Knee,stretching,,glutes,,,beginner,mobility
+anterior tibialis smr,1,Anterior Tibialis-SMR,stretching,,calves,other,,intermediate,mobility
+anti gravity press,1,Anti-Gravity Press,strength,,shoulders,barbell,compound,beginner,compound
+circles,1,Arm Circles,stretching,,shoulders,,isolation,beginner,mobility
+around worlds,1,Around The Worlds,strength,,chest,dumbbell,compound,intermediate,compound
+atlas stone trainer,1,Atlas Stone Trainer,strongman,,lower back,other,compound,intermediate,compound
+atlas stones,1,Atlas Stones,strongman,,lower back,other,compound,expert,compound
+axle deadlift,1,Axle Deadlift,strongman,,lower back,other,compound,intermediate,compound
+back flyes,1,Back Flyes - With Bands,strength,,shoulders,bands,compound,beginner,compound
+backward drag,1,Backward Drag,strongman,,quadriceps,other,compound,beginner,compound
+backward medicine ball throw,1,Backward Medicine Ball Throw,plyometrics,,shoulders,medicine ball,compound,beginner,plyometric
+ball curl,1,Ball Leg Curl,strength,,hamstrings,exercise ball,isolation,beginner,isolation
+good morning pull through,1,Band Good Morning (Pull Through),powerlifting,,hamstrings,bands,compound,beginner,compound
+hip adductions,1,Band Hip Adductions,strength,,adductors,bands,isolation,beginner,isolation
+ab rollout,1,Barbell Ab Rollout,strength,Ab Rollout,abdominals,barbell,compound,intermediate,compound
+ab rollout knees,1,Barbell Ab Rollout - On Knees,strength,Ab Rollout,abdominals,barbell,compound,expert,compound
+bench press medium,1,Barbell Bench Press - Medium Grip,strength,,chest,barbell,compound,beginner,compound
+curls against an incline,1,Barbell Curls Lying Against An Incline,strength,,biceps,barbell,isolation,beginner,isolation
+guillotine bench press,1,Barbell Guillotine Bench Press,strength,,chest,barbell,compound,intermediate,compound
+incline bench press medium,1,Barbell Incline Bench Press - Medium Grip,strength,,chest,barbell,compound,beginner,compound
+rear delt row,1,Barbell Rear Delt Row,strength,,shoulders,barbell,compound,beginner,compound
+rollout from bench,1,Barbell Rollout from Bench,strength,,abdominals,barbell,compound,intermediate,compound
+shrug behind back,1,Barbell Shrug Behind The Back,strength,,traps,barbell,isolation,beginner,isolation
+side split squat,1,Barbell Side Split Squat,strength,,quadriceps,barbell,compound,beginner,compound
+battling ropes,1,Battling Ropes,strength,,shoulders,other,compound,beginner,compound
+bear crawl drags,1,Bear Crawl Sled Drags,strongman,,quadriceps,other,compound,beginner,compound
+behind head chest stretch,1,Behind Head Chest Stretch,stretching,,chest,other,isolation,expert,mobility
+bench dips,1,Bench Dips,strength,,triceps,body only,compound,beginner,compound
+bench jump,1,Bench Jump,plyometrics,,quadriceps,body only,compound,intermediate,plyometric
+bench press powerlifting,1,Bench Press - Powerlifting,powerlifting,,triceps,barbell,compound,intermediate,compound
+bench press chains,1,Bench Press with Chains,powerlifting,,triceps,barbell,compound,expert,compound
+bench sprint,1,Bench Sprint,plyometrics,,quadriceps,other,compound,beginner,plyometric
+knee hip raise,1,Bent-Knee Hip Raise,strength,,abdominals,body only,compound,beginner,compound
+rear delt raise head bench,1,Bent Over Dumbbell Rear Delt Raise With Head On Bench,strength,,shoulders,dumbbell,isolation,beginner,isolation
+pulley side lateral,1,Bent Over Low-Pulley Side Lateral,strength,,shoulders,cable,isolation,beginner,isolation
+row palms in,1,Bent Over Two-Dumbbell Row With Palms In,strength,,middle back,dumbbell,compound,beginner,compound
+bicycling,1,Bicycling,cardio,,quadriceps,other,,beginner,cardio
+bicycling stationary,1,"Bicycling, Stationary",cardio,,quadriceps,machine,,beginner,cardio
+board press,1,Board Press,powerlifting,,triceps,barbell,compound,intermediate,compound
+up,1,Body-Up,strength,,triceps,body only,isolation,intermediate,isolation
+tricep press,1,Body Tricep Press,strength,,triceps,body only,isolation,beginner,isolation
+mid row,1,Bodyweight Mid Row,strength,,middle back,other,compound,intermediate,compound
+bosu ball crunch side bends,1,Bosu Ball Cable Crunch With Side Bends,strength,,abdominals,cable,isolation,beginner,isolation
+bottoms up clean from hang position,1,Bottoms-Up Clean From The Hang Position,strength,,forearms,kettlebells,compound,intermediate,compound
+bottoms up,1,Bottoms Up,strength,,abdominals,body only,compound,beginner,compound
+box jump multiple response,1,Box Jump (Multiple Response),plyometrics,,hamstrings,other,compound,beginner,plyometric
+box skip,1,Box Skip,plyometrics,,hamstrings,other,compound,beginner,plyometric
+box squat chains,1,Box Squat with Chains,strength,,quadriceps,barbell,compound,expert,compound
+brachialis smr,1,Brachialis-SMR,stretching,,biceps,foam roll,,intermediate,mobility
+bradford rocky presses,1,Bradford/Rocky Presses,strength,,shoulders,barbell,compound,beginner,compound
+butt ups,1,Butt-Ups,strength,,abdominals,body only,compound,beginner,compound
+butt lift bridge,1,Butt Lift (Bridge),strength,,glutes,body only,isolation,beginner,isolation
+butterfly,1,Butterfly,strength,,chest,machine,isolation,beginner,isolation
+deadlifts,1,Cable Deadlifts,strength,,quadriceps,cable,compound,beginner,compound
+hammer curls attachment,1,Cable Hammer Curls - Rope Attachment,strength,,biceps,cable,isolation,beginner,isolation
+incline pushdown,1,Cable Incline Pushdown,strength,,lats,cable,isolation,beginner,isolation
+judo flip,1,Cable Judo Flip,strength,,abdominals,cable,compound,beginner,compound
+tricep extension,1,Cable One Arm Tricep Extension,strength,,triceps,cable,isolation,beginner,isolation
+rear delt rows,1,Cable Rope Rear-Delt Rows,strength,,shoulders,cable,compound,beginner,compound
+russian twists,1,Cable Russian Twists,strength,Russian Twist,abdominals,cable,compound,beginner,compound
+calf shoulder shrug,1,Calf-Machine Shoulder Shrug,strength,,traps,machine,isolation,beginner,isolation
+calf press,1,Calf Press,strength,,calves,machine,isolation,beginner,isolation
+calf press press,1,Calf Press On The Leg Press Machine,strength,,calves,machine,isolation,beginner,isolation
+calf stretch elbows against wall,1,Calf Stretch Elbows Against Wall,stretching,,calves,,isolation,beginner,mobility
+calf stretch hands against wall,1,Calf Stretch Hands Against Wall,stretching,,calves,,isolation,beginner,mobility
+calves smr,1,Calves-SMR,stretching,,calves,foam roll,,intermediate,mobility
+car drivers,1,Car Drivers,strength,,shoulders,barbell,isolation,beginner,isolation
+carioca quick step,1,Carioca Quick Step,plyometrics,,adductors,,,beginner,plyometric
+cat stretch,1,Cat Stretch,stretching,,lower back,,,beginner,mobility
+catch overhead throw,1,Catch and Overhead Throw,plyometrics,,lats,medicine ball,compound,beginner,plyometric
+chain handle extension,1,Chain Handle Extension,powerlifting,,triceps,other,isolation,intermediate,isolation
+chain press,1,Chain Press,powerlifting,,chest,other,compound,intermediate,compound
+chair extended stretch,1,Chair Leg Extended Stretch,stretching,,hamstrings,other,isolation,beginner,mobility
+chair lower back stretch,1,Chair Lower Back Stretch,stretching,,lats,,isolation,beginner,mobility
+chair squat,1,Chair Squat,strength,,quadriceps,machine,compound,beginner,compound
+chair upper stretch,1,Chair Upper Body Stretch,stretching,,shoulders,other,,beginner,mobility
+chest front shoulder stretch,1,Chest And Front Of Shoulder Stretch,stretching,,chest,other,isolation,beginner,mobility
+chest push from 3 point stance,1,Chest Push from 3 point stance,plyometrics,,chest,medicine ball,compound,beginner,plyometric
+chest push multiple response,1,Chest Push (multiple response),plyometrics,,chest,medicine ball,compound,beginner,plyometric
+chest push response,1,Chest Push (single response),plyometrics,,chest,medicine ball,compound,beginner,plyometric
+chest push run release,1,Chest Push with Run Release,plyometrics,,chest,medicine ball,compound,beginner,plyometric
+chest stretch stability ball,1,Chest Stretch on Stability Ball,stretching,,chest,exercise ball,isolation,beginner,mobility
+child s pose,1,Child's Pose,stretching,,lower back,,,beginner,mobility
+chin chest stretch,1,Chin To Chest Stretch,stretching,,neck,,,beginner,mobility
+circus bell,1,Circus Bell,strongman,,shoulders,other,compound,expert,compound
+clean deadlift,1,Clean Deadlift,olympic weightlifting,,hamstrings,barbell,compound,beginner,compound
+clean pull,1,Clean Pull,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+clean shrug,1,Clean Shrug,olympic weightlifting,,traps,barbell,compound,beginner,compound
+clean press,1,Clean and Press,strength,,shoulders,barbell,compound,intermediate,compound
+clean from blocks,1,Clean from Blocks,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+clock push up,1,Clock Push-Up,strength,,chest,body only,compound,intermediate,compound
+bar press,1,Close-Grip EZ-Bar Press,strength,,triceps,e-z curl bar,compound,beginner,compound
+front lat pulldown,1,Close-Grip Front Lat Pulldown,strength,,lats,cable,compound,beginner,compound
+push up off,1,Close-Grip Push-Up off of a Dumbbell,strength,,triceps,body only,compound,intermediate,compound
+cocoons,1,Cocoons,strength,,abdominals,body only,compound,beginner,compound
+conan s wheel,1,Conan's Wheel,strongman,,quadriceps,other,compound,intermediate,compound
+concentration curls,1,Concentration Curls,strength,Concentration Curl,biceps,dumbbell,isolation,beginner,isolation
+cross crunch,1,Cross-Body Crunch,strength,,abdominals,body only,compound,beginner,compound
+cross hammer curl,1,Cross Body Hammer Curl,strength,,biceps,dumbbell,isolation,beginner,isolation
+cross,1,Cross Over - With Bands,strength,,chest,bands,compound,beginner,compound
+crossover reverse lunge,1,Crossover Reverse Lunge,stretching,,lower back,,,intermediate,mobility
+crucifix,1,Crucifix,strongman,,shoulders,other,isolation,beginner,isolation
+crunch hands overhead,1,Crunch - Hands Overhead,strength,,abdominals,body only,isolation,beginner,isolation
+crunch exercise ball,1,Crunch - Legs On Exercise Ball,strength,,abdominals,body only,isolation,beginner,isolation
+cuban press,1,Cuban Press,strength,,shoulders,dumbbell,compound,intermediate,compound
+dancer s stretch,1,Dancer's Stretch,stretching,,lower back,,,beginner,mobility
+deadlift chains,1,Deadlift with Chains,powerlifting,,lower back,barbell,compound,expert,compound
+decline bench skull crusher,1,Decline Close-Grip Bench To Skull Crusher,strength,,triceps,barbell,compound,intermediate,compound
+decline crunch,1,Decline Crunch,strength,,abdominals,body only,isolation,intermediate,isolation
+decline flyes,1,Decline Dumbbell Flyes,strength,,chest,dumbbell,compound,beginner,compound
+decline triceps extension,1,Decline Dumbbell Triceps Extension,strength,,triceps,dumbbell,isolation,beginner,isolation
+decline bar triceps extension,1,Decline EZ Bar Triceps Extension,strength,,triceps,barbell,isolation,beginner,isolation
+decline oblique crunch,1,Decline Oblique Crunch,strength,,abdominals,body only,compound,beginner,compound
+decline push up,1,Decline Push-Up,strength,,chest,,compound,beginner,compound
+decline reverse crunch,1,Decline Reverse Crunch,strength,,abdominals,body only,compound,beginner,compound
+deficit deadlift,1,Deficit Deadlift,powerlifting,,lower back,barbell,compound,intermediate,compound
+depth jump leap,1,Depth Jump Leap,plyometrics,,quadriceps,other,compound,beginner,plyometric
+dips chest version,1,Dips - Chest Version,strength,,chest,other,compound,intermediate,compound
+dips triceps version,1,Dips - Triceps Version,strength,,triceps,body only,compound,beginner,compound
+donkey calf raises,1,Donkey Calf Raises,strength,,calves,other,isolation,intermediate,isolation
+double hang clean,1,Double Kettlebell Alternating Hang Clean,strength,Hang Clean,hamstrings,kettlebells,compound,intermediate,compound
+double jerk,1,Double Kettlebell Jerk,strength,,shoulders,kettlebells,compound,intermediate,compound
+double push press,1,Double Kettlebell Push Press,strength,,shoulders,kettlebells,compound,intermediate,compound
+double snatch,1,Double Kettlebell Snatch,strength,,shoulders,kettlebells,compound,expert,compound
+double windmill,1,Double Kettlebell Windmill,strength,,abdominals,kettlebells,,intermediate,MANUELL
+double butt kick,1,Double Leg Butt Kick,plyometrics,,quadriceps,body only,compound,beginner,plyometric
+downward facing balance,1,Downward Facing Balance,strength,,glutes,exercise ball,isolation,intermediate,isolation
+drag curl,1,Drag Curl,strength,,biceps,barbell,compound,intermediate,compound
+drop push,1,Drop Push,plyometrics,,chest,other,compound,intermediate,plyometric
+incline row,1,Dumbbell Incline Row,strength,,middle back,dumbbell,compound,beginner,compound
+pronation,1,Dumbbell Lying Pronation,strength,,forearms,dumbbell,isolation,intermediate,isolation
+supination,1,Dumbbell Lying Supination,strength,,forearms,dumbbell,isolation,intermediate,isolation
+prone incline curl,1,Dumbbell Prone Incline Curl,strength,,biceps,dumbbell,isolation,intermediate,isolation
+rear lunge,1,Dumbbell Rear Lunge,strength,,quadriceps,dumbbell,compound,intermediate,compound
+tricep extension pronated,1,Dumbbell Tricep Extension -Pronated Grip,strength,,triceps,dumbbell,isolation,beginner,isolation
+dynamic back stretch,1,Dynamic Back Stretch,stretching,,lats,,,beginner,mobility
+dynamic chest stretch,1,Dynamic Chest Stretch,stretching,,chest,,,beginner,mobility
+bar skullcrusher,1,EZ-Bar Skullcrusher,strength,,triceps,e-z curl bar,isolation,beginner,isolation
+elbow circles,1,Elbow Circles,stretching,,shoulders,,isolation,beginner,mobility
+elbow knee,1,Elbow to Knee,strength,,abdominals,body only,compound,beginner,compound
+elbows back,1,Elbows Back,stretching,,chest,,isolation,beginner,mobility
+elevated back lunge,1,Elevated Back Lunge,strength,,quadriceps,barbell,compound,intermediate,compound
+elevated rows,1,Elevated Cable Rows,strength,,lats,cable,compound,intermediate,compound
+elliptical trainer,1,Elliptical Trainer,cardio,,quadriceps,machine,,intermediate,cardio
+exercise ball crunch,1,Exercise Ball Crunch,strength,,abdominals,exercise ball,isolation,beginner,isolation
+exercise ball pull in,1,Exercise Ball Pull-In,strength,,abdominals,exercise ball,compound,beginner,compound
+extended range press,1,Extended Range One-Arm Kettlebell Floor Press,strength,,chest,kettlebells,compound,beginner,compound
+farmer s walk,1,Farmer's Walk,strongman,Farmer's Walk,forearms,other,compound,intermediate,compound
+fast skipping,1,Fast Skipping,plyometrics,,quadriceps,body only,compound,beginner,plyometric
+finger curls,1,Finger Curls,strength,,forearms,barbell,isolation,beginner,isolation
+flat bench flyes,1,Flat Bench Cable Flyes,strength,,chest,cable,isolation,intermediate,isolation
+flat bench raise,1,Flat Bench Lying Leg Raise,strength,,abdominals,body only,isolation,beginner,isolation
+press chains,1,Floor Press with Chains,powerlifting,,triceps,barbell,compound,intermediate,compound
+flutter kicks,1,Flutter Kicks,strength,,glutes,body only,compound,beginner,compound
+foot smr,1,Foot-SMR,stretching,,calves,other,,intermediate,mobility
+forward drag press,1,Forward Drag with Press,strongman,,chest,other,compound,intermediate,compound
+frankenstein squat,1,Frankenstein Squat,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+freehand jump squat,1,Freehand Jump Squat,strength,,quadriceps,body only,compound,intermediate,compound
+frog hops,1,Frog Hops,stretching,,quadriceps,,compound,intermediate,mobility
+frog sit ups,1,Frog Sit-Ups,strength,,abdominals,body only,isolation,intermediate,isolation
+front squat bench,1,Front Barbell Squat To A Bench,strength,,quadriceps,barbell,compound,expert,compound
+front box jump,1,Front Box Jump,plyometrics,,hamstrings,other,compound,beginner,plyometric
+front cone hops or hurdle hops,1,Front Cone Hops (or hurdle hops),plyometrics,,quadriceps,other,compound,beginner,plyometric
+front incline raise,1,Front Incline Dumbbell Raise,strength,,shoulders,dumbbell,isolation,beginner,isolation
+front raises,1,Front Leg Raises,stretching,,hamstrings,body only,,beginner,mobility
+front raise pullover,1,Front Raise And Pullover,strength,,chest,barbell,compound,beginner,compound
+front squat clean,1,Front Squat (Clean Grip),strength,,quadriceps,barbell,compound,intermediate,compound
+front squats kettlebells,1,Front Squats With Two Kettlebells,strength,,quadriceps,kettlebells,compound,intermediate,compound
+range motion lat pulldown,1,Full Range-Of-Motion Lat Pulldown,strength,,lats,cable,compound,intermediate,compound
+gironda sternum chins,1,Gironda Sternum Chins,strength,,lats,other,compound,intermediate,compound
+glute kickback,1,Glute Kickback,strength,,glutes,body only,compound,beginner,compound
+good morning off pins,1,Good Morning off Pins,powerlifting,,hamstrings,barbell,compound,intermediate,compound
+gorilla chin crunch,1,Gorilla Chin/Crunch,strength,,abdominals,body only,compound,intermediate,compound
+groin back stretch,1,Groin and Back Stretch,stretching,,adductors,,compound,intermediate,mobility
+groiners,1,Groiners,stretching,,adductors,body only,compound,intermediate,mobility
+hammer incline bench press,1,Hammer Grip Incline DB Bench Press,strength,,chest,dumbbell,compound,beginner,compound
+hamstring smr,1,Hamstring-SMR,stretching,,hamstrings,foam roll,isolation,beginner,mobility
+handstand push ups,1,Handstand Push-Ups,strength,,shoulders,body only,compound,expert,compound
+hang clean below knees,1,Hang Clean - Below the Knees,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+hang snatch,1,Hang Snatch,olympic weightlifting,,hamstrings,barbell,compound,expert,compound
+hang snatch below knees,1,Hang Snatch - Below Knees,olympic weightlifting,,hamstrings,barbell,compound,expert,compound
+hanging bar good morning,1,Hanging Bar Good Morning,powerlifting,,hamstrings,barbell,compound,intermediate,compound
+hanging pike,1,Hanging Pike,strength,,abdominals,body only,compound,expert,compound
+heaving snatch balance,1,Heaving Snatch Balance,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+heavy bag thrust,1,Heavy Bag Thrust,plyometrics,,chest,other,compound,beginner,plyometric
+curls,1,High Cable Curls,strength,,biceps,cable,compound,intermediate,compound
+hip circles prone,1,Hip Circles (prone),stretching,,abductors,body only,isolation,beginner,mobility
+hip extension,1,Hip Extension with Bands,strength,,glutes,bands,compound,beginner,compound
+hip flexion,1,Hip Flexion with Band,strength,,quadriceps,bands,compound,beginner,compound
+hip lift,1,Hip Lift with Band,powerlifting,,glutes,bands,compound,beginner,compound
+hug ball,1,Hug A Ball,stretching,,lower back,exercise ball,isolation,beginner,mobility
+hug knees chest,1,Hug Knees To Chest,stretching,,lower back,,,beginner,mobility
+hurdle hops,1,Hurdle Hops,plyometrics,,hamstrings,other,compound,beginner,plyometric
+hyperextensions no hyperextension bench,1,Hyperextensions With No Hyperextension Bench,strength,,lower back,body only,compound,intermediate,compound
+it glute stretch,1,IT Band and Glute Stretch,stretching,,abductors,other,,intermediate,mobility
+iliotibial tract smr,1,Iliotibial Tract-SMR,stretching,,abductors,foam roll,isolation,intermediate,mobility
+inchworm,1,Inchworm,stretching,,hamstrings,body only,compound,beginner,mobility
+incline bench pull,1,Incline Bench Pull,strength,,middle back,barbell,isolation,beginner,isolation
+incline chest press,1,Incline Cable Chest Press,strength,,chest,cable,compound,beginner,compound
+incline bench palms facing in,1,Incline Dumbbell Bench With Palms Facing In,strength,,chest,dumbbell,compound,beginner,compound
+incline flyes twist,1,Incline Dumbbell Flyes - With A Twist,strength,,chest,dumbbell,compound,beginner,compound
+incline hammer curls,1,Incline Hammer Curls,strength,,biceps,dumbbell,isolation,beginner,isolation
+incline inner biceps curl,1,Incline Inner Biceps Curl,strength,,biceps,dumbbell,isolation,beginner,isolation
+incline push up depth jump,1,Incline Push-Up Depth Jump,plyometrics,,chest,other,compound,beginner,plyometric
+incline push up medium,1,Incline Push-Up Medium,strength,,chest,body only,compound,beginner,compound
+incline push up reverse,1,Incline Push-Up Reverse Grip,strength,,chest,body only,compound,beginner,compound
+intermediate groin stretch,1,Intermediate Groin Stretch,stretching,,hamstrings,other,isolation,intermediate,mobility
+intermediate hip flexor quad stretch,1,Intermediate Hip Flexor and Quad Stretch,stretching,,quadriceps,other,compound,intermediate,mobility
+inverted row,1,Inverted Row,strength,,middle back,,compound,beginner,compound
+inverted row straps,1,Inverted Row with Straps,strength,,middle back,other,compound,beginner,compound
+iron crosses stretch,1,Iron Crosses (stretch),stretching,,quadriceps,,compound,intermediate,mobility
+isometric chest squeezes,1,Isometric Chest Squeezes,plyometrics,,chest,body only,compound,beginner,plyometric
+isometric neck exercise front back,1,Isometric Neck Exercise - Front And Back,strength,,neck,body only,isolation,beginner,isolation
+isometric neck exercise sides,1,Isometric Neck Exercise - Sides,strength,,neck,body only,isolation,beginner,isolation
+isometric wipers,1,Isometric Wipers,strength,,chest,body only,compound,beginner,compound
+jm press,1,JM Press,strength,,triceps,barbell,compound,beginner,compound
+janda sit up,1,Janda Sit-Up,strength,,abdominals,body only,isolation,beginner,isolation
+jefferson squats,1,Jefferson Squats,strength,,quadriceps,barbell,compound,intermediate,compound
+jerk balance,1,Jerk Balance,olympic weightlifting,,shoulders,barbell,compound,intermediate,compound
+jerk dip squat,1,Jerk Dip Squat,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+jogging treadmill,1,"Jogging, Treadmill",cardio,,quadriceps,machine,,beginner,cardio
+keg load,1,Keg Load,strongman,,lower back,other,compound,intermediate,compound
+dead clean,1,Kettlebell Dead Clean,strength,,hamstrings,kettlebells,compound,intermediate,compound
+figure 8,1,Kettlebell Figure 8,strength,,abdominals,kettlebells,,intermediate,MANUELL
+legged deadlift,1,Kettlebell One-Legged Deadlift,strength,,hamstrings,kettlebells,compound,intermediate,compound
+pass between,1,Kettlebell Pass Between The Legs,strength,,abdominals,kettlebells,compound,intermediate,compound
+pirate ships,1,Kettlebell Pirate Ships,strength,,shoulders,kettlebells,compound,beginner,compound
+seesaw press,1,Kettlebell Seesaw Press,strength,,shoulders,kettlebells,compound,intermediate,compound
+sumo pull,1,Kettlebell Sumo High Pull,strength,,traps,kettlebells,compound,intermediate,compound
+thruster,1,Kettlebell Thruster,strength,,shoulders,kettlebells,compound,intermediate,compound
+turkish get up lunge style,1,Kettlebell Turkish Get-Up (Lunge style),strength,,shoulders,kettlebells,compound,intermediate,compound
+turkish get up squat style,1,Kettlebell Turkish Get-Up (Squat style),strength,,shoulders,kettlebells,compound,intermediate,compound
+windmill,1,Kettlebell Windmill,strength,Windmill,abdominals,kettlebells,compound,intermediate,compound
+kipping muscle up,1,Kipping Muscle Up,strength,,lats,other,compound,intermediate,compound
+knee across,1,Knee Across The Body,stretching,,glutes,,,beginner,mobility
+knee circles,1,Knee Circles,stretching,,calves,body only,compound,beginner,mobility
+knee hip raise parallel bars,1,Knee/Hip Raise On Parallel Bars,strength,,abdominals,other,isolation,beginner,isolation
+knee tuck jump,1,Knee Tuck Jump,plyometrics,,hamstrings,body only,compound,beginner,plyometric
+kneeling drill,1,Kneeling Arm Drill,plyometrics,,shoulders,,,beginner,plyometric
+kneeling crunch oblique twists,1,Kneeling Cable Crunch With Alternating Oblique Twists,strength,,abdominals,cable,isolation,beginner,isolation
+kneeling triceps extension,1,Kneeling Cable Triceps Extension,strength,,triceps,cable,isolation,intermediate,isolation
+kneeling forearm stretch,1,Kneeling Forearm Stretch,stretching,,forearms,,isolation,beginner,mobility
+kneeling hip flexor,1,Kneeling Hip Flexor,stretching,,quadriceps,,isolation,beginner,mobility
+kneeling jump squat,1,Kneeling Jump Squat,olympic weightlifting,,glutes,barbell,compound,expert,compound
+kneeling squat,1,Kneeling Squat,powerlifting,,glutes,barbell,compound,intermediate,compound
+landmine 180 s,1,Landmine 180's,strength,,abdominals,barbell,compound,beginner,compound
+landmine linear jammer,1,Landmine Linear Jammer,strength,,shoulders,barbell,compound,intermediate,compound
+lateral box jump,1,Lateral Box Jump,plyometrics,,adductors,other,compound,beginner,plyometric
+lateral cone hops,1,Lateral Cone Hops,plyometrics,,adductors,other,compound,beginner,plyometric
+latissimus dorsi smr,1,Latissimus Dorsi-SMR,stretching,,lats,foam roll,isolation,beginner,mobility
+up hamstring stretch,1,Leg-Up Hamstring Stretch,stretching,,hamstrings,,isolation,beginner,mobility
+pull in,1,Leg Pull-In,strength,,abdominals,body only,compound,beginner,compound
+leverage chest press,1,Leverage Chest Press,strength,,chest,machine,compound,beginner,compound
+leverage deadlift,1,Leverage Deadlift,strength,,quadriceps,machine,compound,beginner,compound
+leverage decline chest press,1,Leverage Decline Chest Press,strength,,chest,machine,compound,beginner,compound
+leverage row,1,Leverage High Row,strength,,middle back,machine,compound,beginner,compound
+leverage incline chest press,1,Leverage Incline Chest Press,strength,,chest,machine,compound,beginner,compound
+leverage iso row,1,Leverage Iso Row,strength,,lats,machine,compound,beginner,compound
+leverage shoulder press,1,Leverage Shoulder Press,strength,,shoulders,machine,compound,beginner,compound
+leverage shrug,1,Leverage Shrug,strength,,traps,machine,isolation,beginner,isolation
+linear 3 part start technique,1,Linear 3-Part Start Technique,plyometrics,,hamstrings,,compound,beginner,plyometric
+linear acceleration wall drill,1,Linear Acceleration Wall Drill,plyometrics,,hamstrings,,compound,beginner,plyometric
+linear depth jump,1,Linear Depth Jump,plyometrics,,quadriceps,other,compound,intermediate,plyometric
+log lift,1,Log Lift,strongman,,shoulders,other,compound,intermediate,compound
+london bridges,1,London Bridges,strength,,lats,other,compound,intermediate,compound
+looking at ceiling,1,Looking At Ceiling,stretching,,quadriceps,,isolation,beginner,mobility
+pulley row neck,1,Low Pulley Row To Neck,strength,,shoulders,cable,compound,beginner,compound
+lower back smr,1,Lower Back-SMR,stretching,,lower back,foam roll,,beginner,mobility
+lower back curl,1,Lower Back Curl,stretching,,abdominals,body only,,beginner,mobility
+lunge pass through,1,Lunge Pass Through,strength,,hamstrings,kettlebells,compound,intermediate,compound
+lunge sprint,1,Lunge Sprint,strength,,quadriceps,machine,compound,intermediate,compound
+groin,1,Lying Bent Leg Groin,stretching,,adductors,other,,expert,mobility
+cambered row,1,Lying Cambered Barbell Row,strength,,middle back,barbell,isolation,beginner,isolation
+bar curl pulley,1,Lying Close-Grip Bar Curl On High Pulley,strength,,biceps,cable,isolation,beginner,isolation
+triceps extension behind head,1,Lying Close-Grip Barbell Triceps Extension Behind The Head,strength,,triceps,barbell,isolation,intermediate,isolation
+triceps press chin,1,Lying Close-Grip Barbell Triceps Press To Chin,strength,,triceps,e-z curl bar,isolation,intermediate,isolation
+face down neck,1,Lying Face Down Plate Neck Resistance,strength,,neck,other,isolation,intermediate,isolation
+face up neck,1,Lying Face Up Plate Neck Resistance,strength,,neck,other,isolation,intermediate,isolation
+bench curl,1,Lying High Bench Barbell Curl,strength,,biceps,barbell,isolation,intermediate,isolation
+prone quadriceps,1,Lying Prone Quadriceps,stretching,,quadriceps,body only,,expert,mobility
+supine curl,1,Lying Supine Dumbbell Curl,strength,,biceps,dumbbell,isolation,beginner,isolation
+preacher curls,1,Machine Preacher Curls,strength,,biceps,machine,isolation,beginner,isolation
+shoulder military press,1,Machine Shoulder (Military) Press,strength,,shoulders,machine,compound,beginner,compound
+medicine ball chest pass,1,Medicine Ball Chest Pass,plyometrics,,chest,medicine ball,compound,beginner,plyometric
+medicine ball twist,1,Medicine Ball Full Twist,plyometrics,,abdominals,medicine ball,compound,beginner,plyometric
+medicine ball scoop throw,1,Medicine Ball Scoop Throw,plyometrics,,shoulders,medicine ball,compound,beginner,plyometric
+middle back shrug,1,Middle Back Shrug,strength,,middle back,dumbbell,isolation,intermediate,isolation
+middle back stretch,1,Middle Back Stretch,stretching,,middle back,,isolation,beginner,mobility
+mixed chin,1,Mixed Grip Chin,strength,,middle back,other,compound,expert,compound
+moving claw series,1,Moving Claw Series,plyometrics,,hamstrings,,compound,beginner,plyometric
+muscle snatch,1,Muscle Snatch,olympic weightlifting,,hamstrings,barbell,compound,intermediate,compound
+muscle up,1,Muscle Up,strength,,lats,other,compound,intermediate,compound
+narrow stance hack squats,1,Narrow Stance Hack Squats,strength,,quadriceps,machine,compound,intermediate,compound
+narrow stance press,1,Narrow Stance Leg Press,strength,,quadriceps,machine,compound,intermediate,compound
+narrow stance squats,1,Narrow Stance Squats,strength,,quadriceps,barbell,compound,intermediate,compound
+natural glute ham raise,1,Natural Glute Ham Raise,strength,Glute-Ham Raise,hamstrings,body only,compound,intermediate,compound
+neck smr,1,Neck-SMR,stretching,,neck,other,,intermediate,mobility
+neck press,1,Neck Press,strength,,chest,barbell,compound,intermediate,compound
+your back quad stretch,1,On-Your-Back Quad Stretch,stretching,,quadriceps,other,isolation,beginner,mobility
+your side quad stretch,1,On Your Side Quad Stretch,stretching,,quadriceps,,isolation,beginner,mobility
+flat bench flye,1,One-Arm Flat Bench Dumbbell Flye,strength,,chest,dumbbell,isolation,beginner,isolation
+pulley side bends,1,One-Arm High-Pulley Cable Side Bends,strength,,abdominals,cable,isolation,beginner,isolation
+incline lateral raise,1,One-Arm Incline Lateral Raise,strength,,shoulders,dumbbell,isolation,beginner,isolation
+military press side,1,One-Arm Kettlebell Military Press To The Side,strength,,shoulders,kettlebells,compound,intermediate,compound
+para press,1,One-Arm Kettlebell Para Press,strength,,shoulders,kettlebells,compound,intermediate,compound
+swings,1,One-Arm Kettlebell Swings,strength,,hamstrings,kettlebells,compound,intermediate,compound
+medicine ball slam,1,One-Arm Medicine Ball Slam,strength,,abdominals,medicine ball,compound,beginner,compound
+overhead squats,1,One-Arm Overhead Kettlebell Squats,strength,,quadriceps,kettlebells,compound,expert,compound
+side deadlift,1,One-Arm Side Deadlift,strength,,quadriceps,barbell,compound,expert,compound
+side laterals,1,One-Arm Side Laterals,strength,,shoulders,dumbbell,isolation,beginner,isolation
+legged kickback,1,One-Legged Cable Kickback,strength,,glutes,cable,isolation,intermediate,isolation
+against wall,1,One Arm Against Wall,stretching,,lats,,isolation,beginner,mobility
+pronated triceps extension,1,One Arm Pronated Dumbbell Triceps Extension,strength,,triceps,dumbbell,isolation,beginner,isolation
+supinated triceps extension,1,One Arm Supinated Dumbbell Triceps Extension,strength,,triceps,dumbbell,isolation,beginner,isolation
+locust,1,One Half Locust,stretching,,quadriceps,,,beginner,mobility
+handed hang,1,One Handed Hang,stretching,,lats,other,,beginner,mobility
+knee chest,1,One Knee To Chest,stretching,,glutes,,compound,beginner,mobility
+otis up,1,Otis-Up,strength,,abdominals,other,compound,beginner,compound
+overhead curl,1,Overhead Cable Curl,strength,,biceps,cable,isolation,intermediate,isolation
+overhead lat,1,Overhead Lat,stretching,,lats,other,,expert,mobility
+overhead slam,1,Overhead Slam,plyometrics,,lats,medicine ball,compound,beginner,plyometric
+overhead squat,1,Overhead Squat,olympic weightlifting,,quadriceps,barbell,compound,expert,compound
+overhead triceps,1,Overhead Triceps,stretching,,triceps,body only,,expert,mobility
+pallof press rotation,1,Pallof Press With Rotation,strength,,abdominals,cable,compound,beginner,compound
+parallel bar dip,1,Parallel Bar Dip,strength,,triceps,other,compound,beginner,compound
+pelvic tilt into bridge,1,Pelvic Tilt Into Bridge,stretching,,lower back,,compound,intermediate,mobility
+peroneals smr,1,Peroneals-SMR,stretching,,calves,foam roll,,intermediate,mobility
+peroneals stretch,1,Peroneals Stretch,stretching,,calves,other,,intermediate,mobility
+physioball hip bridge,1,Physioball Hip Bridge,strength,,glutes,exercise ball,compound,beginner,compound
+piriformis smr,1,Piriformis-SMR,stretching,,glutes,foam roll,isolation,intermediate,mobility
+pinch,1,Plate Pinch,strength,,forearms,other,isolation,intermediate,isolation
+platform hamstring slides,1,Platform Hamstring Slides,strength,,hamstrings,other,isolation,beginner,isolation
+plie squat,1,Plie Dumbbell Squat,strength,,quadriceps,dumbbell,compound,beginner,compound
+plyo pushups,1,Plyo Kettlebell Pushups,strength,,chest,kettlebells,compound,expert,compound
+plyo push up,1,Plyo Push-up,plyometrics,,chest,body only,compound,beginner,plyometric
+posterior tibialis stretch,1,Posterior Tibialis Stretch,stretching,,calves,other,,intermediate,mobility
+power clean from blocks,1,Power Clean from Blocks,olympic weightlifting,,hamstrings,barbell,compound,intermediate,compound
+power jerk,1,Power Jerk,olympic weightlifting,,quadriceps,barbell,compound,expert,compound
+power partials,1,Power Partials,strength,,shoulders,dumbbell,isolation,beginner,isolation
+power snatch,1,Power Snatch,olympic weightlifting,,hamstrings,barbell,compound,expert,compound
+power snatch from blocks,1,Power Snatch from Blocks,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+power stairs,1,Power Stairs,strongman,,hamstrings,other,compound,intermediate,compound
+preacher hammer curl,1,Preacher Hammer Dumbbell Curl,strength,,biceps,dumbbell,isolation,beginner,isolation
+press sit up,1,Press Sit-Up,strength,,abdominals,barbell,compound,expert,compound
+prone manual hamstring,1,Prone Manual Hamstring,strength,,hamstrings,,isolation,beginner,isolation
+prowler sprint,1,Prowler Sprint,cardio,,hamstrings,other,compound,beginner,cardio
+pull through,1,Pull Through,strength,Cable Pull Through,glutes,cable,compound,beginner,compound
+push ups triceps position,1,Push-Ups - Close Triceps Position,strength,,triceps,body only,compound,intermediate,compound
+push ups feet elevated,1,Push-Ups With Feet Elevated,strength,,chest,body only,compound,beginner,compound
+push ups feet an exercise ball,1,Push-Ups With Feet On An Exercise Ball,strength,,chest,exercise ball,compound,intermediate,compound
+push press behind neck,1,Push Press - Behind the Neck,olympic weightlifting,,shoulders,barbell,compound,intermediate,compound
+push up side plank,1,Push Up to Side Plank,strength,,chest,body only,compound,beginner,compound
+pushups hand positions,1,Pushups (Close and Wide Hand Positions),strength,,chest,body only,compound,beginner,compound
+pyramid,1,Pyramid,stretching,,lower back,exercise ball,,beginner,mobility
+quad stretch,1,Quad Stretch,stretching,,quadriceps,other,,intermediate,mobility
+quadriceps smr,1,Quadriceps-SMR,stretching,,quadriceps,foam roll,isolation,intermediate,mobility
+quick leap,1,Quick Leap,plyometrics,,quadriceps,other,compound,beginner,plyometric
+rack delivery,1,Rack Delivery,olympic weightlifting,,shoulders,barbell,compound,intermediate,compound
+rack pull,1,Rack Pull with Bands,powerlifting,,lower back,barbell,compound,intermediate,compound
+rack pulls,1,Rack Pulls,powerlifting,,lower back,barbell,compound,intermediate,compound
+rear raises,1,Rear Leg Raises,stretching,,quadriceps,body only,,beginner,mobility
+recumbent bike,1,Recumbent Bike,cardio,,quadriceps,machine,,beginner,cardio
+return push from stance,1,Return Push from Stance,plyometrics,,shoulders,medicine ball,compound,beginner,plyometric
+reverse bench press,1,Reverse Band Bench Press,powerlifting,,triceps,barbell,compound,intermediate,compound
+reverse box squat,1,Reverse Band Box Squat,powerlifting,,quadriceps,barbell,compound,intermediate,compound
+reverse deadlift,1,Reverse Band Deadlift,powerlifting,,lower back,barbell,compound,expert,compound
+reverse power squat,1,Reverse Band Power Squat,powerlifting,,quadriceps,barbell,compound,expert,compound
+reverse sumo deadlift,1,Reverse Band Sumo Deadlift,powerlifting,,hamstrings,barbell,compound,expert,compound
+reverse preacher curls,1,Reverse Barbell Preacher Curls,strength,,biceps,e-z curl bar,isolation,intermediate,isolation
+reverse flyes external rotation,1,Reverse Flyes With External Rotation,strength,,shoulders,dumbbell,isolation,intermediate,isolation
+reverse rows,1,Reverse Grip Bent-Over Rows,strength,,middle back,barbell,compound,intermediate,compound
+reverse triceps pushdown,1,Reverse Grip Triceps Pushdown,strength,,triceps,cable,isolation,beginner,isolation
+reverse flyes,1,Reverse Machine Flyes,strength,,shoulders,machine,isolation,beginner,isolation
+reverse triceps bench press,1,Reverse Triceps Bench Press,strength,,triceps,barbell,compound,intermediate,compound
+rhomboids smr,1,Rhomboids-SMR,stretching,,middle back,foam roll,,intermediate,mobility
+rickshaw carry,1,Rickshaw Carry,strongman,,forearms,other,compound,intermediate,compound
+rickshaw deadlift,1,Rickshaw Deadlift,strongman,,quadriceps,other,compound,intermediate,compound
+ring dips,1,Ring Dips,strength,,triceps,other,compound,intermediate,compound
+rocket jump,1,Rocket Jump,plyometrics,,quadriceps,body only,compound,beginner,plyometric
+rocky pull ups pulldowns,1,Rocky Pull-Ups/Pulldowns,strength,,lats,other,compound,intermediate,compound
+romanian deadlift from deficit,1,Romanian Deadlift from Deficit,olympic weightlifting,,hamstrings,barbell,compound,intermediate,compound
+climb,1,Rope Climb,strength,,lats,other,compound,intermediate,compound
+jumping,1,Rope Jumping,cardio,,quadriceps,other,,intermediate,cardio
+round world shoulder stretch,1,Round The World Shoulder Stretch,stretching,,shoulders,other,,beginner,mobility
+rowing stationary,1,"Rowing, Stationary",cardio,,quadriceps,machine,,intermediate,cardio
+runner s stretch,1,Runner's Stretch,stretching,,hamstrings,,,beginner,mobility
+running treadmill,1,"Running, Treadmill",cardio,,quadriceps,machine,,beginner,cardio
+russian twist,1,Russian Twist,strength,Russian Twist,abdominals,body only,compound,intermediate,compound
+sandbag load,1,Sandbag Load,strongman,,quadriceps,other,compound,beginner,compound
+scapular pull up,1,Scapular Pull-Up,strength,,traps,,isolation,beginner,isolation
+scissor kick,1,Scissor Kick,stretching,,abdominals,body only,isolation,beginner,mobility
+scissors jump,1,Scissors Jump,plyometrics,,quadriceps,body only,compound,beginner,plyometric
+hamstring curl,1,Seated Band Hamstring Curl,strength,,hamstrings,other,isolation,beginner,isolation
+biceps,1,Seated Biceps,stretching,,biceps,body only,isolation,expert,mobility
+front deltoid,1,Seated Front Deltoid,stretching,,shoulders,body only,,expert,mobility
+good mornings,1,Seated Good Mornings,powerlifting,Good Morning,lower back,barbell,compound,intermediate,compound
+head harness neck,1,Seated Head Harness Neck Resistance,strength,,neck,other,isolation,intermediate,isolation
+tucks,1,Seated Leg Tucks,strength,,abdominals,body only,isolation,beginner,isolation
+pulley rows,1,Seated One-arm Cable Pulley Rows,strength,,middle back,cable,compound,intermediate,compound
+palm up wrist curl,1,Seated Palm-Up Barbell Wrist Curl,strength,,forearms,barbell,isolation,beginner,isolation
+side lateral raise,1,Seated Side Lateral Raise,strength,,shoulders,dumbbell,isolation,beginner,isolation
+palms up pulley wrist curl,1,Seated Two-Arm Palms-Up Low-Pulley Wrist Curl,strength,,forearms,cable,isolation,beginner,isolation
+see saw press side press,1,See-Saw Press (Alternating Side Press),strength,,shoulders,dumbbell,compound,intermediate,compound
+shotgun row,1,Shotgun Row,strength,,lats,cable,compound,beginner,compound
+shoulder circles,1,Shoulder Circles,stretching,,shoulders,,,beginner,mobility
+shoulder raise,1,Shoulder Raise,stretching,,shoulders,,,beginner,mobility
+shoulder stretch,1,Shoulder Stretch,stretching,,shoulders,,,beginner,mobility
+side stretch,1,Side-Lying Floor Stretch,stretching,,lats,,,beginner,mobility
+side hop sprint,1,Side Hop-Sprint,plyometrics,,quadriceps,other,compound,beginner,plyometric
+side jackknife,1,Side Jackknife,strength,,abdominals,body only,compound,beginner,compound
+side laterals front raise,1,Side Laterals to Front Raise,strength,,shoulders,dumbbell,isolation,beginner,isolation
+side groin stretch,1,Side Lying Groin Stretch,stretching,,adductors,,isolation,beginner,mobility
+side neck stretch,1,Side Neck Stretch,stretching,,neck,,isolation,beginner,mobility
+side side chins,1,Side To Side Chins,strength,,lats,other,compound,intermediate,compound
+side wrist pull,1,Side Wrist Pull,stretching,,shoulders,,isolation,beginner,mobility
+side side box shuffle,1,Side to Side Box Shuffle,plyometrics,,quadriceps,other,compound,beginner,plyometric
+linear jammer,1,Single-Arm Linear Jammer,strength,,shoulders,barbell,compound,intermediate,compound
+cone sprint drill,1,Single-Cone Sprint Drill,plyometrics,,quadriceps,other,,beginner,plyometric
+hop progression,1,Single-Leg Hop Progression,plyometrics,,quadriceps,other,compound,beginner,plyometric
+lateral hop,1,Single-Leg Lateral Hop,plyometrics,,quadriceps,other,compound,beginner,plyometric
+stride jump,1,Single-Leg Stride Jump,plyometrics,,quadriceps,other,compound,beginner,plyometric
+butt kick,1,Single Leg Butt Kick,plyometrics,,quadriceps,body only,compound,beginner,plyometric
+push off,1,Single Leg Push-off,plyometrics,,quadriceps,other,compound,beginner,plyometric
+sit squats,1,Sit Squats,stretching,,quadriceps,,,beginner,mobility
+skating,1,Skating,cardio,,quadriceps,other,,intermediate,cardio
+drag harness,1,Sled Drag - Harness,strongman,,quadriceps,other,compound,beginner,compound
+overhead backward walk,1,Sled Overhead Backward Walk,strength,,shoulders,other,compound,beginner,compound
+push,1,Sled Push,strongman,,quadriceps,other,compound,beginner,compound
+reverse flye,1,Sled Reverse Flye,strength,,shoulders,other,isolation,beginner,isolation
+sledgehammer swings,1,Sledgehammer Swings,plyometrics,,abdominals,other,compound,beginner,plyometric
+behind back shrug,1,Smith Machine Behind the Back Shrug,strength,,traps,machine,isolation,beginner,isolation
+hang power clean,1,Smith Machine Hang Power Clean,strength,Hang Clean,hamstrings,machine,compound,intermediate,compound
+hip raise,1,Smith Machine Hip Raise,strength,,abdominals,machine,isolation,beginner,isolation
+overhead shoulder press,1,Smith Machine Overhead Shoulder Press,strength,,shoulders,machine,compound,beginner,compound
+reverse calf raises,1,Smith Machine Reverse Calf Raises,strength,,calves,machine,isolation,beginner,isolation
+snatch balance,1,Snatch Balance,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+snatch deadlift,1,Snatch Deadlift,olympic weightlifting,,hamstrings,barbell,compound,intermediate,compound
+snatch pull,1,Snatch Pull,strength,,hamstrings,barbell,compound,intermediate,compound
+snatch shrug,1,Snatch Shrug,olympic weightlifting,,traps,barbell,compound,intermediate,compound
+snatch from blocks,1,Snatch from Blocks,olympic weightlifting,,quadriceps,barbell,compound,expert,compound
+speed overhead triceps,1,Speed Band Overhead Triceps,strength,,triceps,bands,isolation,beginner,isolation
+speed box squat,1,Speed Box Squat,powerlifting,,quadriceps,barbell,compound,intermediate,compound
+speed squats,1,Speed Squats,strength,,quadriceps,barbell,compound,expert,compound
+spell caster,1,Spell Caster,strength,,abdominals,dumbbell,compound,beginner,compound
+spider crawl,1,Spider Crawl,strength,,abdominals,body only,compound,beginner,compound
+spider curl,1,Spider Curl,strength,,biceps,e-z curl bar,isolation,beginner,isolation
+spinal stretch,1,Spinal Stretch,stretching,,middle back,,isolation,beginner,mobility
+split clean,1,Split Clean,olympic weightlifting,,quadriceps,barbell,compound,intermediate,compound
+split jump,1,Split Jump,plyometrics,,quadriceps,body only,compound,beginner,plyometric
+split squat dumbbells,1,Split Squat with Dumbbells,strength,,quadriceps,dumbbell,compound,beginner,compound
+squat jerk,1,Squat Jerk,strength,,quadriceps,barbell,compound,expert,compound
+squat chains,1,Squat with Chains,powerlifting,,quadriceps,barbell,compound,intermediate,compound
+squat movers,1,Squat with Plate Movers,strength,,quadriceps,barbell,compound,intermediate,compound
+squats,1,Squats - With Bands,strength,,quadriceps,bands,compound,beginner,compound
+stairmaster,1,Stairmaster,cardio,,quadriceps,machine,,intermediate,cardio
+press behind neck,1,Standing Barbell Press Behind Neck,strength,,shoulders,barbell,compound,intermediate,compound
+biceps curl,1,Standing Biceps Cable Curl,strength,,biceps,cable,isolation,beginner,isolation
+biceps stretch,1,Standing Biceps Stretch,stretching,,biceps,other,isolation,beginner,mobility
+bradford press,1,Standing Bradford Press,strength,,shoulders,barbell,compound,beginner,compound
+wood chop,1,Standing Cable Wood Chop,strength,,abdominals,cable,compound,beginner,compound
+straight front delt raise above head,1,Standing Dumbbell Straight-Arm Front Delt Raise Above Head,strength,,shoulders,dumbbell,isolation,intermediate,isolation
+elevated quad stretch,1,Standing Elevated Quad Stretch,stretching,,quadriceps,other,,beginner,mobility
+front raise head,1,Standing Front Barbell Raise Over Head,strength,,shoulders,barbell,isolation,intermediate,isolation
+gastrocnemius calf stretch,1,Standing Gastrocnemius Calf Stretch,stretching,,calves,,,beginner,mobility
+hip circles,1,Standing Hip Circles,stretching,,abductors,body only,isolation,beginner,mobility
+hip flexors,1,Standing Hip Flexors,stretching,,quadriceps,,isolation,beginner,mobility
+lateral stretch,1,Standing Lateral Stretch,stretching,,abdominals,,,beginner,mobility
+pulley deltoid raise,1,Standing Low-Pulley Deltoid Raise,strength,,shoulders,cable,isolation,beginner,isolation
+pulley triceps extension,1,Standing Low-Pulley One-Arm Triceps Extension,strength,,triceps,cable,isolation,intermediate,isolation
+hand squeeze,1,Standing Olympic Plate Hand Squeeze,strength,,forearms,other,isolation,beginner,isolation
+curl incline bench,1,Standing One-Arm Dumbbell Curl Over Incline Bench,strength,,biceps,dumbbell,isolation,beginner,isolation
+overhead triceps extension,1,Standing Overhead Barbell Triceps Extension,strength,,triceps,barbell,isolation,beginner,isolation
+palm in press,1,Standing Palm-In One-Arm Dumbbell Press,strength,,shoulders,dumbbell,compound,beginner,compound
+palms in press,1,Standing Palms-In Dumbbell Press,strength,,shoulders,dumbbell,compound,intermediate,compound
+palms up behind back wrist curl,1,Standing Palms-Up Barbell Behind The Back Wrist Curl,strength,,forearms,barbell,isolation,beginner,isolation
+pelvic tilt,1,Standing Pelvic Tilt,stretching,,lower back,,isolation,beginner,mobility
+soleus achilles stretch,1,Standing Soleus And Achilles Stretch,stretching,,calves,,isolation,beginner,mobility
+toe touches,1,Standing Toe Touches,stretching,,hamstrings,,,beginner,mobility
+towel triceps extension,1,Standing Towel Triceps Extension,strength,,triceps,body only,isolation,beginner,isolation
+overhead throw,1,Standing Two-Arm Overhead Throw,plyometrics,,shoulders,medicine ball,compound,beginner,plyometric
+star jump,1,Star Jump,plyometrics,,quadriceps,body only,compound,beginner,plyometric
+step up knee raise,1,Step-up with Knee Raise,strength,,glutes,body only,compound,beginner,compound
+step mill,1,Step Mill,cardio,,quadriceps,machine,,intermediate,cardio
+stiff good morning,1,Stiff Leg Barbell Good Morning,strength,Good Morning,lower back,barbell,compound,beginner,compound
+stomach vacuum,1,Stomach Vacuum,stretching,,abdominals,body only,isolation,beginner,mobility
+straight pullover,1,Straight-Arm Dumbbell Pullover,strength,,chest,dumbbell,compound,intermediate,compound
+straight bar bench mid rows,1,Straight Bar Bench Mid Rows,strength,,middle back,barbell,compound,beginner,compound
+straight raises incline bench,1,Straight Raises on Incline Bench,strength,,shoulders,barbell,isolation,beginner,isolation
+stride jump crossover,1,Stride Jump Crossover,plyometrics,,quadriceps,other,compound,beginner,plyometric
+sumo deadlift chains,1,Sumo Deadlift with Chains,powerlifting,,hamstrings,barbell,compound,intermediate,compound
+superman,1,Superman,stretching,,lower back,body only,compound,beginner,mobility
+supine chest throw,1,Supine Chest Throw,plyometrics,,triceps,medicine ball,compound,beginner,plyometric
+suspended fallout,1,Suspended Fallout,strength,,abdominals,other,isolation,intermediate,isolation
+suspended push up,1,Suspended Push-Up,strength,,chest,other,compound,beginner,compound
+suspended reverse crunch,1,Suspended Reverse Crunch,strength,,abdominals,other,isolation,beginner,isolation
+suspended row,1,Suspended Row,strength,,middle back,other,compound,beginner,compound
+suspended split squat,1,Suspended Split Squat,strength,,quadriceps,other,compound,intermediate,compound
+svend press,1,Svend Press,strength,,chest,other,compound,beginner,compound
+t bar row handle,1,T-Bar Row with Handle,strength,,middle back,barbell,compound,beginner,compound
+tate press,1,Tate Press,strength,,triceps,dumbbell,isolation,intermediate,isolation
+straddle,1,The Straddle,stretching,,hamstrings,,,beginner,mobility
+thigh abductor,1,Thigh Abductor,strength,,abductors,machine,isolation,beginner,isolation
+thigh adductor,1,Thigh Adductor,strength,,adductors,machine,isolation,beginner,isolation
+tire flip,1,Tire Flip,strongman,,quadriceps,other,compound,intermediate,compound
+toe touchers,1,Toe Touchers,stretching,,abdominals,body only,isolation,beginner,mobility
+torso rotation,1,Torso Rotation,stretching,,abdominals,exercise ball,,beginner,mobility
+trail running walking,1,Trail Running/Walking,cardio,,quadriceps,,,beginner,cardio
+tricep kickback,1,Tricep Dumbbell Kickback,strength,,triceps,dumbbell,isolation,beginner,isolation
+tricep side stretch,1,Tricep Side Stretch,stretching,,triceps,,,beginner,mobility
+triceps overhead extension,1,Triceps Overhead Extension with Rope,strength,,triceps,cable,isolation,beginner,isolation
+triceps pushdown attachment,1,Triceps Pushdown - Rope Attachment,strength,,triceps,cable,isolation,beginner,isolation
+triceps pushdown v bar attachment,1,Triceps Pushdown - V-Bar Attachment,strength,,triceps,cable,isolation,beginner,isolation
+triceps stretch,1,Triceps Stretch,stretching,,triceps,,isolation,beginner,mobility
+tuck crunch,1,Tuck Crunch,strength,,abdominals,body only,isolation,beginner,isolation
+underhand pulldowns,1,Underhand Cable Pulldowns,strength,,lats,cable,compound,beginner,compound
+upper back grab,1,Upper Back-Leg Grab,stretching,,hamstrings,,,beginner,mobility
+upper back stretch,1,Upper Back Stretch,stretching,,middle back,,,beginner,mobility
+upward stretch,1,Upward Stretch,stretching,,shoulders,,,beginner,mobility
+v bar pulldown,1,V-Bar Pulldown,strength,,lats,cable,compound,intermediate,compound
+v bar pullup,1,V-Bar Pullup,strength,,lats,body only,compound,beginner,compound
+vertical swing,1,Vertical Swing,plyometrics,,hamstrings,dumbbell,compound,beginner,plyometric
+walking treadmill,1,"Walking, Treadmill",cardio,,quadriceps,machine,,beginner,cardio
+ball hyperextension,1,Weighted Ball Hyperextension,strength,,lower back,exercise ball,compound,intermediate,compound
+ball side bend,1,Weighted Ball Side Bend,strength,,abdominals,exercise ball,isolation,intermediate,isolation
+bench dip,1,Weighted Bench Dip,strength,,triceps,other,compound,intermediate,compound
+pull ups,1,Weighted Pull Ups,strength,,lats,other,compound,intermediate,compound
+sissy squat,1,Weighted Sissy Squat,strength,Sissy Squat,quadriceps,barbell,compound,expert,compound
+decline pullover,1,Wide-Grip Decline Barbell Pullover,strength,,chest,barbell,compound,intermediate,compound
+pulldown behind neck,1,Wide-Grip Pulldown Behind The Neck,strength,,lats,cable,compound,intermediate,compound
+rear pull up,1,Wide-Grip Rear Pull-Up,strength,,lats,body only,compound,intermediate,compound
+stance squat,1,Wide Stance Barbell Squat,strength,,quadriceps,barbell,compound,intermediate,compound
+stance stiff,1,Wide Stance Stiff Legs,olympic weightlifting,,hamstrings,barbell,compound,intermediate,compound
+wind sprints,1,Wind Sprints,strength,,abdominals,body only,compound,beginner,compound
+windmills,1,Windmills,stretching,Windmill,abductors,,,intermediate,mobility
+world s greatest stretch,1,World's Greatest Stretch,stretching,,hamstrings,,,intermediate,mobility
+wrist circles,1,Wrist Circles,stretching,,forearms,body only,isolation,beginner,mobility
+wrist roller,1,Wrist Roller,strength,,forearms,other,isolation,beginner,isolation
+wrist rotations straight bar,1,Wrist Rotations with Straight Bar,strength,,forearms,barbell,isolation,beginner,isolation
+yoke walk,1,Yoke Walk,strongman,,quadriceps,other,compound,intermediate,compound
+zercher squats,1,Zercher Squats,strength,Zercher Squat,quadriceps,barbell,compound,expert,compound
+zottman curl,1,Zottman Curl,strength,,biceps,dumbbell,isolation,intermediate,isolation
+zottman preacher curl,1,Zottman Preacher Curl,strength,,biceps,dumbbell,isolation,intermediate,isolation

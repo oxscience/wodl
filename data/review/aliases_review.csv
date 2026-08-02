@@ -1,0 +1,78 @@
+fx_id,source_name,canonical_name,stage,score,fx_equipment,target_equipment,equipment_conflict,fx_category,mapped_category,target_category,category_conflict,already_known_alias,reason
+Band_Assisted_Pull-Up,Band Assisted Pull-Up,Pull-up,variant,,other,bodyweight,yes,strength,compound,compound,,,equipment_conflict
+Band_Skull_Crusher,Band Skull Crusher,Skull Crusher,qualifier,,bands,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Barbell_Glute_Bridge,Barbell Glute Bridge,Glute Bridge,qualifier,,barbell,bodyweight,yes,powerlifting,compound,rehab,yes,,"equipment_conflict,category_conflict"
+Barbell_Hack_Squat,Barbell Hack Squat,Hack Squat,qualifier,,barbell,machine,yes,strength,compound,compound,,,equipment_conflict
+Barbell_Lunge,Barbell Lunge,Lunge,qualifier,,barbell,dumbbell,yes,strength,compound,compound,,,equipment_conflict
+Barbell_Seated_Calf_Raise,Barbell Seated Calf Raise,Calf Raise,qualifier,,barbell,machine,yes,strength,isolation,isolation,,,equipment_conflict
+Barbell_Shoulder_Press,Barbell Shoulder Press,Dumbbell OHP,fuzzy,0.821,barbell,dumbbell,yes,strength,compound,compound,,,equipment_conflict
+Barbell_Step_Ups,Barbell Step Ups,Step-up,qualifier,,barbell,bodyweight,yes,strength,compound,rehab,yes,,"equipment_conflict,category_conflict"
+Bench_Press_-_With_Bands,Bench Press - With Bands,Bench Press,variant,,bands,barbell,yes,strength,compound,compound,,,equipment_conflict
+Bent-Arm_Barbell_Pullover,Bent-Arm Barbell Pullover,Dumbbell Pullover,variant,,barbell,dumbbell,yes,strength,compound,isolation,yes,,"equipment_conflict,category_conflict"
+Bent-Arm_Dumbbell_Pullover,Bent-Arm Dumbbell Pullover,Dumbbell Pullover,fuzzy,0.824,dumbbell,dumbbell,,strength,compound,isolation,yes,,category_conflict
+Bodyweight_Squat,Bodyweight Squat,Squat,qualifier,,body only,barbell,yes,strength,compound,compound,,,equipment_conflict
+Cable_Internal_Rotation,Cable Internal Rotation,Band Internal Rotation,qualifier,,cable,band,yes,strength,compound,rehab,yes,,"equipment_conflict,category_conflict"
+Cable_Preacher_Curl,Cable Preacher Curl,Preacher Curl,qualifier,,cable,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Cable_Rear_Delt_Fly,Cable Rear Delt Fly,Rear Delt Fly,qualifier,,cable,dumbbell,yes,strength,isolation,isolation,,,equipment_conflict
+Cable_Seated_Lateral_Raise,Cable Seated Lateral Raise,Lateral Raise,variant,,cable,dumbbell,yes,strength,isolation,isolation,,,equipment_conflict
+Cable_Shrugs,Cable Shrugs,Shrug,qualifier,,cable,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Cable_Wrist_Curl,Cable Wrist Curl,Wrist Flexion,qualifier,,cable,dumbbell,yes,strength,isolation,isolation,,,equipment_conflict
+Calf_Raise_On_A_Dumbbell,Calf Raise On A Dumbbell,Calf Raise,variant,,dumbbell,machine,yes,strength,isolation,isolation,,,equipment_conflict
+Calf_Raises_-_With_Bands,Calf Raises - With Bands,Calf Raise,variant,,bands,machine,yes,strength,isolation,isolation,,,equipment_conflict
+Car_Deadlift,Car Deadlift,Deadlift,fuzzy,0.824,other,barbell,yes,strongman,compound,compound,,,equipment_conflict
+Dip_Machine,Dip Machine,Dip,qualifier,,machine,bodyweight,yes,strength,compound,compound,,,equipment_conflict
+Dumbbell_Alternate_Bicep_Curl,Dumbbell Alternate Bicep Curl,Barbell Curl,variant,,dumbbell,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Dumbbell_Bench_Press_with_Neutral_Grip,Dumbbell Bench Press with Neutral Grip,Bench Press,variant,,dumbbell,barbell,yes,strength,compound,compound,,,equipment_conflict
+Dumbbell_Bicep_Curl,Dumbbell Bicep Curl,Barbell Curl,qualifier,,dumbbell,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Dumbbell_One-Arm_Upright_Row,Dumbbell One-Arm Upright Row,Upright Row,variant,,dumbbell,barbell,yes,strength,compound,compound,,,equipment_conflict
+Dumbbell_Scaption,Dumbbell Scaption,Full Can Raise,qualifier,,dumbbell,dumbbell,,strength,isolation,rehab,yes,,category_conflict
+Dumbbell_Seated_Box_Jump,Dumbbell Seated Box Jump,Box Jump,variant,,dumbbell,box,yes,plyometrics,plyometric,plyometric,,,equipment_conflict
+Dumbbell_Seated_One-Leg_Calf_Raise,Dumbbell Seated One-Leg Calf Raise,Calf Raise,variant,,dumbbell,machine,yes,strength,isolation,isolation,,,equipment_conflict
+Dumbbell_Shrug,Dumbbell Shrug,Shrug,qualifier,,dumbbell,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Dumbbell_Squat,Dumbbell Squat,Squat,qualifier,,dumbbell,barbell,yes,strength,compound,compound,,,equipment_conflict
+Dumbbell_Step_Ups,Dumbbell Step Ups,Step-up,qualifier,,dumbbell,bodyweight,yes,strength,compound,rehab,yes,,"equipment_conflict,category_conflict"
+External_Rotation_with_Band,External Rotation with Band,Band External Rotation,fuzzy,0.857,bands,band,,strength,compound,rehab,yes,,category_conflict
+External_Rotation_with_Cable,External Rotation with Cable,Band External Rotation,variant,,cable,band,yes,strength,isolation,rehab,yes,,"equipment_conflict,category_conflict"
+Hyperextensions_Back_Extensions,Hyperextensions (Back Extensions),Back Extension,fuzzy,0.839,other,bodyweight,yes,strength,isolation,isolation,,,equipment_conflict
+Incline_Cable_Flye,Incline Cable Flye,Incline DB Fly,qualifier,,cable,dumbbell,yes,strength,isolation,isolation,,,equipment_conflict
+Incline_Dumbbell_Flyes,Incline Dumbbell Flyes,Incline DB Fly,fuzzy,0.941,dumbbell,dumbbell,,strength,compound,isolation,yes,,category_conflict
+Internal_Rotation_with_Band,Internal Rotation with Band,Band Internal Rotation,fuzzy,0.857,bands,band,,strength,isolation,rehab,yes,,category_conflict
+Lateral_Raise_-_With_Bands,Lateral Raise - With Bands,Lateral Raise,variant,,bands,dumbbell,yes,strength,isolation,isolation,,,equipment_conflict
+Lying_Dumbbell_Tricep_Extension,Lying Dumbbell Tricep Extension,Skull Crusher,qualifier,,dumbbell,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Lying_Machine_Squat,Lying Machine Squat,Squat,variant,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Lying_T-Bar_Row,Lying T-Bar Row,T-Bar Row,variant,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Machine_Bench_Press,Machine Bench Press,Bench Press,qualifier,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Machine_Bicep_Curl,Machine Bicep Curl,Barbell Curl,qualifier,,machine,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+One-Arm_Kettlebell_Push_Press,One-Arm Kettlebell Push Press,Push Press,variant,,kettlebells,barbell,,strength,compound,compound,,,kettlebell_no_wodl_equipment
+One-Arm_Kettlebell_Row,One-Arm Kettlebell Row,Dumbbell Row,qualifier,,kettlebells,dumbbell,,strength,compound,compound,,,kettlebell_no_wodl_equipment
+One_Arm_Chin-Up,One Arm Chin-Up,Chin-up,variant,,other,bodyweight,yes,strength,compound,compound,,,equipment_conflict
+One_Arm_Dumbbell_Preacher_Curl,One Arm Dumbbell Preacher Curl,Preacher Curl,variant,,dumbbell,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Pin_Presses,Pin Presses,Leg Press,fuzzy,0.824,barbell,machine,yes,powerlifting,compound,compound,,,equipment_conflict
+Reverse_Cable_Curl,Reverse Cable Curl,Reverse Curl,qualifier,,cable,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Reverse_Hyperextension,Reverse Hyperextension,Back Extension,fuzzy,0.839,machine,bodyweight,yes,strength,,isolation,,,equipment_conflict
+Reverse_Plate_Curls,Reverse Plate Curls,Reverse Curl,qualifier,,other,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Rocking_Standing_Calf_Raise,Rocking Standing Calf Raise,Calf Raise,fuzzy,0.865,barbell,machine,yes,strength,isolation,isolation,,,equipment_conflict
+Side_Leg_Raises,Side Leg Raises,Side-Lying Hip Abduction,fuzzy,0.957,body only,bodyweight,,stretching,mobility,rehab,yes,,category_conflict
+Single_Leg_Glute_Bridge,Single Leg Glute Bridge,Glute Bridge,variant,,body only,bodyweight,,strength,isolation,rehab,yes,,category_conflict
+Sled_Overhead_Triceps_Extension,Sled Overhead Triceps Extension,Overhead Tricep Extension,fuzzy,0.857,other,cable,yes,strength,isolation,isolation,,,equipment_conflict
+Smith_Machine_Bench_Press,Smith Machine Bench Press,Bench Press,qualifier,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Smith_Machine_Bent_Over_Row,Smith Machine Bent Over Row,Barbell Row,qualifier,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Smith_Machine_Close-Grip_Bench_Press,Smith Machine Close-Grip Bench Press,Close Grip Bench Press,qualifier,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Smith_Machine_Incline_Bench_Press,Smith Machine Incline Bench Press,Incline Bench Press,qualifier,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Smith_Machine_One-Arm_Upright_Row,Smith Machine One-Arm Upright Row,Upright Row,variant,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Smith_Machine_Squat,Smith Machine Squat,Squat,qualifier,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Smith_Machine_Upright_Row,Smith Machine Upright Row,Upright Row,qualifier,,machine,barbell,yes,strength,compound,compound,,,equipment_conflict
+Smith_Single-Leg_Split_Squat,Smith Single-Leg Split Squat,Bulgarian Split Squat,variant,,machine,dumbbell,yes,strength,compound,compound,,,equipment_conflict
+Split_Squats,Split Squats,Bulgarian Split Squat,fuzzy,1.000,,dumbbell,,stretching,mobility,compound,yes,,category_conflict
+Standing_Barbell_Calf_Raise,Standing Barbell Calf Raise,Calf Raise,qualifier,,barbell,machine,yes,strength,isolation,isolation,,,equipment_conflict
+Standing_Dumbbell_Calf_Raise,Standing Dumbbell Calf Raise,Calf Raise,qualifier,,dumbbell,machine,yes,strength,isolation,isolation,,,equipment_conflict
+Standing_Dumbbell_Press,Standing Dumbbell Press,OHP,qualifier,,dumbbell,barbell,yes,strength,compound,compound,,,equipment_conflict
+Standing_Dumbbell_Reverse_Curl,Standing Dumbbell Reverse Curl,Reverse Curl,variant,,dumbbell,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Standing_Dumbbell_Upright_Row,Standing Dumbbell Upright Row,Upright Row,variant,,dumbbell,barbell,yes,strength,compound,compound,,,equipment_conflict
+Two-Arm_Dumbbell_Preacher_Curl,Two-Arm Dumbbell Preacher Curl,Preacher Curl,variant,,dumbbell,barbell,yes,strength,isolation,isolation,,,equipment_conflict
+Two-Arm_Kettlebell_Military_Press,Two-Arm Kettlebell Military Press,OHP,variant,,kettlebells,barbell,,strength,compound,compound,,,kettlebell_no_wodl_equipment
+Upright_Cable_Row,Upright Cable Row,Upright Row,qualifier,,cable,barbell,yes,strength,compound,compound,,,equipment_conflict
+Upright_Row_-_With_Bands,Upright Row - With Bands,Upright Row,variant,,bands,barbell,yes,strength,compound,compound,,,equipment_conflict
+Weighted_Jump_Squat,Weighted Jump Squat,Jump Squat,qualifier,,barbell,bodyweight,yes,strength,compound,plyometric,yes,,"equipment_conflict,category_conflict"
+Weighted_Sit-Ups_-_With_Bands,Weighted Sit-Ups - With Bands,Sit-up,variant,,other,bodyweight,yes,strength,isolation,isolation,,,equipment_conflict
+Weighted_Squat,Weighted Squat,Squat,qualifier,,other,barbell,yes,strength,compound,compound,,,equipment_conflict

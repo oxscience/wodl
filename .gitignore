@@ -13,3 +13,4 @@ build/
 
 # Python venv (without dot)
 venv/
+.DS_Store
