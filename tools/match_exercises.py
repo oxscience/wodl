@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from wodl.registry import EXERCISES  # noqa: E402
+from wodl.registry import EXERCISES
 
 RAW_PATH = ROOT / "data" / "raw" / "free-exercise-db" / "exercises.json"
 REVIEW_DIR = ROOT / "data" / "review"
@@ -55,8 +55,6 @@ def tokenize(s: str) -> list[str]:
     Modifikatoren (haeufig in free-exercise-db) erkannt werden."""
     s = strip_diacritics(s.lower())
     return re.findall(r"[a-z0-9]+", s)
-
-
 
 
 # ---------------------------------------------------------------------------
@@ -386,7 +384,6 @@ def run():
         "Farmer's Walk", "Pendlay Row", "Chest Supported Row",
         "Cable Pull Through", "Reverse Hyper", "Nordic Hamstring",
     ]
-    curated_norm = {normalize(c): c for c in CURATED_MISSING}
 
     cores = defaultdict(list)
     for fx in new_bucket:
@@ -448,7 +445,7 @@ def run():
             w.writerow(row)
 
     with (REVIEW_DIR / "aliases_review.csv").open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=CSV_FIELDS + ["reason"])
+        w = csv.DictWriter(f, fieldnames=[*CSV_FIELDS, "reason"])
         w.writeheader()
         for row in review_rows:
             w.writerow(row)

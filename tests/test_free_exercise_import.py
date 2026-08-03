@@ -9,20 +9,28 @@ Deckt Abschnitt 8 des Imports ab:
   - alle muscles/category/equipment-Werte liegen im erlaubten Vokabular
 """
 
+import ast
 import csv
 import subprocess
 import sys
 from pathlib import Path
+from typing import ClassVar
 
 import pytest
 
-from wodl import resolve, resolve_fuzzy, EXERCISES
+from wodl import EXERCISES, resolve, resolve_fuzzy
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 REVIEW_DIR = REPO_ROOT / "data" / "review"
 
+# Commit unmittelbar VOR dem free-exercise-db-Import (189 Uebungen, 584
+# Aliase). Bewusst eine feste SHA statt "HEAD": HEAD zeigt nach dem Commit
+# des Imports selbst auf den NEUEN Stand, ein Vergleich dagegen waere
+# wirkungslos.
+PRE_IMPORT_COMMIT = "682eb75f3eb3513e90b3812c6de77d6f25e15f39"
+
 sys.path.insert(0, str(REPO_ROOT))
-from tools.match_exercises import match_one  # noqa: E402
+from tools.match_exercises import match_one
 
 
 def _read_csv_flex(path: Path) -> list[dict]:
@@ -34,11 +42,29 @@ def _read_csv_flex(path: Path) -> list[dict]:
 
 @pytest.fixture(scope="module")
 def orig_exercises():
-    """EXERCISES-Stand aus git HEAD, vor dem Import - fuer die Regressionspruefung."""
-    orig_src = subprocess.check_output(["git", "show", "HEAD:wodl/registry.py"]).decode()
-    ns: dict = {}
-    exec(compile(orig_src, "orig_registry.py", "exec"), ns)
-    return ns["EXERCISES"]
+    """EXERCISES-Stand vor dem Import (PRE_IMPORT_COMMIT) - fuer die
+    Regressionspruefung. ast.literal_eval statt exec(): das EXERCISES-Dict
+    besteht nur aus Literalen (Strings/Listen/Dicts), Codeausfuehrung ist
+    dafuer nie noetig."""
+    orig_src = subprocess.check_output(
+        ["git", "show", f"{PRE_IMPORT_COMMIT}:wodl/registry.py"]
+    ).decode()
+    tree = ast.parse(orig_src, filename="orig_registry.py")
+    for node in ast.walk(tree):
+        # registry.py deklariert "EXERCISES: dict[str, dict] = {...}" -
+        # das ist ein AnnAssign (annotierte Zuweisung), kein Assign.
+        if isinstance(node, ast.Assign) and any(
+            isinstance(t, ast.Name) and t.id == "EXERCISES" for t in node.targets
+        ):
+            return ast.literal_eval(node.value)
+        if (
+            isinstance(node, ast.AnnAssign)
+            and isinstance(node.target, ast.Name)
+            and node.target.id == "EXERCISES"
+            and node.value is not None
+        ):
+            return ast.literal_eval(node.value)
+    raise RuntimeError(f"EXERCISES nicht gefunden in wodl/registry.py @ {PRE_IMPORT_COMMIT}")
 
 
 # ===================================================================
@@ -92,8 +118,12 @@ class TestKnownPitfalls:
 
 
 class TestRegistryConsistency:
-    VALID_CATEGORIES = {"cardio", "compound", "isolation", "isometric", "mobility", "plyometric", "rehab"}
-    VALID_EQUIPMENT = {"band", "barbell", "bodyweight", "box", "cable", "dumbbell", "kettlebell", "machine", "other"}
+    VALID_CATEGORIES: ClassVar[set[str]] = {
+        "cardio", "compound", "isolation", "isometric", "mobility", "plyometric", "rehab",
+    }
+    VALID_EQUIPMENT: ClassVar[set[str]] = {
+        "band", "barbell", "bodyweight", "box", "cable", "dumbbell", "kettlebell", "machine", "other",
+    }
 
     def test_no_alias_maps_to_two_canonicals(self):
         seen: dict[str, str] = {}
@@ -188,11 +218,13 @@ class TestNewAliasesResolve:
 
 
 class TestNewCanonicalExercises:
-    NEW_CANONICALS = [
+    NEW_CANONICALS: ClassVar[list[str]] = [
         "Hang Clean", "Arnold Press", "Good Morning", "Walking Lunge",
         "Glute-Ham Raise", "Pistol Squat", "Snatch", "Concentration Curl",
         "Renegade Row", "Ab Rollout", "Russian Twist", "Farmer's Walk",
         "Windmill", "Cable Pull Through", "Sissy Squat", "Zercher Squat",
+        "Push Jerk", "Turkish Get-up", "Landmine Press", "Reverse Hyper",
+        "Chest Supported Row", "Pendlay Row",
     ]
 
     def test_new_canonicals_present(self):
@@ -214,6 +246,12 @@ class TestNewCanonicalExercises:
         aufloesen."""
         assert resolve("Ab Rollout") == "Ab Rollout"
         assert resolve("Rollout") == "Ab Wheel Rollout"
+
+    def test_nordic_hamstring_is_alias_not_new_exercise(self):
+        """Laut Auftrag (Abschnitt 7) nur als Alias auf die bestehende
+        'Nordic Hamstring Curl' - keine eigene kanonische Uebung."""
+        assert resolve("Nordic Hamstring") == "Nordic Hamstring Curl"
+        assert "Nordic Hamstring" not in EXERCISES
 
     def test_kettlebell_equipment_used(self):
         assert EXERCISES["Windmill"]["equipment"] == "kettlebell"

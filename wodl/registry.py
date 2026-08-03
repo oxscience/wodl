@@ -772,7 +772,7 @@ EXERCISES: dict[str, dict] = {
         "equipment": "bodyweight",
         "aliases": [
             "Nordic Curl", "Nordic Curls", "Nordics", "NHE",
-            "Nordic Hamstring Exercise", "Nordischer Hamstring-Curl",
+            "Nordic Hamstring Exercise", "Nordischer Hamstring-Curl", "Nordic Hamstring",
         ],
     },
     "Copenhagen Adduction": {
@@ -1575,6 +1575,65 @@ EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": [
             "Zercher Squats", "BB Zercher Squat", "LH Zercher Squat",
+        ],
+    },
+
+    # ========================================================================
+    # IMPORT: free-exercise-db (Unlicense) - kuratierte Ergaenzungen fehlender
+    # Grunduebungen. Quelle: data/raw/free-exercise-db/exercises.json,
+    # siehe data/raw/PROVENANCE.md. Entscheidungen: data/review/DECISIONS.csv.
+    # ========================================================================
+
+    "Push Jerk": {
+        "muscles": ["quads", "front_delt", "triceps"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Push-Jerk",
+        ],
+    },
+    "Turkish Get-up": {
+        "muscles": ["front_delt", "core", "quads", "hamstrings"],
+        "category": "compound",
+        "equipment": "kettlebell",
+        "aliases": [
+            "Kettlebell Turkish Get-Up (Lunge style)", "Kettlebell Turkish Get-Up (Squat style)", "TGU",
+            "KB Turkish Get-up",
+        ],
+    },
+    "Landmine Press": {
+        "muscles": ["front_delt", "triceps", "core"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Landmine Shoulder Press", "Single Arm Landmine Press", "BB Landmine Press",
+            "LH Landmine Press",
+        ],
+    },
+    "Reverse Hyper": {
+        "muscles": ["hamstrings", "glutes", "erectors"],
+        "category": "compound",
+        "equipment": "machine",
+        "aliases": [
+            "Reverse Hyperextension", "Reverse Hyperextensions",
+        ],
+    },
+    "Chest Supported Row": {
+        "muscles": ["back", "rear_delt", "biceps"],
+        "category": "compound",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Chest-Supported Row", "Incline Chest Supported Row", "Machine Chest Supported Row",
+            "DB Chest Supported Row", "KH Chest Supported Row",
+        ],
+    },
+    "Pendlay Row": {
+        "muscles": ["back", "biceps", "rear_delt"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Pendlay Rows", "Dead Stop Row", "BB Pendlay Row",
+            "LH Pendlay Row",
         ],
     },
 

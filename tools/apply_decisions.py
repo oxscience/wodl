@@ -32,7 +32,7 @@ REGISTRY_PATH = ROOT / "wodl" / "registry.py"
 REVIEW_DIR = ROOT / "data" / "review"
 
 sys.path.insert(0, str(ROOT))
-from wodl.registry import EXERCISES  # noqa: E402
+from wodl.registry import EXERCISES
 
 
 def normalize(s: str) -> str:
@@ -227,6 +227,68 @@ NEW_EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": ["Zercher Squats", "BB Zercher Squat", "LH Zercher Squat"],
     },
+
+    # --- Abschnitt-7-Nachtrag: hatten keinen Matcher-Kandidaten in
+    # candidates_new.csv (kein oder kein eindeutiger Rohdaten-Treffer),
+    # daher direkt in DECISIONS.csv als section7_manual_no_matcher_candidate
+    # erfasst statt ueber den Matcher-Review-Weg.
+    "Push Jerk": {
+        # Kein exakter Rohdaten-Treffer; "Power Jerk"/"Split Jerk" sind
+        # technisch andere Fusstechniken und daher bewusst NICHT als Alias
+        # verlinkt.
+        "muscles": ["quads", "front_delt", "triceps"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": ["Push-Jerk"],
+    },
+    "Turkish Get-up": {
+        "muscles": ["front_delt", "core", "quads", "hamstrings"],
+        "category": "compound",
+        "equipment": "kettlebell",
+        "aliases": [
+            "Kettlebell Turkish Get-Up (Lunge style)",
+            "Kettlebell Turkish Get-Up (Squat style)",
+            "TGU", "KB Turkish Get-up",
+        ],
+    },
+    "Landmine Press": {
+        # Kein Rohdaten-Treffer; "Landmine 180's"/"Landmine Linear Jammer"
+        # in free-exercise-db sind andere (rotatorische) Uebungen.
+        "muscles": ["front_delt", "triceps", "core"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": [
+            "Landmine Shoulder Press", "Single Arm Landmine Press",
+            "BB Landmine Press", "LH Landmine Press",
+        ],
+    },
+    "Reverse Hyper": {
+        # War zuvor ein equipment_conflict-Alias-Kandidat auf "Back
+        # Extension" (in DECISIONS.csv abgelehnt) - zurecht, es ist eine
+        # eigene Uebung mit anderer Equipment- und Kraftkurve.
+        "muscles": ["hamstrings", "glutes", "erectors"],
+        "category": "compound",
+        "equipment": "machine",
+        "aliases": ["Reverse Hyperextension", "Reverse Hyperextensions"],
+    },
+    "Chest Supported Row": {
+        # Kein Rohdaten-Treffer, komplett manuell kuratiert.
+        "muscles": ["back", "rear_delt", "biceps"],
+        "category": "compound",
+        "equipment": "dumbbell",
+        "aliases": [
+            "Chest-Supported Row", "Incline Chest Supported Row",
+            "Machine Chest Supported Row", "DB Chest Supported Row",
+            "KH Chest Supported Row",
+        ],
+    },
+    "Pendlay Row": {
+        # Kein Rohdaten-Treffer, komplett manuell kuratiert.
+        "muscles": ["back", "biceps", "rear_delt"],
+        "category": "compound",
+        "equipment": "barbell",
+        "aliases": ["Pendlay Rows", "Dead Stop Row", "BB Pendlay Row", "LH Pendlay Row"],
+    },
 }
 
 
@@ -288,6 +350,10 @@ def format_entry(canonical: str, meta: dict) -> str:
 
 
 def append_new_entries(src: str, entries: dict[str, dict]) -> str:
+    # Idempotenz: bereits vorhandene kanonische Namen ueberspringen, damit
+    # ein erneuter Lauf (z.B. nach einem Abschnitt-7-Nachtrag) den Eintrag
+    # nicht doppelt anhaengt.
+    entries = {name: meta for name, meta in entries.items() if name not in EXERCISES}
     if not entries:
         return src
     header = (

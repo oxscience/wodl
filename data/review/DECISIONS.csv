@@ -101,3 +101,10 @@ core:stiff good morning;new_exercise;stiff good morning;Good Morning;curated_mis
 core:sissy squat;new_exercise;sissy squat;Sissy Squat;curated_missing_basic_exercise;accept;;Weighted Sissy Squat;;;;;
 core:windmills;new_exercise;windmills;Windmill;curated_missing_basic_exercise;reject;;Windmills;;;;;
 core:zercher squats;new_exercise;zercher squats;Zercher Squat;curated_missing_basic_exercise;accept;;Zercher Squats;;;;;
+section7:push-jerk;new_exercise;Power Jerk / Split Jerk (kein exakter Rohdaten-Treffer);Push Jerk;section7_manual_no_matcher_candidate;accept;;Manuell kuratiert, siehe Nachtrag-Zusammenfassung;;;;;
+section7:turkish-get-up;new_exercise;Kettlebell Turkish Get-Up (Lunge/Squat style);Turkish Get-up;section7_manual_no_matcher_candidate;accept;;Metadaten aus free-exercise-db uebernommen;;;;;
+section7:landmine-press;new_exercise;kein Rohdaten-Treffer (Landmine 180's/Linear Jammer sind andere Uebungen);Landmine Press;section7_manual_no_matcher_candidate;accept;;Komplett manuell kuratiert;;;;;
+section7:reverse-hyper;new_exercise;Reverse Hyperextension;Reverse Hyper;section7_manual_no_matcher_candidate;accept;;War zuvor equipment_conflict-Alias auf Back Extension (abgelehnt) - jetzt eigene Uebung;;;;;
+section7:chest-supported-row;new_exercise;kein Rohdaten-Treffer;Chest Supported Row;section7_manual_no_matcher_candidate;accept;;Komplett manuell kuratiert;;;;;
+section7:pendlay-row;new_exercise;kein Rohdaten-Treffer;Pendlay Row;section7_manual_no_matcher_candidate;accept;;Komplett manuell kuratiert;;;;;
+section7:nordic-hamstring;alias;Nordic Hamstring;Nordic Hamstring Curl;section7_manual_no_matcher_candidate;accept;;laut Auftrag nur als Alias auf bestehende Uebung;;;;;
