@@ -284,6 +284,9 @@ EXERCISES: dict[str, dict] = {
         "equipment": "barbell",
         "aliases": [
             "Back Squat", "Kniebeuge", "Kniebeugen",
+            # "One Leg Barbell Squat" (einbeinig, mit Langhantel) ist bewusst
+            # hier und NICHT bei "Pistol Squat" (bodyweight-Variante mit
+            # eigenem Alias "One Leg Squat") - unterschiedliches Equipment.
             "BB Squat", "Barbell Squat", "Barbell Full Squat", "Olympic Squat", "One Leg Barbell Squat", "Squat with Bands", "Weighted Squat",
         ],
     },
@@ -1577,12 +1580,6 @@ EXERCISES: dict[str, dict] = {
             "Zercher Squats", "BB Zercher Squat", "LH Zercher Squat",
         ],
     },
-
-    # ========================================================================
-    # IMPORT: free-exercise-db (Unlicense) - kuratierte Ergaenzungen fehlender
-    # Grunduebungen. Quelle: data/raw/free-exercise-db/exercises.json,
-    # siehe data/raw/PROVENANCE.md. Entscheidungen: data/review/DECISIONS.csv.
-    # ========================================================================
 
     "Push Jerk": {
         "muscles": ["quads", "front_delt", "triceps"],

@@ -105,12 +105,14 @@ def build_index() -> dict[str, tuple[str, str]]:
     return index
 
 
-INDEX = build_index()
-INDEX_KEYS = list(INDEX.keys())
-
-
 def bigrams(s: str) -> set[str]:
     return {s[i : i + 2] for i in range(len(s) - 1)}
+
+
+INDEX = build_index()
+# Bigramme pro Index-Key einmal vorberechnen statt bei jedem der 873
+# Quellnamen erneut fuer alle ~1300 Keys (Stufe 3, Fuzzy-Suche).
+INDEX_BIGRAMS = [(key, bigrams(key)) for key in INDEX]
 
 
 def dice(a: set[str], b: set[str]) -> float:
@@ -160,7 +162,9 @@ def match_one(source_name: str) -> MatchResult:
     if hit:
         canonical, matched_string = hit
         if has_antonym_conflict(source_tokens_all, set(tokenize(matched_string))):
-            return MatchResult(source_name, "new", discarded_reason="antonym")
+            return MatchResult(
+                source_name, "new", canonical, matched_string, discarded_reason="antonym"
+            )
         return MatchResult(source_name, "exact", canonical, matched_string)
 
     # Stage 2: qualifier-stripped exact
@@ -172,7 +176,9 @@ def match_one(source_name: str) -> MatchResult:
         if hit:
             canonical, matched_string = hit
             if has_antonym_conflict(source_tokens_all, set(tokenize(matched_string))):
-                return MatchResult(source_name, "new", discarded_reason="antonym")
+                return MatchResult(
+                    source_name, "new", canonical, matched_string, discarded_reason="antonym"
+                )
             return MatchResult(source_name, "qualifier", canonical, matched_string)
 
     # Stage 3: fuzzy (Sorensen-Dice over bigrams of the raw normalized string)
@@ -180,8 +186,8 @@ def match_one(source_name: str) -> MatchResult:
     if src_bi:
         best_score = 0.0
         best_key = None
-        for key in INDEX_KEYS:
-            score = dice(src_bi, bigrams(key))
+        for key, key_bi in INDEX_BIGRAMS:
+            score = dice(src_bi, key_bi)
             if score > best_score:
                 best_score = score
                 best_key = key
@@ -189,7 +195,8 @@ def match_one(source_name: str) -> MatchResult:
             canonical, matched_string = INDEX[best_key]
             if has_antonym_conflict(source_tokens_all, set(tokenize(matched_string))):
                 return MatchResult(
-                    source_name, "new", score=best_score, discarded_reason="antonym"
+                    source_name, "new", canonical, matched_string,
+                    score=best_score, discarded_reason="antonym",
                 )
             return MatchResult(
                 source_name, "fuzzy", canonical, matched_string, score=best_score
@@ -205,7 +212,9 @@ def match_one(source_name: str) -> MatchResult:
         if hit:
             canonical, matched_string = hit
             if has_antonym_conflict(source_tokens_all, set(tokenize(matched_string))):
-                return MatchResult(source_name, "new", discarded_reason="antonym")
+                return MatchResult(
+                    source_name, "new", canonical, matched_string, discarded_reason="antonym"
+                )
             return MatchResult(source_name, "variant", canonical, matched_string)
 
     return MatchResult(source_name, "new")
@@ -227,8 +236,10 @@ EQUIPMENT_MAP = {
     "foam roll": "other",
     "medicine ball": "other",
     "other": "other",
-    None: "other",
-    "kettlebells": None,  # kein WODL-Aequivalent -> manuell vorschlagen
+    # "kettlebells" -> None ist absichtlich kein Mapping (kein
+    # WODL-Aequivalent) - map_equipment() gibt fuer None-Input bereits vorher
+    # None zurueck, ein separater None-Key hier waere unerreichbar.
+    "kettlebells": None,
 }
 
 MUSCLE_MAP = {

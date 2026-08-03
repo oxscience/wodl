@@ -23,7 +23,6 @@ bestehende Testsuite laeuft, um Regressionen sofort zu erkennen.
 from __future__ import annotations
 
 import csv
-import re
 import sys
 from pathlib import Path
 
@@ -32,11 +31,16 @@ REGISTRY_PATH = ROOT / "wodl" / "registry.py"
 REVIEW_DIR = ROOT / "data" / "review"
 
 sys.path.insert(0, str(ROOT))
-from wodl.registry import EXERCISES
+from tools.match_exercises import normalize  # noqa: E402
+from wodl.registry import EXERCISES  # noqa: E402
 
 
-def normalize(s: str) -> str:
-    return re.sub(r"[^a-z0-9]", "", s.lower())
+def py_str_literal(s: str) -> str:
+    """Doppelt gequotetes, sicher escapetes Python-String-Literal - passend
+    zum Doppel-Quote-Stil der bestehenden Datei (repr() wuerde einfache
+    Anfuehrungszeichen liefern und den Stil brechen)."""
+    escaped = s.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
 
 
 # ---------------------------------------------------------------------------
@@ -326,27 +330,63 @@ def insert_aliases_into_source(src: str, canonical: str, new_aliases: list[str])
     insert_pos = j + 1
     trailing_comma = src[j] == ","
 
-    quoted = ", ".join(f'"{a}"' for a in new_aliases)
+    # py_str_literal() statt manuellem f'"{a}"': Alias-Strings kommen aus
+    # CSV-Daten (free-exercise-db, DECISIONS.csv) und koennten
+    # Anfuehrungszeichen enthalten - unescaped eingebettet wuerden sie das
+    # generierte registry.py syntaktisch brechen oder schlimmstenfalls Code
+    # injizieren, da die Datei spaeter importiert/ausgefuehrt wird.
+    quoted = ", ".join(py_str_literal(a) for a in new_aliases)
     insertion = f" {quoted}," if trailing_comma else f", {quoted}"
     return src[:insert_pos] + insertion + src[insert_pos:]
 
 
 def format_entry(canonical: str, meta: dict) -> str:
-    muscles = ", ".join(f'"{m}"' for m in meta["muscles"])
-    aliases_lines = ",\n            ".join(
-        ", ".join(f'"{a}"' for a in meta["aliases"][i : i + 3])
-        for i in range(0, len(meta["aliases"]), 3)
-    )
+    muscles = ", ".join(py_str_literal(m) for m in meta["muscles"])
+    # Defensiv: bei leerer Alias-Liste keine nackte "," in der Liste
+    # erzeugen (waere syntaktisch gueltig, aber unschoen: "[\n    ,\n]").
+    if meta["aliases"]:
+        aliases_lines = ",\n            ".join(
+            ", ".join(py_str_literal(a) for a in meta["aliases"][i : i + 3])
+            for i in range(0, len(meta["aliases"]), 3)
+        )
+        aliases_body = f"            {aliases_lines},\n        "
+    else:
+        aliases_body = ""
     return (
-        f'    "{canonical}": {{\n'
+        f"    {py_str_literal(canonical)}: {{\n"
         f'        "muscles": [{muscles}],\n'
-        f'        "category": "{meta["category"]}",\n'
-        f'        "equipment": "{meta["equipment"]}",\n'
-        f'        "aliases": [\n'
-        f"            {aliases_lines},\n"
-        f"        ],\n"
+        f'        "category": {py_str_literal(meta["category"])},\n'
+        f'        "equipment": {py_str_literal(meta["equipment"])},\n'
+        f'        "aliases": [\n{aliases_body}],\n'
         f"    }},\n"
     )
+
+
+IMPORT_HEADER_MARKER = "IMPORT: free-exercise-db (Unlicense)"
+
+
+def _find_exercises_dict_close(src: str) -> int:
+    """Position der schliessenden '}' des EXERCISES-Dicts, per Klammertiefe
+    ermittelt statt per rindex("\\n}\\n") - robust auch wenn die Datei spaeter
+    weitere Top-Level-Strukturen bekommt, und uebergeht Klammern/Anfuehrungs-
+    zeichen innerhalb von String-Werten korrekt."""
+    open_pos = src.index("EXERCISES: dict[str, dict] = {")
+    i = src.index("{", open_pos)
+    depth = 0
+    while i < len(src):
+        c = src[i]
+        if c == '"':
+            i += 1
+            while i < len(src) and src[i] != '"':
+                i += 2 if src[i] == "\\" else 1
+        elif c == "{":
+            depth += 1
+        elif c == "}":
+            depth -= 1
+            if depth == 0:
+                return i
+        i += 1
+    raise ValueError("keine schliessende Klammer fuer EXERCISES-Dict gefunden")
 
 
 def append_new_entries(src: str, entries: dict[str, dict]) -> str:
@@ -356,17 +396,19 @@ def append_new_entries(src: str, entries: dict[str, dict]) -> str:
     entries = {name: meta for name, meta in entries.items() if name not in EXERCISES}
     if not entries:
         return src
-    header = (
-        "\n    # ========================================================================\n"
-        "    # IMPORT: free-exercise-db (Unlicense) - kuratierte Ergaenzungen fehlender\n"
-        "    # Grunduebungen. Quelle: data/raw/free-exercise-db/exercises.json,\n"
-        "    # siehe data/raw/PROVENANCE.md. Entscheidungen: data/review/DECISIONS.csv.\n"
-        "    # ========================================================================\n\n"
-    )
+
     body = "".join(format_entry(name, meta) for name, meta in entries.items())
-    marker = "\n}\n"
-    idx = src.rindex(marker)
-    return src[:idx] + header + body + src[idx:]
+    if IMPORT_HEADER_MARKER not in src:
+        body = (
+            "\n    # ========================================================================\n"
+            "    # IMPORT: free-exercise-db (Unlicense) - kuratierte Ergaenzungen fehlender\n"
+            "    # Grunduebungen. Quelle: data/raw/free-exercise-db/exercises.json,\n"
+            "    # siehe data/raw/PROVENANCE.md. Entscheidungen: data/review/DECISIONS.csv.\n"
+            "    # ========================================================================\n\n"
+        ) + body
+
+    close = _find_exercises_dict_close(src)
+    return src[:close] + body + src[close:]
 
 
 def main():

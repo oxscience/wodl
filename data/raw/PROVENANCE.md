@@ -30,6 +30,8 @@ Nur strukturelle Metadaten:
 - `images` — dieselbe Herkunftsproblematik.
 
 ## Datei-Integrität
+- SHA-256 (`exercises.json`): `d68a817484964095e6af0be2cdcbcc2c2504168d1d190c7d5c725ce52f3ae1f4`
+
 Die Datei `exercises.json` in diesem Verzeichnis ist unverändert wie
 abgerufen (keine Nachbearbeitung, kein Reformat). Alle Transformationen
 (Matching, Mapping, Filterung) passieren als Code in `tools/` und werden

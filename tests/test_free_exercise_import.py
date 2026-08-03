@@ -46,9 +46,18 @@ def orig_exercises():
     Regressionspruefung. ast.literal_eval statt exec(): das EXERCISES-Dict
     besteht nur aus Literalen (Strings/Listen/Dicts), Codeausfuehrung ist
     dafuer nie noetig."""
-    orig_src = subprocess.check_output(
-        ["git", "show", f"{PRE_IMPORT_COMMIT}:wodl/registry.py"]
-    ).decode()
+    try:
+        # Fixed argument list with a hardcoded SHA; no external input.
+        orig_src = subprocess.check_output(  # noqa: S603, S607
+            ["git", "show", f"{PRE_IMPORT_COMMIT}:wodl/registry.py"],
+            cwd=REPO_ROOT,
+            stderr=subprocess.DEVNULL,
+        ).decode()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        pytest.skip(
+            f"Commit {PRE_IMPORT_COMMIT} nicht verfuegbar "
+            "(flacher Clone? fetch-depth: 0 setzen)."
+        )
     tree = ast.parse(orig_src, filename="orig_registry.py")
     for node in ast.walk(tree):
         # registry.py deklariert "EXERCISES: dict[str, dict] = {...}" -
@@ -98,6 +107,7 @@ class TestKnownPitfalls:
         auto_rows = _read_csv_flex(REVIEW_DIR / "aliases_auto.csv")
         auto_sources = {row["source_name"] for row in auto_rows}
         assert source_name not in auto_sources
+        assert resolve(source_name) != wrong_canonical
 
     @pytest.mark.parametrize(
         "source_name",
