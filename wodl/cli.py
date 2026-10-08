@@ -58,10 +58,10 @@ def main(argv: list[str] | None = None) -> None:
         print(to_markdown(plan))
     else:
         # Summary view
-        print(f"Plan:      {plan.name or '(unnamed)'}")
-        print(f"Frequency: {plan.frequency or '-'}")
-        print(f"Cycle:     {plan.cycle_length or '-'}")
-        print(f"Unit:      {plan.unit}")
+        print(f"Plan:      {plan.name or '(unbenannt)'}")
+        print(f"Frequenz:  {plan.frequency or '-'}")
+        print(f"Zyklus:    {plan.cycle_length or '-'}")
+        print(f"Gewicht:   {plan.unit}")
         print(f"Einheiten: {len(plan.sessions)}")
         print()
         for session in plan.sessions:
@@ -72,7 +72,7 @@ def main(argv: list[str] | None = None) -> None:
                     ex_count += len(item.exercises)
                 else:
                     ex_count += 1
-            print(f"  [{session.name}] {days} — {ex_count} exercises")
+            print(f"  [{session.name}] {days} — {ex_count} Übungen")
 
         if plan.warnings:
             print()
