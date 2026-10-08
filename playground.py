@@ -318,6 +318,16 @@ HTML = r"""<!DOCTYPE html>
   .prog-controls .field input[type="number"]:focus { outline: none; border-color: var(--primary); }
   .prog-controls .field input[type="number"] { width: 4.5rem; }
 
+  /* Meine Pläne im Editor-Kopf */
+  .plans { display: flex; gap: 0.4rem; align-items: center; min-width: 0; text-transform: none; letter-spacing: normal; }
+  .plans select {
+    min-width: 0; max-width: 15rem; padding: 0.3rem 0.5rem;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); font-family: inherit; font-size: 0.78rem;
+  }
+  .plans select:focus { outline: none; border-color: var(--primary); }
+  .plans .btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+
   .prog-badge {
     display: inline-block;
     font-size: 0.72rem;
@@ -1269,7 +1279,7 @@ HTML = r"""<!DOCTYPE html>
     <button class="btn primary" onclick="copyShareLink(this, 'view')">Link kopieren</button>
   </div>
   <div class="share-row">
-    <div><strong>Zum Weiterbearbeiten</strong><span>Öffnet den Plan im Editor, z.B. für Kolleg:innen</span></div>
+    <div><strong>Zum Weiterbearbeiten</strong><span>Öffnet eine eigene Kopie im Editor, z.B. für Kolleg:innen</span></div>
     <button class="btn" onclick="copyShareLink(this, 'edit')">Link kopieren</button>
   </div>
   <form method="dialog"><button class="btn">Schließen</button></form>
@@ -1351,7 +1361,11 @@ HTML = r"""<!DOCTYPE html>
   <div class="panel">
     <div class="panel-header">
       <span>Editor</span>
-      <span style="font-size:0.7rem;color:var(--text2);font-weight:400">.wodl</span>
+      <div class="plans">
+        <select id="plan-select" onchange="switchPlan(this.value)" aria-label="Meine Pläne" title="Meine Pläne"></select>
+        <button class="btn" onclick="newPlan()" title="Neuen leeren Plan anlegen">Neu</button>
+        <button class="btn" onclick="deletePlan()" title="Diesen Plan löschen">Löschen</button>
+      </div>
     </div>
     <textarea id="editor" placeholder="Trainingsplan hier eingeben..." spellcheck="false"></textarea>
     <ul id="ac" class="ac" role="listbox" hidden></ul>
@@ -1562,7 +1576,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#library-btn',
       title: '📚 Mit einem Klick starten',
-      text: 'Evidenzbasierte Beispielpläne für Training (Kraft-Klassiker, Hypertrophie, Prävention …) und Reha (VKB, Achillessehne, Schulter, Leiste …). Klick hier, wähl einen Plan, er landet im Editor.',
+      text: 'Evidenzbasierte Beispielpläne für Training (Kraft-Klassiker, Hypertrophie, Prävention …) und Reha (VKB, Achillessehne, Schulter, Leiste …). Klick hier und wähl einen Plan, er kommt als eigener Plan dazu. Oben im Editor wechselst du zwischen deinen Plänen, alles bleibt hier im Browser.',
       pos: 'bottom',
     },
     {
@@ -1764,7 +1778,6 @@ HTML = r"""<!DOCTYPE html>
     debounceTimer = setTimeout(() => {
       parseAndRender();
       saveToStorage();
-      localStorage.setItem('wodl_dirty', '1');  // eigene Änderungen → Bibliothek fragt vorm Ersetzen
     }, 300);
   });
 
@@ -2177,21 +2190,123 @@ HTML = r"""<!DOCTYPE html>
     });
   }
 
-  // ===== Editor Persistenz =====
+  // ===== Meine Pläne: mehrere Pläne im Browser =====
+  // wodl_plans = [{id, text, updated}], wodl_current = id. Name kommt aus @plan.
+  const planSelect = document.getElementById('plan-select');
+
+  function getPlans() {
+    try { return JSON.parse(localStorage.getItem('wodl_plans')) || []; } catch (e) { return []; }
+  }
+  function setPlans(plans) { localStorage.setItem('wodl_plans', JSON.stringify(plans)); }
+  function currentPlan(plans = getPlans()) {
+    return plans.find(p => p.id === localStorage.getItem('wodl_current'));
+  }
+  function planName(text) {
+    const m = text.match(/^\s*@plan\s+"?([^"\n]*)/m);
+    return (m && m[1].trim()) || 'Ohne Titel';
+  }
+
+  function renderPlanSelect() {
+    const cur = localStorage.getItem('wodl_current');
+    planSelect.innerHTML = '';
+    for (const p of getPlans().sort((a, b) => b.updated - a.updated)) {
+      planSelect.add(new Option(planName(p.text), p.id, false, p.id === cur));
+    }
+  }
+
+  function addPlan(text) {
+    const plans = getPlans();
+    const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    plans.push({ id, text, updated: Date.now() });
+    setPlans(plans);
+    localStorage.setItem('wodl_current', id);
+    editor.value = text;
+    renderPlanSelect();
+  }
+
   function saveToStorage() {
-    localStorage.setItem('wodl_content', editor.value);
+    if (clientView) return;  // Klient:innen-Ansicht schreibt nie
+    const plans = getPlans();
+    const cur = currentPlan(plans);
+    if (!cur) return addPlan(editor.value);
+    if (cur.text === editor.value) return;
+    cur.text = editor.value;
+    cur.updated = Date.now();
+    setPlans(plans);
+    renderPlanSelect();
+  }
+
+  // Noch nicht gespeicherte Eingabe sichern, bevor der Plan wechselt
+  function flushSave() {
+    clearTimeout(debounceTimer);
+    saveToStorage();
+  }
+
+  function showPlan(plan) {
+    localStorage.setItem('wodl_current', plan.id);
+    editor.value = plan.text;
+    renderPlanSelect();
+    parseAndRender();
+    updateHint();
+  }
+
+  function switchPlan(id) {
+    flushSave();
+    const plan = getPlans().find(p => p.id === id);
+    if (plan) showPlan(plan);
+  }
+
+  function newPlan() {
+    flushSave();
+    if (editor.value.trim()) { addPlan(''); parseAndRender(); updateHint(); }
+    editor.focus();
+  }
+
+  function deletePlan() {
+    if (!confirm(`„${planName(editor.value)}“ löschen? Der Plan ist nur hier im Browser gespeichert.`)) return;
+    clearTimeout(debounceTimer);
+    const plans = getPlans().filter(p => p.id !== localStorage.getItem('wodl_current'));
+    setPlans(plans);
+    const next = plans.sort((a, b) => b.updated - a.updated)[0];
+    if (next) return showPlan(next);
+    addPlan('');
+    parseAndRender();
+    updateHint();
   }
 
   async function loadFromStorage() {
     const urlParams = new URLSearchParams(location.search);
     const packed = new URLSearchParams(location.hash.slice(1)).get('p') || urlParams.get('p');
+    let shared = null;
     try {
-      if (packed) { editor.value = await unpackPlan(packed); return; }
+      if (packed) shared = await unpackPlan(packed);
       // Alte Links (bis 10/26): Plan doppelt URL-kodiert in ?plan=
-      if (urlParams.has('plan')) { editor.value = decodeURIComponent(urlParams.get('plan')); return; }
+      else if (urlParams.has('plan')) shared = decodeURIComponent(urlParams.get('plan'));
     } catch(e) { /* fall through */ }
-    const stored = localStorage.getItem('wodl_content');
-    editor.value = stored || sample;
+    if (clientView) {  // nur anzeigen, nichts speichern
+      editor.value = shared ?? (currentPlan()?.text || sample);
+      return;
+    }
+    // Einmalig: der alte Einzelplan (bis 10/26) wird der erste Eintrag
+    const old = localStorage.getItem('wodl_content');
+    if (old !== null && !getPlans().length) addPlan(old);
+    localStorage.removeItem('wodl_content');
+    localStorage.removeItem('wodl_dirty');
+    if (shared !== null) {
+      // Geteilter Link = eigener Plan, überschreibt nichts; derselbe Link zweimal = derselbe Plan
+      const same = getPlans().find(p => p.text === shared);
+      if (same) localStorage.setItem('wodl_current', same.id); else addPlan(shared);
+      const u = new URL(location.href);  // Link ist übernommen: Reload zeigt den gespeicherten Plan
+      u.hash = '';
+      u.searchParams.delete('p');
+      u.searchParams.delete('plan');
+      history.replaceState(null, '', u);
+    }
+    const cur = currentPlan() || getPlans().sort((a, b) => b.updated - a.updated)[0];
+    if (!cur) return addPlan(sample);
+    localStorage.setItem('wodl_current', cur.id);
+    editor.value = cur.text;
+    renderPlanSelect();
   }
 
   // ===== Share Link =====
@@ -2310,12 +2425,13 @@ HTML = r"""<!DOCTYPE html>
       const res = await fetch('/api/examples/' + encodeURIComponent(fileName));
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const text = await res.text();
-      if (localStorage.getItem('wodl_dirty') && editor.value.trim()
-          && !confirm('Deinen aktuellen Plan durch diese Vorlage ersetzen? Er ist nur hier im Browser gespeichert.')) return;
-      editor.value = text;
+      // Vorlage = neuer Plan; nur ein leerer oder unveränderter Beispielplan wird ersetzt
+      flushSave();
+      const cur = currentPlan();
+      if (cur && (!cur.text.trim() || cur.text === sample)) { editor.value = text; saveToStorage(); }
+      else addPlan(text);
       parseAndRender();
-      saveToStorage();
-      localStorage.removeItem('wodl_dirty');
+      updateHint();
       closeLibrary();
     } catch(e) {
       alert('Plan konnte nicht geladen werden: ' + e.message);
