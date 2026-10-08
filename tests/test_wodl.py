@@ -519,3 +519,10 @@ def test_suggest_returns_german_names_close_to_best():
     assert suggest("Bankdrüken")[0] == "Bankdrücken"
     assert suggest("Facepulls") == ["Face Pull"]
     assert suggest("Meine Spezialübung") == []
+
+
+def test_exercise_lines_carry_source_line():
+    plan = parse("@plan \"X\"\n---[A] Mo\nKniebeuge 3x5\n\nss {\n  Seitheben 3x15\n}")
+    ex = plan.sessions[0].items
+    assert ex[0].line == 3
+    assert ex[1].exercises[0].line == 6

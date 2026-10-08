@@ -33,3 +33,9 @@ def test_unknown_exercise_gets_suggestion_buttons(client):
     assert 'data-from="Kniebeuge mit Pause" data-to="Kniebeuge"' in html
     assert "Meine Übung" in html and "zählt aber nicht im Volumen" in html
     assert html.count("Hinweise") == 1  # Markdown-Warnliste ersetzt, nicht doppelt
+
+
+def test_table_rows_map_to_source_lines(client):
+    html = client.post("/parse", data={"wodl": "---[A] Mo\nKniebeuge 3x5\nss {\n  Seitheben 3x15\n}",
+                                       "format": "markdown"}).get_data(as_text=True)
+    assert 'data-lines="2,4"' in html

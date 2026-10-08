@@ -42,6 +42,7 @@ class ExerciseLine:
     progression: str | None = None  # "+2.5kg/w"
     modifiers: list[str] = field(default_factory=list)
     comment: str | None = None
+    line: int = 0  # 1-based source line (0 = not from parse())
 
 
 @dataclass
@@ -401,6 +402,7 @@ def parse(text: str) -> Plan:
         # --- Exercise line ---
         if stripped and current_session is not None:
             ex = _parse_exercise_line(stripped)
+            ex.line = i
             if ex.raw_name:
                 if group_stack:
                     group_stack[-1].exercises.append(ex)

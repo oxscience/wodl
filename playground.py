@@ -936,6 +936,10 @@ HTML = r"""<!DOCTYPE html>
 
   .warning { color: var(--orange); font-size: 0.8rem; margin-top: 0.3rem; }
 
+  .plan-view tbody tr { cursor: pointer; }
+  .plan-view tbody tr:hover td { background: var(--bg3); }
+  .plan-view tbody tr.cur td { background: color-mix(in srgb, var(--primary) 14%, transparent); }
+
   .unknowns { margin-top: 1.25rem; }
   .unknowns .warning { line-height: 2; }
   .unk-session { color: var(--text2); }
@@ -973,6 +977,7 @@ HTML = r"""<!DOCTYPE html>
   @media print {
     body { background: white; color: black; }
     header, .branding-panel, .panel:first-child, .panel-header, .stats { display: none !important; }
+    .plan-view tbody tr.cur td { background: none; }
     main { display: block; height: auto; }
     .panel { overflow: visible; }
     #output {
@@ -1356,7 +1361,7 @@ HTML = r"""<!DOCTYPE html>
     const body = new URLSearchParams({ wodl: editor.value, format: currentFormat });
     fetch('/parse', { method: 'POST', body })
       .then(r => r.text())
-      .then(html => { outputBody.innerHTML = html; });
+      .then(html => { outputBody.innerHTML = html; markCurrentRow(); });
   }
 
   function setFormat(fmt, btn) {
@@ -1799,6 +1804,39 @@ HTML = r"""<!DOCTYPE html>
   });
   ['keyup', 'click', 'focus'].forEach(ev => editor.addEventListener(ev, updateHint));
 
+  // ===== Editor ↔ Vorschau: Klick auf Zeile springt, Cursor-Zeile ist markiert =====
+  function rowLines() {
+    const view = outputBody.querySelector('.plan-view');
+    return view ? view.dataset.lines.split(',').map(Number) : [];
+  }
+
+  function caretLine() {
+    return editor.value.slice(0, editor.selectionStart).split('\n').length;
+  }
+
+  function markCurrentRow() {
+    const rows = outputBody.querySelectorAll('.plan-view tbody tr');
+    const idx = rowLines().indexOf(caretLine());
+    rows.forEach((tr, i) => tr.classList.toggle('cur', i === idx));
+  }
+
+  outputBody.addEventListener('click', (e) => {
+    const tr = e.target.closest('.plan-view tbody tr');
+    if (!tr) return;
+    const idx = [...outputBody.querySelectorAll('.plan-view tbody tr')].indexOf(tr);
+    const line = rowLines()[idx];
+    if (!line) return;
+    const lines = editor.value.split('\n');
+    const start = lines.slice(0, line - 1).reduce((n, l) => n + l.length + 1, 0);
+    editor.focus();
+    editor.setSelectionRange(start + lines[line - 1].length, start + lines[line - 1].length);
+    const lh = parseFloat(getComputedStyle(editor).lineHeight) || 20;
+    editor.scrollTop = Math.max(0, (line - 1) * lh - editor.clientHeight / 3);
+    markCurrentRow();
+    updateHint();
+  });
+  ['keyup', 'click'].forEach(ev => editor.addEventListener(ev, markCurrentRow));
+
   // ===== "Meintest du …?" =====
   outputBody.addEventListener('click', (e) => {
     const btn = e.target.closest('.dym');
@@ -2240,7 +2278,11 @@ def parse_wodl():
 
     unknowns = _render_unknowns_html(plan)
     plan.warnings = []  # ersetzt durch den Block mit Vorschlägen
-    return _md_to_html(to_markdown(plan)) + unknowns
+    # Quellzeile je Tabellenzeile (gleiche Reihenfolge wie to_markdown) → Klick springt in den Editor
+    lines = [ex.line for session in plan.sessions for item in session.items
+             for ex in getattr(item, "exercises", [item])]
+    return (f'<div class="plan-view" data-lines="{",".join(map(str, lines))}">'
+            f"{_md_to_html(to_markdown(plan))}</div>{unknowns}")
 
 
 def _render_unknowns_html(plan) -> str:
