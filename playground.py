@@ -2122,8 +2122,9 @@ HTML = r"""<!DOCTYPE html>
 
   async function loadFromStorage() {
     const urlParams = new URLSearchParams(location.search);
+    const packed = new URLSearchParams(location.hash.slice(1)).get('p') || urlParams.get('p');
     try {
-      if (urlParams.has('p')) { editor.value = await unpackPlan(urlParams.get('p')); return; }
+      if (packed) { editor.value = await unpackPlan(packed); return; }
       // Alte Links (bis 10/26): Plan doppelt URL-kodiert in ?plan=
       if (urlParams.has('plan')) { editor.value = decodeURIComponent(urlParams.get('plan')); return; }
     } catch(e) { /* fall through */ }
@@ -2132,8 +2133,8 @@ HTML = r"""<!DOCTYPE html>
   }
 
   // ===== Share Link =====
-  // Plan gepackt in den Link (deflate + base64url): kein Server, nichts gespeichert,
-  // ein Katalog-Plan mit 4.000 Zeichen wird ~1.500 Zeichen Link.
+  // Plan gepackt in den Link (deflate + base64url), im #-Teil: der geht nie an den Server
+  // (kein URL-Limit von gunicorn/nginx, Plan landet in keinem Log). 7.800 Zeichen → ~4.600.
   async function packPlan(text) {
     const stream = new Blob([text]).stream().pipeThrough(new CompressionStream('deflate-raw'));
     const bytes = new Uint8Array(await new Response(stream).arrayBuffer());
@@ -2158,7 +2159,7 @@ HTML = r"""<!DOCTYPE html>
     if (brand.coach) url.searchParams.set('coach', brand.coach);
     if (brand.theme && brand.theme !== defaults.theme) url.searchParams.set('theme', brand.theme);
     if (mode === 'view') url.searchParams.set('view', '1');
-    url.searchParams.set('p', await packPlan(editor.value));
+    url.hash = 'p=' + await packPlan(editor.value);
     return url.toString();
   }
 
@@ -2264,11 +2265,17 @@ HTML = r"""<!DOCTYPE html>
   wireBrandingInputs();
   applyBrand(getBrand());
   loadFromStorage().then(parseAndRender);
-  if (clientView) {
+  function setEditLink() {
     const edit = new URL(location.href);
     edit.searchParams.delete('view');
     document.getElementById('edit-link').href = edit.toString();
   }
+  if (clientView) setEditLink();
+  // Anderer geteilter Link im selben Tab: nur der #-Teil ändert sich, die Seite lädt nicht neu
+  window.addEventListener('hashchange', () => {
+    loadFromStorage().then(parseAndRender);
+    if (clientView) setEditLink();
+  });
   updateHint();
   maybeAutoStartTour();
 </script>
