@@ -5,20 +5,20 @@
 # ============================================================
 # Kriterienbasiertes VKB-Reha-Protokoll (ACL reconstruction) nach dem
 # Melbourne ACL Rehabilitation Guide 2.0 von Randall Cooper & Mick Hughes
-# (frei verfuegbares PDF, aclrehab.com).
+# (frei verfügbares PDF, aclrehab.com).
 #
 # UNTERSCHIED zum generischen Protokoll (examples/rehab-acl-postop.wodl):
 #   Das generische Protokoll ist ZEITBASIERT (Woche 0-24, van Melick/Wilk).
 #   Dieses Melbourne-Schema ist KRITERIENBASIERT: Die Progression von Phase zu
-#   Phase wird ausschliesslich durch objektive Test-Batterien freigegeben
-#   (Stroke-Test fuer Erguss, Single-Leg-Squat-Rating, Hop-Test-LSI >95%,
+#   Phase wird ausschließlich durch objektive Test-Batterien freigegeben
+#   (Stroke-Test für Erguss, Single-Leg-Squat-Rating, Hop-Test-LSI >95%,
 #   Melbourne Return-to-Sport Score >95). Die Kriterien bestimmen das Tempo,
-#   nicht die Uhr. Uebungen sind hier nur Beispiele; das Herzstueck sind die
+#   nicht die Uhr. Übungen sind hier nur Beispiele; das Herzstück sind die
 #   Progressions-Kriterien in den >-Notizen.
 #
 # Quellen (web-verifiziert):
 #   - Cooper, R. & Hughes, M. (2018). Melbourne ACL Rehabilitation Guide 2.0.
-#     Frei verfuegbares klinisches Protokoll-PDF (aclrehab.com).
+#     Frei verfügbares klinisches Protokoll-PDF (aclrehab.com).
 #   - Grindem, H., Snyder-Mackler, L., Moksnes, H., Engebretsen, L., & Risberg,
 #     M. A. (2016). Simple decision rules can reduce reinjury risk by 84% after
 #     ACL reconstruction: the Delaware-Oslo ACL cohort study. British Journal of
@@ -29,21 +29,21 @@
 #     multidisciplinary consensus. British Journal of Sports Medicine, 50(24),
 #     1506-1515. DOI: 10.1136/bjsports-2015-095898
 #
-# WICHTIG: Ersetzt KEINE individuelle aerztliche/physiotherapeutische Betreuung.
+# WICHTIG: Ersetzt KEINE individuelle ärztliche/physiotherapeutische Betreuung.
 # Meilensteine (Return to Running, Return to Sport) gibt das betreuende Team
-# nach Testung frei - nicht die Zeitachse. Return to Sport fruehestens 9 Monate
-# post-OP (Melbourne-Empfehlung + Grindem 2016: Risiko sinkt je 30 Tage spaeter).
+# nach Testung frei - nicht die Zeitachse. Return to Sport frühestens 9 Monate
+# post-OP (Melbourne-Empfehlung + Grindem 2016: Risiko sinkt je 30 Tage später).
 # ============================================================
 
 # ----- Pre-OP Phase -----
 # Ziele (die 3 wichtigsten): Erguss eliminieren, volle ROM, 90% Quad-/Hamstring-
-# Kraft im Seitenvergleich. Praeoperativ optimierter Zustand verbessert Outcome.
+# Kraft im Seitenvergleich. Präoperativ optimierter Zustand verbessert Outcome.
 
 ---[Pre-OP: Vorbereitung OP] Mo Di Mi Do Fr
 
 Quad Set              5x10    @ISO    # 5s halten, Quadriceps aktiv anspannen
 Straight Leg Raise    3x10    r30s
-Heel Slide            3x10    r30s    # volle ROM zurueckgewinnen
+Heel Slide            3x10    r30s    # volle ROM zurückgewinnen
 Glute Bridge          3x12    r30s
 Leg Press             3x12    @RPE6   r90s   # Kraftaufbau soweit schmerzfrei
 Single Leg Balance    3x30s   r30s
@@ -62,23 +62,23 @@ Single Leg Balance    3x30s   r30s
 
 ---[Phase 1: Erholung nach der OP] Mo Di Mi Do Fr Sa So
 
-Quad Set              5x10    @ISO    # oberste Prioritaet: Quad-Ansteuerung
+Quad Set              5x10    @ISO    # oberste Priorität: Quad-Ansteuerung
 Straight Leg Raise    3x10    r30s    # ohne Extension-Lag
 Heel Slide            3x10    r30s
 Ankle Pumps           3x20    r15s    # gegen Thromboserisiko
 Glute Bridge          3x10    r30s
 
-> Kryotherapie + Kompression mehrmals taeglich, Bein hochlagern.
-> Volle passive Extension IMMER hoechste Prioritaet (Prone-Hang-Test).
+> Kryotherapie + Kompression mehrmals täglich, Bein hochlagern.
+> Volle passive Extension IMMER höchste Priorität (Prone-Hang-Test).
 > Progressions-Kriterien Phase 1 -> Phase 2:
 > - Passive Extension: 0 Grad (voll gestreckt), Flexion 125+
 > - Quadriceps-Lag-Test: 0 bis 5 Grad Lag (Quad feuert, kann Bein aktiv halten)
 > - Erguss: Stroke-Test Zero bis 1+ (Schwellung 'mild')
 
 # ----- Phase 2 — Strength & Neuromuscular Control -----
-# Groesster Teil der Reha. Ziele (die 3 wichtigsten): Single-Leg-Balance
+# Größter Teil der Reha. Ziele (die 3 wichtigsten): Single-Leg-Balance
 # wiederherstellen, Muskelkraft wiederherstellen, Single-Leg-Squat mit sauberer
-# Technik/Alignment. KEIN Lauf-/Sprungtraining - das gehoert in Phase 3.
+# Technik/Alignment. KEIN Lauf-/Sprungtraining - das gehört in Phase 3.
 
 ---[Phase 2: Kraft & neuromuskuläre Kontrolle] Mo Mi Fr
 
@@ -106,7 +106,7 @@ Single Leg Balance    3x45s   r30s            # Propriozeption, ggf. instabile U
 # Knie ist schmerz- und schwellungsfrei. Ziele (die 3 wichtigsten): exzellente
 # Hopping-Leistung (Technik, Distanz, Ausdauer), erfolgreiches Agility-Programm +
 # modifiziertes Spiel, volle Kraft und Balance. Fokus auf saubere Lande- und
-# Decel-Biomechanik VOR Rueckkehr zum Sport. Patellofemoral-Ueberlastung beobachten.
+# Decel-Biomechanik VOR Rückkehr zum Sport. Patellofemoral-Überlastung beobachten.
 
 ---[Phase 3: Laufen, Agility & Landungen] Mo Mi Fr
 
@@ -125,17 +125,17 @@ ss {
 > progressiv zu Box Jumps und Single-Leg-Landings mit Perturbationen.
 > Rest/Recovery wichtig (viel Exzentrik). Change-of-Direction unter Supervision.
 > Progressions-Kriterien Phase 3 -> Phase 4 (Hop-Test-Batterie, LSI-Ziele):
-> - Single-Hop-Test: LSI >95% UND >= praeoperativer Bestwert
+> - Single-Hop-Test: LSI >95% UND >= präoperativer Bestwert
 > - Triple-Hop-Test: LSI >95%
 > - Triple-Crossover-Hop-Test: LSI >95%
 > - Side-Hop-Test bestanden
-> Supplementaer (Bonus, kein Roadblock): 1RM Single-Leg-Press 1.8x KG,
+> Supplementär (Bonus, kein Roadblock): 1RM Single-Leg-Press 1.8x KG,
 > Squat-1RM 1.8x KG.
 
 # ----- Phase 4 — Return to Sport (+ Phase 5 Prevention) -----
-# Hochindividuell. Sport-uebliche Uebungen integrieren. Fokus: gesamter Mensch,
+# Hochindividuell. Sport-übliche Übungen integrieren. Fokus: gesamter Mensch,
 # nicht nur das Knie - Vertrauen und mentale Readiness durch erfolgreiche
-# Trainings-/Spielsituationen. Progressiv von eingeschraenkt zu uneingeschraenkt.
+# Trainings-/Spielsituationen. Progressiv von eingeschränkt zu uneingeschränkt.
 
 ---[Phase 4: Return to Sport] Mo Mi Fr
 
@@ -149,10 +149,10 @@ ss {
 }
 Leg Curl              3x12    r60s
 
-> Return-to-Sport-Kriterien (die 3 Schluessel, Melbourne Guide):
+> Return-to-Sport-Kriterien (die 3 Schlüssel, Melbourne Guide):
 > - Melbourne Return to Sport Score >95 (Hop-Batterie + IKDC + ACL-RSI kombiniert)
-> - Athlet ist bequem, sicher und motiviert zurueckzukehren (ACL-RSI & IKDC)
-> - Verletzungspraeventions-Programm besprochen, implementiert und fortgefuehrt
+> - Athlet ist bequem, sicher und motiviert zurückzukehren (ACL-RSI & IKDC)
+> - Verletzungspräventions-Programm besprochen, implementiert und fortgeführt
 >   (>=15 min vor jedem Training/Spiel - Phase 5 Prevention, dauerhaft)
-> Fruehestens 9 Monate post-OP (Melbourne + Grindem 2016). Zeit ist Voraussetzung,
+> Frühestens 9 Monate post-OP (Melbourne + Grindem 2016). Zeit ist Voraussetzung,
 > die Test-Kriterien sind die Freigabe.

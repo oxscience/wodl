@@ -3,12 +3,12 @@
 @unit kg
 
 # ============================================================
-# Reha-Protokoll fuer Patellasehnen-Tendinopathie (Jumper's Knee).
-# Zwei-Saeulen-Ansatz:
-#   1) Heavy Slow Resistance (HSR) als Haupt-Ladeprogramm ueber 12 Wochen
+# Reha-Protokoll für Patellasehnen-Tendinopathie (Jumper's Knee).
+# Zwei-Säulen-Ansatz:
+#   1) Heavy Slow Resistance (HSR) als Haupt-Ladeprogramm über 12 Wochen
 #      nach Kongsgaard et al. 2009.
 #   2) Isometrische Optionen zum In-Season-Schmerzmanagement (Rio et al. 2015):
-#      Analgesie fuer ~45 min, nutzbar unmittelbar vor Wettkampf/Training.
+#      Analgesie für ~45 min, nutzbar unmittelbar vor Wettkampf/Training.
 #
 # Quellen (web-verifiziert):
 #   - Kongsgaard, M., Kovanen, V., Aagaard, P., Doessing, S., et al. (2009).
@@ -25,37 +25,37 @@
 #     Challenging Case Presentations. Journal of Orthopaedic & Sports Physical
 #     Therapy, 45(11), 887-898. DOI: 10.2519/jospt.2015.5987
 #
-# HSR-Original-Protokoll (Kongsgaard 2009): 3 bilaterale Uebungen (Squat, Leg
-# Press, Hack Squat), 4 Saetze, 3x/Woche (1 Session supervidiert), 2-3 min Pause.
+# HSR-Original-Protokoll (Kongsgaard 2009): 3 bilaterale Übungen (Squat, Leg
+# Press, Hack Squat), 4 Sätze, 3x/Woche (1 Session supervidiert), 2-3 min Pause.
 # RM-Progression: Woche 1 = 15RM, Woche 2-3 = 12RM, Woche 4-5 = 10RM,
 # Woche 6-8 = 8RM, Woche 9-12 = 6RM. Tempo: 3s exzentrisch + 3s konzentrisch
-# (6s/Rep), ROM volle Extension bis 90 Grad Knieflexion. Schmerz waehrend der
-# Uebung akzeptabel, darf danach aber nicht zunehmen (VISA-P + 24h-Regel).
+# (6s/Rep), ROM volle Extension bis 90 Grad Knieflexion. Schmerz während der
+# Übung akzeptabel, darf danach aber nicht zunehmen (VISA-P + 24h-Regel).
 #
-# WICHTIG: Ersetzt keine individuelle Betreuung. Progression ueber Schmerz-
-# Monitoring (24h-Regel, VAS <=3-5 waehrend, nicht ansteigend danach), nicht
-# ueber den Kalender. Reaktive Tendinopathie zunaechst per Isometrie beruhigen.
+# WICHTIG: Ersetzt keine individuelle Betreuung. Progression über Schmerz-
+# Monitoring (24h-Regel, VAS <=3-5 während, nicht ansteigend danach), nicht
+# über den Kalender. Reaktive Tendinopathie zunächst per Isometrie beruhigen.
 # ============================================================
 
 # ----- Phase A — Isometrie: Reizberuhigung & In-Season-Schmerzmanagement -----
 # Bei reaktiver/schmerzhafter Sehne oder in der Saison. Isometrische Kniestreckung
 # senkt Schmerz und kortikale Inhibition (Rio 2015). Original: 5x45s bei 70% MVIC,
-# 60 Grad Knieflexion, Leg-Extension-Maschine, 2 min Pause. Analgesie haelt ~45 min.
+# 60 Grad Knieflexion, Leg-Extension-Maschine, 2 min Pause. Analgesie hält ~45 min.
 
 ---[Phase A: Isometrie (Schmerzmanagement)]
 
 Leg Extension         5x45s   @ISO   r2m    # 70% MVIC, 60 Grad Flexion, schmerzarm
 Wall Sit              5x45s   @ISO   r2m    # Alternative/Heim-Option, isometrisch
 
-> Nutzung: taeglich, auch mehrfach; unmittelbar vor Training/Wettkampf fuer
+> Nutzung: täglich, auch mehrfach; unmittelbar vor Training/Wettkampf für
 > Analgesie. Isometrie beruhigt die reaktive Sehne, ersetzt aber NICHT die
-> HSR-Ladephase (Kongsgaard) fuer die strukturelle Anpassung.
+> HSR-Ladephase (Kongsgaard) für die strukturelle Anpassung.
 > Progression Phase A -> Phase B: Schmerz stabil <=3/10, keine 24h-Verschlechterung,
-> Sehne toleriert langsame Belastung -> in HSR ueberleiten (Isometrie beibehalten).
+> Sehne toleriert langsame Belastung -> in HSR überleiten (Isometrie beibehalten).
 
 # ----- Phase B — HSR Woche 1-3 (15RM -> 12RM) -----
 # Einstieg ins Heavy-Slow-Resistance-Programm. Langsames Tempo ist Pflicht:
-# 3s runter, 3s hoch (t3030). Volle Extension bis 90 Grad Flexion. 4 Saetze.
+# 3s runter, 3s hoch (t3030). Volle Extension bis 90 Grad Flexion. 4 Sätze.
 
 ---[Phase B: HSR Woche 1-3] Mo Mi Fr
 
@@ -64,13 +64,13 @@ Leg Press    4x15    @RPE7   r3m   t3030
 Hack Squat   4x15    @RPE7   r3m   t3030
 
 > Tempo 6s/Rep (3s exzentrisch + 3s konzentrisch) - NICHT schneller.
-> Schmerz waehrend Uebung akzeptabel, darf 24h danach nicht zunehmen (VISA-P).
-> Isometrie aus Phase A bei Bedarf als Schmerz-Tool weiterfuehren.
-> Progression B -> C: Last so gewaehlt, dass 15er/12er sauber im Tempo gelingen,
+> Schmerz während Übung akzeptabel, darf 24h danach nicht zunehmen (VISA-P).
+> Isometrie aus Phase A bei Bedarf als Schmerz-Tool weiterführen.
+> Progression B -> C: Last so gewählt, dass 15er/12er sauber im Tempo gelingen,
 > 24h-Schmerzantwort stabil -> Reps runter, Last rauf.
 
 # ----- Phase C — HSR Woche 4-8 (10RM -> 8RM) -----
-# Progressive Laststeigerung, Wiederholungen sinken. Tempo unveraendert langsam.
+# Progressive Laststeigerung, Wiederholungen sinken. Tempo unverändert langsam.
 
 ---[Phase C: HSR Woche 4-8] Mo Mi Fr
 
@@ -79,11 +79,11 @@ Leg Press    4x10    @RPE8   r3m   t3030
 Hack Squat   4x10    @RPE8   r3m   t3030
 
 > Last kontinuierlich anpassen, sodass die Ziel-RM im vorgeschriebenen Tempo
-> gerade erreichbar ist. 24h-Regel weiter als Steuergroesse.
+> gerade erreichbar ist. 24h-Regel weiter als Steuergröße.
 > Progression C -> D: 8RM sauber im Tempo, VISA-P steigend, keine Reizzunahme.
 
 # ----- Phase D — HSR Woche 9-12 (6RM, schwerste Last) -----
-# Schwerste Ladephase. 6RM, weiterhin 3s+3s Tempo. Uebergang Richtung
+# Schwerste Ladephase. 6RM, weiterhin 3s+3s Tempo. Übergang Richtung
 # Energiespeicher-/Plyo-Rehab (sportartspezifisch) nach VISA-P-Verbesserung.
 
 ---[Phase D: HSR Woche 9-12] Mo Mi Fr
@@ -94,6 +94,6 @@ Hack Squat   4x6     @RPE8   r3m   t3030
 
 > Nach 12 Wochen HSR: bei deutlicher VISA-P-Verbesserung und schmerzarmer
 > Belastung schrittweise Energiespeicher-Belastung (Sprung/Landung, sportartspez.)
-> ergaenzen - erst wenn langsame Schwerlast toleriert wird (Malliaras 2015).
+> ergänzen - erst wenn langsame Schwerlast toleriert wird (Malliaras 2015).
 > Return-to-Sport kriterienbasiert: Schmerz-Monitoring, symmetrische Kraft,
 > Sprungbelastung toleriert - nicht rein zeitbasiert.
