@@ -1532,6 +1532,7 @@ HTML = r"""<!DOCTYPE html>
     debounceTimer = setTimeout(() => {
       parseAndRender();
       saveToStorage();
+      localStorage.setItem('wodl_dirty', '1');  // eigene Änderungen → Bibliothek fragt vorm Ersetzen
     }, 300);
   });
 
@@ -1921,9 +1922,12 @@ HTML = r"""<!DOCTYPE html>
       const res = await fetch('/api/examples/' + encodeURIComponent(fileName));
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const text = await res.text();
+      if (localStorage.getItem('wodl_dirty') && editor.value.trim()
+          && !confirm('Deinen aktuellen Plan durch diese Vorlage ersetzen? Er ist nur hier im Browser gespeichert.')) return;
       editor.value = text;
       parseAndRender();
       saveToStorage();
+      localStorage.removeItem('wodl_dirty');
       closeLibrary();
     } catch(e) {
       alert('Plan konnte nicht geladen werden: ' + e.message);
