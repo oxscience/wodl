@@ -54,7 +54,7 @@ Links `.wodl` schreiben, rechts live das Ergebnis sehen. Features:
 - **Branding** — eigenes Logo, Praxis-/Coach-Name, Primärfarbe (6 Presets + Custom Hex)
 - **Dark & Light Mode** — umschaltbar, persistiert in localStorage
 - **PDF-Export** — via Browser-Print, mit Coach/Klient-Header und Datum
-- **Teilen** — Link für Klient:innen (nur der Plan, aufs Handy zugeschnitten) oder zum Weiterbearbeiten; Plan + Branding stecken gepackt im Link, nichts wird gespeichert
+- **Teilen** — Link für Klient:innen (nur der Plan, aufs Handy zugeschnitten; aus dem Progression-Tab geteilt mit allen Wochen als Tabs) oder zum Weiterbearbeiten; Plan + Branding stecken gepackt im Link, nichts wird gespeichert
 - **Schreibhilfe** — Übungsvorschläge ab 2 Buchstaben (auch über englische Namen), Bausteine-Leiste unter dem Editor, „Meintest du …?“ bei unbekannten Übungen, Klick auf eine Tabellenzeile springt in den Editor
 - **Freitext → WODL** — Plan aus WhatsApp, Excel oder Notizen reinkopieren, WODL schlägt die Übersetzung vor
 

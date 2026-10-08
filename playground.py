@@ -1025,6 +1025,21 @@ HTML = r"""<!DOCTYPE html>
   .client-view #output { padding: 1.5rem 1rem 2rem; background: var(--bg); }
   .client-view .client-only { display: flex; }
   .client-view .unknowns { display: none; }
+  .wk-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0.25rem; }
+  .wk-tab {
+    padding: 0.3rem 0.75rem;
+    font: inherit;
+    font-size: 0.8rem;
+    color: var(--text2);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .wk-tab.active { color: #fff; background: var(--primary); border-color: var(--primary); }
+  .wk-pane { display: none; }
+  .wk-pane.active { display: block; }
+  #share-prog { color: var(--primary); }
   .client-view .plan-view tbody tr { cursor: default; }
   .client-view .plan-view tbody tr:hover td { background: none; }
   .client-view .print-header {
@@ -1052,22 +1067,22 @@ HTML = r"""<!DOCTYPE html>
 
   /* Schmale Bildschirme: Tabellenzeilen als Karten */
   @media (max-width: 640px) {
-    #output .plan-view table, #output .plan-view tbody, #output .plan-view tr,
-    #output .plan-view td { display: block; width: auto; }
-    #output .plan-view thead { display: none; }
-    #output .plan-view tr {
+    #output :is(.plan-view, .wk-pane) table, #output :is(.plan-view, .wk-pane) tbody, #output :is(.plan-view, .wk-pane) tr,
+    #output :is(.plan-view, .wk-pane) td { display: block; width: auto; }
+    #output :is(.plan-view, .wk-pane) thead { display: none; }
+    #output :is(.plan-view, .wk-pane) tr {
       margin-bottom: 0.6rem;
       padding: 0.6rem 0.8rem;
       border: 1px solid var(--border);
       border-radius: 8px;
     }
-    #output .plan-view td { padding: 0.1rem 0; border: none; }
-    #output .plan-view td:empty { display: none; }
-    #output .plan-view td:first-child { font-weight: 600; margin-bottom: 0.2rem; }
-    #output .plan-view td:nth-child(2)::before { content: 'Sätze × Wdh.: '; color: var(--text2); }
-    #output .plan-view td:nth-child(3)::before { content: 'Intensität: '; color: var(--text2); }
-    #output .plan-view td:nth-child(4)::before { content: 'Pause: '; color: var(--text2); }
-    #output .plan-view td:nth-child(5)::before { content: 'Notizen: '; color: var(--text2); }
+    #output :is(.plan-view, .wk-pane) td { padding: 0.1rem 0; border: none; }
+    #output :is(.plan-view, .wk-pane) td:empty { display: none; }
+    #output :is(.plan-view, .wk-pane) td:first-child { font-weight: 600; margin-bottom: 0.2rem; }
+    #output :is(.plan-view, .wk-pane) td:nth-child(2)::before { content: 'Sätze × Wdh.: '; color: var(--text2); }
+    #output :is(.plan-view, .wk-pane) td:nth-child(3)::before { content: 'Intensität: '; color: var(--text2); }
+    #output :is(.plan-view, .wk-pane) td:nth-child(4)::before { content: 'Pause: '; color: var(--text2); }
+    #output :is(.plan-view, .wk-pane) td:nth-child(5)::before { content: 'Notizen: '; color: var(--text2); }
   }
 
   @media print {
@@ -1075,7 +1090,9 @@ HTML = r"""<!DOCTYPE html>
     header, .branding-panel, .panel:first-child, .panel-header, .stats { display: none !important; }
     .plan-view tbody tr.cur td { background: none; }
     /* Nur der Plan aufs Papier: keine Hinweise, Angebote, Tour, Editor-Hilfen */
-    .tour-backdrop, .unknowns, .convert-offer, .ac, .hint, .share-dialog { display: none !important; }
+    .tour-backdrop, .unknowns, .convert-offer, .ac, .hint, .share-dialog, .wk-tabs { display: none !important; }
+    .wk-pane { display: block !important; }
+    .wk-pane + .wk-pane { break-before: page; }
     #output, .client-view #output { background: white !important; }
     #output p, #output strong { color: black !important; }
     #output table { display: table !important; width: 100% !important; break-inside: avoid; }
@@ -1238,7 +1255,7 @@ HTML = r"""<!DOCTYPE html>
     <button class="btn" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">🎓 Tour</button>
     <button class="btn primary" onclick="openLibrary()" id="library-btn">📚 Bibliothek</button>
     <button class="btn" onclick="toggleBranding()" id="branding-btn">Branding</button>
-    <button class="btn" onclick="document.getElementById('share-dialog').showModal()" id="share-btn">Link teilen</button>
+    <button class="btn" onclick="document.getElementById('share-prog').hidden = currentFormat !== 'progression'; document.getElementById('share-dialog').showModal()" id="share-btn">Link teilen</button>
     <button class="btn" onclick="window.print()" id="pdf-btn">PDF exportieren</button>
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Dark/Light Mode" aria-label="Theme wechseln">&#9790;</button>
   </div>
@@ -1248,7 +1265,7 @@ HTML = r"""<!DOCTYPE html>
   <h3>Plan teilen</h3>
   <p class="share-sub">Der Plan steckt komplett im Link. Nichts wird gespeichert.</p>
   <div class="share-row">
-    <div><strong>Für Klient:innen</strong><span>Nur der Plan, ohne Editor, aufs Handy zugeschnitten</span></div>
+    <div><strong>Für Klient:innen</strong><span>Nur der Plan, ohne Editor, aufs Handy zugeschnitten</span><span id="share-prog" hidden>Mit allen Wochen aus dem Progression-Tab</span></div>
     <button class="btn primary" onclick="copyShareLink(this, 'view')">Link kopieren</button>
   </div>
   <div class="share-row">
@@ -1461,6 +1478,17 @@ HTML = r"""<!DOCTYPE html>
   }
 
   function parseAndRender() {
+    // Klient:innen-Link aus dem Progression-Tab: Wochen als Tabs statt Grundplan
+    const clientProg = clientView && new URLSearchParams(location.hash.slice(1)).get('prog');
+    if (clientProg) {
+      const body = new URLSearchParams(clientProg);
+      body.set('wodl', editor.value);
+      body.set('format', 'client');
+      fetch('/progress', { method: 'POST', body })
+        .then(r => r.text())
+        .then(html => { outputBody.innerHTML = html; });
+      return;
+    }
     if (currentFormat === 'progression') {
       const view = document.getElementById('prog-view');
       const body = progParams();
@@ -1959,6 +1987,14 @@ HTML = r"""<!DOCTYPE html>
   });
   ['keyup', 'click'].forEach(ev => editor.addEventListener(ev, markCurrentRow));
 
+  // ===== Klient:innen-Ansicht: Wochen-Tabs =====
+  outputBody.addEventListener('click', (e) => {
+    const tab = e.target.closest('.wk-tab');
+    if (!tab) return;
+    outputBody.querySelectorAll('.wk-tab, .wk-pane').forEach(el =>
+      el.classList.toggle('active', el.dataset.w === tab.dataset.w));
+  });
+
   // ===== Freitext → WODL übernehmen =====
   outputBody.addEventListener('click', (e) => {
     if (e.target.id !== 'convert-btn') return;
@@ -2166,6 +2202,11 @@ HTML = r"""<!DOCTYPE html>
     if (brand.theme && brand.theme !== defaults.theme) url.searchParams.set('theme', brand.theme);
     if (mode === 'view') url.searchParams.set('view', '1');
     url.hash = 'p=' + await packPlan(editor.value);
+    if (mode === 'view' && currentFormat === 'progression') {  // Wochen-Einstellungen mitgeben
+      const prog = progParams();
+      prog.delete('wodl');
+      url.hash += '&prog=' + encodeURIComponent(prog.toString());
+    }
     return url.toString();
   }
 
@@ -2632,15 +2673,40 @@ def progress_endpoint():
         try:
             md = progress_matrix(plan, config)
         except Exception as e:
-            return f"<div class='error-msg'>Progressions-Fehler: {e}</div>"
+            return f"<div class='error-msg'>Progressions-Fehler: {html_mod.escape(str(e))}</div>"
         return ('<span id="prog-mode" data-mode="wodl" hidden></span>'
                 f'<div class="cycle-view">{_md_to_html(md)}</div>')
 
     try:
         mode, weeks = progress_auto(text, config)
     except Exception as e:
-        return f"<div class='error-msg'>Progressions-Fehler: {e}</div>"
+        return f"<div class='error-msg'>Progressions-Fehler: {html_mod.escape(str(e))}</div>"
+    if fmt == "client":
+        return _render_client_weeks_html(text, mode, weeks)
     return _render_progression_html(mode, weeks, config.weeks)
+
+
+def _render_client_weeks_html(text: str, mode: str, weeks: list) -> str:
+    """Wochen als Tabs für die Klient:innen-Ansicht: nur der Plan, keine Werkzeuge."""
+    e = html_mod.escape
+    plan = looks_like_wodl(text)
+    head = ""
+    if plan is not None:  # Titel, Frequenz, Zyklus einmal oben
+        md = to_markdown(plan)
+        head = _md_to_html(md.split("\n## ", 1)[0])
+    tabs, panes = [], []
+    for i, week in enumerate(weeks):
+        label = e(f"Woche {week.week}" + (" · Deload" if week.kind == "deload" else ""))
+        active = " active" if i == 0 else ""
+        tabs.append(f'<button type="button" class="wk-tab{active}" data-w="{i}">{label}</button>')
+        if mode == "wodl":
+            md = to_markdown(parse(week.text))
+            body = _md_to_html("\n".join(ln for ln in md.splitlines()
+                                         if not ln.startswith(("# ", "**Frequenz:**", "**Zyklus:**"))))
+        else:
+            body = f'<pre class="freetext">{e(week.text)}</pre>'
+        panes.append(f'<div class="wk-pane{active}" data-w="{i}"><h2 class="print-only">{label}</h2>{body}</div>')
+    return f'{head}<div class="wk-tabs">{"".join(tabs)}</div>{"".join(panes)}'
 
 
 @app.route("/api/examples")

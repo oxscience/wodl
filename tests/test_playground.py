@@ -70,3 +70,13 @@ def test_unknown_names_logged_only_when_enabled(client, tmp_path, monkeypatch):
     lines = log.read_text(encoding="utf-8").splitlines()
     assert [ln.split("\t")[1] for ln in lines] == ["Meine Übung"]  # ohne Sätze/mit Ziffern: nicht geloggt
     assert "anonym" in html
+
+
+def test_progress_client_format_renders_week_tabs(client):
+    plan = '@plan "Block"\n---[A] Mo\nKniebeuge 3x8 @60kg\nBankdrücken 3x8-10 @50kg'
+    html = client.post("/progress", data={"wodl": plan, "weeks": "4", "deload_rhythm": "last",
+                                          "format": "client"}).get_data(as_text=True)
+    assert html.count('<button type="button" class="wk-tab') == 4 and html.count('class="wk-pane') == 4
+    assert "Woche 4 · Deload" in html
+    assert "<h1>Block</h1>" in html and html.count("<h1>") == 1  # Titel nur einmal oben
+    assert "Block kopieren" not in html  # keine Werkzeuge für Klient:innen
