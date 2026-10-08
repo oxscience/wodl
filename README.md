@@ -74,6 +74,8 @@ docker run -p 5051:5051 wodl-playground
 
 Health-Check: `GET /healthz` → `{"status": "ok"}`
 
+Optional: `WODL_MISS_LOG=/data/unknown.tsv` sammelt unbekannte Übungsnamen (nur Datum + Name, ohne IP; nur Zeilen mit Sätzen/Wdh., nur Buchstaben), damit das Wörterbuch wachsen kann. Auswerten: `cut -f2 /data/unknown.tsv | sort | uniq -c | sort -rn | head -50`
+
 ### URL-Branding (für Coaches)
 
 Coaches können ihre Klient:innen direkt zu einer gebrandeten Instanz linken:

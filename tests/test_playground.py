@@ -53,3 +53,20 @@ def test_freetext_gets_convert_offer_and_stays_escaped(client):
                                        "format": "markdown"}).get_data(as_text=True)
     assert 'id="convert-btn"' in html
     assert "<script" not in html and "<b>" not in html and html.count("</textarea>") == 1
+
+
+def test_unknown_names_logged_only_when_enabled(client, tmp_path, monkeypatch):
+    import playground
+
+    log = tmp_path / "miss.tsv"
+    plan = "---[A]\nMeine Übung 3x10\nNoch eine Übung\nKniebeuge 3x5\nKunde 0171 1234567 3x5"
+    client.post("/parse", data={"wodl": plan, "format": "markdown"})
+    assert not log.exists()  # aus ohne WODL_MISS_LOG
+
+    monkeypatch.setattr(playground, "MISS_LOG", str(log))
+    monkeypatch.setattr(playground, "_miss_seen", set())
+    html = client.post("/parse", data={"wodl": plan, "format": "markdown"}).get_data(as_text=True)
+    client.post("/parse", data={"wodl": plan, "format": "markdown"})  # gleiches nochmal: kein Duplikat
+    lines = log.read_text(encoding="utf-8").splitlines()
+    assert [ln.split("\t")[1] for ln in lines] == ["Meine Übung"]  # ohne Sätze/mit Ziffern: nicht geloggt
+    assert "anonym" in html

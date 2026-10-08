@@ -12,6 +12,8 @@ from __future__ import annotations
 import html as html_mod
 import json
 import os
+import re
+from datetime import date
 from pathlib import Path
 
 from flask import Flask, abort, jsonify, request, render_template_string
@@ -29,6 +31,13 @@ from wodl.progression import (
 )
 
 app = Flask(__name__)
+
+# Wörterbuch-Lücken: unbekannte Übungsnamen anonym sammeln (nur Datum + Name, keine IP).
+# Aus, solange WODL_MISS_LOG (Dateipfad) nicht gesetzt ist.
+MISS_LOG = os.environ.get("WODL_MISS_LOG", "")
+_MISS_NAME = re.compile(r"^[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß' .\-]{1,59}$")
+_miss_seen: set[str] = set()
+_miss_day = ""
 
 ROOT_DIR = Path(__file__).parent
 EXAMPLES_DIR = ROOT_DIR / "examples"
@@ -2377,6 +2386,7 @@ def parse_wodl():
         plan = parse(wod_text)
     except Exception as e:
         return f"<div class='error-msg'>Parser-Fehler: {html_mod.escape(str(e))}</div>"
+    _log_unknowns(plan)
 
     if fmt == "json":
         return f"<pre>{html_mod.escape(to_json(plan))}</pre>"
@@ -2432,6 +2442,33 @@ def _render_convert_offer(text: str) -> str:
             + _md_to_html(to_markdown(preview)))
 
 
+def _log_unknowns(plan) -> None:
+    """Unbekannte Namen mit Sätzen/Wdh. einmal pro Tag und Prozess in MISS_LOG anhängen."""
+    global _miss_day
+    if not MISS_LOG:
+        return
+    today = date.today().isoformat()
+    if today != _miss_day:
+        _miss_seen.clear()
+        _miss_day = today
+    new = []
+    for session in plan.sessions:
+        for item in session.items:
+            for ex in getattr(item, "exercises", [item]):
+                name = ex.raw_name.strip()
+                key = name.lower()
+                if (ex.canonical_name is None and (ex.sets or ex.reps) and key not in _miss_seen
+                        and _MISS_NAME.match(name) and len(name.split()) <= 6):
+                    _miss_seen.add(key)
+                    new.append(f"{today}\t{name}\n")
+    if new:
+        try:
+            with open(MISS_LOG, "a", encoding="utf-8") as f:
+                f.writelines(new)
+        except OSError:
+            pass
+
+
 def _render_unknowns_html(plan) -> str:
     """Unbekannte Übungen mit "Meintest du …?"-Knöpfen (Klick ersetzt im Editor)."""
     seen: dict[str, str] = {}
@@ -2453,6 +2490,9 @@ def _render_unknowns_html(plan) -> str:
                 else "Bleibt als eigene Übung stehen, zählt aber nicht im Volumen.")
         parts.append(f'<div class="warning">Unbekannte Übung „{e(raw)}“ '
                      f'<span class="unk-session">({e(session_name)})</span> · {hint}</div>')
+    if MISS_LOG:
+        parts.append('<p class="vol-note">Unbekannte Namen landen anonym (nur der Name, ohne IP) '
+                     "in einer Liste, damit das Wörterbuch wächst.</p>")
     parts.append("</div>")
     return "".join(parts)
 
