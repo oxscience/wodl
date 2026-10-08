@@ -1351,7 +1351,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#library-btn',
       title: '📚 Mit einem Klick starten',
-      text: '11 evidenzbasierte Beispielpläne: 7 Training (Push-Pull, Full Body, Powerbuilding …) und 4 Reha-Protokolle (VKB, Rotator Cuff, McGill LBP, Alfredson Achilles). Klick hier, wähl einen Plan — er landet im Editor.',
+      text: 'Evidenzbasierte Beispielpläne für Training (Kraft-Klassiker, Hypertrophie, Prävention …) und Reha (VKB, Achillessehne, Schulter, Leiste …). Klick hier, wähl einen Plan, er landet im Editor.',
       pos: 'bottom',
     },
     {
