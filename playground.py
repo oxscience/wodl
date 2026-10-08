@@ -1202,6 +1202,9 @@ HTML = r"""<!DOCTYPE html>
       padding: 0.6rem 0.9rem;
       font-size: 0.72rem;
     }
+    /* Vorschau-Tabs passen nicht neben das Label */
+    .panel:last-child .panel-header { flex-wrap: wrap; }
+    .tabs { flex-wrap: wrap; row-gap: 0.3rem; }
     .tab {
       padding: 0.3rem 0.55rem;
       font-size: 0.68rem;
@@ -1838,7 +1841,9 @@ HTML = r"""<!DOCTYPE html>
     ).join('');
     ac.hidden = false;
     const { x, y, lh } = caretXY(editor.selectionStart);
-    const below = y + ac.offsetHeight < window.innerHeight - 8;
+    // Sichtbarer Bereich: auf dem Handy endet er an der Tastatur, nicht am Fensterrand
+    const vv = window.visualViewport;
+    const below = y + ac.offsetHeight < (vv ? vv.offsetTop + vv.height : window.innerHeight) - 8;
     ac.style.left = Math.max(8, Math.min(x, window.innerWidth - ac.offsetWidth - 8)) + 'px';
     ac.style.top = (below ? y + 2 : y - lh - ac.offsetHeight - 2) + 'px';
   }
