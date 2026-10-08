@@ -79,22 +79,22 @@ EXERCISE_NAMES = [
 
 SAMPLE_WODL = """\
 @plan "Full Body Basics"
-@freq 3x/week
-@cycle 4w: w1-3 progress, w4 deload
+@freq 3x/Woche
+@cycle 4w: w1-3 Aufbau, w4 Deload
 
----[Day A] Mo
+---[Tag A] Mo
 
 Kniebeugen           3x5   @RPE8  r180s  +2.5kg/w
 Bankdrücken          3x8   @RPE7  r120s
 LH Rudern            3x8   @RPE7  r120s
 
----[Day B] Mi
+---[Tag B] Mi
 
 Kreuzheben           3x5   @RPE8  r180s  +2.5kg/w
 Schulterdrücken      3x8   @RPE7  r120s
 Klimmzüge            3x8   @BW    r120s
 
----[Day C] Fr
+---[Tag C] Fr
 
 Kniebeugen           3x5   @RPE8  r180s
 KH Bankdrücken       3x8   @RPE7  r120s
@@ -1170,7 +1170,7 @@ HTML = r"""<!DOCTYPE html>
         <button class="tab active" data-fmt="markdown" onclick="setFormat('markdown', this)">Tabelle</button>
         <button class="tab" data-fmt="progression" onclick="setFormat('progression', this)" id="progression-tab">📈 Progression</button>
         <button class="tab" data-fmt="json" onclick="setFormat('json', this)">JSON</button>
-        <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Summary</button>
+        <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Übersicht</button>
       </div>
     </div>
     <div class="prog-controls" id="prog-controls">
@@ -1363,7 +1363,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#output',
       title: '👁 Live-Vorschau',
-      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> baut den kompletten Wochen-Block (als Wochen-Tabellen oder kompakte Matrix, auch aus freien Plänen), <code>JSON</code> für Apps, <code>Summary</code> zum Volumen-Check.',
+      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> baut den kompletten Wochen-Block (als Wochen-Tabellen oder kompakte Matrix, auch aus freien Plänen), <code>JSON</code> für Apps, <code>Übersicht</code> zum Volumen-Check.',
       pos: 'left',
     },
     {
@@ -1969,34 +1969,35 @@ def _md_to_html(md: str) -> str:
                 html_lines.append("</tbody></table>")
                 in_table = False
                 header_done = False
-            html_lines.append(f"<h3>{stripped[4:]}</h3>")
+            html_lines.append(f"<h3>{html_mod.escape(stripped[4:])}</h3>")
             continue
         if stripped.startswith("## "):
             if in_table:
                 html_lines.append("</tbody></table>")
                 in_table = False
                 header_done = False
-            html_lines.append(f"<h2>{stripped[3:]}</h2>")
+            html_lines.append(f"<h2>{html_mod.escape(stripped[3:])}</h2>")
             continue
         if stripped.startswith("# "):
-            html_lines.append(f"<h1>{stripped[2:]}</h1>")
+            html_lines.append(f"<h1>{html_mod.escape(stripped[2:])}</h1>")
             continue
 
         if "**" in stripped or ("_" in stripped and not stripped.startswith("|")):
+            stripped = html_mod.escape(stripped)
             stripped = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', stripped)
             stripped = re.sub(r'(?<![\w])_([^_\n]+)_(?![\w])', r'<em>\1</em>', stripped)
             html_lines.append(f"<p>{stripped}</p>")
             continue
 
         if stripped.startswith("> "):
-            html_lines.append(f"<blockquote>{stripped[2:]}</blockquote>")
+            html_lines.append(f"<blockquote>{html_mod.escape(stripped[2:])}</blockquote>")
             continue
 
         if stripped.startswith("|") and set(stripped.replace("|", "").strip()) <= {"-", " "}:
             continue
 
         if stripped.startswith("|"):
-            cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            cells = [html_mod.escape(c.strip()) for c in stripped.split("|")[1:-1]]
             # Inline markup in cells: _italic_ -> <em>italic</em>
             cells = [re.sub(r'(?<![\w])_([^_\n]+)_(?![\w])', r'<em>\1</em>', c) for c in cells]
             if not in_table:
@@ -2020,7 +2021,7 @@ def _md_to_html(md: str) -> str:
             header_done = False
 
         if stripped.startswith("- "):
-            html_lines.append(f"<div class='warning'>{stripped}</div>")
+            html_lines.append(f"<div class='warning'>{html_mod.escape(stripped)}</div>")
             continue
 
         if not stripped:
@@ -2056,10 +2057,10 @@ def parse_wodl():
     try:
         plan = parse(wod_text)
     except Exception as e:
-        return f"<div class='error-msg'>Parser-Fehler: {e}</div>"
+        return f"<div class='error-msg'>Parser-Fehler: {html_mod.escape(str(e))}</div>"
 
     if fmt == "json":
-        return f"<pre>{to_json(plan)}</pre>"
+        return f"<pre>{html_mod.escape(to_json(plan))}</pre>"
 
     if fmt == "cycle":
         md = to_cycle_matrix(plan)
@@ -2067,22 +2068,23 @@ def parse_wodl():
 
     if fmt == "summary":
         lines = []
-        lines.append(f"<strong>Plan:</strong> {plan.name or '(unbenannt)'}<br>")
-        lines.append(f"<strong>Frequenz:</strong> {plan.frequency or '-'}<br>")
-        lines.append(f"<strong>Zyklus:</strong> {plan.cycle_length or '-'}<br>")
-        lines.append(f"<strong>Einheit:</strong> {plan.unit}<br>")
-        lines.append(f"<strong>Sessions:</strong> {len(plan.sessions)}<br><br>")
+        e = html_mod.escape
+        lines.append(f"<strong>Plan:</strong> {e(plan.name or '(unbenannt)')}<br>")
+        lines.append(f"<strong>Frequenz:</strong> {e(plan.frequency or '-')}<br>")
+        lines.append(f"<strong>Zyklus:</strong> {e(plan.cycle_length or '-')}<br>")
+        lines.append(f"<strong>Gewichtseinheit:</strong> {e(plan.unit)}<br>")
+        lines.append(f"<strong>Einheiten:</strong> {len(plan.sessions)}<br><br>")
         for session in plan.sessions:
-            days = " ".join(session.days) if session.days else ""
+            days = e(" ".join(session.days)) if session.days else ""
             ex_count = sum(
                 len(item.exercises) if hasattr(item, "exercises") else 1
                 for item in session.items
             )
-            lines.append(f"<strong>[{session.name}]</strong> {days} — {ex_count} Übungen<br>")
+            lines.append(f"<strong>[{e(session.name)}]</strong> {days} — {ex_count} Übungen<br>")
         if plan.warnings:
-            lines.append("<br><strong style='color: var(--orange)'>Warnings:</strong><br>")
+            lines.append("<br><strong style='color: var(--orange)'>Hinweise:</strong><br>")
             for w in plan.warnings:
-                lines.append(f"<div class='warning'>- {w}</div>")
+                lines.append(f"<div class='warning'>- {e(w)}</div>")
         return "".join(lines)
 
     md = to_markdown(plan)
@@ -2124,7 +2126,7 @@ def _render_progression_html(mode: str, weeks: list, total: int) -> str:
     parts.append('<div class="prog-toolbar">')
     parts.append(badge)
     parts.append('<button class="btn" onclick="progCopy(this)">Block kopieren</button>')
-    parts.append('<button class="btn" onclick="progDownload()">Download</button>')
+    parts.append('<button class="btn" onclick="progDownload()">Herunterladen</button>')
     parts.append(f'<textarea id="prog-block-raw" data-mode="{mode}" hidden>{block_raw}</textarea>')
     parts.append("</div>")
 

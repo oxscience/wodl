@@ -1,6 +1,6 @@
 @plan "Powerbuilding 5x/Woche"
-@freq 5x/week
-@cycle 4w: w1-3 progress, w4 deload
+@freq 5x/Woche
+@cycle 4w: w1-3 Aufbau, w4 Deload
 @unit kg
 
 # ============================================================
@@ -21,7 +21,7 @@
 # - Primer-Lift (schwer, niedrige Reps) + Volumen-Arbeit (moderate Reps) pro Session
 # ============================================================
 
----[Upper Heavy] Mo
+---[Oberkörper schwer] Mo
 
 Bench Press           5x3     @RPE8  r240s  +2.5kg/w
 Barbell Row           5x5     @RPE8  r180s  +2.5kg/w
@@ -29,7 +29,7 @@ OHP                   3x6     @RPE7  r150s
 Pull-up               3x8     @BW    r120s
 Tricep Pushdown       3x12    r60s
 
----[Lower Heavy] Di
+---[Unterkörper schwer] Di
 
 Squat                 5x3     @RPE8  r240s  +2.5kg/w
 RDL                   3x6     @RPE7  r180s
@@ -37,7 +37,7 @@ Leg Press             3x10    @RPE7  r120s
 Leg Curl              3x12    r90s
 Calf Raise            4x12    r60s
 
----[Upper Volume] Do
+---[Oberkörper Volumen] Do
 
 Incline Bench Press   4x8     @RPE7  r120s
 Cable Row             4x10    @RPE7  r90s
@@ -51,7 +51,7 @@ ss {
   Overhead Tricep Extension   3x12  r60s
 }
 
----[Lower Volume] Fr
+---[Unterkörper Volumen] Fr
 
 Front Squat           4x6     @RPE7  r180s
 Bulgarian Split Squat 3x10    @RPE7  r90s
@@ -60,7 +60,7 @@ Leg Curl              3x12    r60s
 Hip Thrust            3x10    @RPE7  r120s
 Calf Raise            4x15    r60s
 
----[Arms & Weaknesses] Sa
+---[Arme & Schwachstellen] Sa
 
 Barbell Curl          4x8     @RPE7  r90s
 Skull Crusher         4x10    r90s

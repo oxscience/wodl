@@ -1,6 +1,6 @@
 @plan "Hypertrophie Intermediate — Upper/Lower (Pyramid-Prinzipien)"
-@freq 4x/week
-@cycle 4w: w1-3 progress, w4 deload
+@freq 4x/Woche
+@cycle 4w: w1-3 Aufbau, w4 Deload
 @unit kg
 
 # ============================================================
@@ -50,7 +50,7 @@
 
 # ----- Upper A — schwer (6-10 Reps, Fokus Bank/Row) -----
 
----[Upper A] Mo
+---[Oberkörper A] Mo
 
 Bench Press            4x6-8    @RIR2  r180s  +1rep/w
 Barbell Row            4x6-8    @RIR2  r150s  +1rep/w
@@ -69,7 +69,7 @@ ss {
 
 # ----- Lower A — schwer (Kniebeuge-Fokus) -----
 
----[Lower A] Di
+---[Unterkörper A] Di
 
 Squat                  4x6-8    @RIR2  r180s  +1rep/w
 RDL                    3x8-10   @RIR2  r150s
@@ -80,7 +80,7 @@ Cable Crunch           3x10-15  @RIR1  r60s
 
 # ----- Upper B — Volumen (8-15 Reps, Fokus Schrägbank/vertikaler Zug) -----
 
----[Upper B] Do
+---[Oberkörper B] Do
 
 Incline Bench Press    4x8-10   @RIR2  r150s  +1rep/w
 Pull-up                3x6-10   @RIR2  r120s   # Alternativ: Lat Pulldown
@@ -97,7 +97,7 @@ ss {
 
 # ----- Lower B — Volumen (Hinge-Fokus + Einbein) -----
 
----[Lower B] Fr
+---[Unterkörper B] Fr
 
 Deadlift               3x6-8    @RIR2  r180s  +1rep/w
 Front Squat            3x8-10   @RIR2  r150s

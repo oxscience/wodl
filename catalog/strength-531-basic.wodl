@@ -1,6 +1,6 @@
 @plan "5/3/1 Grundzyklus (Wendler) — 4-Wochen-Welle"
-@freq 4x/week
-@cycle 4w: w1-3 progress, w4 deload
+@freq 4x/Woche
+@cycle 4w: w1-3 Aufbau, w4 Deload
 @unit kg
 
 # ============================================================
@@ -38,7 +38,7 @@
 
 # ----- Tag 1 — Press -----
 
----[Tag 1: Press] Mo
+---[Tag 1: Schulterdrücken] Mo
 
 OHP           1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
 OHP           1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5
@@ -51,7 +51,7 @@ Dips          5x10  @BW   r90s
 
 # ----- Tag 2 — Deadlift -----
 
----[Tag 2: Deadlift] Di
+---[Tag 2: Kreuzheben] Di
 
 Deadlift           1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
 Deadlift           1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5
@@ -64,7 +64,7 @@ Back Extension     5x10  r90s
 
 # ----- Tag 3 — Bench -----
 
----[Tag 3: Bench] Do
+---[Tag 3: Bankdrücken] Do
 
 Bench Press   1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
 Bench Press   1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5
@@ -74,7 +74,7 @@ Face Pull     3x15  r60s
 
 # ----- Tag 4 — Squat -----
 
----[Tag 4: Squat] Fr
+---[Tag 4: Kniebeuge] Fr
 
 Squat         1x5   @65%  r120s   # W2: 70% x3 | W3: 75% x5 | W4: 40% x5
 Squat         1x5   @75%  r120s   # W2: 80% x3 | W3: 85% x3 | W4: 50% x5

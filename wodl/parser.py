@@ -410,8 +410,8 @@ def parse(text: str) -> Plan:
                 # Warn about unresolved names
                 if ex.canonical_name is None and ex.raw_name:
                     plan.warnings.append(
-                        f"Unknown exercise: '{ex.raw_name}' "
-                        f"(in session '{current_session.name}')"
+                        f"Unbekannte Übung: '{ex.raw_name}' "
+                        f"(Einheit '{current_session.name}')"
                     )
 
     return plan
@@ -453,7 +453,7 @@ def to_markdown(plan: Plan) -> str:
         day_str = " ".join(session.days)
         lines.append(f"## {session.name}" + (f" \u00b7 {day_str}" if day_str else ""))
         lines.append("")
-        lines.append("| Exercise | Sets x Reps | Intensity | Rest | Notes |")
+        lines.append("| Übung | Sätze × Wdh. | Intensität | Pause | Notizen |")
         lines.append("|----------|-------------|-----------|------|-------|")
 
         def _fmt_exercise(ex: ExerciseLine, prefix: str = "") -> str:
@@ -480,12 +480,12 @@ def to_markdown(plan: Plan) -> str:
         for item in session.items:
             if isinstance(item, ExerciseGroup):
                 label = {
-                    "superset": "SS",
-                    "circuit": "Circuit",
-                    "giant": "Giant",
+                    "superset": "Supersatz",
+                    "circuit": "Zirkel",
+                    "giant": "Riesensatz",
                 }
                 for j, ex in enumerate(item.exercises):
-                    pfx = f"{label.get(item.kind, 'SS')}: " if j == 0 else "  + "
+                    pfx = f"{label.get(item.kind, 'Supersatz')}: " if j == 0 else "  + "
                     lines.append(_fmt_exercise(ex, pfx))
             else:
                 lines.append(_fmt_exercise(item))
@@ -497,7 +497,7 @@ def to_markdown(plan: Plan) -> str:
         lines.append("")
 
     if plan.warnings:
-        lines.append("### Warnings")
+        lines.append("### Hinweise")
         for w in plan.warnings:
             lines.append(f"- {w}")
 
@@ -670,7 +670,7 @@ def to_cycle_matrix(plan: Plan) -> str:
             cycle_desc += f" ({phases})"
         lines.append(f"**Zyklus:** {cycle_desc}")
     lines.append("")
-    lines.append(f"_Progression wird pro Woche automatisch angewandt. **💤 Deload** = Last -{round((1-DELOAD_LOAD_FACTOR)*100)}% vs. Vorwoche · **🔥 Intensity** = Peak-/Test-Woche · **🎯 Test** = 1RM-Testing_")
+    lines.append(f"_Progression wird pro Woche automatisch angewandt. **💤 Deload** = Last -{round((1-DELOAD_LOAD_FACTOR)*100)}% vs. Vorwoche · **🔥 Intensität** = Peak-/Test-Woche · **🎯 Test** = 1RM-Testing_")
     lines.append("")
 
     # Header-Zellen: Übung + W1, W2, ... Wn
@@ -680,7 +680,7 @@ def to_cycle_matrix(plan: Plan) -> str:
         label = f"W{w}"
         if phase == "deload":
             label += " 💤"
-        elif phase == "intensity":
+        elif phase in ("intensity", "intensität"):
             label += " 🔥"
         elif phase == "test":
             label += " 🎯"
@@ -692,7 +692,7 @@ def to_cycle_matrix(plan: Plan) -> str:
         lines.append("")
 
         # Tabellen-Header
-        header_row = "| Übung | Sets×Reps | " + " | ".join(week_headers) + " |"
+        header_row = "| Übung | Sätze×Wdh. | " + " | ".join(week_headers) + " |"
         sep_row = "|" + "|".join(["---"] * (len(week_headers) + 2)) + "|"
         lines.append(header_row)
         lines.append(sep_row)
@@ -716,7 +716,7 @@ def to_cycle_matrix(plan: Plan) -> str:
                     cell = intensity if intensity else "—"
                 # Falls reps sich durch +rep/w geändert haben, zeig es
                 if proj.get("reps") and proj["reps"] != ex.reps:
-                    cell = f"{proj['reps']} reps {cell}".strip()
+                    cell = f"{proj['reps']} Wdh. {cell}".strip()
                 cells.append(cell)
             return "| " + " | ".join(cells) + " |"
 

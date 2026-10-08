@@ -1,6 +1,6 @@
 @plan "Anfänger Full Body"
-@freq 3x/week
-@cycle 4w: w1-3 progress, w4 deload
+@freq 3x/Woche
+@cycle 4w: w1-3 Aufbau, w4 Deload
 @unit kg
 
 # ============================================================
@@ -20,7 +20,7 @@
 # - RIR 2-3 (Reps in Reserve — noch 2-3 Wiederholungen möglich) — Technik vor Last
 # ============================================================
 
----[Day A] Mo
+---[Tag A] Mo
 
 Squat                 3x8     @RPE7  r180s  +2.5kg/w
 Bench Press           3x8     @RPE7  r180s  +2.5kg/w
@@ -30,7 +30,7 @@ ss {
   Band External Rotation  3x12  r45s
 }
 
----[Day B] Mi
+---[Tag B] Mi
 
 Deadlift              2x5     @RPE7  r240s  +2.5kg/w
 OHP                   3x8     @RPE7  r150s  +1.25kg/w
@@ -38,7 +38,7 @@ Lat Pulldown          3x10    @RPE7  r120s
 Leg Curl              3x12    r90s
 Bird Dog              3x10    r45s
 
----[Day C] Fr
+---[Tag C] Fr
 
 Squat                 3x8     @RPE7  r180s  +2.5kg/w
 Incline Bench Press   3x10    @RPE7  r150s

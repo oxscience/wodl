@@ -62,7 +62,7 @@ def main(argv: list[str] | None = None) -> None:
         print(f"Frequency: {plan.frequency or '-'}")
         print(f"Cycle:     {plan.cycle_length or '-'}")
         print(f"Unit:      {plan.unit}")
-        print(f"Sessions:  {len(plan.sessions)}")
+        print(f"Einheiten: {len(plan.sessions)}")
         print()
         for session in plan.sessions:
             days = " ".join(session.days) if session.days else ""
@@ -76,7 +76,7 @@ def main(argv: list[str] | None = None) -> None:
 
         if plan.warnings:
             print()
-            print("Warnings:")
+            print("Hinweise:")
             for w in plan.warnings:
                 print(f"  - {w}")
 

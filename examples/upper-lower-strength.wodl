@@ -1,6 +1,6 @@
 @plan "Upper Lower Strength"
-@freq 4x/week
-@cycle 6w: w1-4 progress, w5 intensity, w6 deload
+@freq 4x/Woche
+@cycle 6w: w1-4 Aufbau, w5 Intensität, w6 Deload
 
 # ============================================================
 # Upper/Lower 4x/Woche — Kraft-Fokus mit 5x5.
@@ -18,7 +18,7 @@
 # UPPER A — Schwere Drückbewegungen
 # ============================================================
 
----[Upper A] Mo
+---[Oberkörper A] Mo
 
 Bench Press          5x5   @85%   r180s  +2.5kg/w
 OHP                  4x6   @80%   r120s
@@ -32,7 +32,7 @@ ss {
 # LOWER A — Schwere Kniebeuge
 # ============================================================
 
----[Lower A] Di
+---[Unterkörper A] Di
 
 Squat                5x5   @85%   r180s  +2.5kg/w
 RDL                  3x8   @RPE7  r120s
@@ -46,7 +46,7 @@ Calf Raise           4x15  r60s
 # UPPER B — Volumen
 # ============================================================
 
----[Upper B] Do
+---[Oberkörper B] Do
 
 Incline Bench Press  4x8   @RPE7  r120s
 Dumbbell OHP         3x10  @RPE7  r90s
@@ -61,7 +61,7 @@ ss {
 # LOWER B — Volumen
 # ============================================================
 
----[Lower B] Fr
+---[Unterkörper B] Fr
 
 Front Squat          4x6   @RPE7  r120s
 Deadlift             3x5   @RPE8  r180s

@@ -114,7 +114,7 @@ def _week_label(kind: str, goal: str) -> str:
         return "Deload — Volumen ↓"
     if goal == "kraft":
         return "Aufbau — Last ↑"
-    return "Aufbau — Reps ↑"
+    return "Aufbau — Wdh. ↑"
 
 
 # ---------------------------------------------------------------------------
@@ -221,7 +221,7 @@ class _ExState:
                 # Doppelprogression: Schwelle erreicht → Last hoch, Reps zurück
                 if self.load_kg is not None:
                     self.load_kg += cfg.load_increment
-                    self.note = f"Last +{cfg.load_increment:g} kg, Reps zurück auf {self.rep_start}"
+                    self.note = f"Last +{cfg.load_increment:g} kg, Wdh. zurück auf {self.rep_start}"
                 else:
                     self.note = (
                         f"Schwelle {self.threshold} erreicht: Last erhöhen "

@@ -1,5 +1,5 @@
 @plan "LBP-Reha — McGill Big 3 Protokoll"
-@freq daily
+@freq täglich
 @unit kg
 
 # ============================================================
@@ -73,7 +73,7 @@ Dead Bug              3x8     r30s           # Core-Kontrolle gegen Arm/Bein
 
 # ----- Progression zu Kraft (ab Woche 4-6, wenn schmerzfrei) -----
 
----[Strength Addition] Mo Mi
+---[Kraft-Ergänzung] Mo Mi
 
 Hip Thrust            3x10    @RPE6  r90s    # Glute-Kraft ohne Spine-Last
 Goblet Squat          3x10    @RPE6  r90s    # Neutrale Spine, kontrolliert

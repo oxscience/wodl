@@ -1,5 +1,5 @@
 @plan "Powerlifting Novize — SBD 4x/Woche (Pyramid-Prinzipien)"
-@freq 4x/week
+@freq 4x/Woche
 @unit kg
 
 # ============================================================
@@ -50,7 +50,7 @@
 
 # ----- Tag 1 — Squat schwer + Bench Volumen -----
 
----[Squat schwer] Mo
+---[Kniebeuge schwer] Mo
 
 Squat                  4x4     @RPE8  r240s  +2.5kg/w
 Bench Press            4x6     @RPE7  r180s          # Volumen-Slot, Last unter Di-Arbeitssätzen

@@ -453,6 +453,7 @@ class TestSerialization:
         assert "# PPL" in md
         assert "## Push" in md
         assert "Bankdrücken" in md  # Vorschau zeigt deutsche Namen
+        assert "| Übung | Sätze × Wdh. | Intensität | Pause | Notizen |" in md
 
 
 # ===================================================================

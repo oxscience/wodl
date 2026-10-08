@@ -1,5 +1,5 @@
 @plan "Rotator Cuff — Konservative Reha"
-@freq 5x/week
+@freq 5x/Woche
 @unit kg
 
 # ============================================================
@@ -35,7 +35,7 @@ Cat-Cow               3x10    r30s           # Thorakal-Mobilität
 # ----- Phase 2 — Isometrisches Strengthening (Woche 2-4) -----
 # Ziele: Rotator Cuff aktivieren ohne Gelenksreiz, Scapula stabilisieren.
 
----[Phase 2: Isometrics] Mo Di Mi Do Fr
+---[Phase 2: Isometrie] Mo Di Mi Do Fr
 
 Band External Rotation  3x15  @low    r45s   # Arm am Körper, leichtes Band
 Band Internal Rotation  3x15  @low    r45s
@@ -48,7 +48,7 @@ Prone T                 3x10         r45s    # Bauchlage, keine Gewichte
 # ----- Phase 3 — Progressive Kraft (Woche 4-8) -----
 # Ziele: Rotator Cuff und Skapula-Muskulatur stärken, Bewegungskontrolle.
 
----[Phase 3: Strength] Mo Mi Fr
+---[Phase 3: Kraft] Mo Mi Fr
 
 Band External Rotation  4x12  @RPE7  r60s   # Progression: +1 Bandstufe alle 2 Wochen
 Band Internal Rotation  4x12  @RPE7  r60s

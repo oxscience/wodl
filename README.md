@@ -6,8 +6,8 @@ Eine minimalistische Sprache fuer strukturierte Trainingsplaene.
 
 ```wodl
 @plan "Push Pull Legs"
-@freq 6x/week
-@cycle 4w: w1-3 progress, w4 deload
+@freq 6x/Woche
+@cycle 4w: w1-3 Aufbau, w4 Deload
 
 ---[Push] Mo Do
 
@@ -115,8 +115,8 @@ print(to_markdown(plan))   # Lesbare Tabelle
 
 ```wodl
 @plan "Plan Name"
-@freq 4x/week
-@cycle 4w: w1-3 progress, w4 deload
+@freq 4x/Woche
+@cycle 4w: w1-3 Aufbau, w4 Deload
 @unit kg
 ```
 

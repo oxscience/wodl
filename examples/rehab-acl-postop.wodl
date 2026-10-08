@@ -1,5 +1,5 @@
 @plan "ACL-Reha Post-OP (alle 4 Phasen)"
-@freq daily
+@freq täglich
 @unit kg
 
 # ============================================================
@@ -41,7 +41,7 @@ Ankle Pumps           3x20    r15s    # Gegen Thromboserisiko
 # Ziele: AROM komplett, CKC (Closed Kinetic Chain) Aufbau, Gangbild normal.
 # KEIN OKC (Open Kinetic Chain) Leg Extension 0-45° — Scherkräfte auf Graft.
 
----[Phase 2: Early Strength (Woche 2-6)] Mo Mi Fr
+---[Phase 2: Frühe Kräftigung (Woche 2-6)] Mo Mi Fr
 
 Mini Squat            3x15    r60s    # 0-45° Kniebeuge an der Wand
 Wall Sit              3x20s   r60s    # Isometrisch, schmerzfrei
@@ -58,7 +58,7 @@ Calf Raise            3x15    r30s
 # ----- Phase 3 — Progressive Kraftphase (Woche 6-12) -----
 # Ziele: Kraftaufbau Quadrizeps und Hamstrings, Propriozeption, Einbein-Kontrolle.
 
----[Phase 3: Strength (Woche 6-12)] Mo Mi Fr
+---[Phase 3: Kraft (Woche 6-12)] Mo Mi Fr
 
 Squat                 4x10    @RPE6  r120s  # Voll-ROM, Gewicht nach Toleranz
 Bulgarian Split Squat 3x10    @RPE6  r90s

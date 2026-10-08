@@ -1,5 +1,5 @@
 @plan "Anfänger-Langhantel-LP — A/B Ganzkörper 3x/Woche"
-@freq 3x/week
+@freq 3x/Woche
 @unit kg
 
 # ============================================================
@@ -33,7 +33,7 @@
 # Die Tageszuordnung rotiert mit der A/B-Alternierung:
 # Woche 1 fällt A auf Mo+Fr, Woche 2 nur auf Mi.
 
----[Workout A] Mo Fr
+---[Training A] Mo Fr
 
 Squat         3x5   r180s   # +2.5 kg pro Einheit — Squat in JEDER Einheit
 Bench Press   3x5   r180s   # +2.5 kg pro Einheit, alterniert mit OHP (Workout B)
@@ -45,7 +45,7 @@ Deadlift      1x5   r240s   # +5 kg pro Einheit, bewusst nur EIN schwerer Satz
 
 # ----- Workout B — Squat, OHP, Row -----
 
----[Workout B] Mi
+---[Training B] Mi
 
 Squat         3x5   r180s   # gleiche Progression wie in Workout A weiterführen
 OHP           3x5   r180s   # +2.5 kg; hier am frühesten auf Microplates umsteigen

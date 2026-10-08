@@ -1,5 +1,5 @@
 @plan "Patellofemorales Schmerzsyndrom: Huefte + Knie (JOSPT CPG)"
-@freq 3x/week
+@freq 3x/Woche
 @unit kg
 
 # ============================================================
@@ -36,7 +36,7 @@
 # aktivieren und kraeftigen; frontale/transversale Beckenkontrolle. Knie-Last
 # niedrig halten, damit patellofemoraler Reiz gering bleibt.
 
----[Phase 1: Huefte-dominant] Mo Mi Fr
+---[Phase 1: Hüft-dominant] Mo Mi Fr
 
 Side-Lying Hip Abduction  3x15   r45s   # posterolaterale Huefte, Fokus
 Clamshell                 3x15   r30s   # Aussenrotatoren
@@ -58,7 +58,7 @@ ss {
 # waehrend Huefte weiter gekraeftigt wird. Kombination ist der Kern der
 # Grad-A-Empfehlung. Bewegungsqualitaet (Knie-ueber-Fuss) betonen.
 
----[Phase 2: Kombiniert Huefte + Knie] Mo Mi Fr
+---[Phase 2: Kombiniert Hüfte + Knie] Mo Mi Fr
 
 Squat                 3x12   @RPE6   r90s    # geschlossene Kette, schmerzarme ROM
 Leg Press             3x12   @RPE6   r90s

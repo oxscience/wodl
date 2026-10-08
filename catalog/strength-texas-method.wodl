@@ -1,5 +1,5 @@
 @plan "Texas Method — Intermediate-Wochenzyklus"
-@freq 3x/week
+@freq 3x/Woche
 @unit kg
 
 # ============================================================
@@ -37,7 +37,7 @@
 
 # ----- Volume Day — der Stressor der Woche -----
 
----[Volume Day] Mo
+---[Volumentag] Mo
 
 Squat         5x5   @77%  r300s   # 90% des aktuellen 5RM, alle 5 Sätze gleiches Gewicht
 Bench Press   5x5   @77%  r240s   # Woche 2: stattdessen OHP 5x5 (Wochenwechsel)
@@ -50,7 +50,7 @@ Deadlift      1x5   @85%  r240s   # ein schwerer Satz, kein Volumen
 
 # ----- Recovery Day — leicht heißt leicht -----
 
----[Recovery Day] Mi
+---[Regenerationstag] Mi
 
 Squat           2x5   @62%  r180s   # 80% des Montags-Gewichts — bewusst locker
 OHP             3x5   r180s          # die "andere" Druckübung, deutlich reduziert
@@ -63,7 +63,7 @@ Back Extension  5x10  r90s           # alternativ Glute Ham Raise
 
 # ----- Intensity Day — neuer 5RM-Rekord -----
 
----[Intensity Day] Fr
+---[Intensitätstag] Fr
 
 Squat         1x5   @85%  r300s   # neues 5RM — der einzige All-out-Satz der Woche
 Bench Press   1x5   @85%  r300s   # bzw. OHP im Wochenwechsel, neues 5RM

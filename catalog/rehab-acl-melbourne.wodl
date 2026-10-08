@@ -1,5 +1,5 @@
 @plan "VKB-Reha nach dem Melbourne ACL Guide 2.0 (kriterienbasiert)"
-@freq daily
+@freq täglich
 @unit kg
 
 # ============================================================
@@ -60,7 +60,7 @@ Single Leg Balance    3x30s   r30s
 # 'mild' senken, Quadriceps wieder aktivieren. Erste 1-2 Wochen nur Basis-ROM
 # und Quad-Setting, Kompression, Hochlagern.
 
----[Phase 1: Recovery from Surgery] Mo Di Mi Do Fr Sa So
+---[Phase 1: Erholung nach der OP] Mo Di Mi Do Fr Sa So
 
 Quad Set              5x10    @ISO    # oberste Prioritaet: Quad-Ansteuerung
 Straight Leg Raise    3x10    r30s    # ohne Extension-Lag
@@ -80,7 +80,7 @@ Glute Bridge          3x10    r30s
 # wiederherstellen, Muskelkraft wiederherstellen, Single-Leg-Squat mit sauberer
 # Technik/Alignment. KEIN Lauf-/Sprungtraining - das gehoert in Phase 3.
 
----[Phase 2: Strength & Neuromuscular Control] Mo Mi Fr
+---[Phase 2: Kraft & neuromuskuläre Kontrolle] Mo Mi Fr
 
 Leg Press             4x12    @RPE7   r120s   # progressiver Kraftaufbau
 Mini Squat            3x15    r60s
@@ -108,7 +108,7 @@ Single Leg Balance    3x45s   r30s            # Propriozeption, ggf. instabile U
 # modifiziertes Spiel, volle Kraft und Balance. Fokus auf saubere Lande- und
 # Decel-Biomechanik VOR Rueckkehr zum Sport. Patellofemoral-Ueberlastung beobachten.
 
----[Phase 3: Running, Agility & Landings] Mo Mi Fr
+---[Phase 3: Laufen, Agility & Landungen] Mo Mi Fr
 
 Squat                 4x8     @RPE7   r150s   +2.5kg/w   t3010
 Leg Press             4x8     @RPE7   r120s

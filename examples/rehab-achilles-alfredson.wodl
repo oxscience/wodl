@@ -1,5 +1,5 @@
 @plan "Achilles-Tendinopathie — Alfredson Protokoll (klassisch)"
-@freq 14x/week
+@freq 14x/Woche
 @unit kg
 
 # ============================================================
@@ -56,7 +56,7 @@
 # ----- Morgens -----
 # Stufe/Treppenkante, Ferse absenken unter Niveau, 3s kontrollierte Exzentrik.
 
----[AM Session] Mo Di Mi Do Fr Sa So
+---[Morgens] Mo Di Mi Do Fr Sa So
 
 Eccentric Heel Drop    3x15   @BW   r60s   # Gastrocnemius, Knie gestreckt
 Bent-Knee Heel Drop    3x15   @BW   r60s   # Soleus, Knie leicht gebeugt
@@ -67,7 +67,7 @@ Bent-Knee Heel Drop    3x15   @BW   r60s   # Soleus, Knie leicht gebeugt
 
 # ----- Abends (gleiches Protokoll) -----
 
----[PM Session] Mo Di Mi Do Fr Sa So
+---[Abends] Mo Di Mi Do Fr Sa So
 
 Eccentric Heel Drop    3x15   @BW   r60s
 Bent-Knee Heel Drop    3x15   @BW   r60s
