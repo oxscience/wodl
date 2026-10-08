@@ -1075,7 +1075,7 @@ HTML = r"""<!DOCTYPE html>
     <button class="btn" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">🎓 Tour</button>
     <button class="btn primary" onclick="openLibrary()" id="library-btn">📚 Bibliothek</button>
     <button class="btn" onclick="toggleBranding()" id="branding-btn">Branding</button>
-    <button class="btn" onclick="copyShareLink()" id="share-btn">Link teilen</button>
+    <button class="btn" onclick="copyShareLink(this)" id="share-btn">Link teilen</button>
     <button class="btn" onclick="window.print()" id="pdf-btn">PDF exportieren</button>
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Dark/Light Mode" aria-label="Theme wechseln">&#9790;</button>
   </div>
@@ -1800,18 +1800,36 @@ HTML = r"""<!DOCTYPE html>
     localStorage.setItem('wodl_content', editor.value);
   }
 
-  function loadFromStorage() {
+  async function loadFromStorage() {
     const urlParams = new URLSearchParams(location.search);
-    if (urlParams.has('plan')) {
-      try { editor.value = decodeURIComponent(urlParams.get('plan')); return; }
-      catch(e) { /* fall through */ }
-    }
+    try {
+      if (urlParams.has('p')) { editor.value = await unpackPlan(urlParams.get('p')); return; }
+      // Alte Links (bis 10/26): Plan doppelt URL-kodiert in ?plan=
+      if (urlParams.has('plan')) { editor.value = decodeURIComponent(urlParams.get('plan')); return; }
+    } catch(e) { /* fall through */ }
     const stored = localStorage.getItem('wodl_content');
     editor.value = stored || sample;
   }
 
   // ===== Share Link =====
-  function copyShareLink() {
+  // Plan gepackt in den Link (deflate + base64url): kein Server, nichts gespeichert,
+  // ein Katalog-Plan mit 4.000 Zeichen wird ~1.500 Zeichen Link.
+  async function packPlan(text) {
+    const stream = new Blob([text]).stream().pipeThrough(new CompressionStream('deflate-raw'));
+    const bytes = new Uint8Array(await new Response(stream).arrayBuffer());
+    let bin = '';
+    for (const b of bytes) bin += String.fromCharCode(b);
+    return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+
+  async function unpackPlan(packed) {
+    const bin = atob(packed.replace(/-/g, '+').replace(/_/g, '/'));
+    const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+    return new Response(stream).text();
+  }
+
+  async function shareUrl() {
     const brand = JSON.parse(localStorage.getItem('wodl_brand') || '{}');
     const url = new URL(location.href);
     url.search = '';
@@ -1819,16 +1837,21 @@ HTML = r"""<!DOCTYPE html>
     if (brand.logo) url.searchParams.set('logo', brand.logo);
     if (brand.coach) url.searchParams.set('coach', brand.coach);
     if (brand.theme && brand.theme !== defaults.theme) url.searchParams.set('theme', brand.theme);
-    // Plan ist oft zu groß für URL — nur bei kurzen Plänen mitgeben
-    if (editor.value.length < 1500) {
-      url.searchParams.set('plan', encodeURIComponent(editor.value));
-    }
-    navigator.clipboard.writeText(url.toString()).then(() => {
-      const btn = event.target;
+    url.searchParams.set('p', await packPlan(editor.value));
+    return url.toString();
+  }
+
+  function copyShareLink(btn) {
+    const url = shareUrl();
+    // ClipboardItem mit Promise: Safari kopiert nur, wenn write() direkt im Klick startet
+    const done = window.ClipboardItem
+      ? navigator.clipboard.write([new ClipboardItem({ 'text/plain': url.then(u => new Blob([u], { type: 'text/plain' })) })])
+      : url.then(u => navigator.clipboard.writeText(u));
+    done.then(() => {
       const orig = btn.textContent;
       btn.textContent = 'Kopiert ✓';
       setTimeout(() => btn.textContent = orig, 1500);
-    });
+    }).catch(() => url.then(u => prompt('Link zum Kopieren:', u)));
   }
 
   // ===== Library =====
@@ -1916,8 +1939,7 @@ HTML = r"""<!DOCTYPE html>
   renderThemeSwatches();
   wireBrandingInputs();
   applyBrand(getBrand());
-  loadFromStorage();
-  parseAndRender();
+  loadFromStorage().then(parseAndRender);
   maybeAutoStartTour();
 </script>
 
