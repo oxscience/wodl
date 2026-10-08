@@ -17,6 +17,7 @@ from pathlib import Path
 from flask import Flask, abort, jsonify, request, render_template_string
 
 from wodl import parse, to_json, to_markdown, to_cycle_matrix
+from wodl.registry import EXERCISES
 from wodl.progression import (
     ProgressionConfig,
     block_as_text,
@@ -68,6 +69,13 @@ def _build_library() -> list[dict]:
 
 
 EXAMPLE_LIBRARY: list[dict] = _build_library()
+
+# Editor-Vorschläge: pro Übung [deutscher Name, Canonical, Aliases …].
+# Jeder Name findet den deutschen (Registry = Wörterbuch).
+EXERCISE_NAMES = [
+    [meta["de"], canonical, *meta.get("aliases", [])]
+    for canonical, meta in EXERCISES.items()
+]
 
 SAMPLE_WODL = """\
 @plan "Full Body Basics"
@@ -430,6 +438,32 @@ HTML = r"""<!DOCTYPE html>
   }
 
   textarea::placeholder { color: var(--text2); }
+
+  .ac {
+    position: fixed;
+    z-index: 50;
+    min-width: 14rem;
+    max-width: 24rem;
+    list-style: none;
+    padding: 0.25rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    font-family: var(--font);
+    font-size: 0.85rem;
+  }
+  .ac li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.3rem 0.55rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .ac li.active { background: var(--primary); color: #fff; }
+  .ac small { color: var(--text2); }
+  .ac li.active small { color: inherit; opacity: 0.8; }
 
   #output {
     flex: 1;
@@ -1126,6 +1160,7 @@ HTML = r"""<!DOCTYPE html>
       <span style="font-size:0.7rem;color:var(--text2);font-weight:400">.wodl</span>
     </div>
     <textarea id="editor" placeholder="Trainingsplan hier eingeben..." spellcheck="false"></textarea>
+    <ul id="ac" class="ac" role="listbox" hidden></ul>
   </div>
 
   <div class="panel">
@@ -1322,7 +1357,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#editor',
       title: '✏️ Editor & Syntax',
-      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Reps, RPE 8, 2 Min Pause. Deutsche Namen (Kniebeugen, Klimmzüge, Bankdrücken) werden automatisch erkannt.',
+      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Reps, RPE 8, 2 Min Pause. Tipp zwei Buchstaben, der Editor schlägt Übungen vor, auch über englische Namen: <code>squ</code> → Kniebeuge. Die Vorschau zeigt immer den deutschen Namen.',
       pos: 'right',
     },
     {
@@ -1492,12 +1527,139 @@ HTML = r"""<!DOCTYPE html>
   }
 
   editor.addEventListener('input', () => {
+    acUpdate();
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       parseAndRender();
       saveToStorage();
     }, 300);
   });
+
+  // ===== Autocomplete: Übungsnamen =====
+  // Sucht in allen Namen einer Übung (DE, EN, Kürzel), fügt den deutschen ein.
+  const EXERCISES = {{ exercises_json | safe }};
+  const ac = document.getElementById('ac');
+  let acItems = [], acIndex = 0, acStart = 0;
+
+  // Name part of the current line: letters only, caret at word end,
+  // no header/meta/note/comment line (those start with other characters).
+  function acQuery() {
+    const pos = editor.selectionStart;
+    if (pos !== editor.selectionEnd) return null;
+    const next = editor.value[pos];
+    if (next && !/\s/.test(next)) return null;
+    const lineStart = editor.value.lastIndexOf('\n', pos - 1) + 1;
+    const m = editor.value.slice(lineStart, pos).match(/^(\s*)([A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß' .\-]*)$/);
+    if (!m || m[2].trim().length < 2) return null;
+    return { start: lineStart + m[1].length, text: m[2] };
+  }
+
+  // Rank: name starts with query > a word starts with it > inside a compound;
+  // on each level the German name beats a match via English/alias.
+  function acMatches(q) {
+    q = q.toLowerCase();
+    const hits = [];
+    for (const names of EXERCISES) {
+      let best = 9, via = '';
+      names.forEach((n, i) => {
+        const l = n.toLowerCase();
+        const level = l.startsWith(q) ? 0
+          : (l.includes(' ' + q) || l.includes('-' + q)) ? 1
+          : (q.length >= 3 && l.includes(q)) ? 2 : 9;
+        const score = level * 2 + (i === 0 ? 0 : 1);
+        if (score < best) { best = score; via = n; }
+      });
+      if (best < 9) hits.push({ de: names[0], via, score: best });
+    }
+    hits.sort((a, b) => a.score - b.score || a.de.length - b.de.length || a.de.localeCompare(b.de, 'de'));
+    return hits.slice(0, 8);
+  }
+
+  function acUpdate() {
+    const q = acQuery();
+    acItems = q ? acMatches(q.text) : [];
+    if (q && acItems[0]?.de === q.text) acItems = [];  // already typed in full
+    if (!acItems.length) return acHide();
+    acStart = q.start;
+    acIndex = 0;
+    acRender();
+  }
+
+  function acRender() {
+    ac.innerHTML = acItems.map((h, i) =>
+      `<li role="option" data-i="${i}"${i === acIndex ? ' class="active"' : ''}>` +
+      `<span>${h.de}</span>${h.via !== h.de ? `<small>${h.via}</small>` : ''}</li>`
+    ).join('');
+    ac.hidden = false;
+    const { x, y, lh } = caretXY(editor.selectionStart);
+    const below = y + ac.offsetHeight < window.innerHeight - 8;
+    ac.style.left = Math.max(8, Math.min(x, window.innerWidth - ac.offsetWidth - 8)) + 'px';
+    ac.style.top = (below ? y + 2 : y - lh - ac.offsetHeight - 2) + 'px';
+  }
+
+  function acHide() { ac.hidden = true; acItems = []; }
+
+  function acAccept(i) {
+    const text = acItems[i].de + ' ';
+    editor.focus();
+    editor.setSelectionRange(acStart, editor.selectionStart);
+    // execCommand keeps native undo (Cmd+Z); fallback for browsers without it
+    if (!document.execCommand('insertText', false, text)) {
+      editor.setRangeText(text, acStart, editor.selectionEnd, 'end');
+      editor.dispatchEvent(new Event('input'));
+    }
+    acHide();
+  }
+
+  // Caret position in viewport pixels via a hidden mirror of the textarea
+  function caretXY(pos) {
+    const cs = getComputedStyle(editor);
+    const div = document.createElement('div');
+    for (const p of ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing',
+                     'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'tabSize']) {
+      div.style[p] = cs[p];
+    }
+    Object.assign(div.style, {
+      position: 'absolute', visibility: 'hidden', top: '0', left: '0',
+      boxSizing: 'border-box', width: editor.clientWidth + 'px',
+      whiteSpace: 'pre-wrap', overflowWrap: 'break-word',
+    });
+    div.textContent = editor.value.slice(0, pos);
+    const mark = document.createElement('span');
+    mark.textContent = '\u200b';
+    div.appendChild(mark);
+    document.body.appendChild(div);
+    const r = editor.getBoundingClientRect();
+    const lh = mark.offsetHeight;
+    const x = r.left + mark.offsetLeft - editor.scrollLeft;
+    const y = r.top + mark.offsetTop - editor.scrollTop + lh;
+    div.remove();
+    return { x, y, lh };
+  }
+
+  editor.addEventListener('keydown', (e) => {
+    if (ac.hidden || e.isComposing) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      acIndex = (acIndex + (e.key === 'ArrowDown' ? 1 : -1) + acItems.length) % acItems.length;
+      acRender();
+    } else if (e.key === 'Enter' || e.key === 'Tab') {
+      e.preventDefault();
+      acAccept(acIndex);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      acHide();
+    }
+  });
+  ac.addEventListener('pointerdown', (e) => {
+    e.preventDefault();  // keep focus in the editor
+    const li = e.target.closest('li');
+    if (li) acAccept(+li.dataset.i);
+  });
+  editor.addEventListener('blur', acHide);
+  editor.addEventListener('click', acHide);
+  editor.addEventListener('scroll', acHide);
+  window.addEventListener('resize', acHide);
 
   // ===== Branding =====
   const BRAND_KEYS = ['primary', 'logo', 'coach', 'client', 'theme'];
@@ -1851,6 +2013,7 @@ def index():
         HTML,
         sample_json=json.dumps(SAMPLE_WODL),
         themes_json=json.dumps(THEMES),
+        exercises_json=json.dumps(EXERCISE_NAMES, ensure_ascii=False),
         initial_output=initial_html,
     )
 

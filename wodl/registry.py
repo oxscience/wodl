@@ -1,7 +1,8 @@
 """
 Exercise Registry — Kanonische Uebungsnamen mit Aliases.
 
-Jede Uebung hat einen englischen Canonical Name.
+Jede Uebung hat einen englischen Canonical Name und einen deutschen
+Anzeigenamen (`de`), der in Vorschau und Editor-Vorschlaegen erscheint.
 Deutsche Namen, Kurzformen und haeufige Tippfehler werden
 automatisch auf den kanonischen Namen aufgeloest.
 """
@@ -14,6 +15,7 @@ from __future__ import annotations
 EXERCISES: dict[str, dict] = {
     # --- Chest ---
     "Bench Press": {
+        "de": "Bankdrücken",
         "muscles": ["chest", "triceps", "front_delt"],
         "category": "compound",
         "equipment": "barbell",
@@ -23,6 +25,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Incline Bench Press": {
+        "de": "Schrägbankdrücken",
         "muscles": ["upper_chest", "triceps", "front_delt"],
         "category": "compound",
         "equipment": "barbell",
@@ -32,6 +35,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Dumbbell Bench Press": {
+        "de": "Kurzhantel-Bankdrücken",
         "muscles": ["chest", "triceps", "front_delt"],
         "category": "compound",
         "equipment": "dumbbell",
@@ -41,6 +45,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Incline DB Press": {
+        "de": "Kurzhantel-Schrägbankdrücken",
         "muscles": ["upper_chest", "triceps", "front_delt"],
         "category": "compound",
         "equipment": "dumbbell",
@@ -50,12 +55,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Dip": {
+        "de": "Dips",
         "muscles": ["chest", "triceps", "front_delt"],
         "category": "compound",
         "equipment": "bodyweight",
         "aliases": ["Dips", "Chest Dip", "Brust-Dip"],
     },
     "Cable Fly": {
+        "de": "Kabelzug-Fliegende",
         "muscles": ["chest"],
         "category": "isolation",
         "equipment": "cable",
@@ -64,6 +71,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Incline DB Fly": {
+        "de": "Schrägbank-Fliegende",
         "muscles": ["upper_chest"],
         "category": "isolation",
         "equipment": "dumbbell",
@@ -73,6 +81,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Push-up": {
+        "de": "Liegestütz",
         "muscles": ["chest", "triceps", "front_delt"],
         "category": "compound",
         "equipment": "bodyweight",
@@ -81,6 +90,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Back ---
     "Deadlift": {
+        "de": "Kreuzheben",
         "muscles": ["back", "glutes", "hamstrings"],
         "category": "compound",
         "equipment": "barbell",
@@ -89,12 +99,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Sumo Deadlift": {
+        "de": "Sumo-Kreuzheben",
         "muscles": ["back", "glutes", "quads"],
         "category": "compound",
         "equipment": "barbell",
         "aliases": ["Sumo DL", "Sumo Kreuzheben"],
     },
     "RDL": {
+        "de": "Rumänisches Kreuzheben",
         "muscles": ["hamstrings", "glutes", "lower_back"],
         "category": "compound",
         "equipment": "barbell",
@@ -104,6 +116,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Barbell Row": {
+        "de": "Langhantel-Rudern",
         "muscles": ["back", "biceps", "rear_delt"],
         "category": "compound",
         "equipment": "barbell",
@@ -113,6 +126,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Dumbbell Row": {
+        "de": "Kurzhantel-Rudern",
         "muscles": ["back", "biceps", "rear_delt"],
         "category": "compound",
         "equipment": "dumbbell",
@@ -122,6 +136,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Pull-up": {
+        "de": "Klimmzug",
         "muscles": ["back", "biceps"],
         "category": "compound",
         "equipment": "bodyweight",
@@ -131,12 +146,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Chin-up": {
+        "de": "Klimmzug im Untergriff",
         "muscles": ["back", "biceps"],
         "category": "compound",
         "equipment": "bodyweight",
         "aliases": ["Chinup", "Chin Up"],
     },
     "Lat Pulldown": {
+        "de": "Latzug",
         "muscles": ["back", "biceps"],
         "category": "compound",
         "equipment": "cable",
@@ -145,6 +162,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Cable Row": {
+        "de": "Kabelrudern",
         "muscles": ["back", "biceps", "rear_delt"],
         "category": "compound",
         "equipment": "cable",
@@ -153,6 +171,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "T-Bar Row": {
+        "de": "T-Bar-Rudern",
         "muscles": ["back", "biceps", "rear_delt"],
         "category": "compound",
         "equipment": "barbell",
@@ -161,6 +180,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Shoulders ---
     "OHP": {
+        "de": "Schulterdrücken",
         "muscles": ["front_delt", "triceps"],
         "category": "compound",
         "equipment": "barbell",
@@ -170,6 +190,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Dumbbell OHP": {
+        "de": "Kurzhantel-Schulterdrücken",
         "muscles": ["front_delt", "triceps"],
         "category": "compound",
         "equipment": "dumbbell",
@@ -179,6 +200,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Lateral Raise": {
+        "de": "Seitheben",
         "muscles": ["side_delt"],
         "category": "isolation",
         "equipment": "dumbbell",
@@ -188,12 +210,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Face Pull": {
+        "de": "Face Pull",
         "muscles": ["rear_delt", "rotator_cuff"],
         "category": "isolation",
         "equipment": "cable",
         "aliases": ["Facepull", "Face Pulls"],
     },
     "Rear Delt Fly": {
+        "de": "Vorgebeugtes Seitheben",
         "muscles": ["rear_delt"],
         "category": "isolation",
         "equipment": "dumbbell",
@@ -203,12 +227,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Shrug": {
+        "de": "Schulterheben",
         "muscles": ["traps"],
         "category": "isolation",
         "equipment": "barbell",
         "aliases": ["Shrugs", "BB Shrug", "Schulterheben"],
     },
     "Upright Row": {
+        "de": "Aufrechtes Rudern",
         "muscles": ["traps", "side_delt"],
         "category": "compound",
         "equipment": "barbell",
@@ -217,6 +243,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Arms ---
     "Barbell Curl": {
+        "de": "Langhantel-Curl",
         "muscles": ["biceps"],
         "category": "isolation",
         "equipment": "barbell",
@@ -226,30 +253,35 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Dumbbell Curl": {
+        "de": "Kurzhantel-Curl",
         "muscles": ["biceps"],
         "category": "isolation",
         "equipment": "dumbbell",
         "aliases": ["DB Curl", "KH Curl", "Kurzhantel Curl"],
     },
     "Hammer Curl": {
+        "de": "Hammer-Curl",
         "muscles": ["biceps", "brachialis"],
         "category": "isolation",
         "equipment": "dumbbell",
         "aliases": ["Hammercurl", "Hammer Curls"],
     },
     "Preacher Curl": {
+        "de": "Scott-Curl",
         "muscles": ["biceps"],
         "category": "isolation",
         "equipment": "barbell",
         "aliases": ["Scott Curl", "Larry Curl"],
     },
     "Incline Curl": {
+        "de": "Schrägbank-Curl",
         "muscles": ["biceps"],
         "category": "isolation",
         "equipment": "dumbbell",
         "aliases": ["Incline DB Curl", "Incline Dumbbell Curl", "Schrägbank Curl"],
     },
     "Tricep Pushdown": {
+        "de": "Trizepsdrücken",
         "muscles": ["triceps"],
         "category": "isolation",
         "equipment": "cable",
@@ -259,6 +291,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Overhead Tricep Extension": {
+        "de": "Überkopf-Trizepsstrecken",
         "muscles": ["triceps"],
         "category": "isolation",
         "equipment": "cable",
@@ -268,6 +301,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Skull Crusher": {
+        "de": "Stirndrücken",
         "muscles": ["triceps"],
         "category": "isolation",
         "equipment": "barbell",
@@ -279,6 +313,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Legs ---
     "Squat": {
+        "de": "Kniebeuge",
         "muscles": ["quads", "glutes", "hamstrings"],
         "category": "compound",
         "equipment": "barbell",
@@ -288,18 +323,21 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Front Squat": {
+        "de": "Frontkniebeuge",
         "muscles": ["quads", "glutes", "core"],
         "category": "compound",
         "equipment": "barbell",
         "aliases": ["Frontkniebeuge", "Front Kniebeuge"],
     },
     "Leg Press": {
+        "de": "Beinpresse",
         "muscles": ["quads", "glutes"],
         "category": "compound",
         "equipment": "machine",
         "aliases": ["Beinpresse", "LP"],
     },
     "Leg Extension": {
+        "de": "Beinstrecker",
         "muscles": ["quads"],
         "category": "isolation",
         "equipment": "machine",
@@ -308,6 +346,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Leg Curl": {
+        "de": "Beinbeuger",
         "muscles": ["hamstrings"],
         "category": "isolation",
         "equipment": "machine",
@@ -317,6 +356,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Bulgarian Split Squat": {
+        "de": "Bulgarische Kniebeuge",
         "muscles": ["quads", "glutes"],
         "category": "compound",
         "equipment": "dumbbell",
@@ -326,18 +366,21 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Lunge": {
+        "de": "Ausfallschritt",
         "muscles": ["quads", "glutes"],
         "category": "compound",
         "equipment": "dumbbell",
         "aliases": ["Lunges", "Ausfallschritt", "Ausfallschritte"],
     },
     "Hip Thrust": {
+        "de": "Hip Thrust",
         "muscles": ["glutes", "hamstrings"],
         "category": "compound",
         "equipment": "barbell",
         "aliases": ["Hüftheben", "Hueftheben", "BB Hip Thrust"],
     },
     "Calf Raise": {
+        "de": "Wadenheben",
         "muscles": ["calves"],
         "category": "isolation",
         "equipment": "machine",
@@ -348,6 +391,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Hack Squat": {
+        "de": "Hackenschmidt",
         "muscles": ["quads", "glutes"],
         "category": "compound",
         "equipment": "machine",
@@ -356,12 +400,14 @@ EXERCISES: dict[str, dict] = {
 
     # --- Core ---
     "Plank": {
+        "de": "Unterarmstütz",
         "muscles": ["core"],
         "category": "isolation",
         "equipment": "bodyweight",
         "aliases": ["Unterarmstütz", "Unterarmstuetz"],
     },
     "Hanging Leg Raise": {
+        "de": "Hängendes Beinheben",
         "muscles": ["core", "hip_flexors"],
         "category": "isolation",
         "equipment": "bodyweight",
@@ -371,18 +417,21 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Cable Crunch": {
+        "de": "Kabelzug-Crunch",
         "muscles": ["core"],
         "category": "isolation",
         "equipment": "cable",
         "aliases": ["Kabel Crunch", "Kabelzug Crunch"],
     },
     "Ab Wheel Rollout": {
+        "de": "Bauchroller",
         "muscles": ["core"],
         "category": "isolation",
         "equipment": "other",
         "aliases": ["Ab Wheel", "Rollout", "Ab Roller"],
     },
     "Mountain Climber": {
+        "de": "Bergsteiger",
         "muscles": ["core", "hip_flexors"],
         "category": "isolation",
         "equipment": "bodyweight",
@@ -391,12 +440,14 @@ EXERCISES: dict[str, dict] = {
 
     # --- Cardio / Conditioning ---
     "Rowing Machine": {
+        "de": "Rudergerät",
         "muscles": ["full_body"],
         "category": "cardio",
         "equipment": "machine",
         "aliases": ["Rudergerät", "Rudergeraet", "Rower", "Erg"],
     },
     "Assault Bike": {
+        "de": "Air Bike",
         "muscles": ["full_body"],
         "category": "cardio",
         "equipment": "machine",
@@ -411,30 +462,35 @@ EXERCISES: dict[str, dict] = {
 
     # --- Knee Rehab ---
     "Quad Set": {
+        "de": "Quadrizeps-Anspannung",
         "muscles": ["quads"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Quad Sets", "Quadrizeps-Anspannung", "Quad Contraction", "VMO Set"],
     },
     "Straight Leg Raise": {
+        "de": "Gestrecktes Beinheben",
         "muscles": ["quads", "hip_flexors"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["SLR", "Gestrecktes Beinheben", "Aktives Beinheben"],
     },
     "Terminal Knee Extension": {
+        "de": "Knie-Endstreckung",
         "muscles": ["quads"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["TKE", "Knie-Endstreckung", "Endstreckung Knie"],
     },
     "Heel Slide": {
+        "de": "Fersenrutschen",
         "muscles": ["hamstrings", "knee_rom"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Heel Slides", "Fersenrutschen", "Knieflexion-Slide"],
     },
     "Mini Squat": {
+        "de": "Teilkniebeuge",
         "muscles": ["quads", "glutes"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -444,42 +500,49 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Wall Sit": {
+        "de": "Wandsitz",
         "muscles": ["quads", "glutes"],
         "category": "isometric",
         "equipment": "bodyweight",
         "aliases": ["Wall Squat", "Wandsitz"],
     },
     "Step-up": {
+        "de": "Step-up",
         "muscles": ["quads", "glutes"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Step Up", "Stepups", "Aufsteiger"],
     },
     "Step-down": {
+        "de": "Step-down",
         "muscles": ["quads", "glutes"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Step Down", "Stepdowns", "Absteiger"],
     },
     "Single Leg Bridge": {
+        "de": "Einbeinige Hüftbrücke",
         "muscles": ["glutes", "hamstrings"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["SL Bridge", "Einbeinige Brücke", "One-Leg Bridge"],
     },
     "Glute Bridge": {
+        "de": "Hüftbrücke",
         "muscles": ["glutes", "hamstrings"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Bridge", "Hüftbrücke", "Hip Bridge", "Bridging"],
     },
     "Clamshell": {
+        "de": "Clamshell",
         "muscles": ["glute_med", "hip_abductors"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["Clamshells", "Muschel", "Hip Clamshell"],
     },
     "Side-Lying Hip Abduction": {
+        "de": "Hüftabduktion in Seitenlage",
         "muscles": ["glute_med", "hip_abductors"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -489,6 +552,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Single Leg Balance": {
+        "de": "Einbeinstand",
         "muscles": ["proprioception"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -500,18 +564,21 @@ EXERCISES: dict[str, dict] = {
 
     # --- Shoulder Rehab ---
     "Pendulum": {
+        "de": "Pendelübung",
         "muscles": ["shoulder_rom"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Pendelübung", "Pendulum Exercise", "Codman Pendulum"],
     },
     "Wall Walk": {
+        "de": "Wandklettern",
         "muscles": ["shoulder_rom", "front_delt"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Wall Climb", "Finger Walk", "Wandklettern"],
     },
     "Band External Rotation": {
+        "de": "Außenrotation mit Band",
         "muscles": ["rotator_cuff", "infraspinatus", "teres_minor"],
         "category": "rehab",
         "equipment": "band",
@@ -521,6 +588,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Band Internal Rotation": {
+        "de": "Innenrotation mit Band",
         "muscles": ["rotator_cuff", "subscapularis"],
         "category": "rehab",
         "equipment": "band",
@@ -530,6 +598,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Scapular Retraction": {
+        "de": "Schulterblatt-Retraktion",
         "muscles": ["rhomboids", "mid_traps"],
         "category": "rehab",
         "equipment": "band",
@@ -539,24 +608,28 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Prone Y": {
+        "de": "Y-Heben in Bauchlage",
         "muscles": ["lower_traps", "rotator_cuff"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Y Raise", "Prone Y Raise", "Bauchlage Y"],
     },
     "Prone T": {
+        "de": "T-Heben in Bauchlage",
         "muscles": ["mid_traps", "rear_delt"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["T Raise", "Prone T Raise", "Bauchlage T"],
     },
     "Prone W": {
+        "de": "W-Heben in Bauchlage",
         "muscles": ["rotator_cuff", "mid_traps"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["W Raise", "Prone W Raise", "Bauchlage W"],
     },
     "Full Can Raise": {
+        "de": "Full Can",
         "muscles": ["supraspinatus", "side_delt"],
         "category": "rehab",
         "equipment": "dumbbell",
@@ -565,12 +638,14 @@ EXERCISES: dict[str, dict] = {
 
     # --- Low Back / Core Rehab (McGill Big 3 + progression) ---
     "McGill Curl-up": {
+        "de": "McGill Curl-up",
         "muscles": ["rectus_abdominis"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Curl-up", "Modified Curl-up", "McGill Curl Up"],
     },
     "Side Plank": {
+        "de": "Seitstütz",
         "muscles": ["obliques", "qlm", "core"],
         "category": "isometric",
         "equipment": "bodyweight",
@@ -580,6 +655,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Bird Dog": {
+        "de": "Bird Dog",
         "muscles": ["erectors", "glutes", "core"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -589,12 +665,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Dead Bug": {
+        "de": "Dead Bug",
         "muscles": ["core", "transverse_abdominis"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Dead-Bug", "Toter Käfer", "Dying Bug"],
     },
     "Cat-Cow": {
+        "de": "Katze-Kuh",
         "muscles": ["spine_mobility"],
         "category": "mobility",
         "equipment": "bodyweight",
@@ -603,6 +681,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Achilles / Calf Rehab (Alfredson Protocol) ---
     "Eccentric Heel Drop": {
+        "de": "Exzentrisches Fersensenken",
         "muscles": ["gastrocnemius", "achilles_tendon"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -612,6 +691,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Bent-Knee Heel Drop": {
+        "de": "Fersensenken mit gebeugtem Knie",
         "muscles": ["soleus", "achilles_tendon"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -621,6 +701,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Single-Leg Calf Raise": {
+        "de": "Einbeiniges Wadenheben",
         "muscles": ["calves"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -630,6 +711,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Isometric Calf Hold": {
+        "de": "Isometrisches Wadenheben",
         "muscles": ["calves", "achilles_tendon"],
         "category": "isometric",
         "equipment": "bodyweight",
@@ -638,30 +720,35 @@ EXERCISES: dict[str, dict] = {
 
     # --- Zusätzliche Reha / Plyo / Funktionell ---
     "Ankle Pumps": {
+        "de": "Fußwippe",
         "muscles": ["calves", "circulation"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Ankle Pump", "Fußwippe", "Sprunggelenkspumpe"],
     },
     "Box Jump": {
+        "de": "Kastensprung",
         "muscles": ["quads", "glutes", "calves"],
         "category": "plyometric",
         "equipment": "box",
         "aliases": ["Box Jumps", "Kastensprung", "Kastensprünge"],
     },
     "Lateral Bound": {
+        "de": "Seitwärtssprung",
         "muscles": ["glutes", "quads", "hip_abductors"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Lateral Bounds", "Seitwärtssprung", "Side Bound"],
     },
     "Goblet Squat": {
+        "de": "Goblet-Kniebeuge",
         "muscles": ["quads", "glutes", "core"],
         "category": "compound",
         "equipment": "dumbbell",
         "aliases": ["Goblet Kniebeuge", "DB Goblet Squat", "KH Goblet Squat"],
     },
     "Isometric Shoulder Hold": {
+        "de": "Isometrisches Schulterhalten",
         "muscles": ["rotator_cuff", "front_delt"],
         "category": "isometric",
         "equipment": "bodyweight",
@@ -679,6 +766,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Strength & Conditioning Klassiker ---
     "Close Grip Bench Press": {
+        "de": "Enges Bankdrücken",
         "muscles": ["triceps", "chest"],
         "category": "compound",
         "equipment": "barbell",
@@ -688,6 +776,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Back Extension": {
+        "de": "Rückenstrecken",
         "muscles": ["erectors", "glutes", "hamstrings"],
         "category": "isolation",
         "equipment": "bodyweight",
@@ -697,60 +786,70 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Dumbbell Pullover": {
+        "de": "Überzüge",
         "muscles": ["chest", "lats"],
         "category": "isolation",
         "equipment": "dumbbell",
         "aliases": ["DB Pullover", "Pullover", "Überzüge", "Ueberzuege"],
     },
     "Trap Bar Deadlift": {
+        "de": "Trapbar-Kreuzheben",
         "muscles": ["back", "glutes", "quads"],
         "category": "compound",
         "equipment": "barbell",
         "aliases": ["Hex Bar Deadlift", "Trap Bar DL", "Trapbar-Kreuzheben"],
     },
     "Power Clean": {
+        "de": "Umsetzen",
         "muscles": ["quads", "glutes", "traps"],
         "category": "compound",
         "equipment": "barbell",
         "aliases": ["Power Cleans", "Umsetzen", "Standumsetzen"],
     },
     "Push Press": {
+        "de": "Schwungdrücken",
         "muscles": ["front_delt", "triceps", "quads"],
         "category": "compound",
         "equipment": "barbell",
         "aliases": ["Push-Press", "Schwungdrücken", "Schwungdruecken"],
     },
     "Jump Squat": {
+        "de": "Sprungkniebeuge",
         "muscles": ["quads", "glutes"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Jump Squats", "Squat Jump", "Sprungkniebeuge"],
     },
     "Jumping Chin-up": {
+        "de": "Sprungklimmzug",
         "muscles": ["back", "biceps"],
         "category": "compound",
         "equipment": "bodyweight",
         "aliases": ["Jumping Chin Up", "Jumping Pull-up", "Sprungklimmzug"],
     },
     "Sit-up": {
+        "de": "Sit-up",
         "muscles": ["core", "hip_flexors"],
         "category": "isolation",
         "equipment": "bodyweight",
         "aliases": ["Situp", "Sit Up", "Sit-ups", "Situps", "Rumpfbeugen"],
     },
     "Pallof Press": {
+        "de": "Pallof Press",
         "muscles": ["core", "obliques"],
         "category": "isometric",
         "equipment": "cable",
         "aliases": ["Palloff Press", "Pallof-Press", "Anti-Rotation Press"],
     },
     "Reverse Curl": {
+        "de": "Curl im Obergriff",
         "muscles": ["brachioradialis", "forearms"],
         "category": "isolation",
         "equipment": "barbell",
         "aliases": ["Reverse Curls", "Reverse Barbell Curl", "Reverse-Curl"],
     },
     "Lateral Lunge": {
+        "de": "Seitlicher Ausfallschritt",
         "muscles": ["adductors", "quads", "glutes"],
         "category": "compound",
         "equipment": "bodyweight",
@@ -759,6 +858,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Cable Hip Adduction": {
+        "de": "Kabelzug-Adduktion",
         "muscles": ["adductors"],
         "category": "isolation",
         "equipment": "cable",
@@ -767,6 +867,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Prevention (Nordic / Copenhagen / Groin) ---
     "Nordic Hamstring Curl": {
+        "de": "Nordic Hamstring Curl",
         "muscles": ["hamstrings"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -776,6 +877,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Copenhagen Adduction": {
+        "de": "Kopenhagen-Adduktion",
         "muscles": ["adductors", "core"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -785,6 +887,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Adductor Squeeze": {
+        "de": "Adduktorenpressen",
         "muscles": ["adductors"],
         "category": "isometric",
         "equipment": "bodyweight",
@@ -796,42 +899,49 @@ EXERCISES: dict[str, dict] = {
 
     # --- Plyometrie / Return-to-Sport ---
     "Broad Jump": {
+        "de": "Standweitsprung",
         "muscles": ["glutes", "quads"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Broad Jumps", "Standing Long Jump", "Standweitsprung"],
     },
     "Depth Jump": {
+        "de": "Tiefsprung",
         "muscles": ["quads", "glutes", "calves"],
         "category": "plyometric",
         "equipment": "box",
         "aliases": ["Depth Jumps", "Drop Jump", "Tiefsprung"],
     },
     "Vertical Jump": {
+        "de": "Vertikalsprung",
         "muscles": ["quads", "glutes", "calves"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Countermovement Jump", "CMJ", "Vertikalsprung"],
     },
     "Single-Leg Hop": {
+        "de": "Einbeinsprung",
         "muscles": ["calves", "quads", "glutes"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Single Leg Hop", "SL Hop", "Einbeinsprung"],
     },
     "Double-Leg Hop": {
+        "de": "Beidbeinsprung",
         "muscles": ["calves", "quads"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Double Leg Hop", "Beidbeinsprung"],
     },
     "Pogo Hop": {
+        "de": "Pogo-Sprung",
         "muscles": ["calves"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Pogo Hops", "Pogos", "Pogo-Sprünge", "Pogo-Spruenge"],
     },
     "Bound": {
+        "de": "Sprunglauf",
         "muscles": ["glutes", "hamstrings"],
         "category": "plyometric",
         "equipment": "bodyweight",
@@ -840,18 +950,21 @@ EXERCISES: dict[str, dict] = {
 
     # --- Hamstring Rehab (Askling L-Protokoll) ---
     "Extender": {
+        "de": "Askling Extender",
         "muscles": ["hamstrings"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["The Extender", "Askling Extender"],
     },
     "Diver": {
+        "de": "Askling Diver",
         "muscles": ["hamstrings", "glutes"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["The Diver", "Askling Diver"],
     },
     "Glider": {
+        "de": "Askling Glider",
         "muscles": ["hamstrings", "adductors"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -860,6 +973,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Balance & Gangschule (Otago, Sturzprävention) ---
     "Sit to Stand": {
+        "de": "Aufstehen vom Stuhl",
         "muscles": ["quads", "glutes"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -868,6 +982,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Wobble Board Balance": {
+        "de": "Wackelbrett",
         "muscles": ["proprioception"],
         "category": "rehab",
         "equipment": "other",
@@ -877,12 +992,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Tandem Stance": {
+        "de": "Tandemstand",
         "muscles": ["proprioception"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Tandemstand", "Heel-to-Toe Stance"],
     },
     "Tandem Walk": {
+        "de": "Tandemgang",
         "muscles": ["proprioception"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -891,18 +1008,21 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Heel Walking": {
+        "de": "Fersengang",
         "muscles": ["tibialis_anterior"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Heel Walk", "Fersengang"],
     },
     "Toe Walking": {
+        "de": "Zehenspitzengang",
         "muscles": ["calves"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Toe Walk", "Zehengang", "Zehenspitzengang"],
     },
     "Backwards Walking": {
+        "de": "Rückwärtsgehen",
         "muscles": ["full_body"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -911,12 +1031,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Sideways Walking": {
+        "de": "Seitwärtsgehen",
         "muscles": ["glute_med"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Side Stepping", "Seitwärtsgehen", "Seitwaertsgehen"],
     },
     "Figure-Eight Walk": {
+        "de": "Achtergang",
         "muscles": ["proprioception"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -925,12 +1047,14 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Toe Raise": {
+        "de": "Zehenheben",
         "muscles": ["tibialis_anterior"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Toe Raises", "Tibialis Raise", "Zehenheben"],
     },
     "Lateral Band Walk": {
+        "de": "Seitwärtsgehen mit Band",
         "muscles": ["glute_med", "hip_abductors"],
         "category": "rehab",
         "equipment": "band",
@@ -942,6 +1066,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Sprunggelenk (Ankle Sprain / Achilles-Ruptur) ---
     "Ankle Plantarflexion": {
+        "de": "Aktive Plantarflexion",
         "muscles": ["calves"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -951,6 +1076,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Ankle Dorsiflexion": {
+        "de": "Aktive Dorsalextension",
         "muscles": ["tibialis_anterior"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -960,48 +1086,56 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Ankle Inversion": {
+        "de": "Aktive Inversion",
         "muscles": ["tibialis_posterior"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Active Inversion", "Inversion", "Aktive Inversion"],
     },
     "Ankle Eversion": {
+        "de": "Aktive Eversion",
         "muscles": ["peroneals"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Active Eversion", "Eversion", "Aktive Eversion"],
     },
     "Band Plantarflexion": {
+        "de": "Plantarflexion mit Band",
         "muscles": ["calves"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["Theraband Plantarflexion", "Plantarflexion mit Band"],
     },
     "Band Dorsiflexion": {
+        "de": "Dorsalextension mit Band",
         "muscles": ["tibialis_anterior"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["Theraband Dorsalextension", "Dorsalextension mit Band"],
     },
     "Band Inversion": {
+        "de": "Inversion mit Band",
         "muscles": ["tibialis_posterior"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["Theraband Inversion", "Inversion mit Band"],
     },
     "Band Eversion": {
+        "de": "Eversion mit Band",
         "muscles": ["peroneals"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["Theraband Eversion", "Eversion mit Band"],
     },
     "Ankle Circles": {
+        "de": "Fußkreisen",
         "muscles": ["ankle_rom"],
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": ["Ankle Circle", "Fußkreisen", "Fusskreisen"],
     },
     "Ankle Alphabet": {
+        "de": "Fuß-Alphabet",
         "muscles": ["ankle_rom"],
         "category": "mobility",
         "equipment": "bodyweight",
@@ -1010,6 +1144,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Achilles / Wade / Fuß (Silbernagel, Plantarfasziitis) ---
     "Quick Rebounding Toe Raise": {
+        "de": "Federndes Wadenheben",
         "muscles": ["calves", "achilles_tendon"],
         "category": "plyometric",
         "equipment": "bodyweight",
@@ -1019,6 +1154,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Seated Eccentric Calf Raise": {
+        "de": "Sitzendes exzentrisches Wadenheben",
         "muscles": ["soleus", "achilles_tendon"],
         "category": "rehab",
         "equipment": "machine",
@@ -1028,6 +1164,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Calf Stretch": {
+        "de": "Wadendehnung",
         "muscles": ["calves"],
         "category": "mobility",
         "equipment": "bodyweight",
@@ -1036,6 +1173,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Towel Scrunch": {
+        "de": "Zehenkrallen",
         "muscles": ["foot_intrinsics"],
         "category": "rehab",
         "equipment": "other",
@@ -1047,12 +1185,14 @@ EXERCISES: dict[str, dict] = {
 
     # --- Knie-OA / Neuromuskulärer Zirkel ---
     "Band Knee Extension": {
+        "de": "Kniestreckung mit Band",
         "muscles": ["quads"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["Banded Knee Extension", "Kniestreckung mit Band"],
     },
     "Standing Hip Abduction": {
+        "de": "Hüftabduktion im Stand",
         "muscles": ["glute_med", "hip_abductors"],
         "category": "rehab",
         "equipment": "band",
@@ -1062,6 +1202,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Sliding Board Skating": {
+        "de": "Gleitbrett-Skating",
         "muscles": ["adductors", "glutes"],
         "category": "rehab",
         "equipment": "other",
@@ -1071,6 +1212,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Slide Forward-Backward": {
+        "de": "Slide Vor-Zurück",
         "muscles": ["quads", "hamstrings"],
         "category": "rehab",
         "equipment": "other",
@@ -1079,6 +1221,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Slide Sideways": {
+        "de": "Slide Seitwärts",
         "muscles": ["adductors", "glute_med"],
         "category": "rehab",
         "equipment": "other",
@@ -1087,6 +1230,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Schulter (Frozen Shoulder, Thrower's Ten) ---
     "Wand External Rotation": {
+        "de": "Außenrotation mit Stab",
         "muscles": ["rotator_cuff", "shoulder_rom"],
         "category": "rehab",
         "equipment": "other",
@@ -1096,6 +1240,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "External Rotation Stretch with Stick": {
+        "de": "Außenrotationsdehnung mit Stab",
         "muscles": ["shoulder_rom"],
         "category": "mobility",
         "equipment": "other",
@@ -1106,6 +1251,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Cross-Body Stretch": {
+        "de": "Cross-Body-Dehnung",
         "muscles": ["posterior_capsule", "shoulder_rom"],
         "category": "mobility",
         "equipment": "bodyweight",
@@ -1115,6 +1261,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Behind-Back Towel Stretch": {
+        "de": "Handtuchdehnung",
         "muscles": ["shoulder_rom"],
         "category": "mobility",
         "equipment": "other",
@@ -1123,30 +1270,35 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Sleeper Stretch": {
+        "de": "Sleeper Stretch",
         "muscles": ["posterior_capsule"],
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": ["Sleeper-Stretch", "Schläfer-Dehnung", "Schlaefer-Dehnung"],
     },
     "Doorway Stretch": {
+        "de": "Türrahmen-Dehnung",
         "muscles": ["chest", "shoulder_rom"],
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": ["Pec Stretch", "Türrahmen-Dehnung", "Tuerrahmen-Dehnung"],
     },
     "PNF D2 Flexion": {
+        "de": "PNF-Diagonale D2 Flexion",
         "muscles": ["rotator_cuff", "front_delt"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["D2 Flexion", "PNF-Diagonale D2 Flexion"],
     },
     "PNF D2 Extension": {
+        "de": "PNF-Diagonale D2 Extension",
         "muscles": ["rotator_cuff", "lats"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["D2 Extension", "PNF-Diagonale D2 Extension"],
     },
     "Sidelying External Rotation": {
+        "de": "Außenrotation in Seitenlage",
         "muscles": ["rotator_cuff", "infraspinatus"],
         "category": "rehab",
         "equipment": "dumbbell",
@@ -1157,6 +1309,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Prone Horizontal Abduction": {
+        "de": "Horizontale Abduktion in Bauchlage",
         "muscles": ["rear_delt", "mid_traps"],
         "category": "rehab",
         "equipment": "dumbbell",
@@ -1166,6 +1319,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Prone Rowing": {
+        "de": "Rudern in Bauchlage",
         "muscles": ["back", "rear_delt"],
         "category": "rehab",
         "equipment": "dumbbell",
@@ -1174,6 +1328,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Seated Press-up": {
+        "de": "Sitzender Stütz",
         "muscles": ["scapular_depressors", "triceps"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -1184,6 +1339,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Nacken (Deep Neck Flexor Training) ---
     "Craniocervical Flexion": {
+        "de": "Kraniozervikale Flexion",
         "muscles": ["deep_neck_flexors"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -1193,6 +1349,7 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Chin Tuck": {
+        "de": "Kinnretraktion",
         "muscles": ["deep_neck_flexors"],
         "category": "rehab",
         "equipment": "bodyweight",
@@ -1201,6 +1358,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Unterarm / Tennisellenbogen ---
     "Wrist Extension": {
+        "de": "Handgelenkstreckung",
         "muscles": ["forearm_extensors"],
         "category": "isolation",
         "equipment": "dumbbell",
@@ -1209,30 +1367,35 @@ EXERCISES: dict[str, dict] = {
         ],
     },
     "Wrist Flexion": {
+        "de": "Handgelenkbeugung",
         "muscles": ["forearm_flexors"],
         "category": "isolation",
         "equipment": "dumbbell",
         "aliases": ["Wrist Curl", "Handgelenkbeugung"],
     },
     "Wrist Supination": {
+        "de": "Unterarm-Supination",
         "muscles": ["forearms"],
         "category": "isolation",
         "equipment": "dumbbell",
         "aliases": ["Forearm Supination", "Unterarm-Supination"],
     },
     "Wrist Pronation": {
+        "de": "Unterarm-Pronation",
         "muscles": ["forearms"],
         "category": "isolation",
         "equipment": "dumbbell",
         "aliases": ["Forearm Pronation", "Unterarm-Pronation"],
     },
     "Tyler Twist": {
+        "de": "Tyler Twist",
         "muscles": ["forearm_extensors"],
         "category": "rehab",
         "equipment": "other",
         "aliases": ["FlexBar Tyler Twist", "Tyler-Twist"],
     },
     "Grip Squeeze": {
+        "de": "Ballpressen",
         "muscles": ["forearms"],
         "category": "rehab",
         "equipment": "other",
@@ -1247,48 +1410,56 @@ EXERCISES: dict[str, dict] = {
 
     # --- FIFA 11+ (Lauf- & Agility-Drills, Warm-up) ---
     "Running Straight Ahead": {
+        "de": "Geradeauslaufen",
         "muscles": ["full_body"],
         "category": "cardio",
         "equipment": "bodyweight",
         "aliases": ["Geradeauslaufen", "Straight Ahead Run"],
     },
     "Running Hip Out": {
+        "de": "Hüfte nach außen",
         "muscles": ["hip_abductors", "hip_rotators"],
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": ["Hüfte nach außen", "Hip Out Run"],
     },
     "Running Hip In": {
+        "de": "Hüfte nach innen",
         "muscles": ["hip_adductors", "hip_rotators"],
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": ["Hüfte nach innen", "Hip In Run"],
     },
     "Running Circling Partner": {
+        "de": "Partner umkreisen",
         "muscles": ["full_body", "hip_abductors"],
         "category": "cardio",
         "equipment": "bodyweight",
         "aliases": ["Partner umkreisen", "Circle Partner"],
     },
     "Jumping with Shoulder Contact": {
+        "de": "Sprung mit Schulterkontakt",
         "muscles": ["quads", "glutes", "core"],
         "category": "plyometric",
         "equipment": "bodyweight",
         "aliases": ["Sprung mit Schulterkontakt", "Shoulder Contact Jump"],
     },
     "Running Quick Forwards Backwards": {
+        "de": "Schnell vor und zurück",
         "muscles": ["quads", "glutes"],
         "category": "cardio",
         "equipment": "bodyweight",
         "aliases": ["Schnell vor und zurück", "Quick Forward-Backward"],
     },
     "Running Across the Pitch": {
+        "de": "Über das Feld laufen",
         "muscles": ["full_body"],
         "category": "cardio",
         "equipment": "bodyweight",
         "aliases": ["Über das Feld laufen", "Straight Sprint"],
     },
     "Plant and Cut": {
+        "de": "Richtungswechsel",
         "muscles": ["quads", "glutes", "hip_abductors"],
         "category": "plyometric",
         "equipment": "bodyweight",
@@ -1297,12 +1468,14 @@ EXERCISES: dict[str, dict] = {
 
     # --- Sprunggelenk (Ankle Sprain) ---
     "Isometric Eversion": {
+        "de": "Isometrische Eversion",
         "muscles": ["peroneals"],
         "category": "isometric",
         "equipment": "bodyweight",
         "aliases": ["Iso Eversion", "Isometrische Eversion"],
     },
     "Agility Drill": {
+        "de": "Agility-Übung",
         "muscles": ["full_body", "proprioception"],
         "category": "plyometric",
         "equipment": "other",
@@ -1311,18 +1484,21 @@ EXERCISES: dict[str, dict] = {
 
     # --- Frozen Shoulder (Mobilisation) ---
     "Supine Assisted Flexion": {
+        "de": "Assistierte Flexion in Rückenlage",
         "muscles": ["shoulder_rom"],
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": ["Assistierte Flexion Rückenlage", "Assisted Flexion"],
     },
     "Table Slide": {
+        "de": "Tischgleiten",
         "muscles": ["shoulder_rom"],
         "category": "mobility",
         "equipment": "bodyweight",
         "aliases": ["Table Slides", "Tischgleiten", "Tisch-Slide"],
     },
     "Pulley Flexion": {
+        "de": "Seilzug-Flexion",
         "muscles": ["shoulder_rom"],
         "category": "mobility",
         "equipment": "other",
@@ -1331,18 +1507,21 @@ EXERCISES: dict[str, dict] = {
 
     # --- Leiste (Hölmich) ---
     "Folding Knife Sit-up": {
+        "de": "Klappmesser",
         "muscles": ["adductors", "core", "hip_flexors"],
         "category": "rehab",
         "equipment": "other",
         "aliases": ["Klappmesser", "Folding Knife", "Jackknife Sit-up"],
     },
     "Cross-Country Skiing One Leg": {
+        "de": "Einbeiniges Skilanglauf-Imitat",
         "muscles": ["quads", "glutes", "coordination"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Einbeiniges Skilanglauf-Imitat", "One-Leg Ski"],
     },
     "Fitter Sideways Training": {
+        "de": "Fitter seitlich",
         "muscles": ["adductors", "glute_med"],
         "category": "rehab",
         "equipment": "other",
@@ -1351,30 +1530,35 @@ EXERCISES: dict[str, dict] = {
 
     # --- Nacken (Deep Neck Flexor / Extensor) ---
     "Supine Head Lift": {
+        "de": "Kopfheben in Rückenlage",
         "muscles": ["deep_neck_flexors"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Kopfheben Rückenlage", "Supine Neck Lift"],
     },
     "Prone Head Lift": {
+        "de": "Kopfheben in Bauchlage",
         "muscles": ["neck_extensors"],
         "category": "rehab",
         "equipment": "bodyweight",
         "aliases": ["Kopfheben Bauchlage", "Prone Neck Lift"],
     },
     "Isometric Neck Flexion": {
+        "de": "Isometrische Nackenflexion",
         "muscles": ["deep_neck_flexors"],
         "category": "isometric",
         "equipment": "band",
         "aliases": ["Iso Nackenbeugung", "Isometrische Nackenflexion"],
     },
     "Isometric Neck Flexion Diagonal": {
+        "de": "Isometrische Nackenflexion diagonal",
         "muscles": ["deep_neck_flexors", "sternocleidomastoid"],
         "category": "isometric",
         "equipment": "band",
         "aliases": ["Iso Nackenbeugung diagonal", "Isometrische Nackenflexion diagonal"],
     },
     "Isometric Neck Extension": {
+        "de": "Isometrische Nackenextension",
         "muscles": ["neck_extensors"],
         "category": "isometric",
         "equipment": "band",
@@ -1383,12 +1567,14 @@ EXERCISES: dict[str, dict] = {
 
     # --- Tennisarm (Isometrie & Dehnung) ---
     "Isometric Wrist Extension": {
+        "de": "Isometrische Handgelenkstreckung",
         "muscles": ["forearm_extensors"],
         "category": "isometric",
         "equipment": "dumbbell",
         "aliases": ["Iso Handgelenkstreckung", "Isometrische Handgelenkextension"],
     },
     "Wrist Extensor Stretch": {
+        "de": "Unterarmstrecker-Dehnung",
         "muscles": ["forearm_extensors"],
         "category": "mobility",
         "equipment": "bodyweight",
@@ -1397,12 +1583,14 @@ EXERCISES: dict[str, dict] = {
 
     # --- Thrower's Ten (90°-Abduktion) ---
     "External Rotation at Shoulder Level": {
+        "de": "Außenrotation in Schulterhöhe",
         "muscles": ["rotator_cuff", "infraspinatus"],
         "category": "rehab",
         "equipment": "band",
         "aliases": ["Außenrotation Schulterhöhe", "ER at 90 Degrees", "ER 90 Abduktion"],
     },
     "Internal Rotation at Shoulder Level": {
+        "de": "Innenrotation in Schulterhöhe",
         "muscles": ["rotator_cuff", "subscapularis"],
         "category": "rehab",
         "equipment": "band",
@@ -1411,6 +1599,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Otago (Ausdauer) ---
     "Walking": {
+        "de": "Gehen",
         "muscles": ["full_body"],
         "category": "cardio",
         "equipment": "bodyweight",
@@ -1419,6 +1608,7 @@ EXERCISES: dict[str, dict] = {
 
     # --- Landetechnik / Plyo ---
     "Box Landing Drill": {
+        "de": "Landetechnik",
         "muscles": ["quads", "glutes", "calves"],
         "category": "plyometric",
         "equipment": "box",
@@ -1445,7 +1635,7 @@ def _build_index() -> None:
         key = canonical.lower().strip()
         _ALIAS_MAP[key] = canonical
         _NORMALIZED_MAP.setdefault(_normalize(canonical), canonical)
-        for alias in meta.get("aliases", []):
+        for alias in [meta["de"], *meta.get("aliases", [])]:
             _ALIAS_MAP[alias.lower().strip()] = canonical
             _NORMALIZED_MAP.setdefault(_normalize(alias), canonical)
 
@@ -1526,6 +1716,12 @@ def resolve_fuzzy(name: str, threshold: float = 0.8) -> str | None:
             best_match = canonical
 
     return best_match
+
+
+def german_name(canonical_name: str) -> str:
+    """Return the German display name, falling back to the canonical name."""
+    entry = EXERCISES.get(canonical_name)
+    return entry["de"] if entry else canonical_name
 
 
 def get_muscles(canonical_name: str) -> list[str]:

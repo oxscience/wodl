@@ -18,7 +18,7 @@ import re
 from dataclasses import dataclass, field, asdict
 from typing import Literal
 
-from wodl.registry import resolve, resolve_fuzzy
+from wodl.registry import german_name, resolve, resolve_fuzzy
 
 # ---------------------------------------------------------------------------
 # Data model
@@ -33,7 +33,7 @@ class ExerciseLine:
 
     raw_name: str
     canonical_name: str | None  # resolved via registry
-    display_name: str = ""  # what to render in output (respects user language)
+    display_name: str = ""  # what to render in output (German name if known)
     sets: int | None = None
     reps: str | None = None  # "8", "8-12", "AMRAP", "30s"
     intensity: str | None = None  # "@RPE8", "@70%", "@60kg", "@BW"
@@ -297,17 +297,10 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
     raw_name = " ".join(name_tokens).strip()
     ex.raw_name = raw_name
 
-    # Resolve canonical name. Exact match (canonical or alias) respects the
-    # user's language in output; fuzzy match overrides with canonical so
-    # typos get corrected.
-    canonical_exact = resolve(raw_name)
-    if canonical_exact:
-        ex.canonical_name = canonical_exact
-        ex.display_name = raw_name
-    else:
-        canonical_fuzzy = resolve_fuzzy(raw_name)
-        ex.canonical_name = canonical_fuzzy
-        ex.display_name = canonical_fuzzy if canonical_fuzzy else raw_name
+    # Resolve canonical name. Known exercises (exact, alias or typo) render
+    # with their German name ("Squat" -> "Kniebeuge"); unknown names stay raw.
+    ex.canonical_name = resolve(raw_name) or resolve_fuzzy(raw_name)
+    ex.display_name = german_name(ex.canonical_name) if ex.canonical_name else raw_name
 
     return ex
 

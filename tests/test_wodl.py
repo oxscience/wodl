@@ -373,12 +373,24 @@ class TestRegistryExpansion:
 
         seen: dict[str, str] = {}
         for canonical, meta in EXERCISES.items():
-            for key in [canonical, *meta.get("aliases", [])]:
+            for key in [canonical, meta["de"], *meta.get("aliases", [])]:
                 key = key.lower().strip()
                 assert key not in seen or seen[key] == canonical, (
                     f"Alias '{key}' zeigt auf '{seen[key]}' UND '{canonical}'"
                 )
                 seen[key] = canonical
+
+    def test_every_exercise_has_german_name(self):
+        from wodl.registry import EXERCISES
+
+        for canonical, meta in EXERCISES.items():
+            assert meta.get("de", "").strip(), f"{canonical!r} ohne 'de'"
+            assert resolve(meta["de"]) == canonical
+
+    def test_display_name_is_german(self):
+        plan = parse("---[T]\nSquat 5x5\nSquatt 3x8\nBench Press 4x8\nMeine Spezialübung 3x10")
+        names = [ex.display_name for ex in plan.sessions[0].items]
+        assert names == ["Kniebeuge", "Kniebeuge", "Bankdrücken", "Meine Spezialübung"]
 
     def test_fifa_and_reha_exercises_resolve(self):
         # Ehemalige Unknowns aus den Praeventions-/Reha-Protokollen
@@ -440,7 +452,7 @@ class TestSerialization:
         md = to_markdown(plan)
         assert "# PPL" in md
         assert "## Push" in md
-        assert "Bench Press" in md
+        assert "Bankdrücken" in md  # Vorschau zeigt deutsche Namen
 
 
 # ===================================================================

@@ -181,19 +181,17 @@ Bench Press  4x8  # Inline-Kommentar
 
 ## Deutsche Uebungsnamen
 
-45+ Uebungen mit kanonischen englischen Namen. Deutsche Aliases und Abkuerzungen werden automatisch aufgeloest:
+189 Uebungen, jede mit kanonischem englischem Namen, deutschem Anzeigenamen (`de`) und Aliases. Alle Namen einer Uebung sind gleichwertig (die Registry ist das Woerterbuch), die Ausgabe zeigt immer den deutschen Namen:
 
 ```
-Bankdruecken     -> Bench Press
-Kniebeugen       -> Squat
-Kreuzheben       -> Deadlift
-Klimmzuege       -> Pull-up
-KH Rudern        -> Dumbbell Row
-LH Rudern        -> Barbell Row
-Seitheben        -> Lateral Raise
-Schulterdruecken -> OHP
-Liegestuetz      -> Push-up
+Squat, Back Squat, Kniebeugen  -> Kniebeuge
+Bench Press, BB Bench          -> Bankdrücken
+Pull-up, Klimmzuege            -> Klimmzug
+KH Rudern, DB Row              -> Kurzhantel-Rudern
+Squatt (Tippfehler)            -> Kniebeuge
 ```
+
+Im Playground-Editor schlaegt WODL ab zwei Buchstaben passende Uebungen vor, auch ueber englische Namen und Kuerzel (`squ` → Kniebeuge). Tab/Enter uebernimmt, eingefuegt wird der deutsche Name.
 
 Unbekannte Uebungen werden trotzdem geparst — es gibt nur eine Warnung.
 
