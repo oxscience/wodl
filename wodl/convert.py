@@ -5,6 +5,7 @@ Pro Zeile wird erkannt:
 - Einheiten-Kopf: Wochentag ("Montag – Oberkörper"), "Tag 1", "Training A:", "# Beine"
 - Übung: Name, dann Sätze/Wdh. ("3x10", "3 x 8-12", "3 Sätze à 15", "3x45 sek"),
   Last ("60kg" → @60kg), RPE/RIR/%, Körpergewicht, Pause ("Pause 90 Sek" → r90s), Tempo
+- "pro Seite"/"je Bein" → je Seite; Minuten → 1x20min
 - Rest der Zeile wird Kommentar; reine Textzeilen werden Notizen (> …)
 
 Das Ergebnis ist ein Vorschlag, den der Coach im Editor prüft.
@@ -52,6 +53,7 @@ _BW = re.compile(r"\b(körpergewicht|eigengewicht|bodyweight|bw|kgw)\b", re.I)
 _REST = re.compile(
     rf"(?:\bpause|\brest)\s*:?\s*(\d+(?:\s*-\s*\d+)?)\s*({_UNIT_S}|{_UNIT_MIN}|m)?\.?(?=\W|$)"
     rf"|(\d+(?:\s*-\s*\d+)?)\s*({_UNIT_S}|{_UNIT_MIN})\.?\s*(?:pause|rest)\b", re.I)
+_SIDE = re.compile(r"\b(?:je|pro)\s+(seite|bein|arm)\b", re.I)
 _TEMPO = re.compile(r"\btempo\s*:?\s*(\d)[\s-]?(\d)[\s-]?(\d)[\s-]?(\d)", re.I)
 
 
@@ -96,14 +98,11 @@ def _exercise(line: str) -> str | None:
         rest = None
     tempo = take(_TEMPO.search(line))
 
-    # Minuten kann WODL nicht als Satzdauer → bleiben als Kommentar ("Laufen  # 20 min")
-    sets_reps = minutes = None
+    sets_reps = None
     if m := take(_SETS_REPS.search(line)):
         reps, unit = m.group(2).replace(" ", ""), (m.group(3) or "").lower()
-        if unit.startswith("m"):
-            minutes = m.group(0)
-        else:
-            sets_reps = f"{m.group(1)}x{reps}{'s' if unit else ''}"
+        suffix = "min" if unit.startswith("m") else "s" if unit else ""
+        sets_reps = f"{m.group(1)}x{reps}{suffix}"
     elif m := take(_SETS_MAX.search(line)):
         sets_reps = f"{m.group(1)}x"  # AMRAP
     elif m := take(_SETS_WORD.search(line)):
@@ -111,10 +110,7 @@ def _exercise(line: str) -> str | None:
     elif m := take(_REPS_WORD.search(line)):
         sets_reps = f"1x{m.group(1).replace(' ', '')}"
     elif m := take(_TIME.search(line)):
-        if m.group(2).lower().startswith("m"):
-            minutes = m.group(0)
-        else:
-            sets_reps = f"1x{m.group(1)}s"
+        sets_reps = f"1x{m.group(1)}{'min' if m.group(2).lower().startswith('m') else 's'}"
 
     intensities = []
     for rx, fmt in ((_LOAD, "@{}kg"), (_PCT, "@{}%"), (_RPE, "@RPE{}"), (_RIR, "@RIR{}"), (_BW, "@BW")):
@@ -131,10 +127,15 @@ def _exercise(line: str) -> str | None:
     if not name:
         return None
 
+    side = _SIDE.search(leftover)
+    if side:
+        leftover = (leftover[: side.start()] + leftover[side.end():]).strip(" ,;:")
     tokens = [t for t in (sets_reps, intensities[0] if intensities else None, rest) if t]
+    if side:
+        tokens.append(f"je {side.group(1).capitalize()}")
     if tempo:
         tokens.append("t" + "".join(tempo.groups()))
-    extra = [t.lstrip("@") for t in intensities[1:]] + ([minutes] if minutes else [])
+    extra = [t.lstrip("@") for t in intensities[1:]]
     if re.search(r"[A-Za-zÄÖÜäöüß]", leftover):
         extra.append(leftover)
     if extra:

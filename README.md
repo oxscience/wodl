@@ -140,17 +140,18 @@ Name    SETSxREPS  @INTENSITY  rREST  MODIFIERS
 
 | Token | Beispiel | Bedeutung |
 |-------|----------|-----------|
-| Saetze x Reps | `4x8`, `3x8-12`, `5x5`, `3x30s` | Volumen |
+| Saetze x Reps | `4x8`, `3x8-12`, `5x5`, `3x30s`, `1x20min` | Volumen bzw. Dauer |
 | Reverse Pyramid | `10,8,6` | Absteigende Reps pro Satz (z.B. McGill-Protokoll) |
 | Intensitaet | `@RPE8`, `@RIR1`, `@ISO`, `@85%`, `@100kg`, `@BW+10kg`, `@low` | Belastung |
 | Pause | `r90s`, `r2m`, `r60-90s` | Satzpause |
 | Tempo | `t3010` | Exzentrisch-Pause-Konzentrisch-Pause |
 | Progression | `+2.5kg/w`, `+1rep/w` | Woechentliche Steigerung |
 | Modifier | `drop`, `cluster`, `pause-rep` | Satzmethode |
+| Einseitig | `je Seite`, `pro Bein`, `3x10/Arm` | Wdh. pro Seite |
 
 Der Name laeuft bis zum Sets/Reps-Block — Ziffern und Modifier-Woerter im
 Namen sind damit erlaubt (`Figure 8 Walk  3x30s`, `Eccentric Heel Drop  3x15`).
-Modifier zaehlen nur nach dem Sets/Reps-Block. Bekannte Grenze: Ohne
+Modifier zaehlen nur nach dem Sets/Reps-Block; sonstige Woerter dahinter werden Kommentar (`Kniebeuge 3x5 langsam`). Bekannte Grenze: Ohne
 expliziten Sets/Reps-Block wird eine nachgestellte Zahl als Reps gelesen —
 `Abduction to 90` allein wird zu Reps=90, also `Abduction to 90  3x10` schreiben.
 

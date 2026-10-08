@@ -107,14 +107,17 @@ RE_SETS_REPS = re.compile(
     (?:(\d+)x)?          # optional sets (4x)
     (?:
         (\d+)(?:-(\d+))? # reps or rep range (8, 8-12)
-        |(\d+s)           # time-based (30s)
+        |(\d+(?:s|min))   # time-based (30s, 20min)
     )
     """,
     re.VERBOSE,
 )
 
 RE_SETS_ONLY = re.compile(r"^(\d+)x$")  # e.g. "3x" (AMRAP)
-RE_TIME_ONLY = re.compile(r"^(\d+)s$")  # e.g. "60s" standalone
+RE_TIME_ONLY = re.compile(r"^(\d+)(?:s|min)$")  # e.g. "60s", "20min" standalone
+# Einseitige Übungen: "3x10 je Seite", "pro Bein", "3x10/Seite"
+RE_SIDE = re.compile(r"(?:^|\s)(?:je|pro)\s+(seite|bein|arm)$", re.IGNORECASE)
+RE_SIDE_SUFFIX = re.compile(r"^(.+)/(seite|bein|arm)$", re.IGNORECASE)
 RE_PYRAMID = re.compile(r"^(\d+(?:,\d+){1,5})$")  # reverse pyramid "10,8,6" or "12,10,8,6"
 
 RE_INTENSITY = re.compile(
@@ -226,7 +229,10 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
         comment = line[idx + 1:].strip()
         line = line[:idx].strip()
 
-    tokens = line.split()
+    tokens = []
+    for tok in line.split():
+        m = RE_SIDE_SUFFIX.match(tok)  # "3x10/Seite" → "3x10", "je", "Seite"
+        tokens += [m.group(1), "je", m.group(2)] if m else [tok]
     if not tokens:
         return ExerciseLine(raw_name="", canonical_name=None)
 
@@ -293,9 +299,24 @@ def _parse_exercise_line(line: str) -> ExerciseLine:
             consumed.add(i)
             continue
 
-    # Remaining tokens form the exercise name
-    name_tokens = [tokens[i] for i in range(len(tokens)) if i not in consumed]
-    raw_name = " ".join(name_tokens).strip()
+    # Remaining tokens BEFORE the sets/reps block form the name; leftover words
+    # after it are a side marker ("je Seite") or else part of the comment.
+    rest = [i for i in range(len(tokens)) if i not in consumed]
+    name = " ".join(tokens[i] for i in rest if anchor is None or i < anchor)
+    trailing = " ".join(tokens[i] for i in rest if anchor is not None and i > anchor)
+    for part in ("name", "trailing"):
+        text = name if part == "name" else trailing
+        m = RE_SIDE.search(text)
+        if m:
+            ex.modifiers.append(f"je {m.group(1).capitalize()}")
+            text = text[: m.start()].strip()
+        if part == "name":
+            name = text
+        else:
+            trailing = text
+    if trailing:
+        ex.comment = f"{trailing}, {comment}" if comment else trailing
+    raw_name = name.strip()
     ex.raw_name = raw_name
 
     # Resolve canonical name. Known exercises (exact, alias or typo) render

@@ -28,8 +28,8 @@ def test_whatsapp_style_plan():
         "\n"
         "---[Beine] Mi\n"
         "Kniebeugen  4x8 @80kg # RPE8\n"
-        "Ausfallschritte  3x10 # pro Seite\n"
-        "Laufen  # 20 min\n"
+        "Ausfallschritte  3x10 je Seite\n"
+        "Laufen  1x20min\n"
     )
 
 

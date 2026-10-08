@@ -334,3 +334,14 @@ def test_block_as_text_contains_all_weeks():
     block = block_as_text(weeks)
     for w in range(1, 5):
         assert f"=== Woche {w}" in block
+
+
+def test_minutes_progress_one_minute_per_week_and_keep_side_and_comment():
+    from wodl.parser import parse as _parse
+
+    cfg = ProgressionConfig(goal="ausdauer", weeks=3, deload_rhythm="none")
+    weeks = progress_plan(_parse("---[A] Mo\nLaufen 1x20min # locker\nAusfallschritt 3x10 je Seite"), cfg)
+    assert "1x22min" in weeks[2].text and "# locker" in weeks[2].text
+    assert "je Seite" in weeks[2].text
+    reparsed = _parse(weeks[2].text).sessions[0].items
+    assert reparsed[1].modifiers == ["je Seite"] and reparsed[0].reps == "22min"

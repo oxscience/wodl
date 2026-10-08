@@ -526,3 +526,19 @@ def test_exercise_lines_carry_source_line():
     ex = plan.sessions[0].items
     assert ex[0].line == 3
     assert ex[1].exercises[0].line == 6
+
+
+def test_words_after_sets_block_are_comment_not_name():
+    ex = parse("---[A]\nKniebeuge 3x5 langsam # Fokus Tiefe").sessions[0].items[0]
+    assert ex.display_name == "Kniebeuge"
+    assert ex.comment == "langsam, Fokus Tiefe"
+
+
+def test_side_marker_and_minutes():
+    items = parse("---[A]\nAusfallschritt 3x10 je Seite\nAusfallschritt 3x10/Bein @RPE7\n"
+                  "Ausfallschritt pro Arm 3x8\nLaufen 1x20min\nUnterarmstütz 3x1min").sessions[0].items
+    assert [ex.modifiers for ex in items[:3]] == [["je Seite"], ["je Bein"], ["je Arm"]]
+    assert all(ex.canonical_name for ex in items)
+    assert items[1].intensity == "@RPE7"
+    assert (items[3].sets, items[3].reps) == (1, "20min")
+    assert (items[4].sets, items[4].reps) == (3, "1min")

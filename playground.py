@@ -1858,13 +1858,13 @@ HTML = r"""<!DOCTYPE html>
     ]],
     sets: ['Sätze × Wdh.:', [
       ['3x8'], ['3x8-12', 'Wiederholungs-Bereich'], ['5x5'],
-      ['3x30s', 'Zeit pro Satz'], ['10,8,6', 'absteigende Wiederholungen'],
+      ['3x30s', 'Zeit pro Satz'], ['1x20min', 'Dauer in Minuten'], ['10,8,6', 'absteigende Wiederholungen'],
     ]],
     params: ['Optional:', [
       ['@RPE8', 'Anstrengung: RPE 8 = 2 Wdh. in Reserve'], ['@80kg', 'Last'],
       ['@BW', 'Körpergewicht'], ['r90s', '90 s Pause'],
       ['t3010', 'Tempo: 3 s ablassen, 0 Pause, 1 s hoch, 0 Pause'],
-      ['+2.5kg/w', '+2,5 kg pro Woche'], ['# ', 'Kommentar'],
+      ['+2.5kg/w', '+2,5 kg pro Woche'], ['je Seite', 'Einseitig: Wdh. pro Seite'], ['# ', 'Kommentar'],
     ]],
   };
   let hintKey;

@@ -125,6 +125,7 @@ def _week_label(kind: str, goal: str) -> str:
 RE_REPS_INT = re.compile(r"^(\d+)$")
 RE_REPS_RANGE = re.compile(r"^(\d+)-(\d+)$")
 RE_REPS_TIME = re.compile(r"^(\d+)s$")
+RE_REPS_MIN = re.compile(r"^(\d+)min$")
 RE_REPS_PYRAMID = re.compile(r"^\d+(?:,\d+)+$")
 
 
@@ -142,6 +143,9 @@ def _parse_reps(reps: str | None):
     m = RE_REPS_TIME.match(s)
     if m:
         return ("time", int(m.group(1)))
+    m = RE_REPS_MIN.match(s)
+    if m:
+        return ("minutes", int(m.group(1)))
     if RE_REPS_PYRAMID.match(s):
         return ("pyramid", [int(x) for x in s.split(",")])
     return ("raw", s)
@@ -173,6 +177,8 @@ class _ExState:
             self.pyramid = list(val)
         elif self.kind == "time":
             self.seconds = val
+        elif self.kind == "minutes":
+            self.minutes = val
         # Merken, was diese Woche passiert ist (für Kommentar im Output)
         self.note: str | None = None
 
@@ -202,6 +208,9 @@ class _ExState:
 
         if self.kind == "time":
             self.seconds += cfg.time_increment
+            return
+        if self.kind == "minutes":  # Ausdauer in Minuten: +1 min pro Aufbau-Woche
+            self.minutes += 1
             return
 
         if cfg.goal == "kraft":
@@ -245,6 +254,8 @@ class _ExState:
             reps = str(self.reps)
         elif self.kind == "time":
             reps = f"{self.seconds}s"
+        elif self.kind == "minutes":
+            reps = f"{self.minutes}min"
         elif self.kind == "pyramid":
             reps = ",".join(str(n) for n in self.pyramid)
         elif self.kind == "raw":
@@ -290,8 +301,9 @@ def _emit_exercise(ex: ExerciseLine, proj: dict) -> str:
     for mod in ex.modifiers:
         parts.append(mod)
     line = "  ".join(p for p in parts if p).rstrip()
-    if proj["note"]:
-        line += f"   # {proj['note']}"
+    notes = [n for n in (ex.comment, proj["note"]) if n]
+    if notes:
+        line += f"   # {'; '.join(notes)}"
     return line
 
 
