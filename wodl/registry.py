@@ -1605,6 +1605,20 @@ EXERCISES: dict[str, dict] = {
         "equipment": "bodyweight",
         "aliases": ["Gehen", "Spazieren", "Gehtraining"],
     },
+    "Running": {
+        "de": "Laufen",
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "bodyweight",
+        "aliases": ["Joggen", "Jogging", "Dauerlauf", "Run", "Lauftraining"],
+    },
+    "Cycling": {
+        "de": "Radfahren",
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "bike",
+        "aliases": ["Fahrrad", "Rad", "Ergometer", "Fahrradergometer", "Bike", "Spinning"],
+    },
 
     # --- Landetechnik / Plyo ---
     "Box Landing Drill": {

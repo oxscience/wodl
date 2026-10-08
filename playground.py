@@ -19,6 +19,7 @@ from flask import Flask, abort, jsonify, request, render_template_string
 from wodl import parse, to_json, to_markdown, to_cycle_matrix
 from wodl.registry import EXERCISES, suggest
 from wodl.volume import weekly_volume
+from wodl.convert import freetext_to_wodl
 from wodl.progression import (
     ProgressionConfig,
     block_as_text,
@@ -939,6 +940,15 @@ HTML = r"""<!DOCTYPE html>
   .plan-view tbody tr { cursor: pointer; }
   .plan-view tbody tr:hover td { background: var(--bg3); }
   .plan-view tbody tr.cur td { background: color-mix(in srgb, var(--primary) 14%, transparent); }
+
+  .convert-offer {
+    margin-bottom: 1.25rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+  }
+  .convert-offer p { margin-bottom: 0.6rem; font-size: 0.85rem; }
 
   .unknowns { margin-top: 1.25rem; }
   .unknowns .warning { line-height: 2; }
@@ -1934,6 +1944,18 @@ HTML = r"""<!DOCTYPE html>
   });
   ['keyup', 'click'].forEach(ev => editor.addEventListener(ev, markCurrentRow));
 
+  // ===== Freitext → WODL übernehmen =====
+  outputBody.addEventListener('click', (e) => {
+    if (e.target.id !== 'convert-btn') return;
+    const wodl = document.getElementById('convert-src').value;
+    editor.focus();
+    editor.select();
+    if (!document.execCommand('insertText', false, wodl)) {  // Cmd+Z holt den Freitext zurück
+      editor.value = wodl;
+      editor.dispatchEvent(new Event('input'));
+    }
+  });
+
   // ===== "Meintest du …?" =====
   outputBody.addEventListener('click', (e) => {
     const btn = e.target.closest('.dym');
@@ -2363,6 +2385,11 @@ def parse_wodl():
         md = to_cycle_matrix(plan)
         return f'<div class="cycle-view">{_md_to_html(md)}</div>'
 
+    if fmt in ("markdown", "summary") and looks_like_wodl(wod_text) is None:
+        offer = _render_convert_offer(wod_text)
+        if offer:
+            return offer
+
     if fmt == "summary":
         lines = []
         e = html_mod.escape
@@ -2389,6 +2416,20 @@ def parse_wodl():
              for ex in getattr(item, "exercises", [item])]
     return (f'<div class="plan-view" data-lines="{",".join(map(str, lines))}">'
             f"{_md_to_html(to_markdown(plan))}</div>{unknowns}")
+
+
+def _render_convert_offer(text: str) -> str:
+    """Freitext erkannt → WODL-Vorschlag zeigen + Knopf zum Übernehmen."""
+    wodl = freetext_to_wodl(text)
+    preview = parse(wodl)
+    if not any(s.items for s in preview.sessions):
+        return ""
+    preview.warnings = []
+    return ('<div class="convert-offer"><p><strong>Sieht nach Freitext aus.</strong> '
+            "So würde WODL den Plan lesen. Prüf die Zeilen danach im Editor.</p>"
+            '<button class="btn primary" id="convert-btn">In WODL umwandeln</button>'
+            f'<textarea id="convert-src" hidden>{html_mod.escape(wodl)}</textarea></div>'
+            + _md_to_html(to_markdown(preview)))
 
 
 def _render_unknowns_html(plan) -> str:

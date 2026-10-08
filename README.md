@@ -54,7 +54,9 @@ Links `.wodl` schreiben, rechts live das Ergebnis sehen. Features:
 - **Branding** — eigenes Logo, Praxis-/Coach-Name, Primärfarbe (6 Presets + Custom Hex)
 - **Dark & Light Mode** — umschaltbar, persistiert in localStorage
 - **PDF-Export** — via Browser-Print, mit Coach/Klient-Header und Datum
-- **Share-Link** — URL enthält Branding und Plan (bei kurzen Plänen)
+- **Teilen** — Link für Klient:innen (nur der Plan, aufs Handy zugeschnitten) oder zum Weiterbearbeiten; Plan + Branding stecken gepackt im Link, nichts wird gespeichert
+- **Schreibhilfe** — Übungsvorschläge ab 2 Buchstaben (auch über englische Namen), Bausteine-Leiste unter dem Editor, „Meintest du …?“ bei unbekannten Übungen, Klick auf eine Tabellenzeile springt in den Editor
+- **Freitext → WODL** — Plan aus WhatsApp, Excel oder Notizen reinkopieren, WODL schlägt die Übersetzung vor
 
 ### Self-host (Railway / Docker)
 
@@ -181,7 +183,7 @@ Bench Press  4x8  # Inline-Kommentar
 
 ## Deutsche Uebungsnamen
 
-189 Uebungen, jede mit kanonischem englischem Namen, deutschem Anzeigenamen (`de`) und Aliases. Alle Namen einer Uebung sind gleichwertig (die Registry ist das Woerterbuch), die Ausgabe zeigt immer den deutschen Namen:
+191 Uebungen, jede mit kanonischem englischem Namen, deutschem Anzeigenamen (`de`) und Aliases. Alle Namen einer Uebung sind gleichwertig (die Registry ist das Woerterbuch), die Ausgabe zeigt immer den deutschen Namen:
 
 ```
 Squat, Back Squat, Kniebeugen  -> Kniebeuge

@@ -46,3 +46,10 @@ def test_client_view_has_no_sample_and_marks_body(client):
     assert 'class="client-view"' in html
     assert "Full Body Basics</h1>" not in html  # kein Beispielplan-Flackern
     assert "Full Body Basics</h1>" in client.get("/").get_data(as_text=True)
+
+
+def test_freetext_gets_convert_offer_and_stays_escaped(client):
+    html = client.post("/parse", data={"wodl": "Montag\n<b>Kniebeugen</b> 3x10 60kg</textarea><script>x</script>",
+                                       "format": "markdown"}).get_data(as_text=True)
+    assert 'id="convert-btn"' in html
+    assert "<script" not in html and "<b>" not in html and html.count("</textarea>") == 1
