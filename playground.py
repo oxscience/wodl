@@ -147,7 +147,7 @@ HTML = r"""<!DOCTYPE html>
     --green: #4ade80;
     --orange: #f59e0b;
     --red: #ef4444;
-    --font: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+    --font: ui-monospace, 'SF Mono', 'JetBrains Mono', 'Fira Code', Menlo, Consolas, 'Cascadia Mono', 'Liberation Mono', monospace;
   }
 
   [data-theme="light"] {
