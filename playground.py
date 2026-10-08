@@ -1639,6 +1639,7 @@ HTML = r"""<!DOCTYPE html>
 
   editor.addEventListener('keydown', (e) => {
     if (ac.hidden || e.isComposing) return;
+    if (['ArrowDown', 'ArrowUp', 'Enter', 'Tab', 'Escape'].includes(e.key)) e.stopPropagation();  // not also tour/modal keys
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
       acIndex = (acIndex + (e.key === 'ArrowDown' ? 1 : -1) + acItems.length) % acItems.length;
