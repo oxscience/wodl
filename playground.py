@@ -1074,6 +1074,12 @@ HTML = r"""<!DOCTYPE html>
     body { background: white; color: black; }
     header, .branding-panel, .panel:first-child, .panel-header, .stats { display: none !important; }
     .plan-view tbody tr.cur td { background: none; }
+    /* Nur der Plan aufs Papier: keine Hinweise, Angebote, Tour, Editor-Hilfen */
+    .tour-backdrop, .unknowns, .convert-offer, .ac, .hint, .share-dialog { display: none !important; }
+    #output, .client-view #output { background: white !important; }
+    #output p, #output strong { color: black !important; }
+    #output table { display: table !important; width: 100% !important; break-inside: avoid; }
+    #output h2 { break-after: avoid; }
     main { display: block; height: auto; }
     .panel { overflow: visible; }
     #output {
