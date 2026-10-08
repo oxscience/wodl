@@ -111,10 +111,10 @@ def _week_label(kind: str, goal: str) -> str:
     if kind == "start":
         return "Ausgangsplan"
     if kind == "deload":
-        return "Deload — Volumen ↓"
+        return "Deload: Volumen ↓"
     if goal == "kraft":
-        return "Aufbau — Last ↑"
-    return "Aufbau — Wdh. ↑"
+        return "Aufbau: Last ↑"
+    return "Aufbau: Wdh. ↑"
 
 
 # ---------------------------------------------------------------------------
@@ -335,12 +335,12 @@ def progress_plan(plan: Plan, config: ProgressionConfig) -> list[WeekResult]:
         lines: list[str] = []
         label = _week_label(kind, config.goal)
         title = plan.name or "Trainingsplan"
-        lines.append(f'@plan "{title} — Woche {w}/{total}"')
+        lines.append(f'@plan "{title} · Woche {w}/{total}"')
         if plan.frequency:
             lines.append(f"@freq {plan.frequency}")
         if plan.unit and plan.unit != "kg":
             lines.append(f"@unit {plan.unit}")
-        lines.append(f"# Woche {w}/{total} — {label}")
+        lines.append(f"# Woche {w}/{total} · {label}")
 
         for si, session in enumerate(plan.sessions):
             lines.append("")
@@ -415,7 +415,7 @@ def progress_matrix(plan: Plan, config: ProgressionConfig) -> str:
 
     lines: list[str] = []
     if plan.name:
-        lines.append(f"# {plan.name} — Wochen-Matrix")
+        lines.append(f"# {plan.name} · Wochen-Matrix")
     lines.append("")
     lines.append("_**💤 Deload** nach eingestellter Definition · "
                  "**↑** = Last erhöhen (Anweisung im Progression-Tab)_")
@@ -599,7 +599,7 @@ def block_as_text(results: list[WeekResult]) -> str:
     """Gesamten Block als einen Klartext-Export."""
     parts = []
     for r in results:
-        parts.append(f"=== Woche {r.week} — {r.label} ===")
+        parts.append(f"=== Woche {r.week} · {r.label} ===")
         parts.append(r.text.rstrip("\n"))
         parts.append("")
     return "\n".join(parts).strip() + "\n"

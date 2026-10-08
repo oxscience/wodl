@@ -1248,7 +1248,7 @@ HTML = r"""<!DOCTYPE html>
     <img id="brand-logo" src="" alt="" style="display:none">
     <div>
       <h1><span id="brand-title">WODL</span> <span id="brand-subtitle-heading" style="color:var(--text)">Progressions</span></h1>
-      <div class="subtitle" id="brand-subtitle">Workout Definition Language — schreib links, sieh rechts</div>
+      <div class="subtitle" id="brand-subtitle">Workout Definition Language: schreib links, sieh rechts</div>
     </div>
   </div>
   <div class="header-actions">
@@ -1301,7 +1301,7 @@ HTML = r"""<!DOCTYPE html>
 <div class="modal-backdrop" id="lib-modal" onclick="if (event.target === this) closeLibrary()">
   <div class="modal">
     <div class="modal-header">
-      <h2><span>📚</span> Bibliothek — Evidenzbasierte Beispielpläne</h2>
+      <h2><span>📚</span> Bibliothek: evidenzbasierte Beispielpläne</h2>
       <button class="modal-close" onclick="closeLibrary()" aria-label="Schließen">×</button>
     </div>
     <div class="library-tabs">
@@ -1309,7 +1309,7 @@ HTML = r"""<!DOCTYPE html>
       <button class="lib-tab" data-cat="rehab" onclick="switchLibTab('rehab', this)">Rehabilitation</button>
     </div>
     <div class="lib-content">
-      <div class="lib-intro" id="lib-intro">Lade einen Plan, passe ihn an, brande ihn — dann als PDF drucken oder JSON für Apps exportieren.</div>
+      <div class="lib-intro" id="lib-intro">Lade einen Plan, passe ihn an und brande ihn. Danach als PDF drucken oder als JSON für Apps exportieren.</div>
       <div class="lib-grid" id="lib-grid"></div>
     </div>
   </div>
@@ -1444,7 +1444,7 @@ HTML = r"""<!DOCTYPE html>
       <div id="output-body">{{ initial_output | safe }}</div>
 
       <div class="print-only print-footer">
-        Erstellt mit WODL — wodl.outoftheb-ox.de
+        Erstellt mit WODL · wodl.outoftheb-ox.de
       </div>
       <div class="client-only client-footer">
         <button class="btn" onclick="window.print()">Als PDF speichern</button>
@@ -1556,7 +1556,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: null,  // full-screen welcome
       title: '👋 Willkommen bei WODL',
-      text: '<strong>Warum?</strong> Trainingspläne leben als Excel, PDFs oder WhatsApp-Screenshots — unlesbar für Apps, nicht versionierbar, nicht vergleichbar. WODL macht Pläne zu Text: menschenlesbar und maschinenparsbar. In 60 Sekunden zeig ich dir wie.',
+      text: '<strong>Warum?</strong> Trainingspläne leben als Excel, PDFs oder WhatsApp-Screenshots. Für Apps sind sie unlesbar, nicht versionierbar und nicht vergleichbar. WODL macht Pläne zu Text: menschenlesbar und maschinenparsbar. In 60 Sekunden zeig ich dir, wie.',
       pos: 'center',
     },
     {
@@ -1568,43 +1568,61 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#editor',
       title: '✏️ Editor & Syntax',
-      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Wdh., RPE 8, 2 Min Pause. Tipp zwei Buchstaben, der Editor schlägt Übungen vor, auch über englische Namen: <code>squ</code> → Kniebeuge. Die Vorschau zeigt immer den deutschen Namen. Die Leiste unter dem Editor bietet passende Bausteine zum Anklicken.',
+      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Wdh., RPE 8, 2 Min Pause. Tipp zwei Buchstaben, der Editor schlägt Übungen vor, auch über englische Namen: <code>squ</code> → Kniebeuge. Die Vorschau zeigt immer den deutschen Namen.',
+      pos: 'right',
+    },
+    {
+      target: '#hint',
+      title: '🧩 Bausteine',
+      text: 'Die Leiste unter dem Editor zeigt, was an der Cursor-Stelle passt: in einer leeren Zeile neue Einheit oder Supersatz, nach dem Übungsnamen Sätze × Wdh., danach Last, RPE, Pause und Tempo. Ein Klick fügt den Baustein ein.',
+      pos: 'top',
+    },
+    {
+      target: '#editor',
+      title: '📋 Freitext rein, WODL raus',
+      text: 'Dein Plan steckt schon in Excel, Notizen oder WhatsApp? Kopier ihn einfach in den Editor. Die Vorschau bietet dann <strong>In WODL umwandeln</strong> an und übernimmt Wochentage, Sätze × Wdh., Lasten, RPE und Pausen. Was sie nicht zuordnen kann, bleibt als Kommentar stehen.',
       pos: 'right',
     },
     {
       target: '#output',
       title: '👁 Live-Vorschau',
-      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> baut den kompletten Wochen-Block (als Wochen-Tabellen oder kompakte Matrix, auch aus freien Plänen), <code>JSON</code> für Apps, <code>Volumen</code> zeigt Sätze pro Muskelgruppe und Woche.',
+      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> für den ganzen Wochen-Block, <code>JSON</code> für Apps und <code>Volumen</code> für die Sätze pro Muskelgruppe. Ein Klick auf eine Tabellenzeile springt zur passenden Zeile im Editor. Bei Tippfehlern fragt die Vorschau unter Hinweise „Meintest du …?“.',
       pos: 'left',
     },
     {
       target: '#progression-tab',
       title: '📈 Progression',
-      text: 'Baut aus deinem Plan den kompletten Trainingsblock: Ziel (Hypertrophie/Kraft/Ausdauer), Doppelprogression (Wdh. bis zur Schwelle, dann Last hoch) und Deload stellst du über Regler ein. Als Wochen-Tabellen oder kompakte Matrix — aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100 → W3: 105. Funktioniert auch mit frei formatierten Plänen (Copy-Paste aus Notizen reicht). <strong>Das kann Excel nicht automatisch.</strong>',
+      text: 'Baut aus deinem Plan den kompletten Trainingsblock: Ziel (Hypertrophie/Kraft/Ausdauer), Doppelprogression (Wdh. bis zur Schwelle, dann Last hoch) und Deload stellst du über Regler ein. Als Wochen-Tabellen oder kompakte Matrix, aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100 → W3: 105. Funktioniert auch mit frei formatierten Plänen (Copy-Paste aus Notizen reicht). <strong>Das kann Excel nicht automatisch.</strong>',
       pos: 'left',
+    },
+    {
+      target: '.tab[data-fmt="summary"]',
+      title: '📊 Volumen',
+      text: 'Zählt die Sätze pro Muskelgruppe und Woche, Hilfsmuskeln zur Hälfte. Die Ampel orientiert sich an 10 bis 20 Sätzen, dem üblichen Bereich für Muskelaufbau. Reha-Pläne mit Phasen bekommen je Phase eine eigene Spalte.',
+      pos: 'bottom',
     },
     {
       target: '#branding-btn',
       title: '🎨 Dein Branding',
-      text: 'Logo-URL, Praxis-/Coach-Name, Klient-Name, Primärfarbe. 6 Presets + Custom Hex. Alles lokal gespeichert — beim nächsten Besuch wieder da. Perfekt für Coach-PDFs.',
+      text: 'Logo-URL, Praxis-/Coach-Name, Name der Klient:in, Primärfarbe. 6 Presets + Custom Hex. Alles lokal gespeichert und beim nächsten Besuch wieder da. Perfekt für Coach-PDFs.',
       pos: 'bottom',
     },
     {
       target: '#pdf-btn',
       title: '📄 PDF für Klient:innen',
-      text: 'Browser-Druck → PDF mit deinem Logo, Coach-Name, Klient-Name und Datum im Header. Sauberes Dokument statt WhatsApp-Screenshot.',
+      text: 'Browser-Druck → PDF mit deinem Logo, Coach-Name, Name der Klient:in und Datum im Header. Sauberes Dokument statt WhatsApp-Screenshot.',
       pos: 'bottom',
     },
     {
       target: '#share-btn',
-      title: '🔗 Gebrandeten Link teilen',
-      text: 'URL enthält dein Branding + Plan. Klient öffnet den Link → sieht deinen Plan in deinen Farben, mit deinem Logo. Kein Download, kein Account.',
+      title: '🔗 Zwei Links teilen',
+      text: '<strong>Für Klient:innen</strong> zeigt nur den Plan, ohne Editor, in deinen Farben und aufs Handy zugeschnitten. Teilst du aus dem Progression-Tab, kommen alle Wochen als Tabs mit. <strong>Zum Weiterbearbeiten</strong> öffnet den Plan im Editor, z.B. für Kolleg:innen. Der Plan steckt komplett im Link: kein Download, kein Account.',
       pos: 'bottom',
     },
     {
       target: '#library-btn',
       title: '🚀 Los geht\'s',
-      text: 'Klick jetzt auf <strong>Bibliothek</strong> und wähl einen Plan. Oder schreib einen eigenen im Editor — die Syntax findest du auf <a href="https://github.com/oxscience/wodl#syntax" target="_blank" style="color:var(--primary)">GitHub</a>.',
+      text: 'Klick jetzt auf <strong>Bibliothek</strong> und wähl einen Plan. Oder schreib einen eigenen im Editor, die Syntax findest du auf <a href="https://github.com/oxscience/wodl#syntax" target="_blank" style="color:var(--primary)">GitHub</a>.',
       pos: 'bottom',
     },
   ];
@@ -1649,6 +1667,8 @@ HTML = r"""<!DOCTYPE html>
 
   function renderTourStep() {
     const step = TOUR_STEPS[tourIndex];
+    // Bausteine-Leiste ist leer, wenn der Cursor z.B. auf "}" steht: Startbausteine zeigen
+    if (step.target === '#hint' && !hint.textContent.trim()) { editor.setSelectionRange(0, 0); updateHint(); }
     const tip = document.getElementById('tour-tooltip');
     const hi = document.getElementById('tour-highlight');
 
@@ -1701,8 +1721,8 @@ HTML = r"""<!DOCTYPE html>
         tip.style.left = Math.min(window.innerWidth - tipW - 20, Math.max(20, r.left)) + 'px';
         tip.classList.add('arrow-top');
       } else if (step.pos === 'top') {
-        tip.style.top = (r.top - tipEstH - 16) + 'px';
         tip.style.left = Math.min(window.innerWidth - tipW - 20, Math.max(20, r.left)) + 'px';
+        tip.style.top = (r.top - (tip.offsetHeight || tipEstH) - 16) + 'px';  // Höhe erst nach left messen
         tip.classList.add('arrow-bottom');
       } else if (step.pos === 'right') {
         tip.style.top = Math.max(20, r.top) + 'px';
@@ -2228,7 +2248,7 @@ HTML = r"""<!DOCTYPE html>
   let currentLibCat = 'training';
 
   const LIB_INTROS = {
-    training: 'Evidenzbasierte Trainingspläne — jede Kachel zeigt die Peer-Review-Quelle, im Plan-Kommentar steht die vollständige APA-Zitation. Lade einen Plan, passe Gewichte und Progression an, drucke ihn als PDF für dich oder deine Klient:innen.',
+    training: 'Evidenzbasierte Trainingspläne. Jede Kachel zeigt die Peer-Review-Quelle, im Plan-Kommentar steht die vollständige APA-Zitation. Lade einen Plan, passe Gewichte und Progression an, drucke ihn als PDF für dich oder deine Klient:innen.',
     rehab: 'Klinische Reha-Protokolle als Referenz für Physiotherapeut:innen und Sportärzt:innen. Alle Protokolle sind phasiert, mit Meilensteinen und den Original-Quellen im Plan-Kommentar. Ersetzen KEINE individuelle Betreuung.',
   };
 
@@ -2468,7 +2488,7 @@ def parse_wodl():
                 len(item.exercises) if hasattr(item, "exercises") else 1
                 for item in session.items
             )
-            lines.append(f"<strong>[{e(session.name)}]</strong> {days} — {ex_count} Übungen<br>")
+            lines.append(f"<strong>[{e(session.name)}]</strong> {days} · {ex_count} Übungen<br>")
         lines.append(_render_volume_html(plan))
         lines.append(_render_unknowns_html(plan))
         return "".join(lines)
@@ -2637,7 +2657,7 @@ def _render_progression_html(mode: str, weeks: list, total: int) -> str:
         cls = "prog-week deload" if week.kind == "deload" else "prog-week"
         parts.append(f'<div class="{cls}">')
         parts.append(f'<h3>Woche {week.week}/{total} '
-                     f'<span class="kind">— {html_mod.escape(week.label)}</span></h3>')
+                     f'<span class="kind">· {html_mod.escape(week.label)}</span></h3>')
         if mode == "wodl":
             week_plan = parse(week.text)
             md = to_markdown(week_plan)
@@ -2668,8 +2688,8 @@ def progress_endpoint():
         if plan is None:
             return ('<span id="prog-mode" data-mode="freetext" hidden></span>'
                     "<p class='prog-hint'>Die Matrix-Ansicht braucht einen Plan im "
-                    "WODL-Format (mit <code>---[Session]</code>-Headern) — "
-                    "für freie Pläne gibt es die Wochen-Ansicht.</p>")
+                    "WODL-Format (mit <code>---[Session]</code>-Headern). "
+                    "Für freie Pläne gibt es die Wochen-Ansicht.</p>")
         try:
             md = progress_matrix(plan, config)
         except Exception as e:
