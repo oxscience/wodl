@@ -50,7 +50,7 @@ python playground.py
 Links `.wodl` schreiben, rechts live das Ergebnis sehen. Features:
 
 - **📈 Progression** — baut aus einem Plan den kompletten Trainingsblock: Ziel-Presets (Hypertrophie/Kraft/Ausdauer), Doppelprogression mit Rep-Schwelle, konfigurierbarer Deload; als Wochen-Tabellen oder kompakte Matrix. Funktioniert auch mit frei formatierten Plänen (Copy-Paste reicht)
-- **Tabelle / JSON / Summary** — Ansichten im Live-Preview
+- **Tabelle / JSON / Volumen** — Ansichten im Live-Preview; Volumen = Sätze pro Muskelgruppe und Woche (indirekt halb, Ampel 10–20, Phasen-Pläne je Phase)
 - **Branding** — eigenes Logo, Praxis-/Coach-Name, Primärfarbe (6 Presets + Custom Hex)
 - **Dark & Light Mode** — umschaltbar, persistiert in localStorage
 - **PDF-Export** — via Browser-Print, mit Coach/Klient-Header und Datum

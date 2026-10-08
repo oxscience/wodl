@@ -18,6 +18,7 @@ from flask import Flask, abort, jsonify, request, render_template_string
 
 from wodl import parse, to_json, to_markdown, to_cycle_matrix
 from wodl.registry import EXERCISES
+from wodl.volume import weekly_volume
 from wodl.progression import (
     ProgressionConfig,
     block_as_text,
@@ -910,6 +911,21 @@ HTML = r"""<!DOCTYPE html>
   }
 
   .warning { color: var(--orange); font-size: 0.8rem; margin-top: 0.3rem; }
+
+  .vol-title { margin-top: 1.25rem; }
+  #output .vol-table td.vol-n { text-align: right; font-variant-numeric: tabular-nums; }
+  #output .vol-low { color: var(--text2); }
+  #output .vol-ok { color: var(--green); }
+  #output .vol-high { color: var(--orange); }
+  .vol-bar {
+    width: 45%;
+    background: linear-gradient(90deg, transparent calc(var(--lo) * 100%),
+      color-mix(in srgb, var(--green) 14%, transparent) calc(var(--lo) * 100%),
+      color-mix(in srgb, var(--green) 14%, transparent) calc(var(--hi) * 100%),
+      transparent calc(var(--hi) * 100%)) no-repeat center / 100% 60%;
+  }
+  .vol-bar span { display: block; height: 0.5rem; border-radius: 3px; background: var(--primary); }
+  .vol-note { margin-top: 0.75rem; font-size: 0.75rem; color: var(--text2); line-height: 1.5; }
   .error-msg { color: var(--red); font-size: 0.85rem; padding: 1rem; }
 
   /* Print view — for PDF export via browser print */
@@ -1170,7 +1186,7 @@ HTML = r"""<!DOCTYPE html>
         <button class="tab active" data-fmt="markdown" onclick="setFormat('markdown', this)">Tabelle</button>
         <button class="tab" data-fmt="progression" onclick="setFormat('progression', this)" id="progression-tab">📈 Progression</button>
         <button class="tab" data-fmt="json" onclick="setFormat('json', this)">JSON</button>
-        <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Übersicht</button>
+        <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Volumen</button>
       </div>
     </div>
     <div class="prog-controls" id="prog-controls">
@@ -1363,7 +1379,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#output',
       title: '👁 Live-Vorschau',
-      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> baut den kompletten Wochen-Block (als Wochen-Tabellen oder kompakte Matrix, auch aus freien Plänen), <code>JSON</code> für Apps, <code>Übersicht</code> zum Volumen-Check.',
+      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> baut den kompletten Wochen-Block (als Wochen-Tabellen oder kompakte Matrix, auch aus freien Plänen), <code>JSON</code> für Apps, <code>Volumen</code> zeigt Sätze pro Muskelgruppe und Woche.',
       pos: 'left',
     },
     {
@@ -2081,6 +2097,7 @@ def parse_wodl():
                 for item in session.items
             )
             lines.append(f"<strong>[{e(session.name)}]</strong> {days} — {ex_count} Übungen<br>")
+        lines.append(_render_volume_html(plan))
         if plan.warnings:
             lines.append("<br><strong style='color: var(--orange)'>Hinweise:</strong><br>")
             for w in plan.warnings:
@@ -2089,6 +2106,43 @@ def parse_wodl():
 
     md = to_markdown(plan)
     return _md_to_html(md)
+
+
+def _fmt_sets(n: float) -> str:
+    return f"{round(n, 1):g}".replace(".", ",")
+
+
+def _render_volume_html(plan) -> str:
+    """Sätze pro Muskelgruppe und Woche, Ampel gegen 10–20 Sätze."""
+    columns, rows, unknown = weekly_volume(plan)
+    if not rows:
+        return ""
+    single = len(columns) == 1
+    scale = max(25, *(max(v) for v in rows.values()))
+
+    def cell(n: float) -> str:
+        cls = "low" if n < 10 else "high" if n > 20 else "ok"
+        return f'<td class="vol-n vol-{cls}">{_fmt_sets(n) if n else ""}</td>'
+
+    head = "".join(f"<th>{html_mod.escape(c)}</th>" for c in columns)
+    parts = ['<h3 class="vol-title">Sätze pro Muskelgruppe</h3><table class="vol-table">',
+             f"<thead><tr><th>Muskelgruppe</th>{head}{'<th></th>' if single else ''}</tr></thead><tbody>"]
+    for group, values in rows.items():
+        bar = ""
+        if single:
+            bar = (f'<td class="vol-bar" style="--lo:{10 / scale:.3f};--hi:{20 / scale:.3f}">'
+                   f'<span style="width:{min(values[0] / scale, 1) * 100:.1f}%"></span></td>')
+        parts.append(f"<tr><td>{group}</td>{''.join(cell(v) for v in values)}{bar}</tr>")
+    parts.append("</tbody></table>")
+    note = ("Orientierung für Muskelaufbau: 10–20 Sätze pro Muskelgruppe und Woche "
+            "(Schoenfeld et al., 2017; Baz-Valle et al., 2022). Indirekt beteiligte Muskeln "
+            "zählen halb (Pelland et al., 2025). Einheiten ohne Wochentag zählen 1× pro Woche"
+            + ("; Phasen laufen nacheinander, darum eine Spalte je Phase" if not single else "")
+            + ". Für Reha- und Technikpläne nicht maßgeblich.")
+    if unknown:
+        note += f" {unknown} unbekannte Übung{'en' if unknown > 1 else ''} nicht mitgezählt."
+    parts.append(f'<p class="vol-note">{note}</p>')
+    return "".join(parts)
 
 
 def _progression_config_from_form(form) -> ProgressionConfig:
