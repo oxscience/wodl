@@ -441,9 +441,9 @@ def progress_matrix(plan: Plan, config: ProgressionConfig) -> str:
 
         for ii, item in enumerate(session.items):
             if isinstance(item, ExerciseGroup):
-                label_map = {"superset": "SS", "circuit": "Circuit", "giant": "Giant"}
+                label_map = {"superset": "Supersatz", "circuit": "Zirkel", "giant": "Riesensatz"}
                 for gi, sub in enumerate(item.exercises):
-                    pfx = f"{label_map.get(item.kind, 'SS')}: " if gi == 0 else "&nbsp;&nbsp;+ "
+                    pfx = f"{label_map.get(item.kind, 'Supersatz')}: " if gi == 0 else "\u00a0\u00a0+ "
                     lines.append(row((si, ii, gi), sub, pfx))
             else:
                 lines.append(row((si, ii, None), item))

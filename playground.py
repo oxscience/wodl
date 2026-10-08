@@ -1392,13 +1392,13 @@ HTML = r"""<!DOCTYPE html>
         </select>
       </div>
       <div class="field">
-        <label>+Reps/Woche</label>
+        <label>+Wdh./Woche</label>
         <select id="prog-repinc" onchange="progChanged()">
           <option selected>1</option><option>2</option><option>3</option>
         </select>
       </div>
       <div class="field">
-        <label>Rep-Schwelle</label>
+        <label>Wdh.-Schwelle</label>
         <input type="number" id="prog-threshold" min="3" max="30" placeholder="auto" onchange="progChanged()">
       </div>
       <div class="field">
@@ -1568,7 +1568,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#editor',
       title: '✏️ Editor & Syntax',
-      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Reps, RPE 8, 2 Min Pause. Tipp zwei Buchstaben, der Editor schlägt Übungen vor, auch über englische Namen: <code>squ</code> → Kniebeuge. Die Vorschau zeigt immer den deutschen Namen. Die Leiste unter dem Editor bietet passende Bausteine zum Anklicken.',
+      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Wdh., RPE 8, 2 Min Pause. Tipp zwei Buchstaben, der Editor schlägt Übungen vor, auch über englische Namen: <code>squ</code> → Kniebeuge. Die Vorschau zeigt immer den deutschen Namen. Die Leiste unter dem Editor bietet passende Bausteine zum Anklicken.',
       pos: 'right',
     },
     {
@@ -1579,8 +1579,8 @@ HTML = r"""<!DOCTYPE html>
     },
     {
       target: '#progression-tab',
-      title: '📈 Killer-Feature: Progression',
-      text: 'Baut aus deinem Plan den kompletten Trainingsblock: Ziel (Hypertrophie/Kraft/Ausdauer), Doppelprogression (Reps bis zur Schwelle, dann Last hoch) und Deload stellst du über Regler ein. Als Wochen-Tabellen oder kompakte Matrix — aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100 → W3: 105. Funktioniert auch mit frei formatierten Plänen (Copy-Paste aus Notizen reicht). <strong>Das kann Excel nicht automatisch.</strong>',
+      title: '📈 Progression',
+      text: 'Baut aus deinem Plan den kompletten Trainingsblock: Ziel (Hypertrophie/Kraft/Ausdauer), Doppelprogression (Wdh. bis zur Schwelle, dann Last hoch) und Deload stellst du über Regler ein. Als Wochen-Tabellen oder kompakte Matrix — aus <code>@100kg +2.5kg/w</code> wird automatisch W1: 100 → W3: 105. Funktioniert auch mit frei formatierten Plänen (Copy-Paste aus Notizen reicht). <strong>Das kann Excel nicht automatisch.</strong>',
       pos: 'left',
     },
     {
@@ -2628,7 +2628,7 @@ def _render_progression_html(mode: str, weeks: list, total: int) -> str:
     parts.append("</div>")
 
     if mode == "freetext":
-        parts.append('<p class="prog-hint">Freitext-Modus: Reps und Zeiten steigen '
+        parts.append('<p class="prog-hint">Freitext-Modus: Wdh. und Zeiten steigen '
                      "(bis zur Schwelle), Sätze und kg-Lasten bleiben stabil; im Deload "
                      "werden Sätze reduziert. Für automatische Last-Progression "
                      "(Kraft/Doppelprogression) den Plan im WODL-Format schreiben.</p>")
