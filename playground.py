@@ -972,7 +972,84 @@ HTML = r"""<!DOCTYPE html>
   .error-msg { color: var(--red); font-size: 0.85rem; padding: 1rem; }
 
   /* Print view — for PDF export via browser print */
-  .print-only { display: none; }
+  .print-only, .client-only { display: none; }
+
+  /* Teilen-Dialog */
+  .share-dialog {
+    margin: auto;
+    max-width: 30rem;
+    padding: 1.25rem;
+    color: var(--text);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .share-dialog::backdrop { background: rgba(0, 0, 0, 0.5); }
+  .share-dialog h3 { margin-bottom: 0.25rem; }
+  .share-sub { font-size: 0.8rem; color: var(--text2); margin-bottom: 1rem; }
+  .share-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .share-row span { display: block; font-size: 0.8rem; color: var(--text2); }
+  .share-dialog form { margin-top: 0.75rem; text-align: right; }
+
+  /* Ansicht für Klient:innen (?view=1): nur der Plan */
+  .client-view header, .client-view .branding-panel, .client-view .panel:first-child,
+  .client-view .panel-header, .client-view #prog-controls { display: none !important; }
+  .client-view main { display: block; height: auto; max-width: 860px; margin: 0 auto; }
+  .client-view .panel { overflow: visible; }
+  .client-view #output { padding: 1.5rem 1rem 2rem; background: var(--bg); }
+  .client-view .client-only { display: flex; }
+  .client-view .unknowns { display: none; }
+  .client-view .plan-view tbody tr { cursor: default; }
+  .client-view .plan-view tbody tr:hover td { background: none; }
+  .client-view .print-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .client-view .print-header img[src=""], .client-view .print-header img:not([src]) { display: none; }
+  .client-view .print-header img { height: 36px; max-width: 140px; }
+  .client-view .print-header .meta { text-align: right; font-size: 0.8rem; color: var(--text2); }
+  .client-view .print-header .coach { font-weight: 700; color: var(--primary); }
+  .client-footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text2);
+  }
+  .client-footer a { color: var(--primary); }
+
+  /* Schmale Bildschirme: Tabellenzeilen als Karten */
+  @media (max-width: 640px) {
+    #output .plan-view table, #output .plan-view tbody, #output .plan-view tr,
+    #output .plan-view td { display: block; width: auto; }
+    #output .plan-view thead { display: none; }
+    #output .plan-view tr {
+      margin-bottom: 0.6rem;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    #output .plan-view td { padding: 0.1rem 0; border: none; }
+    #output .plan-view td:empty { display: none; }
+    #output .plan-view td:first-child { font-weight: 600; margin-bottom: 0.2rem; }
+    #output .plan-view td:nth-child(2)::before { content: 'Sätze × Wdh.: '; color: var(--text2); }
+    #output .plan-view td:nth-child(3)::before { content: 'Intensität: '; color: var(--text2); }
+    #output .plan-view td:nth-child(4)::before { content: 'Pause: '; color: var(--text2); }
+    #output .plan-view td:nth-child(5)::before { content: 'Notizen: '; color: var(--text2); }
+  }
 
   @media print {
     body { background: white; color: black; }
@@ -995,6 +1072,7 @@ HTML = r"""<!DOCTYPE html>
     #output td { color: black !important; border-bottom: 1px solid #ddd; }
     #output blockquote { color: #555 !important; border-left-color: var(--primary) !important; }
     .print-only { display: block; }
+    .client-only { display: none !important; }
     .print-header {
       display: flex;
       align-items: center;
@@ -1121,7 +1199,7 @@ HTML = r"""<!DOCTYPE html>
   }
 </style>
 </head>
-<body data-theme="dark">
+<body data-theme="dark"{% if client_view %} class="client-view"{% endif %}>
 
 <header>
   <div class="brand">
@@ -1135,11 +1213,25 @@ HTML = r"""<!DOCTYPE html>
     <button class="btn" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">🎓 Tour</button>
     <button class="btn primary" onclick="openLibrary()" id="library-btn">📚 Bibliothek</button>
     <button class="btn" onclick="toggleBranding()" id="branding-btn">Branding</button>
-    <button class="btn" onclick="copyShareLink(this)" id="share-btn">Link teilen</button>
+    <button class="btn" onclick="document.getElementById('share-dialog').showModal()" id="share-btn">Link teilen</button>
     <button class="btn" onclick="window.print()" id="pdf-btn">PDF exportieren</button>
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Dark/Light Mode" aria-label="Theme wechseln">&#9790;</button>
   </div>
 </header>
+
+<dialog id="share-dialog" class="share-dialog">
+  <h3>Plan teilen</h3>
+  <p class="share-sub">Der Plan steckt komplett im Link. Nichts wird gespeichert.</p>
+  <div class="share-row">
+    <div><strong>Für Klient:innen</strong><span>Nur der Plan, ohne Editor, aufs Handy zugeschnitten</span></div>
+    <button class="btn primary" onclick="copyShareLink(this, 'view')">Link kopieren</button>
+  </div>
+  <div class="share-row">
+    <div><strong>Zum Weiterbearbeiten</strong><span>Öffnet den Plan im Editor, z.B. für Kolleg:innen</span></div>
+    <button class="btn" onclick="copyShareLink(this, 'edit')">Link kopieren</button>
+  </div>
+  <form method="dialog"><button class="btn">Schließen</button></form>
+</dialog>
 
 <!-- Tour Overlay -->
 <div class="tour-backdrop" id="tour-backdrop">
@@ -1312,6 +1404,10 @@ HTML = r"""<!DOCTYPE html>
       <div class="print-only print-footer">
         Erstellt mit WODL — wodl.outoftheb-ox.de
       </div>
+      <div class="client-only client-footer">
+        <button class="btn" onclick="window.print()">Als PDF speichern</button>
+        <span>Erstellt mit <a href="/">WODL</a> · <a id="edit-link" href="/">Plan bearbeiten</a></span>
+      </div>
     </div>
   </div>
 </main>
@@ -1320,6 +1416,7 @@ HTML = r"""<!DOCTYPE html>
   const editor = document.getElementById('editor');
   const outputBody = document.getElementById('output-body');
   const sample = {{ sample_json | safe }};
+  const clientView = document.body.classList.contains('client-view');
   const themes = {{ themes_json | safe }};
   let currentFormat = 'markdown';
   let debounceTimer = null;
@@ -1582,7 +1679,7 @@ HTML = r"""<!DOCTYPE html>
 
   // Auto-Start für neue User (statt Library-Auto-Open)
   function maybeAutoStartTour() {
-    if (!localStorage.getItem('wodl_tour_started')) {
+    if (!clientView && !localStorage.getItem('wodl_tour_started')) {
       setTimeout(() => startTour(), 500);
     }
   }
@@ -1865,7 +1962,8 @@ HTML = r"""<!DOCTYPE html>
 
   function getBrand() {
     const urlParams = new URLSearchParams(location.search);
-    const stored = JSON.parse(localStorage.getItem('wodl_brand') || '{}');
+    // Klient:innen sehen nur das Branding aus dem Link, nie eigenes gespeichertes
+    const stored = clientView ? {} : JSON.parse(localStorage.getItem('wodl_brand') || '{}');
     const brand = { ...defaults, ...stored };
     BRAND_KEYS.forEach(k => {
       if (urlParams.has(k)) brand[k] = urlParams.get(k);
@@ -2020,7 +2118,7 @@ HTML = r"""<!DOCTYPE html>
     return new Response(stream).text();
   }
 
-  async function shareUrl() {
+  async function shareUrl(mode) {
     const brand = JSON.parse(localStorage.getItem('wodl_brand') || '{}');
     const url = new URL(location.href);
     url.search = '';
@@ -2028,12 +2126,13 @@ HTML = r"""<!DOCTYPE html>
     if (brand.logo) url.searchParams.set('logo', brand.logo);
     if (brand.coach) url.searchParams.set('coach', brand.coach);
     if (brand.theme && brand.theme !== defaults.theme) url.searchParams.set('theme', brand.theme);
+    if (mode === 'view') url.searchParams.set('view', '1');
     url.searchParams.set('p', await packPlan(editor.value));
     return url.toString();
   }
 
-  function copyShareLink(btn) {
-    const url = shareUrl();
+  function copyShareLink(btn, mode) {
+    const url = shareUrl(mode);
     // ClipboardItem mit Promise: Safari kopiert nur, wenn write() direkt im Klick startet
     const done = window.ClipboardItem
       ? navigator.clipboard.write([new ClipboardItem({ 'text/plain': url.then(u => new Blob([u], { type: 'text/plain' })) })])
@@ -2134,6 +2233,11 @@ HTML = r"""<!DOCTYPE html>
   wireBrandingInputs();
   applyBrand(getBrand());
   loadFromStorage().then(parseAndRender);
+  if (clientView) {
+    const edit = new URL(location.href);
+    edit.searchParams.delete('view');
+    document.getElementById('edit-link').href = edit.toString();
+  }
   updateHint();
   maybeAutoStartTour();
 </script>
@@ -2226,10 +2330,12 @@ def _md_to_html(md: str) -> str:
 
 @app.route("/")
 def index():
-    plan = parse(SAMPLE_WODL)
-    initial_html = _md_to_html(to_markdown(plan))
+    # ?view=1 = Ansicht für Klient:innen: nur der Plan aus dem Link, kein Editor
+    client_view = request.args.get("view") == "1"
+    initial_html = "" if client_view else _md_to_html(to_markdown(parse(SAMPLE_WODL)))
     return render_template_string(
         HTML,
+        client_view=client_view,
         sample_json=json.dumps(SAMPLE_WODL),
         themes_json=json.dumps(THEMES),
         exercises_json=json.dumps(EXERCISE_NAMES, ensure_ascii=False),
