@@ -23,51 +23,51 @@
 
 ---[Oberkörper schwer] Mo
 
-Bench Press           5x3     @RPE8  r240s  +2.5kg/w
-Barbell Row           5x5     @RPE8  r180s  +2.5kg/w
-OHP                   3x6     @RPE7  r150s
-Pull-up               3x8     @BW    r120s
-Tricep Pushdown       3x12    r60s
+Bankdrücken           5x3     @RPE8  r240s  +2.5kg/w
+Langhantel-Rudern     5x5     @RPE8  r180s  +2.5kg/w
+Schulterdrücken       3x6     @RPE7  r150s
+Klimmzug              3x8     @BW    r120s
+Trizepsdrücken        3x12    r60s
 
 ---[Unterkörper schwer] Di
 
-Squat                 5x3     @RPE8  r240s  +2.5kg/w
-RDL                   3x6     @RPE7  r180s
-Leg Press             3x10    @RPE7  r120s
-Leg Curl              3x12    r90s
-Calf Raise            4x12    r60s
+Kniebeuge               5x3     @RPE8  r240s  +2.5kg/w
+Rumänisches Kreuzheben  3x6     @RPE7  r180s
+Beinpresse              3x10    @RPE7  r120s
+Beinbeuger              3x12    r90s
+Wadenheben              4x12    r60s
 
 ---[Oberkörper Volumen] Do
 
-Incline Bench Press   4x8     @RPE7  r120s
-Cable Row             4x10    @RPE7  r90s
-Dumbbell OHP          3x10    @RPE7  r90s
+Schrägbankdrücken           4x8     @RPE7  r120s
+Kabelrudern                 4x10    @RPE7  r90s
+Kurzhantel-Schulterdrücken  3x10    @RPE7  r90s
 ss {
-  Incline DB Fly      3x12    r60s
-  Hammer Curl         3x12    r60s
+  Schrägbank-Fliegende  3x12    r60s
+  Hammer-Curl           3x12    r60s
 }
 ss {
-  Lateral Raise       4x15    r60s
-  Overhead Tricep Extension   3x12  r60s
+  Seitheben                   4x15    r60s
+  Überkopf-Trizepsstrecken    3x12  r60s
 }
 
 ---[Unterkörper Volumen] Fr
 
-Front Squat           4x6     @RPE7  r180s
-Bulgarian Split Squat 3x10    @RPE7  r90s
-Leg Extension         3x12    r60s
-Leg Curl              3x12    r60s
+Frontkniebeuge        4x6     @RPE7  r180s
+Bulgarische Kniebeuge 3x10    @RPE7  r90s
+Beinstrecker          3x12    r60s
+Beinbeuger            3x12    r60s
 Hip Thrust            3x10    @RPE7  r120s
-Calf Raise            4x15    r60s
+Wadenheben            4x15    r60s
 
 ---[Arme & Schwachstellen] Sa
 
-Barbell Curl          4x8     @RPE7  r90s
-Skull Crusher         4x10    r90s
-Incline Curl          3x12    r60s
-Overhead Tricep Extension   3x12  r60s
-Face Pull             4x15    r60s
-Rear Delt Fly         4x15    r60s
+Langhantel-Curl             4x8     @RPE7  r90s
+Stirndrücken                4x10    r90s
+Schrägbank-Curl             3x12    r60s
+Überkopf-Trizepsstrecken    3x12  r60s
+Face Pull                   4x15    r60s
+Vorgebeugtes Seitheben      4x15    r60s
 
 > Wochenvolumen: Chest 11, Back 15, Quads 10, Hams/Glutes 9, Shoulders 14, Arms 16
 > Heavy-Tage: Primer-Lift bestimmt RPE — Technik vor Last

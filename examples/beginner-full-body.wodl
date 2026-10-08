@@ -22,32 +22,32 @@
 
 ---[Tag A] Mo
 
-Squat                 3x8     @RPE7  r180s  +2.5kg/w
-Bench Press           3x8     @RPE7  r180s  +2.5kg/w
-Barbell Row           3x10    @RPE7  r120s  +2.5kg/w
+Kniebeuge             3x8     @RPE7  r180s  +2.5kg/w
+Bankdrücken           3x8     @RPE7  r180s  +2.5kg/w
+Langhantel-Rudern     3x10    @RPE7  r120s  +2.5kg/w
 ss {
-  Plank               3x30s   r60s
-  Band External Rotation  3x12  r45s
+  Unterarmstütz           3x30s   r60s
+  Außenrotation mit Band  3x12  r45s
 }
 
 ---[Tag B] Mi
 
-Deadlift              2x5     @RPE7  r240s  +2.5kg/w
-OHP                   3x8     @RPE7  r150s  +1.25kg/w
-Lat Pulldown          3x10    @RPE7  r120s
-Leg Curl              3x12    r90s
+Kreuzheben            2x5     @RPE7  r240s  +2.5kg/w
+Schulterdrücken       3x8     @RPE7  r150s  +1.25kg/w
+Latzug                3x10    @RPE7  r120s
+Beinbeuger            3x12    r90s
 Bird Dog              3x10    r45s
 
 ---[Tag C] Fr
 
-Squat                 3x8     @RPE7  r180s  +2.5kg/w
-Incline Bench Press   3x10    @RPE7  r150s
-Dumbbell Row          3x10    @RPE7  r90s
+Kniebeuge             3x8     @RPE7  r180s  +2.5kg/w
+Schrägbankdrücken     3x10    @RPE7  r150s
+Kurzhantel-Rudern     3x10    @RPE7  r90s
 ss {
-  Dumbbell Curl       3x12    r60s
-  Tricep Pushdown     3x12    r60s
+  Kurzhantel-Curl     3x12    r60s
+  Trizepsdrücken      3x12    r60s
 }
-Calf Raise            3x15    r60s
+Wadenheben            3x15    r60s
 
 > Progression: Jede Woche +2.5kg (Bench/Squat/DL/Row) oder +1.25kg (OHP)
 > wenn alle Reps sauber geschafft wurden. Sonst gleiches Gewicht wiederholen.

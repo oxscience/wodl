@@ -43,13 +43,13 @@
 
 ---[Tag A] Mo
 
-Squat                  3x8-12  @RIR3  r150s  +1rep/w
-Bench Press            3x8-12  @RIR3  r150s  +1rep/w
-Barbell Row            3x8-12  @RIR2  r120s  +1rep/w
-Leg Curl               2x8-12  @RIR2  r90s
+Kniebeuge              3x8-12  @RIR3  r150s  +1rep/w
+Bankdrücken            3x8-12  @RIR3  r150s  +1rep/w
+Langhantel-Rudern      3x8-12  @RIR2  r120s  +1rep/w
+Beinbeuger             2x8-12  @RIR2  r90s
 ss {
-  Lateral Raise        2x8-12  @RIR2  r60s
-  Plank                2x30s   r60s
+  Seitheben            2x8-12  @RIR2  r60s
+  Unterarmstütz        2x30s   r60s
 }
 
 > Aufwärmen pro Compound: 2 leichte Sätze (ca. 50% und 70% des Arbeitsgewichts).
@@ -59,28 +59,28 @@ ss {
 
 ---[Tag B] Mi
 
-RDL                    3x8-12  @RIR3  r150s  +1rep/w
-OHP                    3x8-12  @RIR3  r120s  +1rep/w
-Lat Pulldown           3x8-12  @RIR2  r120s  +1rep/w
-Leg Press              2x8-12  @RIR2  r120s
+Rumänisches Kreuzheben  3x8-12  @RIR3  r150s  +1rep/w
+Schulterdrücken         3x8-12  @RIR3  r120s  +1rep/w
+Latzug                  3x8-12  @RIR2  r120s  +1rep/w
+Beinpresse              2x8-12  @RIR2  r120s
 ss {
-  Dumbbell Curl        2x8-12  @RIR2  r60s
-  Tricep Pushdown      2x8-12  @RIR2  r60s
+  Kurzhantel-Curl      2x8-12  @RIR2  r60s
+  Trizepsdrücken       2x8-12  @RIR2  r60s
 }
 
 # ----- Tag C — zweite Kniebeuge-Einheit + Schrägbank/Row -----
 
 ---[Tag C] Fr
 
-Squat                  3x8-12  @RIR2  r150s  +1rep/w
-Incline Dumbbell Press 3x8-12  @RIR2  r120s  +1rep/w
-Seated Cable Row       3x8-12  @RIR2  r120s
-Leg Curl               2x8-12  @RIR2  r90s
+Kniebeuge              3x8-12  @RIR2  r150s  +1rep/w
+Kurzhantel-Schrägbankdrücken 3x8-12  @RIR2  r120s  +1rep/w
+Kabelrudern            3x8-12  @RIR2  r120s
+Beinbeuger             2x8-12  @RIR2  r90s
 ss {
-  Lateral Raise        2x8-12  @RIR2  r60s
+  Seitheben            2x8-12  @RIR2  r60s
   Face Pull            2x8-12  @RIR2  r60s
 }
-Calf Raise             2x8-12  @RIR2  r60s
+Wadenheben             2x8-12  @RIR2  r60s
 
 > Double Progression (kriterienbasiert, nicht zeitbasiert): Gewicht erst
 > erhöhen, wenn ALLE Sätze einer Übung 12 saubere Reps bei RIR 2-3 schaffen.

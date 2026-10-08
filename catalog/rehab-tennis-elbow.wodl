@@ -38,9 +38,9 @@
 
 ---[Phase 1: Exzentrik-Start (Woche 0-2)] Mo Di Mi Do Fr Sa So
 
-Tyler Twist                 3x15   @low   r60s  t4010  # Torsionsstab, ~4s exzentrisch pro Wdh
-Isometric Wrist Extension   4x30s  @ISO   r30s         # Schmerzmodulation bei gereizter Sehne (Coombes 2015)
-Wrist Extensor Stretch      3x30s         r15s         # Ellbogen gestreckt, Handgelenk in Flexion ziehen
+Tyler Twist                       3x15   @low   r60s  t4010  # Torsionsstab, ~4s exzentrisch pro Wdh
+Isometrische Handgelenkstreckung  4x30s  @ISO   r30s         # Schmerzmodulation bei gereizter Sehne (Coombes 2015)
+Unterarmstrecker-Dehnung          3x30s         r15s         # Ellbogen gestreckt, Handgelenk in Flexion ziehen
 
 > Schmerzregel: bis 3-4/10 während der Übung akzeptabel, sofern die Symptome
 > am Folgetag nicht schlechter sind. Sonst Widerstandsstufe/Volumen senken.
@@ -55,13 +55,13 @@ Wrist Extensor Stretch      3x30s         r15s         # Ellbogen gestreckt, Han
 ---[Phase 2: Kräftigung (Woche 2-6)] Mo Mi Fr
 
 Tyler Twist                 3x15   @low   r60s  t4010  # weiterhin täglich, auch an den übrigen Tagen
-Wrist Extension             3x12   @1kg   r45s  t3010  # Kurzhantel, langsam konzentrisch-exzentrisch
-Wrist Flexion               3x12   @1kg   r45s
-Wrist Supination            3x10   @1kg   r30s         # Hammer-Griff
-Wrist Pronation             3x10   @1kg   r30s
-Grip Squeeze                3x10   @low   r30s         # Ball/Griptrainer, schmerzarm
-Band External Rotation      3x15   @low   r45s         # Schulter-/Skapula-Defizite mitbehandeln (Coombes 2015)
-Cable Row                   3x12   @RPE6  r60s
+Handgelenkstreckung         3x12   @1kg   r45s  t3010  # Kurzhantel, langsam konzentrisch-exzentrisch
+Handgelenkbeugung           3x12   @1kg   r45s
+Unterarm-Supination         3x10   @1kg   r30s         # Hammer-Griff
+Unterarm-Pronation          3x10   @1kg   r30s
+Ballpressen                 3x10   @low   r30s         # Ball/Griptrainer, schmerzarm
+Außenrotation mit Band      3x15   @low   r45s         # Schulter-/Skapula-Defizite mitbehandeln (Coombes 2015)
+Kabelrudern                 3x12   @RPE6  r60s
 
 > Progression Tyler Twist: nächste Widerstandsstufe des Stabs, sobald 3x15 auf
 > der aktuellen Stufe mühelos und weitgehend schmerzfrei gelingen.
@@ -76,12 +76,12 @@ Cable Row                   3x12   @RPE6  r60s
 ---[Phase 3: Rückkehr (Woche 6-12)] Mo Mi Fr
 
 Tyler Twist                 3x15   @mid   r60s  t4010  # Erhalt, höhere Widerstandsstufe
-Wrist Extension             3x10   @2kg   r45s  t3010
-Reverse Curl                3x10   @RPE7  r60s         # Langhantel/SZ, Extensoren unter Last
-Hammer Curl                 3x10   @RPE7  r60s
-Grip Squeeze                3x8    @high  r45s         # kräftiger Griff, auch mit gestrecktem Ellbogen
-Band External Rotation      3x15   @mid   r45s
-Cable Row                   3x10   @RPE7  r60s
+Handgelenkstreckung         3x10   @2kg   r45s  t3010
+Curl im Obergriff           3x10   @RPE7  r60s         # Langhantel/SZ, Extensoren unter Last
+Hammer-Curl                 3x10   @RPE7  r60s
+Ballpressen                 3x8    @high  r45s         # kräftiger Griff, auch mit gestrecktem Ellbogen
+Außenrotation mit Band      3x15   @mid   r45s
+Kabelrudern                 3x10   @RPE7  r60s
 
 > Rückkehr zum Sport graduiert: erst Technik/leichte Schläge, dann Dauer,
 > zuletzt Intensität — Symptom-Monitoring über 24h nach jeder Steigerung.

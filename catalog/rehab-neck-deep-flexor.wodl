@@ -37,9 +37,9 @@
 
 ---[Phase 1: Aktivierung (Woche 0-2)] Mo Di Mi Do Fr Sa So
 
-Craniocervical Flexion      10x10s  @ISO  r10s   # Biofeedback: 20 → 22 mmHg, SCM bleibt tastbar weich
-Chin Tuck                   3x10          r30s   # Variante im Sitzen/an der Wand für zwischendurch
-Scapular Retraction         3x10          r30s   # Skapula-Setting, unteres Trapez-Gefühl
+Kraniozervikale Flexion     10x10s  @ISO  r10s   # Biofeedback: 20 → 22 mmHg, SCM bleibt tastbar weich
+Kinnretraktion              3x10          r30s   # Variante im Sitzen/an der Wand für zwischendurch
+Schulterblatt-Retraktion    3x10          r30s   # Skapula-Setting, unteres Trapez-Gefühl
 
 > 2x täglich üben — die Übung ist ANSTEUERUNG, kein Kraftakt: minimale,
 > präzise Nickbewegung, keine Kopfheber, kein Pressen, ruhig weiteratmen.
@@ -57,13 +57,13 @@ Scapular Retraction         3x10          r30s   # Skapula-Setting, unteres Trap
 
 ---[Phase 2: Ausdauer (Woche 2-6)] Mo Di Mi Do Fr Sa So
 
-Craniocervical Flexion      10x10s  @ISO  r10s   # Level weiter steigern Richtung 26-30 mmHg, 2x täglich
-Supine Head Lift            3x20    @BW   r45s   # Rückenlage: Kinn einziehen, Kopf 2-3cm anheben
-Prone Head Lift             3x20    @BW   r45s   # Bauchlage: Kopf gegen Schwerkraft anheben, Nacken lang
-Shrug                       3x20    @2kg  r45s   # leichtes Kurzhantel-Programm (Ylinen-Ausdauergruppe)
-Dumbbell OHP                3x20    @2kg  r45s
-Dumbbell Row                3x20    @2kg  r45s
-Dumbbell Curl               3x20    @2kg  r45s
+Kraniozervikale Flexion     10x10s  @ISO  r10s   # Level weiter steigern Richtung 26-30 mmHg, 2x täglich
+Kopfheben in Rückenlage     3x20    @BW   r45s   # Rückenlage: Kinn einziehen, Kopf 2-3cm anheben
+Kopfheben in Bauchlage      3x20    @BW   r45s   # Bauchlage: Kopf gegen Schwerkraft anheben, Nacken lang
+Schulterheben               3x20    @2kg  r45s   # leichtes Kurzhantel-Programm (Ylinen-Ausdauergruppe)
+Kurzhantel-Schulterdrücken  3x20    @2kg  r45s
+Kurzhantel-Rudern           3x20    @2kg  r45s
+Kurzhantel-Curl             3x20    @2kg  r45s
 
 > Kopfhebungen klein und kontrolliert — Zittern oder Kinn-Vorschieben heißt:
 > Satz beenden. Leichte Muskelermüdung ok, kein Symptomanstieg am Folgetag.
@@ -77,15 +77,15 @@ Dumbbell Curl               3x20    @2kg  r45s
 
 ---[Phase 3: Kraft (Woche 6-12+)] Mo Mi Fr
 
-Craniocervical Flexion      5x10s   @ISO  r10s   # Erhalt, 1x täglich auf Ziel-Level
-Isometric Neck Flexion      1x15    @80%  r60s   # Gummiband um die Stirn, gegen Zug nach vorn halten
-Isometric Neck Flexion Diagonal 1x15 @80% r60s   # je Schrägrichtung links/rechts einmal durchführen
-Isometric Neck Extension    1x15    @80%  r60s   # Band am Hinterkopf, gegen Zug nach hinten
-Shrug                       1x15    @RPE7 r60s   # Last jetzt so, dass 15 Wdh fordernd sind
-Dumbbell OHP                1x15    @RPE7 r60s
-Dumbbell Row                1x15    @RPE7 r60s
-Dumbbell Curl               1x15    @RPE7 r60s
-Dumbbell Pullover           1x15    @RPE7 r60s
+Kraniozervikale Flexion       5x10s   @ISO  r10s   # Erhalt, 1x täglich auf Ziel-Level
+Isometrische Nackenflexion    1x15    @80%  r60s   # Gummiband um die Stirn, gegen Zug nach vorn halten
+Isometrische Nackenflexion diagonal 1x15 @80% r60s   # je Schrägrichtung links/rechts einmal durchführen
+Isometrische Nackenextension  1x15    @80%  r60s   # Band am Hinterkopf, gegen Zug nach hinten
+Schulterheben                 1x15    @RPE7 r60s   # Last jetzt so, dass 15 Wdh fordernd sind
+Kurzhantel-Schulterdrücken    1x15    @RPE7 r60s
+Kurzhantel-Rudern             1x15    @RPE7 r60s
+Kurzhantel-Curl               1x15    @RPE7 r60s
+Überzüge                      1x15    @RPE7 r60s
 
 > Ergänzend nach Ylinen-Gesamtprogramm: ~20 min Dehnen (Nacken/Schulter) und
 > ~30 min aerobes Training an den Trainingstagen.

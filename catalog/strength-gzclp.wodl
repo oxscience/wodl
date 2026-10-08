@@ -40,11 +40,11 @@
 
 ---[A1] Mo
 
-Squat         4x3   r180s   # T1 — Start: ~85% des 5RM
-Squat         1x    r240s   # T1 AMRAP-Satz (3+): schwer, aber nie bis zum technischen Versagen
-Bench Press   3x10  r120s   # T2 — Last mit Reserve, alle 30 Reps sauber
-Lat Pulldown  2x15  r60s    # T3
-Lat Pulldown  1x    r90s    # T3 AMRAP-Satz (15+): bei >=25 Reps Gewicht erhöhen
+Kniebeuge     4x3   r180s   # T1 — Start: ~85% des 5RM
+Kniebeuge     1x    r240s   # T1 AMRAP-Satz (3+): schwer, aber nie bis zum technischen Versagen
+Bankdrücken   3x10  r120s   # T2 — Last mit Reserve, alle 30 Reps sauber
+Latzug        2x15  r60s    # T3
+Latzug        1x    r90s    # T3 AMRAP-Satz (15+): bei >=25 Reps Gewicht erhöhen
 
 > AMRAP-Sätze mit 1-2 Reps im Tank beenden — GZCLP lebt von
 > Frequenz und sauberen Reps, nicht vom Muskelversagen.
@@ -53,31 +53,31 @@ Lat Pulldown  1x    r90s    # T3 AMRAP-Satz (15+): bei >=25 Reps Gewicht erhöhe
 
 ---[B1] Di
 
-OHP           4x3   r180s   # T1
-OHP           1x    r240s   # T1 AMRAP-Satz (3+)
-Deadlift      3x10  r120s   # T2
-Dumbbell Row  2x15  r60s    # T3
-Dumbbell Row  1x    r90s    # T3 AMRAP-Satz (15+)
+Schulterdrücken    4x3   r180s   # T1
+Schulterdrücken    1x    r240s   # T1 AMRAP-Satz (3+)
+Kreuzheben         3x10  r120s   # T2
+Kurzhantel-Rudern  2x15  r60s    # T3
+Kurzhantel-Rudern  1x    r90s    # T3 AMRAP-Satz (15+)
 
 # ----- Workout A2 -----
 
 ---[A2] Do
 
-Bench Press   4x3   r180s   # T1 — Bench und Squat tauschen die Tier-Rollen
-Bench Press   1x    r240s   # T1 AMRAP-Satz (3+)
-Squat         3x10  r120s   # T2
-Lat Pulldown  2x15  r60s    # T3
-Lat Pulldown  1x    r90s    # T3 AMRAP-Satz (15+)
+Bankdrücken   4x3   r180s   # T1 — Bench und Squat tauschen die Tier-Rollen
+Bankdrücken   1x    r240s   # T1 AMRAP-Satz (3+)
+Kniebeuge     3x10  r120s   # T2
+Latzug        2x15  r60s    # T3
+Latzug        1x    r90s    # T3 AMRAP-Satz (15+)
 
 # ----- Workout B2 -----
 
 ---[B2] Fr
 
-Deadlift      4x3   r180s   # T1
-Deadlift      1x    r240s   # T1 AMRAP-Satz (3+)
-OHP           3x10  r120s   # T2
-Dumbbell Row  2x15  r60s    # T3
-Dumbbell Row  1x    r90s    # T3 AMRAP-Satz (15+)
+Kreuzheben         4x3   r180s   # T1
+Kreuzheben         1x    r240s   # T1 AMRAP-Satz (3+)
+Schulterdrücken    3x10  r120s   # T2
+Kurzhantel-Rudern  2x15  r60s    # T3
+Kurzhantel-Rudern  1x    r90s    # T3 AMRAP-Satz (15+)
 
 > T1-Progression pro Einheit: +5 kg (Squat/Deadlift), +2.5 kg
 > (Bench/OHP). Stall-Kriterium T1: Basis-Volumen verfehlt

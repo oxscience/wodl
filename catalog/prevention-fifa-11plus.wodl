@@ -39,12 +39,12 @@
 
 ---[Teil 1: Laufübungen (8 min)]
 
-Running Straight Ahead              1x2    @low    # Locker vorlaufen, zurück etwas schneller
-Running Hip Out                     1x2    @low    # Am Kegel: Knie heben, Hüfte nach außen drehen
-Running Hip In                      1x2    @low    # Am Kegel: Knie heben, Hüfte nach innen drehen
-Running Circling Partner            1x2    @low    # Sidesteps, Partner einmal umkreisen
-Jumping with Shoulder Contact       1x2    @mid    # Sidestep + beidbeiniger Sprung mit Schulterkontakt
-Running Quick Forwards Backwards    1x2    @mid    # 2 Kegel vor, 1 Kegel rückwärts, Knie leicht gebeugt
+Geradeauslaufen                     1x2    @low    # Locker vorlaufen, zurück etwas schneller
+Hüfte nach außen                    1x2    @low    # Am Kegel: Knie heben, Hüfte nach außen drehen
+Hüfte nach innen                    1x2    @low    # Am Kegel: Knie heben, Hüfte nach innen drehen
+Partner umkreisen                   1x2    @low    # Sidesteps, Partner einmal umkreisen
+Sprung mit Schulterkontakt          1x2    @mid    # Sidestep + beidbeiniger Sprung mit Schulterkontakt
+Schnell vor und zurück              1x2    @mid    # 2 Kegel vor, 1 Kegel rückwärts, Knie leicht gebeugt
 
 # ----- Teil 2: Kraft, Plyometrie, Balance (~10 min) -----
 # 6 Übungen mit je 3 Schwierigkeitsleveln. Inline steht die
@@ -52,12 +52,12 @@ Running Quick Forwards Backwards    1x2    @mid    # 2 Kegel vor, 1 Kegel rückw
 
 ---[Teil 2: Kraft, Plyometrie, Balance (10 min)]
 
-Plank                    3x30s      @ISO   # 20-30 s halten. L1 statisch; L2: Beine abwechselnd anheben, 3x 40-60 s; L3: ein Bein anheben und halten, 3x 20-30 s pro Seite
-Side Plank               3x30s      @ISO   # 20-30 s pro Seite. L1 statisch (Knie 90° aufgestellt); L2: Hüfte heben und senken; L3: gestreckt mit Beinheben
+Unterarmstütz            3x30s      @ISO   # 20-30 s halten. L1 statisch; L2: Beine abwechselnd anheben, 3x 40-60 s; L3: ein Bein anheben und halten, 3x 20-30 s pro Seite
+Seitstütz                3x30s      @ISO   # 20-30 s pro Seite. L1 statisch (Knie 90° aufgestellt); L2: Hüfte heben und senken; L3: gestreckt mit Beinheben
 Nordic Hamstring Curl    1x3-5      @BW    # L1: 3-5 / L2: 7-10 / L3: min. 12-15 Wdh.; Fall so lange wie möglich bremsen
-Single Leg Balance       2x30s      @BW    # Pro Bein. L1: Ball in beiden Händen halten; L2: Ballzuwerfen mit Partner; L3: Partner versuchen sich aus dem Gleichgewicht zu bringen
-Squat                    2x30s      @BW    # L1: bis 90° + Zehenstand beim Aufrichten; L2: gehende Ausfallschritte, 2x10 pro Bein; L3: Einbein-Kniebeuge, 2x10 pro Bein
-Vertical Jump            2x30s      @BW    # L1: vertikale Sprünge; L2: seitliche Sprünge (einbeinig, ~1 m); L3: Kreuzsprünge vor/zurück/seitlich/diagonal
+Einbeinstand             2x30s      @BW    # Pro Bein. L1: Ball in beiden Händen halten; L2: Ballzuwerfen mit Partner; L3: Partner versuchen sich aus dem Gleichgewicht zu bringen
+Kniebeuge                2x30s      @BW    # L1: bis 90° + Zehenstand beim Aufrichten; L2: gehende Ausfallschritte, 2x10 pro Bein; L3: Einbein-Kniebeuge, 2x10 pro Bein
+Vertikalsprung           2x30s      @BW    # L1: vertikale Sprünge; L2: seitliche Sprünge (einbeinig, ~1 m); L3: Kreuzsprünge vor/zurück/seitlich/diagonal
 
 > Weiche, gefederte Landung auf dem Vorfuß ist wichtiger als Sprunghöhe.
 > Beim Nordic Hamstring Curl: Hüfte gestreckt lassen, mit den Händen
@@ -68,9 +68,9 @@ Vertical Jump            2x30s      @BW    # L1: vertikale Sprünge; L2: seitlic
 
 ---[Teil 3: Laufübungen (2 min)]
 
-Running Across the Pitch    1x2    @high    # ~40 m bei 75-80% des Maximaltempos, Rest locker
-Bounding                    1x2    @high    # 6-8 Sprungschritte mit hohem Knieeinsatz, Gegenarm schwingt
-Plant and Cut               1x2    @high    # 4-5 Schritte anlaufen, Richtungswechsel, 5-7 Schritte Sprint bei 80-90%
+Über das Feld laufen        1x2    @high    # ~40 m bei 75-80% des Maximaltempos, Rest locker
+Sprunglauf                  1x2    @high    # 6-8 Sprungschritte mit hohem Knieeinsatz, Gegenarm schwingt
+Richtungswechsel            1x2    @high    # 4-5 Schritte anlaufen, Richtungswechsel, 5-7 Schritte Sprint bei 80-90%
 
 > Vor Spielen nur Teil 1 und Teil 3 durchführen.
 > Wirksamkeit hängt an der Compliance: Teams mit regelmäßiger,

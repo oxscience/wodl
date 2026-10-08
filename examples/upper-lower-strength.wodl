@@ -20,11 +20,11 @@
 
 ---[Oberkörper A] Mo
 
-Bench Press          5x5   @85%   r180s  +2.5kg/w
-OHP                  4x6   @80%   r120s
-Barbell Row          4x8   @RPE8  r120s
+Bankdrücken          5x5   @85%   r180s  +2.5kg/w
+Schulterdrücken      4x6   @80%   r120s
+Langhantel-Rudern    4x8   @RPE8  r120s
 ss {
-  Dip                3x8   @BW
+  Dips               3x8   @BW
   Face Pull          3x15
 }
 
@@ -34,13 +34,13 @@ ss {
 
 ---[Unterkörper A] Di
 
-Squat                5x5   @85%   r180s  +2.5kg/w
-RDL                  3x8   @RPE7  r120s
+Kniebeuge               5x5   @85%   r180s  +2.5kg/w
+Rumänisches Kreuzheben  3x8   @RPE7  r120s
 ss {
-  Leg Extension      3x12
-  Leg Curl           3x12
+  Beinstrecker       3x12
+  Beinbeuger         3x12
 }
-Calf Raise           4x15  r60s
+Wadenheben           4x15  r60s
 
 # ============================================================
 # UPPER B — Volumen
@@ -48,13 +48,13 @@ Calf Raise           4x15  r60s
 
 ---[Oberkörper B] Do
 
-Incline Bench Press  4x8   @RPE7  r120s
-Dumbbell OHP         3x10  @RPE7  r90s
-Dumbbell Row         4x10  @RPE7  r90s
+Schrägbankdrücken           4x8   @RPE7  r120s
+Kurzhantel-Schulterdrücken  3x10  @RPE7  r90s
+Kurzhantel-Rudern           4x10  @RPE7  r90s
 ss {
-  Lateral Raise      4x15
-  Hammer Curl        3x12
-  Tricep Pushdown    3x12
+  Seitheben          4x15
+  Hammer-Curl        3x12
+  Trizepsdrücken     3x12
 }
 
 # ============================================================
@@ -63,11 +63,11 @@ ss {
 
 ---[Unterkörper B] Fr
 
-Front Squat          4x6   @RPE7  r120s
-Deadlift             3x5   @RPE8  r180s
-Bulgarian Split Squat 3x10 @RPE7  r90s
+Frontkniebeuge       4x6   @RPE7  r120s
+Kreuzheben           3x5   @RPE8  r180s
+Bulgarische Kniebeuge 3x10 @RPE7  r90s
 ss {
-  Leg Press          3x12
-  Leg Curl           3x12
+  Beinpresse         3x12
+  Beinbeuger         3x12
 }
-Calf Raise           4x15  r60s
+Wadenheben           4x15  r60s

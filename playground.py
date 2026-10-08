@@ -89,27 +89,27 @@ EXERCISE_NAMES = [
 ]
 
 SAMPLE_WODL = """\
-@plan "Full Body Basics"
+@plan "Ganzkörper Basics"
 @freq 3x/Woche
 @cycle 4w: w1-3 Aufbau, w4 Deload
 
 ---[Tag A] Mo
 
-Kniebeugen           3x5   @RPE8  r180s  +2.5kg/w
-Bankdrücken          3x8   @RPE7  r120s
-LH Rudern            3x8   @RPE7  r120s
+Kniebeuge               3x5   @RPE8  r180s  +2.5kg/w
+Bankdrücken             3x8   @RPE7  r120s
+Langhantel-Rudern       3x8   @RPE7  r120s
 
 ---[Tag B] Mi
 
-Kreuzheben           3x5   @RPE8  r180s  +2.5kg/w
-Schulterdrücken      3x8   @RPE7  r120s
-Klimmzüge            3x8   @BW    r120s
+Kreuzheben              3x5   @RPE8  r180s  +2.5kg/w
+Schulterdrücken         3x8   @RPE7  r120s
+Klimmzug                3x8   @BW    r120s
 
 ---[Tag C] Fr
 
-Kniebeugen           3x5   @RPE8  r180s
-KH Bankdrücken       3x8   @RPE7  r120s
-KH Rudern            3x10  @RPE7  r90s
+Kniebeuge               3x5   @RPE8  r180s
+Kurzhantel-Bankdrücken  3x8   @RPE7  r120s
+Kurzhantel-Rudern       3x10  @RPE7  r90s
 
 > Perfekt für Anfänger und Wiedereinsteiger
 """

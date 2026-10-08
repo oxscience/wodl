@@ -52,17 +52,17 @@
 
 ---[Oberkörper A] Mo
 
-Bench Press            4x6-8    @RIR2  r180s  +1rep/w
-Barbell Row            4x6-8    @RIR2  r150s  +1rep/w
-OHP                    3x8-10   @RIR2  r120s
-Lat Pulldown           3x8-10   @RIR2  r120s
+Bankdrücken            4x6-8    @RIR2  r180s  +1rep/w
+Langhantel-Rudern      4x6-8    @RIR2  r150s  +1rep/w
+Schulterdrücken        3x8-10   @RIR2  r120s
+Latzug                 3x8-10   @RIR2  r120s
 ss {
-  Cable Fly            2x12-15  @RIR1  r60s
+  Kabelzug-Fliegende   2x12-15  @RIR1  r60s
   Face Pull            2x12-15  @RIR1  r60s
 }
 ss {
-  Dumbbell Curl        2x10-12  @RIR1  r60s
-  Tricep Pushdown      2x10-12  @RIR1  r60s
+  Kurzhantel-Curl      2x10-12  @RIR1  r60s
+  Trizepsdrücken       2x10-12  @RIR1  r60s
 }
 
 > Aufwärmen: 2-3 Steigerungssätze vor Bench Press und Barbell Row.
@@ -71,40 +71,40 @@ ss {
 
 ---[Unterkörper A] Di
 
-Squat                  4x6-8    @RIR2  r180s  +1rep/w
-RDL                    3x8-10   @RIR2  r150s
-Leg Press              3x10-12  @RIR2  r120s
-Leg Curl               3x10-12  @RIR1  r90s
-Calf Raise             4x10-15  @RIR1  r60s
-Cable Crunch           3x10-15  @RIR1  r60s
+Kniebeuge               4x6-8    @RIR2  r180s  +1rep/w
+Rumänisches Kreuzheben  3x8-10   @RIR2  r150s
+Beinpresse              3x10-12  @RIR2  r120s
+Beinbeuger              3x10-12  @RIR1  r90s
+Wadenheben              4x10-15  @RIR1  r60s
+Kabelzug-Crunch         3x10-15  @RIR1  r60s
 
 # ----- Upper B — Volumen (8-15 Reps, Fokus Schrägbank/vertikaler Zug) -----
 
 ---[Oberkörper B] Do
 
-Incline Bench Press    4x8-10   @RIR2  r150s  +1rep/w
-Pull-up                3x6-10   @RIR2  r120s   # Alternativ: Lat Pulldown
-Dumbbell OHP           3x10-12  @RIR2  r90s
-Seated Cable Row       3x10-12  @RIR2  r120s
+Schrägbankdrücken           4x8-10   @RIR2  r150s  +1rep/w
+Klimmzug                    3x6-10   @RIR2  r120s   # Alternativ: Lat Pulldown
+Kurzhantel-Schulterdrücken  3x10-12  @RIR2  r90s
+Kabelrudern                 3x10-12  @RIR2  r120s
 ss {
-  Lateral Raise        3x12-15  @RIR1  r60s
-  Rear Delt Fly        3x12-15  @RIR1  r60s
+  Seitheben               3x12-15  @RIR1  r60s
+  Vorgebeugtes Seitheben  3x12-15  @RIR1  r60s
 }
 ss {
-  Incline Dumbbell Curl     2x12-15  @RIR1  r60s
-  Overhead Tricep Extension 2x12-15  @RIR1  r60s
+  Schrägbank-Curl           2x12-15  @RIR1  r60s
+  Überkopf-Trizepsstrecken 2x12-15  @RIR1  r60s
 }
 
 # ----- Lower B — Volumen (Hinge-Fokus + Einbein) -----
 
 ---[Unterkörper B] Fr
 
-Deadlift               3x6-8    @RIR2  r180s  +1rep/w
-Front Squat            3x8-10   @RIR2  r150s
-Bulgarian Split Squat  3x10-12  @RIR2  r90s
-Leg Curl               3x12-15  @RIR1  r90s
-Calf Raise             4x10-15  @RIR1  r60s
-Hanging Leg Raise      3x10-15  r60s
+Kreuzheben             3x6-8    @RIR2  r180s  +1rep/w
+Frontkniebeuge         3x8-10   @RIR2  r150s
+Bulgarische Kniebeuge  3x10-12  @RIR2  r90s
+Beinbeuger             3x12-15  @RIR1  r90s
+Wadenheben             4x10-15  @RIR1  r60s
+Hängendes Beinheben    3x10-15  r60s
 
 > Progression (w1-3): Double Progression — Reps innerhalb der Range steigern;
 > erreicht eine Übung in allen Sätzen das obere Ende bei Ziel-RIR, +2.5 kg

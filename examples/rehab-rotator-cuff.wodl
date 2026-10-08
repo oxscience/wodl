@@ -24,10 +24,10 @@
 
 ---[Phase 1: Akut] Mo Di Mi Do Fr
 
-Pendulum              3x30s   r30s           # Passive ROM, schmerzfrei
-Wall Walk             3x10    r30s           # Schulter-Flexion gegen Wand
-Scapular Retraction   3x15    r30s           # Schulterblätter zusammen, 5s halten
-Cat-Cow               3x10    r30s           # Thorakal-Mobilität
+Pendelübung               3x30s   r30s           # Passive ROM, schmerzfrei
+Wandklettern              3x10    r30s           # Schulter-Flexion gegen Wand
+Schulterblatt-Retraktion  3x15    r30s           # Schulterblätter zusammen, 5s halten
+Katze-Kuh                 3x10    r30s           # Thorakal-Mobilität
 
 > Ice nach Session 10-15 min, 2-3x täglich.
 > Keine Überkopf-Aktivitäten, kein Tragen schwerer Lasten.
@@ -37,11 +37,11 @@ Cat-Cow               3x10    r30s           # Thorakal-Mobilität
 
 ---[Phase 2: Isometrie] Mo Di Mi Do Fr
 
-Band External Rotation  3x15  @low    r45s   # Arm am Körper, leichtes Band
-Band Internal Rotation  3x15  @low    r45s
-Scapular Retraction     3x15         r30s
-Isometric Shoulder Hold 5x10s @ISO   r30s    # Arm an Wand, sanft drücken
-Prone T                 3x10         r45s    # Bauchlage, keine Gewichte
+Außenrotation mit Band    3x15  @low    r45s   # Arm am Körper, leichtes Band
+Innenrotation mit Band    3x15  @low    r45s
+Schulterblatt-Retraktion  3x15         r30s
+Isometrisches Schulterhalten 5x10s @ISO   r30s    # Arm an Wand, sanft drücken
+T-Heben in Bauchlage      3x10         r45s    # Bauchlage, keine Gewichte
 
 > RIR 3-4, keine Annäherung ans Versagen. Schmerz muss abnehmen, nicht zunehmen.
 
@@ -50,13 +50,13 @@ Prone T                 3x10         r45s    # Bauchlage, keine Gewichte
 
 ---[Phase 3: Kraft] Mo Mi Fr
 
-Band External Rotation  4x12  @RPE7  r60s   # Progression: +1 Bandstufe alle 2 Wochen
-Band Internal Rotation  4x12  @RPE7  r60s
-Full Can Raise          3x12  @2kg   r60s    # Scaption bis Schulterhöhe
-Prone Y                 3x10  @1kg   r45s
-Prone T                 3x10  @1kg   r45s
-Prone W                 3x10  @1kg   r45s
-Scapular Retraction     3x15         r45s
+Außenrotation mit Band    4x12  @RPE7  r60s   # Progression: +1 Bandstufe alle 2 Wochen
+Innenrotation mit Band    4x12  @RPE7  r60s
+Full Can                  3x12  @2kg   r60s    # Scaption bis Schulterhöhe
+Y-Heben in Bauchlage      3x10  @1kg   r45s
+T-Heben in Bauchlage      3x10  @1kg   r45s
+W-Heben in Bauchlage      3x10  @1kg   r45s
+Schulterblatt-Retraktion  3x15         r45s
 
 > Full Can (nicht Empty Can!) — Daumen nach oben, weniger Impingement-Risiko.
 > Last progressiv erhöhen, solange Symptome nicht provoziert werden.
@@ -66,15 +66,15 @@ Scapular Retraction     3x15         r45s
 
 ---[Phase 4: Function] Mo Mi Fr
 
-OHP                     4x8   @RPE7  r120s
-Lat Pulldown            3x10  @RPE7  r90s
-Barbell Row             3x10  @RPE7  r90s
+Schulterdrücken         4x8   @RPE7  r120s
+Latzug                  3x10  @RPE7  r90s
+Langhantel-Rudern       3x10  @RPE7  r90s
 ss {
-  Band External Rotation  3x15  @RPE7  r45s
-  Prone Y               3x12  @RPE7  r45s
+  Außenrotation mit Band  3x15  @RPE7  r45s
+  Y-Heben in Bauchlage    3x12  @RPE7  r45s
 }
 Face Pull               3x15         r45s
-Full Can Raise          3x12  @3kg   r60s
+Full Can                3x12  @3kg   r60s
 
 > Return-to-Activity: Overhead-Sport (Wurf, Schwimmen, Tennis) nur wenn
 > schmerzfrei bei 90% Vorbelastung und volle ROM erreicht.

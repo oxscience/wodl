@@ -44,8 +44,8 @@ def test_table_rows_map_to_source_lines(client):
 def test_client_view_has_no_sample_and_marks_body(client):
     html = client.get("/?view=1").get_data(as_text=True)
     assert 'class="client-view"' in html
-    assert "Full Body Basics</h1>" not in html  # kein Beispielplan-Flackern
-    assert "Full Body Basics</h1>" in client.get("/").get_data(as_text=True)
+    assert "Ganzkörper Basics</h1>" not in html  # kein Beispielplan-Flackern
+    assert "Ganzkörper Basics</h1>" in client.get("/").get_data(as_text=True)
 
 
 def test_freetext_gets_convert_offer_and_stays_escaped(client):

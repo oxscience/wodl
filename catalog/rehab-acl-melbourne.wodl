@@ -41,12 +41,12 @@
 
 ---[Pre-OP: Vorbereitung OP] Mo Di Mi Do Fr
 
-Quad Set              5x10    @ISO    # 5s halten, Quadriceps aktiv anspannen
-Straight Leg Raise    3x10    r30s
-Heel Slide            3x10    r30s    # volle ROM zurückgewinnen
-Glute Bridge          3x12    r30s
-Leg Press             3x12    @RPE6   r90s   # Kraftaufbau soweit schmerzfrei
-Single Leg Balance    3x30s   r30s
+Quadrizeps-Anspannung  5x10    @ISO    # 5s halten, Quadriceps aktiv anspannen
+Gestrecktes Beinheben  3x10    r30s
+Fersenrutschen         3x10    r30s    # volle ROM zurückgewinnen
+Hüftbrücke             3x12    r30s
+Beinpresse             3x12    @RPE6   r90s   # Kraftaufbau soweit schmerzfrei
+Einbeinstand           3x30s   r30s
 
 > Progressions-Kriterien Pre-OP -> OP (Outcome-Tests):
 > - Passive Extension: 0 Grad (Prone Hang / Goniometer)
@@ -62,11 +62,11 @@ Single Leg Balance    3x30s   r30s
 
 ---[Phase 1: Erholung nach der OP] Mo Di Mi Do Fr Sa So
 
-Quad Set              5x10    @ISO    # oberste Priorität: Quad-Ansteuerung
-Straight Leg Raise    3x10    r30s    # ohne Extension-Lag
-Heel Slide            3x10    r30s
-Ankle Pumps           3x20    r15s    # gegen Thromboserisiko
-Glute Bridge          3x10    r30s
+Quadrizeps-Anspannung  5x10    @ISO    # oberste Priorität: Quad-Ansteuerung
+Gestrecktes Beinheben  3x10    r30s    # ohne Extension-Lag
+Fersenrutschen         3x10    r30s
+Fußwippe               3x20    r15s    # gegen Thromboserisiko
+Hüftbrücke             3x10    r30s
 
 > Kryotherapie + Kompression mehrmals täglich, Bein hochlagern.
 > Volle passive Extension IMMER höchste Priorität (Prone-Hang-Test).
@@ -82,17 +82,17 @@ Glute Bridge          3x10    r30s
 
 ---[Phase 2: Kraft & neuromuskuläre Kontrolle] Mo Mi Fr
 
-Leg Press             4x12    @RPE7   r120s   # progressiver Kraftaufbau
-Mini Squat            3x15    r60s
-Step-up               3x12    r60s            # niedrige Stufe, Alignment betonen
-Step-down             3x10    r60s            # kontrollierte Exzentrik
-Single Leg Bridge     3x12    r45s
-Single-Leg Calf Raise 3x15    r45s
+Beinpresse             4x12    @RPE7   r120s   # progressiver Kraftaufbau
+Teilkniebeuge          3x15    r60s
+Step-up                3x12    r60s            # niedrige Stufe, Alignment betonen
+Step-down              3x10    r60s            # kontrollierte Exzentrik
+Einbeinige Hüftbrücke  3x12    r45s
+Einbeiniges Wadenheben 3x15    r45s
 ss {
-  Side-Lying Hip Abduction  3x15  r30s
-  Side Plank                3x30s r30s
+  Hüftabduktion in Seitenlage  3x15  r30s
+  Seitstütz                    3x30s r30s
 }
-Single Leg Balance    3x45s   r30s            # Propriozeption, ggf. instabile Unterlage
+Einbeinstand          3x45s   r30s            # Propriozeption, ggf. instabile Unterlage
 
 > Fahrradergometer 10-15 min als Warm-up sinnvoll.
 > Progressions-Kriterien Phase 2 -> Phase 3 (Hurdle-Kriterien vor Phase-3-Test):
@@ -110,15 +110,15 @@ Single Leg Balance    3x45s   r30s            # Propriozeption, ggf. instabile U
 
 ---[Phase 3: Laufen, Agility & Landungen] Mo Mi Fr
 
-Squat                 4x8     @RPE7   r150s   +2.5kg/w   t3010
-Leg Press             4x8     @RPE7   r120s
-Bulgarian Split Squat 3x10    @RPE7   r90s
-RDL                   3x10    @RPE7   r90s
-Leg Curl              3x12    r60s
-Box Jump              3x5     r120s           # Landetechnik, niedrige Box zuerst
+Kniebeuge               4x8     @RPE7   r150s   +2.5kg/w   t3010
+Beinpresse              4x8     @RPE7   r120s
+Bulgarische Kniebeuge 3x10    @RPE7   r90s
+Rumänisches Kreuzheben  3x10    @RPE7   r90s
+Beinbeuger              3x12    r60s
+Kastensprung            3x5     r120s           # Landetechnik, niedrige Box zuerst
 ss {
-  Lateral Bound       3x6     r60s            # kontrollierte Seit-Landung
-  Single Leg Bridge   3x12    r45s
+  Seitwärtssprung        3x6     r60s            # kontrollierte Seit-Landung
+  Einbeinige Hüftbrücke  3x12    r45s
 }
 
 > Agility separat: Slalom, Shuttle-Runs, Ladder-Drills; Scissor-/Single-Hops
@@ -139,15 +139,15 @@ ss {
 
 ---[Phase 4: Return to Sport] Mo Mi Fr
 
-Squat                 4x6     @RPE8   r180s   +2.5kg/w
-Deadlift              3x6     @RPE7   r180s
-Bulgarian Split Squat 3x8     @RPE7   r90s
-Box Jump              4x5     r120s
+Kniebeuge             4x6     @RPE8   r180s   +2.5kg/w
+Kreuzheben            3x6     @RPE7   r180s
+Bulgarische Kniebeuge 3x8     @RPE7   r90s
+Kastensprung          4x5     r120s
 ss {
-  Lateral Bound       3x6     r60s
-  Single-Leg Calf Raise  3x15  r45s
+  Seitwärtssprung         3x6     r60s
+  Einbeiniges Wadenheben  3x15  r45s
 }
-Leg Curl              3x12    r60s
+Beinbeuger            3x12    r60s
 
 > Return-to-Sport-Kriterien (die 3 Schlüssel, Melbourne Guide):
 > - Melbourne Return to Sport Score >95 (Hop-Batterie + IKDC + ACL-RSI kombiniert)

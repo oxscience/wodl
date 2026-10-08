@@ -52,12 +52,12 @@
 
 ---[Kniebeuge schwer] Mo
 
-Squat                  4x4     @RPE8  r240s  +2.5kg/w
-Bench Press            4x6     @RPE7  r180s          # Volumen-Slot, Last unter Di-Arbeitssätzen
-RDL                    3x8     @RIR2  r150s          # Hinge-Variante, hält das Kreuzheben-Muster warm
+Kniebeuge               4x4     @RPE8  r240s  +2.5kg/w
+Bankdrücken             4x6     @RPE7  r180s          # Volumen-Slot, Last unter Di-Arbeitssätzen
+Rumänisches Kreuzheben  3x8     @RIR2  r150s          # Hinge-Variante, hält das Kreuzheben-Muster warm
 ss {
-  Leg Press            3x10    @RIR2  r90s
-  Ab Wheel             3x10    r60s
+  Beinpresse           3x10    @RIR2  r90s
+  Bauchroller          3x10    r60s
 }
 
 > RPE-Deckel: Wird aus der 4x4 @RPE8 eine RPE9, Gewicht NICHT steigern.
@@ -66,36 +66,36 @@ ss {
 
 ---[Bench schwer] Di
 
-Bench Press            4x4     @RPE8  r240s  +2.5kg/w
-Close Grip Bench Press 3x8     @RIR2  r120s          # Backoff/Trizeps-Spezifität
-Barbell Row            4x8     @RIR2  r120s
+Bankdrücken            4x4     @RPE8  r240s  +2.5kg/w
+Enges Bankdrücken 3x8     @RIR2  r120s          # Backoff/Trizeps-Spezifität
+Langhantel-Rudern      4x8     @RIR2  r120s
 ss {
-  Lateral Raise        3x12    @RIR1  r60s
-  Tricep Pushdown      3x12    @RIR1  r60s
+  Seitheben            3x12    @RIR1  r60s
+  Trizepsdrücken       3x12    @RIR1  r60s
 }
 
 # ----- Tag 3 — Deadlift schwer + Squat Backoff -----
 
 ---[Deadlift schwer] Do
 
-Deadlift               4x3     @RPE8  r240s  +2.5kg/w
-Squat                  3x6     @RPE7  r180s          # Backoff, ca. -10-15% der Mo-Last
-Leg Curl               3x10    @RIR2  r90s
+Kreuzheben             4x3     @RPE8  r240s  +2.5kg/w
+Kniebeuge              3x6     @RPE7  r180s          # Backoff, ca. -10-15% der Mo-Last
+Beinbeuger             3x10    @RIR2  r90s
 ss {
-  Lat Pulldown         3x10    @RIR2  r90s
-  Plank                3x45s   r60s
+  Latzug               3x10    @RIR2  r90s
+  Unterarmstütz        3x45s   r60s
 }
 
 # ----- Tag 4 — Bench Volumen + Schulter/Assistance -----
 
 ---[Bench Volumen] Fr
 
-Bench Press            3x6     @RPE7  r180s          # 3. Bench-Frequenz, submaximal
-OHP                    3x8     @RIR2  r120s
-Dumbbell Row           3x10    @RIR2  r90s
-Back Extension         3x12    @RIR2  r60s
+Bankdrücken            3x6     @RPE7  r180s          # 3. Bench-Frequenz, submaximal
+Schulterdrücken        3x8     @RIR2  r120s
+Kurzhantel-Rudern      3x10    @RIR2  r90s
+Rückenstrecken         3x12    @RIR2  r60s
 ss {
-  Dumbbell Curl        3x12    @RIR1  r60s
+  Kurzhantel-Curl      3x12    @RIR1  r60s
   Face Pull            3x15    @RIR1  r60s
 }
 

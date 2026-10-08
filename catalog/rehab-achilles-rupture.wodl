@@ -42,10 +42,10 @@
 
 ---[Phase 0: Schutz (Woche 0-2)] Mo Di Mi Do Fr Sa So
 
-Straight Leg Raise        3x10   r30s   # Bein gestreckt anheben, Boot bleibt an
-Glute Bridge              3x12   r30s
-Clamshell                 3x15   r30s
-Side-Lying Hip Abduction  3x12   r30s
+Gestrecktes Beinheben        3x10   r30s   # Bein gestreckt anheben, Boot bleibt an
+Hüftbrücke                   3x12   r30s
+Clamshell                    3x15   r30s
+Hüftabduktion in Seitenlage  3x12   r30s
 
 > Gips/Schiene in Spitzfußstellung, KEINE Belastung — Gehen an Krücken.
 > Bein hochlagern, Zehen regelmäßig bewegen. Thromboseprophylaxe nach
@@ -58,12 +58,12 @@ Side-Lying Hip Abduction  3x12   r30s
 
 ---[Phase 1: Mobilisation (Woche 2-4)] Mo Di Mi Do Fr Sa So
 
-Active Plantarflexion     3x15   r30s   # aktiv Richtung Spitzfuß, frei
-Active Dorsiflexion       3x10   r30s   # NUR bis Neutral-Null — nie darüber!
-Ankle Inversion           3x10   r30s   # unterhalb der Neutralstellung
-Ankle Eversion            3x10   r30s   # unterhalb der Neutralstellung
-Straight Leg Raise        3x10   r30s
-Glute Bridge              3x12   r30s
+Aktive Plantarflexion     3x15   r30s   # aktiv Richtung Spitzfuß, frei
+Aktive Dorsalextension    3x10   r30s   # NUR bis Neutral-Null — nie darüber!
+Aktive Inversion          3x10   r30s   # unterhalb der Neutralstellung
+Aktive Eversion           3x10   r30s   # unterhalb der Neutralstellung
+Gestrecktes Beinheben     3x10   r30s
+Hüftbrücke                3x12   r30s
 
 > Boot mit Fersenkeil tragen, Belastung nach Toleranz steigern (Krücken nach Bedarf).
 > KEINE passive Dehnung in Dorsalextension — Elongationsgefahr.
@@ -75,12 +75,12 @@ Glute Bridge              3x12   r30s
 
 ---[Phase 2: Belastungsaufbau (Woche 4-6)] Mo Di Mi Do Fr Sa So
 
-Active Plantarflexion     3x20   r30s
-Active Dorsiflexion       3x12   r30s   # weiterhin nur bis Neutral-Null
-Ankle Inversion           3x12   r30s
-Ankle Eversion            3x12   r30s
-Seated Calf Raise         3x12   @BW   r30s   # leicht, ohne Zusatzlast
-Glute Bridge              3x15   r30s
+Aktive Plantarflexion     3x20   r30s
+Aktive Dorsalextension    3x12   r30s   # weiterhin nur bis Neutral-Null
+Aktive Inversion          3x12   r30s
+Aktive Eversion           3x12   r30s
+Wadenheben                3x12   @BW   r30s   # leicht, ohne Zusatzlast
+Hüftbrücke                3x15   r30s
 
 > Ziel Ende Phase 2: volle Belastung im Boot ohne Krücken, reizfreies Gelenk.
 > Weiter Radergometer/Schwimmen als Fitness-Baustein.
@@ -91,13 +91,13 @@ Glute Bridge              3x15   r30s
 
 ---[Phase 3: Widerstand (Woche 6-8)] Mo Di Mi Do Fr Sa So
 
-Band Plantarflexion       3x15   r30s   # Theraband, dosierter Widerstand
-Band Dorsiflexion         3x12   r30s
-Band Eversion             3x12   r30s
-Band Inversion            3x12   r30s
-Seated Calf Raise         3x15   @BW    r30s
-Single Leg Balance        3x30s  r30s   # fester Boden, anfangs mit Festhalten
-Calf Stretch              3x20s  r15s   # SANFTE Dorsalextensions-Dehnung, ohne Zwang
+Plantarflexion mit Band   3x15   r30s   # Theraband, dosierter Widerstand
+Dorsalextension mit Band  3x12   r30s
+Eversion mit Band         3x12   r30s
+Inversion mit Band        3x12   r30s
+Wadenheben                3x15   @BW    r30s
+Einbeinstand              3x30s  r30s   # fester Boden, anfangs mit Festhalten
+Wadendehnung              3x20s  r15s   # SANFTE Dorsalextensions-Dehnung, ohne Zwang
 
 > Fersenkeil entfernen, Belastung nach Toleranz. Dehnung nur sanft und
 > schmerzfrei — aggressive Dehnung riskiert Elongation.
@@ -109,11 +109,11 @@ Calf Stretch              3x20s  r15s   # SANFTE Dorsalextensions-Dehnung, ohne 
 
 ---[Phase 4: Übergang (Woche 8-12)] Mo Mi Fr
 
-Double-Leg Calf Raise     3x15   @BW   r45s   # beidbeinig, ebener Boden
-Seated Calf Raise         3x15   @BW   r30s
+Wadenheben                3x15   @BW   r45s   # beidbeinig, ebener Boden
+Wadenheben                3x15   @BW   r30s
 Step-up                   3x10   r60s   # niedrige Stufe (10-15cm)
-Band Eversion             3x15   r30s
-Single Leg Balance        3x30s  r30s   # Progression: instabile Unterlage
+Eversion mit Band         3x15   r30s
+Einbeinstand              3x30s  r30s   # Progression: instabile Unterlage
 
 > Boot schrittweise abtrainieren (erst zuhause, dann draußen), ggf. übergangsweise
 > kleiner Fersenkeil im Schuh nach Vorgabe des Teams.
@@ -126,11 +126,11 @@ Single Leg Balance        3x30s  r30s   # Progression: instabile Unterlage
 
 ---[Phase 5: Return to Activity (Woche 12+)] Mo Mi Fr
 
-Single-Leg Calf Raise     3x8-12   @BW    r60s   # DER Meilenstein dieser Phase
-Double-Leg Calf Raise     4x15     @BW+10kg  r60s  # Zusatzlast nach Toleranz
+Einbeiniges Wadenheben    3x8-12   @BW    r60s   # DER Meilenstein dieser Phase
+Wadenheben                4x15     @BW+10kg  r60s  # Zusatzlast nach Toleranz
 Step-down                 3x10     r60s   # kontrollierte Exzentrik
-Single Leg Balance        3x45s    r30s   # instabile Unterlage / Augen zu
-Leg Press                 3x12     @RPE6  r90s
+Einbeinstand              3x45s    r30s   # instabile Unterlage / Augen zu
+Beinpresse                3x12     @RPE6  r90s
 
 > Jogging-Start erst, wenn einbeiniges Wadenheben mehrfach sauber gelingt
 > und das Team freigibt (typisch Woche 12-16).

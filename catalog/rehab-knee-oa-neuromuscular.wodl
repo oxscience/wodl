@@ -52,14 +52,14 @@
 
 # Aufwärmen: 10 min Ergometer, Belastung individuell bis "etwas anstrengend".
 circuit {
-  Glute Bridge          3x12   r45s   # Kreis 1: Pelvic-Lift, gebeugte Knie, kurzer Hebel
-  Sit-up                3x12   r45s   # Kreis 1: Sit-up auf Ball, Arme seitlich (kurzer Hebel)
-  Slide Forward-Backward 3x12  r45s   # Kreis 2: Einbeinstand, Gleitbein vor/zurück, Alignment
-  Slide Sideways        3x12   r45s   # Kreis 2: Gleitbein seitlich, Standbein beugt/streckt
-  Standing Hip Abduction 3x12  r45s   # Kreis 3: Band, offene Kette, Becken stabil
-  Band Knee Extension   3x12   r45s   # Kreis 3: sitzend, Band um Fuß (Ext/Flex)
-  Chair Stand           3x12   r45s   # Kreis 4: Aufstehen mit leichter Handstütze
-  Step-up               3x12   r45s   # Kreis 4: niedriges Board, Step-up/Step-down
+  Hüftbrücke              3x12   r45s   # Kreis 1: Pelvic-Lift, gebeugte Knie, kurzer Hebel
+  Sit-up                  3x12   r45s   # Kreis 1: Sit-up auf Ball, Arme seitlich (kurzer Hebel)
+  Slide Vor-Zurück 3x12  r45s   # Kreis 2: Einbeinstand, Gleitbein vor/zurück, Alignment
+  Slide Seitwärts         3x12   r45s   # Kreis 2: Gleitbein seitlich, Standbein beugt/streckt
+  Hüftabduktion im Stand 3x12  r45s   # Kreis 3: Band, offene Kette, Becken stabil
+  Kniestreckung mit Band  3x12   r45s   # Kreis 3: sitzend, Band um Fuß (Ext/Flex)
+  Aufstehen vom Stuhl     3x12   r45s   # Kreis 4: Aufstehen mit leichter Handstütze
+  Step-up                 3x12   r45s   # Kreis 4: niedriges Board, Step-up/Step-down
 }
 # Cool-down: ~10 min Gehen vor/rückwärts vor Spiegel, Mobilität, Stretch.
 
@@ -79,14 +79,14 @@ circuit {
 
 # Aufwärmen: 10 min Ergometer.
 circuit {
-  Glute Bridge          3x12   r45s   # Kreis 1: halb-gebeugte Knie, langer Hebel
-  Sit-up                3x12   r45s   # Kreis 1: Arme vor Brust gekreuzt (mittlerer Hebel)
-  Slide Forward-Backward 3x12  r45s   # Kreis 2: auf unebener Unterlage (Schaumkissen)
-  Slide Sideways        3x12   r45s   # Kreis 2: auf unebener Unterlage
-  Standing Hip Abduction 3x12  r45s   # Kreis 3: Band mit höherem Widerstand
-  Band Knee Extension   3x12   r45s   # Kreis 3: höherer Band-Widerstand
-  Chair Stand           3x12   r45s   # Kreis 4: ohne Handstütze
-  Step-up               3x12   r45s   # Kreis 4: mittelhohes Board, ggf. Kurzhanteln
+  Hüftbrücke              3x12   r45s   # Kreis 1: halb-gebeugte Knie, langer Hebel
+  Sit-up                  3x12   r45s   # Kreis 1: Arme vor Brust gekreuzt (mittlerer Hebel)
+  Slide Vor-Zurück 3x12  r45s   # Kreis 2: auf unebener Unterlage (Schaumkissen)
+  Slide Seitwärts         3x12   r45s   # Kreis 2: auf unebener Unterlage
+  Hüftabduktion im Stand 3x12  r45s   # Kreis 3: Band mit höherem Widerstand
+  Kniestreckung mit Band  3x12   r45s   # Kreis 3: höherer Band-Widerstand
+  Aufstehen vom Stuhl     3x12   r45s   # Kreis 4: ohne Handstütze
+  Step-up                 3x12   r45s   # Kreis 4: mittelhohes Board, ggf. Kurzhanteln
 }
 # Cool-down: ~10 min Gehen/Mobilität/Stretch.
 
@@ -104,14 +104,14 @@ circuit {
 
 # Aufwärmen: 10 min Ergometer.
 circuit {
-  Glute Bridge          3x12   r45s   # Kreis 1: alternierend Last auf betroffenes/anderes Bein
-  Sit-up                3x12   r45s   # Kreis 1: Hände hinter Nacken (langer Hebel)
-  Lunge                 3x10   r60s   # Kreis 2: Forward Lunge, Handstütze nur bei Bedarf
-  Lateral Lunge         3x10   r60s   # Kreis 2: Sideway Lunge
-  Standing Hip Abduction 3x12  r45s   # Kreis 3: auf unebener Unterlage
-  Band Knee Extension   3x12   r45s   # Kreis 3: höherer Widerstand
-  Chair Stand           3x10   r60s   # Kreis 4: ein Fuß vorgesetzt (versetzt)
-  Step-up               3x10   r60s   # Kreis 4: hohes Board, ggf. Kurzhanteln
+  Hüftbrücke                 3x12   r45s   # Kreis 1: alternierend Last auf betroffenes/anderes Bein
+  Sit-up                     3x12   r45s   # Kreis 1: Hände hinter Nacken (langer Hebel)
+  Ausfallschritt             3x10   r60s   # Kreis 2: Forward Lunge, Handstütze nur bei Bedarf
+  Seitlicher Ausfallschritt  3x10   r60s   # Kreis 2: Sideway Lunge
+  Hüftabduktion im Stand 3x12  r45s   # Kreis 3: auf unebener Unterlage
+  Kniestreckung mit Band     3x12   r45s   # Kreis 3: höherer Widerstand
+  Aufstehen vom Stuhl        3x10   r60s   # Kreis 4: ein Fuß vorgesetzt (versetzt)
+  Step-up                    3x10   r60s   # Kreis 4: hohes Board, ggf. Kurzhanteln
 }
 # Cool-down: ~10 min Gehen/Mobilität/Stretch.
 

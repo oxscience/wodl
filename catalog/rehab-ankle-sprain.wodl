@@ -38,11 +38,11 @@
 
 ---[Phase 1: Akut (Tag 1-7)] Mo Di Mi Do Fr Sa So
 
-Ankle Pumps           3x20    r15s   # aktiv auf/ab, schmerzadaptiert
-Ankle Circles         3x10    r15s   # langsame Kreise in beide Richtungen
-Ankle Alphabet        3x1     r30s   # das ganze ABC mit der Fußspitze = 1 Wdh
-Isometric Eversion    3x10s   @ISO   r15s   # gegen Wand/Hand spannen, ohne Bewegung
-Towel Scrunch         3x15    r30s   # Handtuch mit den Zehen heranziehen
+Fußwippe               3x20    r15s   # aktiv auf/ab, schmerzadaptiert
+Fußkreisen             3x10    r15s   # langsame Kreise in beide Richtungen
+Fuß-Alphabet           3x1     r30s   # das ganze ABC mit der Fußspitze = 1 Wdh
+Isometrische Eversion  3x10s   @ISO   r15s   # gegen Wand/Hand spannen, ohne Bewegung
+Zehenkrallen           3x15    r30s   # Handtuch mit den Zehen heranziehen
 
 > Mehrmals täglich kurze Übungsblöcke — frühe Bewegung beschleunigt die
 > Funktionsrückkehr (Bleakley 2010).
@@ -55,12 +55,12 @@ Towel Scrunch         3x15    r30s   # Handtuch mit den Zehen heranziehen
 
 ---[Phase 2: Kräftigung (Woche 1-3)] Mo Di Mi Do Fr Sa So
 
-Band Eversion          3x15   r30s   # wichtigste Richtung (Peronealmuskulatur)
-Band Inversion         3x15   r30s
-Band Dorsiflexion      3x15   r30s
-Band Plantarflexion    3x15   r30s
-Double-Leg Calf Raise  3x15   @BW   r30s
-Single Leg Balance     3x30s  r30s   # fester Boden, nahe einer Wand
+Eversion mit Band         3x15   r30s   # wichtigste Richtung (Peronealmuskulatur)
+Inversion mit Band        3x15   r30s
+Dorsalextension mit Band  3x15   r30s
+Plantarflexion mit Band   3x15   r30s
+Wadenheben                3x15   @BW   r30s
+Einbeinstand              3x30s  r30s   # fester Boden, nahe einer Wand
 
 > Widerstand des Bands steigern, sobald 3x15 leicht fallen.
 > Meilenstein für Phase 3: hinkfreies Gehen, volle aktive Beweglichkeit,
@@ -71,11 +71,11 @@ Single Leg Balance     3x30s  r30s   # fester Boden, nahe einer Wand
 
 ---[Phase 3: Funktion (Woche 3-6)] Mo Mi Fr
 
-Single-Leg Calf Raise  3x12   @BW   r45s
-Step-up                3x10   r60s   # Stufe 10-20cm
-Band Eversion          3x15   @high  r30s   # stärkeres Band
-Single Leg Balance     3x30s  r30s   # instabile Unterlage (Kissen/Pad)
-Double-Leg Hop         3x10   r60s   # beidbeinige kleine Sprünge am Ort
+Einbeiniges Wadenheben  3x12   @BW   r45s
+Step-up                 3x10   r60s   # Stufe 10-20cm
+Eversion mit Band       3x15   @high  r30s   # stärkeres Band
+Einbeinstand            3x30s  r30s   # instabile Unterlage (Kissen/Pad)
+Beidbeinsprung          3x10   r60s   # beidbeinige kleine Sprünge am Ort
 
 > Parallel läuft das Balance-Heimprogramm (eigene Session unten) weiter.
 > Meilenstein für Phase 4: einbeiniges Wadenheben seitengleich,
@@ -88,10 +88,10 @@ Double-Leg Hop         3x10   r60s   # beidbeinige kleine Sprünge am Ort
 
 ---[Balance-Heimprogramm (Woche 2-10)] Di Do Sa
 
-Single Leg Balance             4x30s   r30s   # Progression: Arme verschränken, Untergrund weicher
-Single Leg Balance Eyes Closed 3x30s   r30s   # erst wenn mit offenen Augen stabil
-Balance Board Stand            4x30s   r30s   # erst beidbeinig, dann einbeinig
-Single Leg Ball Toss           3x10    r30s   # einbeinig stehen + Ball werfen/fangen
+Einbeinstand                   4x30s   r30s   # Progression: Arme verschränken, Untergrund weicher
+Einbeinstand 3x30s   r30s   # erst wenn mit offenen Augen stabil
+Wackelbrett                    4x30s   r30s   # erst beidbeinig, dann einbeinig
+Einbeinstand                   3x10    r30s   # einbeinig stehen + Ball werfen/fangen
 
 > Schwierigkeit alle 1-2 Wochen steigern: fester Boden → Kissen → Balance Board,
 > Augen offen → geschlossen, ohne → mit Zusatzaufgabe.
@@ -102,11 +102,11 @@ Single Leg Ball Toss           3x10    r30s   # einbeinig stehen + Ball werfen/f
 
 ---[Phase 4: Return to Sport (Woche 6-12)] Mo Mi Fr
 
-Single-Leg Hop         3x10   r60s   # einbeinig vorwärts, weich landen
-Lateral Bound          3x6    r60s   # seitliche Sprünge, kontrollierte Landung
-Single-Leg Calf Raise  3x15   @BW    r45s
-Agility Drill          3x30s  r60s   # Richtungswechsel/Leiter/Slalom, Tempo steigern
-Single Leg Balance     3x45s  r30s   # instabile Unterlage, Augen zu als Progression
+Einbeinsprung           3x10   r60s   # einbeinig vorwärts, weich landen
+Seitwärtssprung         3x6    r60s   # seitliche Sprünge, kontrollierte Landung
+Einbeiniges Wadenheben  3x15   @BW    r45s
+Agility-Übung           3x30s  r60s   # Richtungswechsel/Leiter/Slalom, Tempo steigern
+Einbeinstand            3x45s  r30s   # instabile Unterlage, Augen zu als Progression
 
 > Return-to-Sport-Kriterien: schmerzfreie einbeinige Hops seitengleich,
 > volle Beweglichkeit, sicheres Gefühl bei Richtungswechseln.

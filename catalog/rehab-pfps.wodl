@@ -38,13 +38,13 @@
 
 ---[Phase 1: Hüft-dominant] Mo Mi Fr
 
-Side-Lying Hip Abduction  3x15   r45s   # posterolaterale Hüfte, Fokus
-Clamshell                 3x15   r30s   # Aussenrotatoren
-Glute Bridge              3x15   r45s
-Single Leg Bridge         3x10   r45s   # unilaterale Glutealkontrolle
+Hüftabduktion in Seitenlage  3x15   r45s   # posterolaterale Hüfte, Fokus
+Clamshell                    3x15   r30s   # Aussenrotatoren
+Hüftbrücke                   3x15   r45s
+Einbeinige Hüftbrücke        3x10   r45s   # unilaterale Glutealkontrolle
 ss {
-  Side Plank              3x30s  r30s   # laterale Rumpf-/Beckenkontrolle
-  Lateral Band Walk       3x12   r45s   # Monster/Side-Walk mit Band
+  Seitstütz                3x30s  r30s   # laterale Rumpf-/Beckenkontrolle
+  Seitwärtsgehen mit Band  3x12   r45s   # Monster/Side-Walk mit Band
 }
 
 > Übungen schmerzarm halten (VAS <=2-3), 24h-Schmerzantwort stabil.
@@ -60,15 +60,15 @@ ss {
 
 ---[Phase 2: Kombiniert Hüfte + Knie] Mo Mi Fr
 
-Squat                 3x12   @RPE6   r90s    # geschlossene Kette, schmerzarme ROM
-Leg Press             3x12   @RPE6   r90s
+Kniebeuge             3x12   @RPE6   r90s    # geschlossene Kette, schmerzarme ROM
+Beinpresse            3x12   @RPE6   r90s
 Step-up               3x12   r60s            # Alignment Knie über Fuß
 Step-down             3x10   r60s            # kontrollierte Exzentrik
 ss {
-  Side-Lying Hip Abduction  3x15  r30s       # Hüfte weiterführen
-  Clamshell                 3x15  r30s
+  Hüftabduktion in Seitenlage  3x15  r30s       # Hüfte weiterführen
+  Clamshell                    3x15  r30s
 }
-Wall Sit              3x30s  @ISO   r45s     # isometrischer Quad-Reiz, schmerzarm
+Wandsitz              3x30s  @ISO   r45s     # isometrischer Quad-Reiz, schmerzarm
 
 > Bewegungsqualität vor Last: Knie folgt der 2.-3.-Zehen-Achse, kein Kollaps.
 > Progressions-Kriterien Phase 2 -> Phase 3:
@@ -83,15 +83,15 @@ Wall Sit              3x30s  @ISO   r45s     # isometrischer Quad-Reiz, schmerza
 
 ---[Phase 3: Belastung & Funktion] Mo Mi Fr
 
-Squat                 4x8    @RPE7   r120s   +2.5kg/w
-Bulgarian Split Squat 3x10   @RPE7   r90s
-Leg Press             3x10   @RPE7   r90s
+Kniebeuge             4x8    @RPE7   r120s   +2.5kg/w
+Bulgarische Kniebeuge 3x10   @RPE7   r90s
+Beinpresse            3x10   @RPE7   r90s
 Step-down             3x12   r60s
 ss {
-  Single Leg Bridge   3x12   r45s
-  Side Plank          3x40s  r30s
+  Einbeinige Hüftbrücke  3x12   r45s
+  Seitstütz              3x40s  r30s
 }
-Single Leg Balance    3x45s  r30s
+Einbeinstand          3x45s  r30s
 
 > Return-to-Activity kriterienbasiert:
 > - Symmetrische Kraft Hüfte + Knie, gutes Single-Leg-Alignment

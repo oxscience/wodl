@@ -23,43 +23,43 @@
 
 ---[Push A] Mo
 
-Bench Press           4x6-8   @RPE8  r180s  +2.5kg/w
-Incline DB Press      3x10    @RPE7  r120s
-OHP                   3x8     @RPE7  r120s
+Bankdrücken                   4x6-8   @RPE8  r180s  +2.5kg/w
+Kurzhantel-Schrägbankdrücken  3x10    @RPE7  r120s
+Schulterdrücken               3x8     @RPE7  r120s
 ss {
-  Lateral Raise       3x15    r60s
-  Tricep Pushdown     3x12    r60s
+  Seitheben           3x15    r60s
+  Trizepsdrücken      3x12    r60s
 }
 
 ---[Pull A] Di
 
-Deadlift              3x5     @RPE8  r180s  +2.5kg/w
-Pull-up               4x8     @BW    r120s
-Barbell Row           3x10    @RPE7  r120s
+Kreuzheben            3x5     @RPE8  r180s  +2.5kg/w
+Klimmzug              4x8     @BW    r120s
+Langhantel-Rudern     3x10    @RPE7  r120s
 ss {
   Face Pull           3x15    r60s
-  Hammer Curl         3x12    r60s
+  Hammer-Curl         3x12    r60s
 }
 
 ---[Push B] Do
 
-Incline Bench Press   4x8     @RPE7  r150s
-Dumbbell OHP          3x10    @RPE7  r90s
-Dip                   3x8-10  @BW    r120s
+Schrägbankdrücken           4x8     @RPE7  r150s
+Kurzhantel-Schulterdrücken  3x10    @RPE7  r90s
+Dips                        3x8-10  @BW    r120s
 ss {
-  Cable Fly           3x12    r60s
-  Skull Crusher       3x10    r60s
+  Kabelzug-Fliegende  3x12    r60s
+  Stirndrücken        3x10    r60s
 }
-Lateral Raise         3x15    r60s  drop
+Seitheben             3x15    r60s  drop
 
 ---[Pull B] Fr
 
-Barbell Row           4x6-8   @RPE8  r150s  +2.5kg/w
-Lat Pulldown          3x10    @RPE7  r90s
-Cable Row             3x10    @RPE7  r90s
+Langhantel-Rudern     4x6-8   @RPE8  r150s  +2.5kg/w
+Latzug                3x10    @RPE7  r90s
+Kabelrudern           3x10    @RPE7  r90s
 ss {
-  Rear Delt Fly       3x15    r60s
-  Barbell Curl        3x10    r60s
+  Vorgebeugtes Seitheben  3x15    r60s
+  Langhantel-Curl         3x10    r60s
 }
 
 > Wöchentliches Volumen (fraktional): Chest ~14, Back ~18, Shoulders ~14, Arms ~12, Legs ~4
