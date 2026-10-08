@@ -440,6 +440,30 @@ HTML = r"""<!DOCTYPE html>
 
   textarea::placeholder { color: var(--text2); }
 
+  .hint {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.5rem;
+    padding: 0.45rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+    font-size: 0.75rem;
+    color: var(--text2);
+  }
+  .hint button {
+    padding: 0.1rem 0.45rem;
+    font-family: var(--font);
+    font-size: 0.75rem;
+    color: var(--text);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .hint button:hover { border-color: var(--primary); }
+
   .ac {
     position: fixed;
     z-index: 50;
@@ -1192,6 +1216,7 @@ HTML = r"""<!DOCTYPE html>
     </div>
     <textarea id="editor" placeholder="Trainingsplan hier eingeben..." spellcheck="false"></textarea>
     <ul id="ac" class="ac" role="listbox" hidden></ul>
+    <div id="hint" class="hint"></div>
   </div>
 
   <div class="panel">
@@ -1388,7 +1413,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#editor',
       title: '✏️ Editor & Syntax',
-      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Reps, RPE 8, 2 Min Pause. Tipp zwei Buchstaben, der Editor schlägt Übungen vor, auch über englische Namen: <code>squ</code> → Kniebeuge. Die Vorschau zeigt immer den deutschen Namen.',
+      text: 'Eine Zeile = eine Übung. <code>Bankdrücken 4x8 @RPE8 r120s</code> = 4 Sätze à 8 Reps, RPE 8, 2 Min Pause. Tipp zwei Buchstaben, der Editor schlägt Übungen vor, auch über englische Namen: <code>squ</code> → Kniebeuge. Die Vorschau zeigt immer den deutschen Namen. Die Leiste unter dem Editor bietet passende Bausteine zum Anklicken.',
       pos: 'right',
     },
     {
@@ -1559,6 +1584,7 @@ HTML = r"""<!DOCTYPE html>
 
   editor.addEventListener('input', () => {
     acUpdate();
+    updateHint();
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       parseAndRender();
@@ -1693,6 +1719,85 @@ HTML = r"""<!DOCTYPE html>
   editor.addEventListener('click', acHide);
   editor.addEventListener('scroll', acHide);
   window.addEventListener('resize', acHide);
+
+  // ===== Schreibhilfe: passende Bausteine zur Cursor-Stelle =====
+  const hint = document.getElementById('hint');
+  const HINTS = {
+    start: ['Neue Zeile:', [
+      ['---[A] Mo', 'Neue Einheit mit Wochentagen'],
+      ['ss {', 'Supersatz: Übungen darunter, mit } schließen'],
+      ['> ', 'Notiz zur Einheit'],
+      ['# ', 'Kommentar, erscheint nicht im Plan'],
+    ], 'oder Übung tippen'],
+    header: ['Wochentage:', [['Mo'], ['Di'], ['Mi'], ['Do'], ['Fr'], ['Sa'], ['So']]],
+    meta: ['Plan-Angaben:', [
+      ['@plan "Name"', 'Titel des Plans'],
+      ['@freq 3x/Woche', 'Trainingshäufigkeit'],
+      ['@cycle 4w: w1-3 Aufbau, w4 Deload', 'Block-Länge und Phasen'],
+    ]],
+    sets: ['Sätze × Wdh.:', [
+      ['3x8'], ['3x8-12', 'Wiederholungs-Bereich'], ['5x5'],
+      ['3x30s', 'Zeit pro Satz'], ['10,8,6', 'absteigende Wiederholungen'],
+    ]],
+    params: ['Optional:', [
+      ['@RPE8', 'Anstrengung: RPE 8 = 2 Wdh. in Reserve'], ['@80kg', 'Last'],
+      ['@BW', 'Körpergewicht'], ['r90s', '90 s Pause'],
+      ['t3010', 'Tempo: 3 s ablassen, 0 Pause, 1 s hoch, 0 Pause'],
+      ['+2.5kg/w', '+2,5 kg pro Woche'], ['# ', 'Kommentar'],
+    ]],
+  };
+  let hintKey;
+
+  function hintContext() {
+    const pos = editor.selectionStart;
+    const lineStart = editor.value.lastIndexOf('\n', pos - 1) + 1;
+    const before = editor.value.slice(lineStart, pos).trimStart();
+    if (!before) return 'start';
+    if (before.startsWith('---')) return 'header';
+    if (before.startsWith('@')) return 'meta';
+    if (/^([#>}]|(ss|superset|circuit|giant)\s*\{)/.test(before)) return null;
+    if (/(^|\s)(\d+x\S*|\d+(,\d+)+|\d+s)(\s|$)/.test(before)) return 'params';
+    return /\s$/.test(before) ? 'sets' : 'name';
+  }
+
+  function updateHint() {
+    const ctx = hintContext();
+    if (ctx === hintKey) return;
+    hintKey = ctx;
+    const h = HINTS[ctx];
+    if (!h) {
+      hint.innerHTML = ctx === 'name' ? '<span>Vorschläge ab 2 Buchstaben, Tab übernimmt</span>' : '';
+      return;
+    }
+    const esc = t => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+    hint.innerHTML = `<span>${h[0]}</span>` +
+      h[1].map(([t, title]) => `<button type="button" data-ins="${esc(t)}" title="${esc(title || '')}">${esc(t)}</button>`).join('') +
+      (h[2] ? `<span>${h[2]}</span>` : '');
+  }
+
+  hint.addEventListener('pointerdown', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    e.preventDefault();  // Fokus bleibt im Editor
+    editor.focus();
+    const pos = editor.selectionStart;
+    const ins = btn.dataset.ins;
+    let text = ins, caretBack = 0;
+    if (hintKey === 'start') {
+      if (ins === 'ss {') { text = 'ss {\n  \n}'; caretBack = 2; }
+      else if (!ins.endsWith(' ')) text += '\n';
+    } else {
+      const prev = editor.value[pos - 1];
+      text = (prev && !/\s/.test(prev) ? ' ' : '') + ins + (ins.endsWith(' ') ? '' : ' ');
+    }
+    if (!document.execCommand('insertText', false, text)) {
+      editor.setRangeText(text, pos, editor.selectionEnd, 'end');
+      editor.dispatchEvent(new Event('input'));
+    }
+    if (caretBack) editor.setSelectionRange(editor.selectionStart - caretBack, editor.selectionStart - caretBack);
+    updateHint();
+  });
+  ['keyup', 'click', 'focus'].forEach(ev => editor.addEventListener(ev, updateHint));
 
   // ===== "Meintest du …?" =====
   outputBody.addEventListener('click', (e) => {
@@ -1991,6 +2096,7 @@ HTML = r"""<!DOCTYPE html>
   wireBrandingInputs();
   applyBrand(getBrand());
   loadFromStorage().then(parseAndRender);
+  updateHint();
   maybeAutoStartTour();
 </script>
 
