@@ -17,7 +17,7 @@ from pathlib import Path
 from flask import Flask, abort, jsonify, request, render_template_string
 
 from wodl import parse, to_json, to_markdown, to_cycle_matrix
-from wodl.registry import EXERCISES
+from wodl.registry import EXERCISES, suggest
 from wodl.volume import weekly_volume
 from wodl.progression import (
     ProgressionConfig,
@@ -912,6 +912,21 @@ HTML = r"""<!DOCTYPE html>
 
   .warning { color: var(--orange); font-size: 0.8rem; margin-top: 0.3rem; }
 
+  .unknowns { margin-top: 1.25rem; }
+  .unknowns .warning { line-height: 2; }
+  .unk-session { color: var(--text2); }
+  .dym {
+    margin: 0 0.15rem;
+    padding: 0.1rem 0.5rem;
+    font: inherit;
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid var(--primary);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .dym:hover { background: var(--primary); color: #fff; }
+
   .vol-title { margin-top: 1.25rem; }
   #output .vol-table td.vol-n { text-align: right; font-variant-numeric: tabular-nums; }
   #output .vol-low { color: var(--text2); }
@@ -1679,6 +1694,22 @@ HTML = r"""<!DOCTYPE html>
   editor.addEventListener('scroll', acHide);
   window.addEventListener('resize', acHide);
 
+  // ===== "Meintest du …?" =====
+  outputBody.addEventListener('click', (e) => {
+    const btn = e.target.closest('.dym');
+    if (!btn) return;
+    const from = btn.dataset.from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+');
+    const next = editor.value.replace(new RegExp('^(\\s*)' + from + '(?=\\s|$)', 'gm'), '$1' + btn.dataset.to);
+    if (next === editor.value) return;
+    editor.focus();
+    editor.select();
+    // insertText hält Cmd+Z intakt; Fallback setzt den Wert direkt
+    if (!document.execCommand('insertText', false, next)) {
+      editor.value = next;
+      editor.dispatchEvent(new Event('input'));
+    }
+  });
+
   // ===== Branding =====
   const BRAND_KEYS = ['primary', 'logo', 'coach', 'client', 'theme'];
   const defaults = {
@@ -2098,14 +2129,37 @@ def parse_wodl():
             )
             lines.append(f"<strong>[{e(session.name)}]</strong> {days} — {ex_count} Übungen<br>")
         lines.append(_render_volume_html(plan))
-        if plan.warnings:
-            lines.append("<br><strong style='color: var(--orange)'>Hinweise:</strong><br>")
-            for w in plan.warnings:
-                lines.append(f"<div class='warning'>- {e(w)}</div>")
+        lines.append(_render_unknowns_html(plan))
         return "".join(lines)
 
-    md = to_markdown(plan)
-    return _md_to_html(md)
+    unknowns = _render_unknowns_html(plan)
+    plan.warnings = []  # ersetzt durch den Block mit Vorschlägen
+    return _md_to_html(to_markdown(plan)) + unknowns
+
+
+def _render_unknowns_html(plan) -> str:
+    """Unbekannte Übungen mit "Meintest du …?"-Knöpfen (Klick ersetzt im Editor)."""
+    seen: dict[str, str] = {}
+    for session in plan.sessions:
+        for item in session.items:
+            for ex in getattr(item, "exercises", [item]):
+                if ex.canonical_name is None and ex.raw_name:
+                    seen.setdefault(ex.raw_name, session.name)
+    if not seen:
+        return ""
+    e = html_mod.escape
+    parts = ['<div class="unknowns"><h3>Hinweise</h3>']
+    for raw, session_name in seen.items():
+        buttons = "".join(
+            f'<button class="dym" data-from="{e(raw)}" data-to="{e(name)}">{e(name)}</button>'
+            for name in suggest(raw)
+        )
+        hint = (f"Meintest du {buttons}" if buttons
+                else "Bleibt als eigene Übung stehen, zählt aber nicht im Volumen.")
+        parts.append(f'<div class="warning">Unbekannte Übung „{e(raw)}“ '
+                     f'<span class="unk-session">({e(session_name)})</span> · {hint}</div>')
+    parts.append("</div>")
+    return "".join(parts)
 
 
 def _fmt_sets(n: float) -> str:

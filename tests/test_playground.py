@@ -25,3 +25,11 @@ def test_progress_output_is_escaped(client):
     for tag in ("<script", "<img", "<b>", "<i>", "<svg"):
         assert tag not in html, f"progress: {tag} unescaped"
     assert "&lt;" in html
+
+
+def test_unknown_exercise_gets_suggestion_buttons(client):
+    html = client.post("/parse", data={"wodl": "---[A] Mo\nKniebeuge mit Pause 3x8\nMeine Übung 3x10",
+                                       "format": "markdown"}).get_data(as_text=True)
+    assert 'data-from="Kniebeuge mit Pause" data-to="Kniebeuge"' in html
+    assert "Meine Übung" in html and "zählt aber nicht im Volumen" in html
+    assert html.count("Hinweise") == 1  # Markdown-Warnliste ersetzt, nicht doppelt

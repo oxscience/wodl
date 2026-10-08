@@ -511,3 +511,11 @@ Calf Raise           4x15 r60s
                 elif isinstance(item, ExerciseGroup):
                     for ex in item.exercises:
                         assert ex.canonical_name is not None, f"Unresolved: {ex.raw_name}"
+
+
+def test_suggest_returns_german_names_close_to_best():
+    from wodl.registry import suggest
+
+    assert suggest("Bankdrüken")[0] == "Bankdrücken"
+    assert suggest("Facepulls") == ["Face Pull"]
+    assert suggest("Meine Spezialübung") == []

@@ -1718,6 +1718,23 @@ def resolve_fuzzy(name: str, threshold: float = 0.8) -> str | None:
     return best_match
 
 
+def suggest(name: str, limit: int = 3, threshold: float = 0.45) -> list[str]:
+    """Vorschläge für einen unbekannten Namen ("Meintest du …?"), als deutsche Namen.
+
+    Lockerer als resolve_fuzzy (keine Wortzahl-/Wortpaar-Wächter), weil hier
+    nur vorgeschlagen und nie still ersetzt wird.
+    """
+    name_bi = _bigrams(name.lower().strip())
+    best: dict[str, float] = {}
+    for alias, canonical in _ALIAS_MAP.items():
+        score = _dice(name_bi, _bigrams(alias))
+        if score >= threshold and score > best.get(canonical, 0):
+            best[canonical] = score
+    ranked = sorted(best, key=best.get, reverse=True)[:limit]
+    # Nur Vorschläge nahe am besten Treffer (sonst "Facepulls" → auch Klimmzug)
+    return [EXERCISES[c]["de"] for c in ranked if best[c] >= best[ranked[0]] * 0.8]
+
+
 def german_name(canonical_name: str) -> str:
     """Return the German display name, falling back to the canonical name."""
     entry = EXERCISES.get(canonical_name)
