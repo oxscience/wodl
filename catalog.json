@@ -105,6 +105,19 @@
       ]
     },
     {
+      "id": "rehab-plantar-fasciitis",
+      "file": "catalog/rehab-plantar-fasciitis.wodl",
+      "title_de": "Plantarfasziitis — High-Load Krafttraining",
+      "kind": "reha",
+      "target_area": "Fuß / Plantarfaszie",
+      "difficulty": "mittel",
+      "duration": "12 Wochen",
+      "excerpt": "Einbeiniges Wadenheben mit Handtuch unter den Zehen — schwer, langsam, jeden zweiten Tag, mit RM-basierter Progression.",
+      "sources": [
+        {"citation": "Rathleff, M. S. et al. (2015). High-load strength training improves outcome in patients with plantar fasciitis: A randomized controlled trial with 12-month follow-up. Scandinavian Journal of Medicine & Science in Sports, 25(3), e292-e300.", "doi": "10.1111/sms.12313"}
+      ]
+    },
+    {
       "id": "rehab-hamstring-askling",
       "file": "catalog/rehab-hamstring-askling.wodl",
       "title_de": "Hamstring-Reha: Askling L-Protokoll",

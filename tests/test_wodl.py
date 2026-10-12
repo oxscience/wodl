@@ -411,7 +411,7 @@ class TestRegistryExpansion:
 
 class TestCatalogIntegrity:
     def test_catalog_files_present(self):
-        assert len(CATALOG_FILES) == 37
+        assert len(CATALOG_FILES) == 38
 
     def test_no_unknown_exercises_in_catalog(self):
         offenders = {}
@@ -424,8 +424,12 @@ class TestCatalogIntegrity:
     def test_no_single_exercise_plans(self):
         # Ein-Uebungs-Plaene sind albern (Pat 2026-07-08) — jeder Plan
         # muss mindestens zwei verschiedene Uebungen haben.
+        # Ausnahme Rathleff: banal, aber draussen kaum umgesetzt (Heiko 10/2026).
+        allowed = {"rehab-plantar-fasciitis.wodl"}
         offenders = {}
         for path in CATALOG_FILES:
+            if Path(path).name in allowed:
+                continue
             plan = parse(Path(path).read_text(encoding="utf-8"))
             distinct = _distinct_exercises(plan)
             if len(distinct) <= 1:
