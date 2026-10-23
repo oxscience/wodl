@@ -1506,7 +1506,7 @@ HTML = r"""<!DOCTYPE html>
 </main>
 
 <footer class="app-footer">
-  <span class="version">WODL {{ version }} · Out Of The Box Science</span>
+  <span class="version">WODL {{ version }} · <a href="https://outoftheb-ox.de" target="_blank" rel="noopener">Out Of The Box Science</a></span>
   <a href="https://github.com/oxscience/wodl#syntax" target="_blank" rel="noopener">Syntax und Quellcode (MIT)</a>
   <a href="https://outoftheb-ox.de/pages/ox-wodl" target="_blank" rel="noopener">Über WODL</a>
   <a href="https://outoftheb-ox.de/policies/legal-notice" target="_blank" rel="noopener">Impressum</a>
