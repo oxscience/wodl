@@ -257,7 +257,10 @@ class _ExState:
         elif self.kind == "minutes":
             reps = f"{self.minutes}min"
         elif self.kind == "pyramid":
-            reps = ",".join(str(n) for n in self.pyramid)
+            # "10,8,6" trägt die Satzzahl selbst; Deload kürzt von hinten
+            values = self.pyramid[:sets] if sets else self.pyramid
+            sets = len(values)
+            reps = ",".join(str(n) for n in values)
         elif self.kind == "raw":
             reps = ex.reps
         else:
@@ -285,12 +288,13 @@ class _ExState:
 def _emit_exercise(ex: ExerciseLine, proj: dict) -> str:
     name = ex.display_name or ex.canonical_name or ex.raw_name
     parts = [f"{name:<22}"]
-    if proj["sets"] and proj["reps"]:
-        parts.append(f"{proj['sets']}x{proj['reps']}")
+    reps = None if proj["reps"] == "AMRAP" else proj["reps"]  # Parser: "3x" = AMRAP
+    if proj["sets"] and reps and "," not in reps:
+        parts.append(f"{proj['sets']}x{reps}")
+    elif reps:  # auch Pyramide "10,8,6", die Sätze stecken in der Zahlenreihe
+        parts.append(str(reps))
     elif proj["sets"]:
         parts.append(f"{proj['sets']}x")
-    elif proj["reps"]:
-        parts.append(str(proj["reps"]))
     if proj["intensity"]:
         val = proj["intensity"]
         parts.append(val if val.startswith("@") else f"@{val}")

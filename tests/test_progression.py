@@ -1,8 +1,11 @@
 """Tests für wodl/progression.py — semantischer Pfad, Freitext-Pfad, Weiche."""
 
+import glob
+from pathlib import Path
+
 import pytest
 
-from wodl.parser import parse
+from wodl.parser import ExerciseGroup, parse
 from wodl.progression import (
     ProgressionConfig,
     block_as_text,
@@ -216,7 +219,38 @@ def test_emitted_wodl_reparses_cleanly(goal):
         assert reparsed.sessions, week.text
         n_items = sum(len(s.items) for s in reparsed.sessions)
         assert n_items == 4, week.text
-        assert not [w for w in reparsed.warnings if "Unknown" in w], week.text
+        assert not reparsed.warnings, week.text
+
+
+CATALOG_FILES = sorted(
+    glob.glob(str(Path(__file__).resolve().parent.parent / "catalog" / "*.wodl"))
+    + glob.glob(str(Path(__file__).resolve().parent.parent / "examples" / "*.wodl"))
+)
+
+
+def _n_exercises(plan):
+    return sum(len(i.exercises) if isinstance(i, ExerciseGroup) else 1
+               for s in plan.sessions for i in s.items)
+
+
+@pytest.mark.parametrize("path", CATALOG_FILES, ids=lambda p: Path(p).stem)
+def test_catalog_plans_reparse_after_progression(path):
+    """Jeder Bibliotheks-Plan bleibt in jeder Woche gültiges WODL, Deload inklusive."""
+    plan = parse(Path(path).read_text(encoding="utf-8"))
+    for goal in ("hypertrophie", "kraft", "ausdauer"):
+        for week in progress_plan(plan, ProgressionConfig(weeks=5, goal=goal)):
+            reparsed = parse(week.text)
+            assert not reparsed.warnings, f"{goal} W{week.week}:\n{week.text}"
+            assert _n_exercises(reparsed) == _n_exercises(plan), week.text
+
+
+def test_amrap_and_pyramid_survive_round_trip():
+    src = "---[A] Mo\n\nKreuzheben  1x  @85%\nBird Dog  10,8,6\n"
+    weeks = progress_plan(parse(src), ProgressionConfig(weeks=3, deload_rhythm="last"))
+    assert "1x  @85%" in weeks[1].text and "11,9,7" in weeks[1].text
+    deload = parse(weeks[2].text).sessions[0].items
+    assert (deload[0].sets, deload[0].reps) == (1, "AMRAP")
+    assert (deload[1].sets, deload[1].reps) == (2, "11,9")  # Deload kürzt von hinten
 
 
 def test_emit_preserves_groups_rest_tempo():
