@@ -18,7 +18,7 @@ from pathlib import Path
 
 from flask import Flask, abort, jsonify, request, render_template_string
 
-from wodl import parse, to_json, to_markdown, to_cycle_matrix
+from wodl import __version__, parse, to_json, to_markdown, to_cycle_matrix
 from wodl.registry import EXERCISES, suggest
 from wodl.volume import weekly_volume
 from wodl.convert import freetext_to_wodl
@@ -165,7 +165,11 @@ HTML = r"""<!DOCTYPE html>
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--bg);
     color: var(--text);
-    min-height: 100vh;
+    /* Spalte: Kopf, Branding, Arbeitsfläche (füllt den Rest), Fuß */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
   }
 
   header {
@@ -317,16 +321,38 @@ HTML = r"""<!DOCTYPE html>
   .prog-controls .field select:focus,
   .prog-controls .field input[type="number"]:focus { outline: none; border-color: var(--primary); }
   .prog-controls .field input[type="number"] { width: 4.5rem; }
+  .prog-more summary { cursor: pointer; font-size: 0.78rem; color: var(--text2); padding: 0.45rem 0; }
+  .prog-more summary:hover { color: var(--text); }
+  .prog-more[open] { flex-basis: 100%; }
+  .prog-more-fields { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: flex-end; margin-top: 0.4rem; }
 
-  /* Meine Pläne im Editor-Kopf */
-  .plans { display: flex; gap: 0.4rem; align-items: center; min-width: 0; text-transform: none; letter-spacing: normal; }
+  /* Meine Pläne im Editor-Kopf, Teilen/PDF im Vorschau-Kopf */
+  .plans, .out-actions { display: flex; gap: 0.4rem; align-items: center; min-width: 0; text-transform: none; letter-spacing: normal; }
   .plans select {
     min-width: 0; max-width: 15rem; padding: 0.3rem 0.5rem;
     background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
     color: var(--text); font-family: inherit; font-size: 0.78rem;
   }
   .plans select:focus { outline: none; border-color: var(--primary); }
-  .plans .btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+  .panel-header .btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+  .panel-header .tabs { margin-right: auto; }
+  .panel:last-child .panel-header { flex-wrap: wrap; }  /* schmal: Teilen/PDF rutschen in die zweite Zeile */
+
+  /* Fußzeile */
+  .app-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem 1.25rem;
+    padding: 0.45rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+    font-size: 0.72rem;
+    color: var(--text2);
+  }
+  .app-footer .version { margin-right: auto; }
+  .app-footer a { color: inherit; text-decoration: none; }
+  .app-footer a:hover { color: var(--text); }
 
   .prog-badge {
     display: inline-block;
@@ -416,10 +442,9 @@ HTML = r"""<!DOCTYPE html>
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    height: calc(100vh - 72px);
+    flex: 1;
+    min-height: 0;
   }
-
-  body.has-branding main { height: calc(100vh - 72px - var(--branding-height, 0px)); }
 
   .panel {
     display: flex;
@@ -1029,7 +1054,8 @@ HTML = r"""<!DOCTYPE html>
 
   /* Ansicht für Klient:innen (?view=1): nur der Plan */
   .client-view header, .client-view .branding-panel, .client-view .panel:first-child,
-  .client-view .panel-header, .client-view #prog-controls { display: none !important; }
+  .client-view .panel-header, .client-view #prog-controls, .client-view .app-footer { display: none !important; }
+  body.client-view { display: block; height: auto; }
   .client-view main { display: block; height: auto; max-width: 860px; margin: 0 auto; }
   .client-view .panel { overflow: visible; }
   .client-view #output { padding: 1.5rem 1rem 2rem; background: var(--bg); }
@@ -1096,8 +1122,8 @@ HTML = r"""<!DOCTYPE html>
   }
 
   @media print {
-    body { background: white; color: black; }
-    header, .branding-panel, .panel:first-child, .panel-header, .stats { display: none !important; }
+    body { background: white; color: black; display: block; height: auto; }
+    header, .branding-panel, .panel:first-child, .panel-header, .stats, .app-footer { display: none !important; }
     .plan-view tbody tr.cur td { background: none; }
     /* Nur der Plan aufs Papier: keine Hinweise, Angebote, Tour, Editor-Hilfen */
     .tour-backdrop, .unknowns, .convert-offer, .ac, .hint, .share-dialog, .wk-tabs { display: none !important; }
@@ -1177,7 +1203,8 @@ HTML = r"""<!DOCTYPE html>
     .branding-panel { padding: 0.85rem 1rem; }
     .branding-grid { grid-template-columns: 1fr; gap: 0.75rem; }
 
-    /* Main: vertikal mit festen Höhen, scroll-bar */
+    /* Main: vertikal mit festen Höhen, die Seite scrollt */
+    body { height: auto; }
     main {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto;
@@ -1265,11 +1292,8 @@ HTML = r"""<!DOCTYPE html>
     </div>
   </div>
   <div class="header-actions">
-    <button class="btn" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">🎓 Tour</button>
-    <button class="btn primary" onclick="openLibrary()" id="library-btn">📚 Bibliothek</button>
+    <button class="btn" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">Tour</button>
     <button class="btn" onclick="toggleBranding()" id="branding-btn">Branding</button>
-    <button class="btn" onclick="document.getElementById('share-prog').hidden = currentFormat !== 'progression'; document.getElementById('share-dialog').showModal()" id="share-btn">Link teilen</button>
-    <button class="btn" onclick="window.print()" id="pdf-btn">PDF exportieren</button>
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Dark/Light Mode" aria-label="Theme wechseln">&#9790;</button>
   </div>
 </header>
@@ -1367,6 +1391,7 @@ HTML = r"""<!DOCTYPE html>
       <div class="plans">
         <select id="plan-select" onchange="switchPlan(this.value)" aria-label="Meine Pläne" title="Meine Pläne"></select>
         <button class="btn" onclick="newPlan()" title="Neuen leeren Plan anlegen">Neu</button>
+        <button class="btn primary" onclick="openLibrary()" id="library-btn" title="Beispielplan aus der Bibliothek laden">Bibliothek</button>
         <button class="btn" onclick="deletePlan()" title="Diesen Plan löschen">Löschen</button>
       </div>
     </div>
@@ -1380,9 +1405,13 @@ HTML = r"""<!DOCTYPE html>
       <span>Vorschau</span>
       <div class="tabs">
         <button class="tab active" data-fmt="markdown" onclick="setFormat('markdown', this)">Tabelle</button>
-        <button class="tab" data-fmt="progression" onclick="setFormat('progression', this)" id="progression-tab">📈 Progression</button>
+        <button class="tab" data-fmt="progression" onclick="setFormat('progression', this)" id="progression-tab">Progression</button>
         <button class="tab" data-fmt="json" onclick="setFormat('json', this)">JSON</button>
         <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Volumen</button>
+      </div>
+      <div class="out-actions">
+        <button class="btn" onclick="document.getElementById('share-prog').hidden = currentFormat !== 'progression'; document.getElementById('share-dialog').showModal()" id="share-btn">Teilen</button>
+        <button class="btn" onclick="window.print()" id="pdf-btn">PDF</button>
       </div>
     </div>
     <div class="prog-controls" id="prog-controls">
@@ -1409,16 +1438,6 @@ HTML = r"""<!DOCTYPE html>
         </select>
       </div>
       <div class="field">
-        <label>+Wdh./Woche</label>
-        <select id="prog-repinc" onchange="progChanged()">
-          <option selected>1</option><option>2</option><option>3</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Wdh.-Schwelle</label>
-        <input type="number" id="prog-threshold" min="3" max="30" placeholder="auto" onchange="progChanged()">
-      </div>
-      <div class="field">
         <label>Deload</label>
         <select id="prog-deload" onchange="progChanged()">
           <option value="auto" selected>Auto</option>
@@ -1429,23 +1448,38 @@ HTML = r"""<!DOCTYPE html>
           <option value="every6">Jede 6. Woche</option>
         </select>
       </div>
-      <div class="field">
-        <label>Deload-Volumen</label>
-        <select id="prog-dsets" onchange="progChanged()">
-          <option value="0.5" selected>Sätze -50%</option>
-          <option value="0.67">Sätze -33%</option>
-          <option value="1.0">Sätze halten</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Deload-Last</label>
-        <select id="prog-dload" onchange="progChanged()">
-          <option value="1.0" selected>Last halten</option>
-          <option value="0.9">Last -10%</option>
-          <option value="0.85">Last -15%</option>
-          <option value="0.8">Last -20%</option>
-        </select>
-      </div>
+      <details class="prog-more">
+        <summary>Feineinstellung</summary>
+        <div class="prog-more-fields">
+          <div class="field">
+            <label>+Wdh./Woche</label>
+            <select id="prog-repinc" onchange="progChanged()">
+              <option selected>1</option><option>2</option><option>3</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Wdh.-Schwelle</label>
+            <input type="number" id="prog-threshold" min="3" max="30" placeholder="auto" onchange="progChanged()">
+          </div>
+          <div class="field">
+            <label>Deload-Volumen</label>
+            <select id="prog-dsets" onchange="progChanged()">
+              <option value="0.5" selected>Sätze -50%</option>
+              <option value="0.67">Sätze -33%</option>
+              <option value="1.0">Sätze halten</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Deload-Last</label>
+            <select id="prog-dload" onchange="progChanged()">
+              <option value="1.0" selected>Last halten</option>
+              <option value="0.9">Last -10%</option>
+              <option value="0.85">Last -15%</option>
+              <option value="0.8">Last -20%</option>
+            </select>
+          </div>
+        </div>
+      </details>
     </div>
     <div id="output">
       <!-- Print-only header: logo + coach + client -->
@@ -1470,6 +1504,13 @@ HTML = r"""<!DOCTYPE html>
     </div>
   </div>
 </main>
+
+<footer class="app-footer">
+  <span class="version">WODL {{ version }} · Out Of The Box Science</span>
+  <a href="https://github.com/oxscience/wodl#syntax" target="_blank" rel="noopener">Syntax und Quellcode (MIT)</a>
+  <a href="https://outoftheb-ox.de/pages/ox-wodl" target="_blank" rel="noopener">Über WODL</a>
+  <a href="https://outoftheb-ox.de/policies/legal-notice" target="_blank" rel="noopener">Impressum</a>
+</footer>
 
 <script>
   const editor = document.getElementById('editor');
@@ -1603,7 +1644,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#output',
       title: '👁 Live-Vorschau',
-      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>📈 Progression</code> für den ganzen Wochen-Block, <code>JSON</code> für Apps und <code>Volumen</code> für die Sätze pro Muskelgruppe. Ein Klick auf eine Tabellenzeile springt zur passenden Zeile im Editor. Bei Tippfehlern fragt die Vorschau unter Hinweise „Meintest du …?“.',
+      text: 'Vier Ansichten: <code>Tabelle</code> zum Lesen, <code>Progression</code> für den ganzen Wochen-Block, <code>JSON</code> für Apps und <code>Volumen</code> für die Sätze pro Muskelgruppe. Ein Klick auf eine Tabellenzeile springt zur passenden Zeile im Editor. Bei Tippfehlern fragt die Vorschau unter Hinweise „Meintest du …?“.',
       pos: 'left',
     },
     {
@@ -2566,6 +2607,7 @@ def index():
         themes_json=json.dumps(THEMES),
         exercises_json=json.dumps(EXERCISE_NAMES, ensure_ascii=False),
         initial_output=initial_html,
+        version=__version__,
     )
 
 

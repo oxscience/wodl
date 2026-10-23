@@ -80,3 +80,9 @@ def test_progress_client_format_renders_week_tabs(client):
     assert "Woche 4 · Deload" in html
     assert "<h1>Block</h1>" in html and html.count("<h1>") == 1  # Titel nur einmal oben
     assert "Block kopieren" not in html  # keine Werkzeuge für Klient:innen
+
+
+def test_footer_shows_version(client):
+    from wodl import __version__
+    html = client.get("/").get_data(as_text=True)
+    assert f"WODL {__version__}" in html and 'class="app-footer"' in html
