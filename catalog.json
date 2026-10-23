@@ -64,12 +64,12 @@
     {
       "id": "rehab-achilles-silbernagel",
       "file": "catalog/rehab-achilles-silbernagel.wodl",
-      "title_de": "Achilles-Tendinopathie — Silbernagel Kombiprogramm",
+      "title_de": "Achilles-Tendinopathie: Silbernagel Kombiprogramm",
       "kind": "reha",
       "target_area": "Achillessehne / Wade",
       "difficulty": "mittel",
       "duration": "12 Wochen + Erhaltung bis 6 Monate",
-      "excerpt": "Kombiniertes konzentrisch-exzentrisches 4-Phasen-Programm mit Schmerz-Monitoring-Modell — Sport darf nach Regeln weiterlaufen.",
+      "excerpt": "Kombiniertes konzentrisch-exzentrisches 4-Phasen-Programm mit Schmerz-Monitoring-Modell. Sport darf nach Regeln weiterlaufen.",
       "sources": [
         {"citation": "Silbernagel, K. G., Thomeé, R., Eriksson, B. I., & Karlsson, J. (2007). Continued Sports Activity, Using a Pain-Monitoring Model, during Rehabilitation in Patients with Achilles Tendinopathy: A Randomized Controlled Study. The American Journal of Sports Medicine, 35(6), 897-906.", "doi": "10.1177/0363546506298279"},
         {"citation": "Silbernagel, K. G., & Crossley, K. M. (2015). A Proposed Return-to-Sport Program for Patients With Midportion Achilles Tendinopathy: Rationale and Implementation. Journal of Orthopaedic & Sports Physical Therapy, 45(11), 876-886.", "doi": "10.2519/jospt.2015.5885"}
@@ -78,12 +78,12 @@
     {
       "id": "rehab-achilles-rupture",
       "file": "catalog/rehab-achilles-rupture.wodl",
-      "title_de": "Achillessehnenruptur — Funktionelle Reha (beschleunigt)",
+      "title_de": "Achillessehnenruptur: Funktionelle Reha (beschleunigt)",
       "kind": "reha",
       "target_area": "Achillessehne / Wade",
       "difficulty": "mittel",
       "duration": "26+ Wochen (RTS ab ca. 6 Monaten)",
-      "excerpt": "Beschleunigtes funktionelles Protokoll nach Ruptur — identisch für operativ und konservativ, mit Orthesen- und Belastungsfahrplan.",
+      "excerpt": "Beschleunigtes funktionelles Protokoll nach Ruptur, identisch für operativ und konservativ, mit Orthesen- und Belastungsfahrplan.",
       "sources": [
         {"citation": "Willits, K. et al. (2010). Operative versus Nonoperative Treatment of Acute Achilles Tendon Ruptures: A Multicenter Randomized Trial Using Accelerated Functional Rehabilitation. The Journal of Bone and Joint Surgery, American Volume, 92(17), 2767-2775.", "doi": "10.2106/JBJS.I.01401"},
         {"citation": "Barfod, K. W. et al. (2014). Nonoperative Dynamic Treatment of Acute Achilles Tendon Rupture: The Influence of Early Weight-Bearing on Clinical Outcome: A Blinded, Randomized Controlled Trial. The Journal of Bone and Joint Surgery, American Volume, 96(18), 1497-1503.", "doi": "10.2106/JBJS.M.01273"}
@@ -92,7 +92,7 @@
     {
       "id": "rehab-ankle-sprain",
       "file": "catalog/rehab-ankle-sprain.wodl",
-      "title_de": "Laterale Sprunggelenksdistorsion — Funktionelle Reha",
+      "title_de": "Laterale Sprunggelenksdistorsion: Funktionelle Reha",
       "kind": "reha",
       "target_area": "Sprunggelenk",
       "difficulty": "leicht",
@@ -107,12 +107,12 @@
     {
       "id": "rehab-plantar-fasciitis",
       "file": "catalog/rehab-plantar-fasciitis.wodl",
-      "title_de": "Plantarfasziitis — High-Load Krafttraining",
+      "title_de": "Plantarfasziitis: High-Load Krafttraining",
       "kind": "reha",
       "target_area": "Fuß / Plantarfaszie",
       "difficulty": "mittel",
       "duration": "12 Wochen",
-      "excerpt": "Einbeiniges Wadenheben mit Handtuch unter den Zehen — schwer, langsam, jeden zweiten Tag, mit RM-basierter Progression.",
+      "excerpt": "Einbeiniges Wadenheben mit Handtuch unter den Zehen, schwer und langsam, jeden zweiten Tag, mit RM-basierter Progression.",
       "sources": [
         {"citation": "Rathleff, M. S. et al. (2015). High-load strength training improves outcome in patients with plantar fasciitis: A randomized controlled trial with 12-month follow-up. Scandinavian Journal of Medicine & Science in Sports, 25(3), e292-e300.", "doi": "10.1111/sms.12313"}
       ]
@@ -125,7 +125,7 @@
       "target_area": "Hamstrings",
       "difficulty": "leicht",
       "duration": "ca. 4-6 Wochen (Return im Mittel 28 Tage)",
-      "excerpt": "Drei exzentrische Übungen bei großer Muskellänge — Extender, Diver, Glider — brachten Fußballer fast doppelt so schnell zurück (28 vs. 51 Tage).",
+      "excerpt": "Drei exzentrische Übungen bei großer Muskellänge (Extender, Diver, Glider) brachten Fußballer fast doppelt so schnell zurück (28 vs. 51 Tage).",
       "sources": [
         {"citation": "Askling, C. M., Tengvar, M., & Thorstensson, A. (2013). Acute hamstring injuries in Swedish elite football: a prospective randomised controlled clinical trial comparing two rehabilitation protocols. British Journal of Sports Medicine, 47(15), 953-959.", "doi": "10.1136/bjsports-2013-092165"}
       ]
@@ -147,7 +147,7 @@
     {
       "id": "rehab-throwers-ten",
       "file": "catalog/rehab-throwers-ten.wodl",
-      "title_de": "Thrower's Ten — Schulterprogramm für Überkopfathleten",
+      "title_de": "Thrower's Ten: Schulterprogramm für Überkopfathleten",
       "kind": "reha",
       "target_area": "Schulter/Ellenbogen (Überkopfsport)",
       "difficulty": "mittel",
@@ -161,7 +161,7 @@
     {
       "id": "rehab-tennis-elbow",
       "file": "catalog/rehab-tennis-elbow.wodl",
-      "title_de": "Tennisarm — Exzentrik & progressive Kräftigung",
+      "title_de": "Tennisarm: Exzentrik & progressive Kräftigung",
       "kind": "reha",
       "target_area": "Ellenbogen/Unterarm",
       "difficulty": "leicht",
@@ -176,7 +176,7 @@
     {
       "id": "rehab-frozen-shoulder",
       "file": "catalog/rehab-frozen-shoulder.wodl",
-      "title_de": "Frozen Shoulder — stadiengerechtes Programm",
+      "title_de": "Frozen Shoulder: Stadiengerechtes Programm",
       "kind": "reha",
       "target_area": "Schulter",
       "difficulty": "leicht",
@@ -189,7 +189,7 @@
     {
       "id": "rehab-neck-deep-flexor",
       "file": "catalog/rehab-neck-deep-flexor.wodl",
-      "title_de": "Chronische Nackenschmerzen — tiefe Flexoren bis Kraft",
+      "title_de": "Chronische Nackenschmerzen: Tiefe Flexoren bis Kraft",
       "kind": "reha",
       "target_area": "HWS/Nacken",
       "difficulty": "mittel",
@@ -208,7 +208,7 @@
       "target_area": "Ganzkörper (untere Extremität)",
       "difficulty": "leicht",
       "duration": "laufend, ~20 min, mind. 2x/Woche",
-      "excerpt": "Das komplette FIFA-11+-Warm-up mit allen drei Teilen und den drei Schwierigkeitsleveln — 20 Minuten pro Einheit mit belegter Verletzungsprävention.",
+      "excerpt": "Das komplette FIFA-11+-Warm-up mit allen drei Teilen und den drei Schwierigkeitsleveln, 20 Minuten pro Einheit, mit belegter Verletzungsprävention.",
       "sources": [
         {"citation": "Soligard, T. et al. (2008). Comprehensive warm-up programme to prevent injuries in young female footballers: cluster randomised controlled trial. BMJ, 337, a2469.", "doi": "10.1136/bmj.a2469"},
         {"citation": "Silvers-Granelli, H. et al. (2015). Efficacy of the FIFA 11+ Injury Prevention Program in the Collegiate Male Soccer Player. The American Journal of Sports Medicine, 43(11), 2628-2637.", "doi": "10.1177/0363546515602009"},
@@ -218,7 +218,7 @@
     {
       "id": "strength-novice-lp",
       "file": "catalog/strength-novice-lp.wodl",
-      "title_de": "Anfänger-Langhantel-LP — A/B Ganzkörper 3x/Woche",
+      "title_de": "Anfänger-Langhantel-LP: A/B Ganzkörper 3x/Woche",
       "kind": "training",
       "target_area": "Ganzkörper",
       "difficulty": "leicht",
@@ -232,7 +232,7 @@
     {
       "id": "strength-531-basic",
       "file": "catalog/strength-531-basic.wodl",
-      "title_de": "5/3/1 Grundzyklus (Wendler) — 4-Wochen-Welle",
+      "title_de": "5/3/1 Grundzyklus (Wendler): 4-Wochen-Welle",
       "kind": "training",
       "target_area": "Ganzkörper",
       "difficulty": "mittel",
@@ -246,7 +246,7 @@
     {
       "id": "strength-texas-method",
       "file": "catalog/strength-texas-method.wodl",
-      "title_de": "Texas Method — Intermediate-Wochenzyklus",
+      "title_de": "Texas Method: Intermediate-Wochenzyklus",
       "kind": "training",
       "target_area": "Ganzkörper",
       "difficulty": "schwer",
@@ -260,7 +260,7 @@
     {
       "id": "strength-gzclp",
       "file": "catalog/strength-gzclp.wodl",
-      "title_de": "GZCLP — Lineare Progression in drei Tiers",
+      "title_de": "GZCLP: Lineare Progression in drei Tiers",
       "kind": "training",
       "target_area": "Ganzkörper",
       "difficulty": "mittel",
@@ -273,7 +273,7 @@
     {
       "id": "hypertrophy-helms-novice",
       "file": "catalog/hypertrophy-helms-novice.wodl",
-      "title_de": "Hypertrophie Novize — Ganzkörper (Pyramid-Prinzipien)",
+      "title_de": "Hypertrophie Novize: Ganzkörper (Pyramid-Prinzipien)",
       "kind": "training",
       "target_area": "Ganzkörper",
       "difficulty": "leicht",
@@ -288,7 +288,7 @@
     {
       "id": "hypertrophy-helms-intermediate",
       "file": "catalog/hypertrophy-helms-intermediate.wodl",
-      "title_de": "Hypertrophie Intermediate — Upper/Lower (Pyramid-Prinzipien)",
+      "title_de": "Hypertrophie Intermediate: Upper/Lower (Pyramid-Prinzipien)",
       "kind": "training",
       "target_area": "Ganzkörper",
       "difficulty": "mittel",
@@ -303,7 +303,7 @@
     {
       "id": "powerlifting-helms-novice",
       "file": "catalog/powerlifting-helms-novice.wodl",
-      "title_de": "Powerlifting Novize — SBD 4x/Woche (Pyramid-Prinzipien)",
+      "title_de": "Powerlifting Novize: SBD 4x/Woche (Pyramid-Prinzipien)",
       "kind": "training",
       "target_area": "Ganzkörper",
       "difficulty": "mittel",
@@ -323,7 +323,7 @@
       "target_area": "Ganzkörper",
       "difficulty": "mittel",
       "duration": "4-Wochen-Zyklus, fortlaufend",
-      "excerpt": "Jede Muskelgruppe 3-4x/Woche mit wenigen hochwertigen Sätzen — Wochenvolumen auf kurze, erholsame Einheiten verteilt, RIR-gesteuert.",
+      "excerpt": "Jede Muskelgruppe 3-4x/Woche mit wenigen hochwertigen Sätzen. Das Wochenvolumen verteilt sich auf kurze, erholsame Einheiten, gesteuert über RIR.",
       "sources": [
         {"citation": "Schoenfeld, B. J., Ogborn, D., & Krieger, J. W. (2016). Effects of Resistance Training Frequency on Measures of Muscle Hypertrophy: A Systematic Review and Meta-Analysis. Sports Medicine, 46(11), 1689-1697.", "doi": "10.1007/s40279-016-0543-8"},
         {"citation": "Schoenfeld, B. J., Grgic, J., & Krieger, J. (2019). How many times per week should a muscle be trained to maximize muscle hypertrophy? A systematic review and meta-analysis of studies examining the effects of resistance training frequency. Journal of Sports Sciences, 37(11), 1286-1295.", "doi": "10.1080/02640414.2018.1555906"}
@@ -337,7 +337,7 @@
       "target_area": "Ganzkörper (Beinkraft, Balance)",
       "difficulty": "leicht",
       "duration": "12 Monate (Stufen A-D nach Fähigkeit)",
-      "excerpt": "Heimbasiertes Kraft- und Balance-Programm mit Gehplan für Ältere — in vier kontrollierten Studien rund 35% weniger Stürze.",
+      "excerpt": "Heimbasiertes Kraft- und Balance-Programm mit Gehplan für Ältere. In vier kontrollierten Studien gab es damit rund 35% weniger Stürze.",
       "sources": [
         {"citation": "Campbell, A. J. et al. (1997). Randomised controlled trial of a general practice programme of home based exercise to prevent falls in elderly women. BMJ, 315(7115), 1065-1069.", "doi": "10.1136/bmj.315.7115.1065"},
         {"citation": "Robertson, M. C., Devlin, N., Gardner, M. M., & Campbell, A. J. (2001). Effectiveness and economic evaluation of a nurse delivered home exercise programme to prevent falls. 1: Randomised controlled trial. BMJ, 322(7288), 697.", "doi": "10.1136/bmj.322.7288.697"},
@@ -392,7 +392,7 @@
       "target_area": "Knie",
       "difficulty": "mittel",
       "duration": "24+ Wochen (4 Phasen)",
-      "excerpt": "Kreuzband-Nachbehandlung nach Wilk & Arrigo / van Melick — zeitorientierte 4-Phasen-Referenz.",
+      "excerpt": "Kreuzband-Nachbehandlung nach Wilk & Arrigo / van Melick als zeitorientierte 4-Phasen-Referenz.",
       "sources": [
         {"citation": "Wilk, K. E., & Arrigo, C. A. (2017). Rehabilitation Principles of the Anterior Cruciate Ligament Reconstructed Knee: Twelve Steps for Successful Progression and Return to Play. Clinics in Sports Medicine (JOSPT-Serie, s. Datei).", "doi": ""},
         {"citation": "van Melick, N. et al. (2016). Evidence-based clinical practice update: practice guidelines for anterior cruciate ligament rehabilitation. British Journal of Sports Medicine, 50(24), 1506-1515.", "doi": "10.1136/bjsports-2015-095898"}
@@ -414,12 +414,12 @@
     {
       "id": "rehab-lbp-mcgill",
       "file": "examples/rehab-lbp-mcgill.wodl",
-      "title_de": "LWS — McGill Big 3",
+      "title_de": "LWS: McGill Big 3",
       "kind": "reha",
       "target_area": "LWS / Rumpf",
       "difficulty": "leicht",
       "duration": "fortlaufend, täglich",
-      "excerpt": "McGill Big 3 (Curl-up, Side Plank, Bird Dog) mit Reverse-Pyramide 10-8-6. Verbreiteter Motor-Control-Ansatz — die hochwertige Evidenz zeigt Gleichwertigkeit zu anderem Training, keine Überlegenheit.",
+      "excerpt": "McGill Big 3 (Curl-up, Side Plank, Bird Dog) mit Reverse-Pyramide 10-8-6. Verbreiteter Motor-Control-Ansatz. Die hochwertige Evidenz zeigt Gleichwertigkeit zu anderem Training, keine Überlegenheit.",
       "sources": [
         {"citation": "Saragiotto, B. T. et al. (2016). Motor control exercise for chronic non-specific low-back pain. Cochrane Database of Systematic Reviews, (1), CD012004. Evidenz-Anker: gleichwertig zu anderem Training.", "doi": "10.1002/14651858.CD012004"},
         {"citation": "McGill, S. (2016). Low Back Disorders: Evidence-Based Prevention and Rehabilitation (3. Aufl., Human Kinetics). Methoden-Referenz.", "doi": ""},
@@ -429,7 +429,7 @@
     {
       "id": "rehab-achilles-alfredson",
       "file": "examples/rehab-achilles-alfredson.wodl",
-      "title_de": "Achillessehne — Alfredson (klassisch)",
+      "title_de": "Achillessehne: Alfredson (klassisch)",
       "kind": "reha",
       "target_area": "Achillessehne / Wade",
       "difficulty": "mittel",
@@ -450,7 +450,7 @@
       "target_area": "Ganzkörper",
       "difficulty": "leicht",
       "duration": "fortlaufend",
-      "excerpt": "Ganzkörper-Einstieg, 3x/Woche — Technik & Grundlagen.",
+      "excerpt": "Ganzkörper-Einstieg mit 3x/Woche für Technik & Grundlagen.",
       "sources": [{"citation": "Rhea, M. R. et al. (2003). Meta-Analyse Trainingsvolumen (s. Datei).", "doi": ""}]
     },
     {
@@ -461,7 +461,7 @@
       "target_area": "Ganzkörper",
       "difficulty": "leicht",
       "duration": "fortlaufend",
-      "excerpt": "Ohne Geräte, nur Körpergewicht — überall trainierbar.",
+      "excerpt": "Ohne Geräte, nur Körpergewicht, überall trainierbar.",
       "sources": [{"citation": "Schoenfeld, B. J. et al. (2017). (s. Datei).", "doi": ""}]
     },
     {
@@ -472,7 +472,7 @@
       "target_area": "Ganzkörper",
       "difficulty": "leicht",
       "duration": "fortlaufend",
-      "excerpt": "Wenig Volumen, große Grundübungen — zeiteffizient.",
+      "excerpt": "Wenig Volumen, große Grundübungen, zeiteffizient.",
       "sources": [{"citation": "Schoenfeld, B. J. et al. (2019). (s. Datei).", "doi": ""}]
     },
     {
