@@ -91,6 +91,7 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
+    ("25.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
     ("23.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
     ("22.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
     ("12.10.", "Wieder in der Bibliothek: Plantarfasziitis mit High-Load-Krafttraining nach Rathleff"),
@@ -971,6 +972,9 @@ HTML = r"""<!DOCTYPE html>
   }
 
   #output td { color: var(--text); }
+  /* Notizen-Spalte: lange Wörter ohne Umbruchstelle ("vor/zurück/seitlich/diagonal") dürfen brechen, sonst ragt die Tabelle raus */
+  #output :is(.plan-view, .prog-week, .wk-pane) td:last-child { overflow-wrap: anywhere; hyphens: auto; }
+  #output :is(.plan-view, .prog-week) { overflow-x: auto; }  /* sehr schmal: Tabelle scrollt in ihrem Kasten statt über den Rand */
 
   #output blockquote {
     border-left: 3px solid var(--primary);
@@ -1173,7 +1177,7 @@ HTML = r"""<!DOCTYPE html>
     #output table { display: table !important; width: 100% !important; break-inside: avoid; }
     #output h2 { break-after: avoid; }
     main { display: block; height: auto; }
-    .panel { overflow: visible; }
+    .panel, #output :is(.plan-view, .prog-week) { overflow: visible; }
     #output {
       padding: 0;
       background: white;
