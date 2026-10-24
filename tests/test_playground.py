@@ -86,3 +86,11 @@ def test_footer_shows_version(client):
     from wodl import __version__
     html = client.get("/").get_data(as_text=True)
     assert f"WODL {__version__}" in html and 'class="app-footer"' in html
+
+
+def test_footer_changelog_newest_first(client):
+    from playground import CHANGELOG
+    html = client.get("/").get_data(as_text=True)
+    assert "Was ist neu" in html and CHANGELOG[0][1] in html
+    days = [d for d, _ in CHANGELOG]
+    assert len(days) == len(set(days))  # ein Eintrag pro Tag

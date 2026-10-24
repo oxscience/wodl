@@ -88,6 +88,19 @@ EXERCISE_NAMES = [
     for canonical, meta in EXERCISES.items()
 ]
 
+# "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
+# neuester Eintrag oben, ein Eintrag pro Tag.
+CHANGELOG = [
+    ("23.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
+    ("22.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
+    ("12.10.", "Wieder in der Bibliothek: Plantarfasziitis mit High-Load-Krafttraining nach Rathleff"),
+    ("08.10.", "Meine Pläne: Mehrere Pläne bleiben im Browser, geteilte Links und Vorlagen kommen als eigener Plan dazu"),
+    ("07.10.", "Link für Klient:innen: nur der Plan, aufs Handy zugeschnitten, aus dem Progression-Tab mit allen Wochen als Reitern"),
+    ("06.10.", "Freitext rein, WODL raus: Pläne aus WhatsApp oder Excel einfügen und mit einem Klick umwandeln"),
+    ("05.10.", "Volumen-Tab: Sätze pro Muskelgruppe und Woche mit Ampel für den üblichen Bereich"),
+    ("04.10.", "Der Editor schlägt Übungen ab zwei Buchstaben vor, auch über englische Namen"),
+]
+
 SAMPLE_WODL = """\
 @plan "Ganzkörper Basics"
 @freq 3x/Woche
@@ -353,6 +366,32 @@ HTML = r"""<!DOCTYPE html>
   .app-footer .version { margin-right: auto; }
   .app-footer a { color: inherit; text-decoration: none; }
   .app-footer a:hover { color: var(--text); }
+  /* Was ist neu: klappt beim Darüberfahren (Tastatur/Handy: Fokus) über der Versionsnummer auf */
+  .version-menu { position: relative; }
+  .version-menu > button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: help; }
+  .version-menu > button:hover { color: var(--text); }
+  .changelog-pop {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 0.6rem);
+    left: -0.6rem;
+    z-index: 50;
+    width: min(26rem, calc(100vw - 2rem));
+    padding: 0.75rem 0.9rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    color: var(--text);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+  .changelog-pop::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 0.7rem; }  /* Brücke, damit der Hover hält */
+  .version-menu:hover .changelog-pop, .version-menu:focus-within .changelog-pop { display: block; }
+  .changelog-pop p { font-weight: 600; margin-bottom: 0.45rem; }
+  .changelog-pop ul { list-style: none; display: grid; gap: 0.4rem; }
+  .changelog-pop li { display: grid; grid-template-columns: 3.2rem 1fr; gap: 0.5rem; }
+  .changelog-pop li span { color: var(--text2); font-variant-numeric: tabular-nums; }
 
   .prog-badge {
     display: inline-block;
@@ -1506,7 +1545,16 @@ HTML = r"""<!DOCTYPE html>
 </main>
 
 <footer class="app-footer">
-  <span class="version">WODL {{ version }} · <a href="https://outoftheb-ox.de" target="_blank" rel="noopener">Out Of The Box Science</a></span>
+  <span class="version">
+    <span class="version-menu">
+      <button type="button" onclick="this.focus()" aria-describedby="changelog">WODL {{ version }}</button>
+      <div class="changelog-pop" id="changelog" role="tooltip">
+        <p>Was ist neu</p>
+        <ul>{% for d, text in changelog %}<li><span>{{ d }}</span>{{ text }}</li>{% endfor %}</ul>
+      </div>
+    </span>
+    · <a href="https://outoftheb-ox.de" target="_blank" rel="noopener">Out Of The Box Science</a>
+  </span>
   <a href="https://github.com/oxscience/wodl#syntax" target="_blank" rel="noopener">Syntax und Quellcode (MIT)</a>
   <a href="https://outoftheb-ox.de/pages/ox-wodl" target="_blank" rel="noopener">Über WODL</a>
   <a href="https://outoftheb-ox.de/policies/legal-notice" target="_blank" rel="noopener">Impressum</a>
@@ -2608,6 +2656,7 @@ def index():
         exercises_json=json.dumps(EXERCISE_NAMES, ensure_ascii=False),
         initial_output=initial_html,
         version=__version__,
+        changelog=CHANGELOG,
     )
 
 
