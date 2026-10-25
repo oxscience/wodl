@@ -13,3 +13,6 @@ build/
 
 # Python venv (without dot)
 venv/
+
+# How-to-Video: liegt nur auf dem Server, nicht im Repo
+static/howto/

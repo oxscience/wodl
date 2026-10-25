@@ -294,8 +294,8 @@ def test_matrix_same_engine_as_weeks():
     cfg = ProgressionConfig(weeks=4, deload_rhythm="none", rep_increment=2)
     md = progress_matrix(plan, cfg)
     weeks = progress_plan(plan, cfg)
-    assert "3×8 @12.5kg" in md              # W4: Bump auf 12.5, Reps zurück
-    assert "3x8" in weeks[3].text and "@12.5kg" in weeks[3].text
+    assert "3×8 @11kg" in md                # W4: Bump um 10 % auf 11 kg, Reps zurück
+    assert "3x8" in weeks[3].text and "@11kg" in weeks[3].text
 
 
 # ---------------------------------------------------------------------------
@@ -379,3 +379,13 @@ def test_minutes_progress_one_minute_per_week_and_keep_side_and_comment():
     assert "je Seite" in weeks[2].text
     reparsed = _parse(weeks[2].text).sessions[0].items
     assert reparsed[1].modifiers == ["je Seite"] and reparsed[0].reps == "22min"
+
+
+def test_light_loads_rise_in_small_steps():
+    # Reha mit 1-kg-Hantel: +0,5 kg statt +2,5 kg pro Woche; schwere Last bleibt bei +2,5 kg
+    src = "---[A] Mo\n\nY-Heben in Bauchlage  3x10  @1kg\nKniebeuge  3x5  @80kg\nSeitheben  3x12  @15kg\n"
+    weeks = progress_plan(parse(src), ProgressionConfig(weeks=4, goal="kraft", deload_rhythm="none"))
+    loads = [[ex.intensity for ex in parse(w.text).sessions[0].items] for w in weeks]
+    assert [row[0] for row in loads] == ["@1kg", "@1.5kg", "@2kg", "@2.5kg"]
+    assert [row[1] for row in loads] == ["@80kg", "@82.5kg", "@85kg", "@87.5kg"]
+    assert [row[2] for row in loads] == ["@15kg", "@16.5kg", "@18kg", "@20kg"]

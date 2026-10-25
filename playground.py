@@ -91,10 +91,12 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
-    ("25.10.", "Das PDF aus dem Progression-Tab beginnt auf der ersten Seite, ohne Leerseite und ohne Rahmen um die Deload-Woche"),
-    ("24.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
-    ("23.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
-    ("22.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
+    ("25.10.", "How-to im Kopf: ein Video von der Vorlage über die Progression bis zum Link für Klient:innen"),
+    ("24.10.", "Progression: Leichte Gewichte steigen in kleinen Schritten, höchstens ein Zehntel pro Woche statt pauschal 2,5 kg"),
+    ("23.10.", "Das PDF aus dem Progression-Tab beginnt auf der ersten Seite, ohne Leerseite und ohne Rahmen um die Deload-Woche"),
+    ("22.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
+    ("21.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
+    ("20.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
     ("12.10.", "Wieder in der Bibliothek: Plantarfasziitis mit High-Load-Krafttraining nach Rathleff"),
     ("08.10.", "Meine Pläne: Mehrere Pläne bleiben im Browser, geteilte Links und Vorlagen kommen als eigener Plan dazu"),
     ("07.10.", "Link für Klient:innen: nur der Plan, aufs Handy zugeschnitten, aus dem Progression-Tab mit allen Wochen als Reitern"),
@@ -1098,6 +1100,8 @@ HTML = r"""<!DOCTYPE html>
   }
   .share-row span { display: block; font-size: 0.8rem; color: var(--text2); }
   .share-dialog form { margin-top: 0.75rem; text-align: right; }
+  .share-dialog.howto { max-width: min(60rem, 94vw); width: 100%; }
+  .howto video { display: block; width: 100%; margin-top: 0.75rem; border-radius: 6px; background: #000; }
 
   /* Ansicht für Klient:innen (?view=1): nur der Plan */
   .client-view header, .client-view .branding-panel, .client-view .panel:first-child,
@@ -1339,11 +1343,21 @@ HTML = r"""<!DOCTYPE html>
     </div>
   </div>
   <div class="header-actions">
+    {% if howto %}<button class="btn" onclick="document.getElementById('howto-dialog').showModal()" id="howto-btn" title="Video: von der Vorlage bis zum Link">How-to</button>{% endif %}
     <button class="btn" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">Tour</button>
     <button class="btn" onclick="toggleBranding()" id="branding-btn">Branding</button>
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Dark/Light Mode" aria-label="Theme wechseln">&#9790;</button>
   </div>
 </header>
+
+{% if howto %}
+<dialog id="howto-dialog" class="share-dialog howto" onclose="this.querySelector('video').pause()">
+  <h3>How-to: Vorlage, Anpassung, Link</h3>
+  <p class="share-sub">Einmal durch WODL in gut zwei Minuten.</p>
+  <video controls preload="none" playsinline poster="/static/howto/wodl-howto.jpg" src="/static/howto/wodl-howto.mp4"></video>
+  <form method="dialog"><button class="btn">Schließen</button></form>
+</dialog>
+{% endif %}
 
 <dialog id="share-dialog" class="share-dialog">
   <h3>Plan teilen</h3>
@@ -2665,6 +2679,7 @@ def index():
         initial_output=initial_html,
         version=__version__,
         changelog=CHANGELOG,
+        howto=(ROOT_DIR / "static" / "howto" / "wodl-howto.mp4").exists(),
     )
 
 

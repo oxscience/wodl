@@ -155,6 +155,14 @@ def _round_load(kg: float) -> float:
     return round(kg * 2) / 2
 
 
+def _load_step(kg: float, cfg: ProgressionConfig) -> float:
+    """Preset-Steigerung: höchstens 10 % der Last, mindestens 0,5 kg, nie über load_increment.
+
+    80 kg Kniebeuge → +2,5 kg wie bisher; 1 kg Y-Heben → +0,5 kg statt +2,5 kg.
+    """
+    return min(cfg.load_increment, max(0.5, _round_load(kg * 0.1)))
+
+
 class _ExState:
     """Zustand einer Übung über den Block (Reps/Last laufen Woche für Woche mit)."""
 
@@ -215,7 +223,7 @@ class _ExState:
 
         if cfg.goal == "kraft":
             if self.load_kg is not None:
-                self.load_kg += cfg.load_increment
+                self.load_kg += _load_step(self.load_kg, cfg)
             else:
                 self.note = f"Last +{cfg.load_increment:g} kg vs. Vorwoche"
             return
@@ -229,8 +237,9 @@ class _ExState:
             if cfg.goal == "hypertrophie" and new > self.threshold:
                 # Doppelprogression: Schwelle erreicht → Last hoch, Reps zurück
                 if self.load_kg is not None:
-                    self.load_kg += cfg.load_increment
-                    self.note = f"Last +{cfg.load_increment:g} kg, Wdh. zurück auf {self.rep_start}"
+                    step = _load_step(self.load_kg, cfg)
+                    self.load_kg += step
+                    self.note = f"Last +{step:g} kg, Wdh. zurück auf {self.rep_start}"
                 else:
                     self.note = (
                         f"Schwelle {self.threshold} erreicht: Last erhöhen "
