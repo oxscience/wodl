@@ -7,7 +7,7 @@ packages = ["wodl"]
 
 [project]
 name = "wodl"
-version = "0.2.2"
+version = "0.2.3"
 description = "WODL — Workout Definition Language. A minimalist DSL for structured training plans."
 readme = "README.md"
 license = "MIT"

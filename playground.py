@@ -91,7 +91,8 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
-    ("25.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
+    ("25.10.", "Das PDF aus dem Progression-Tab beginnt auf der ersten Seite, ohne Leerseite und ohne Rahmen um die Deload-Woche"),
+    ("24.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
     ("23.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
     ("22.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
     ("12.10.", "Wieder in der Bibliothek: Plantarfasziitis mit High-Load-Krafttraining nach Rathleff"),
@@ -442,7 +443,10 @@ HTML = r"""<!DOCTYPE html>
   }
   @media print {
     .prog-controls, .prog-toolbar, .prog-week details, .prog-hint { display: none !important; }
-    .prog-week { border: none; padding: 0; margin: 0.6rem 0; page-break-inside: avoid; }
+    /* Woche darf über Seiten laufen (sonst schiebt eine lange Woche 1 alles auf Seite 2 und Seite 1 bleibt leer);
+       Tabellen bleiben zusammen, die Wochen-Überschrift bleibt bei ihrem Inhalt */
+    .prog-week, .prog-week.deload { border: none; padding: 0; margin: 0.6rem 0; }
+    .prog-week h3 { break-after: avoid; }
   }
 
   .theme-grid {
