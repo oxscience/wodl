@@ -94,3 +94,28 @@ def test_footer_changelog_newest_first(client):
     assert "Was ist neu" in html and CHANGELOG[0][1] in html
     days = [d for d, _ in CHANGELOG]
     assert len(days) == len(set(days))  # ein Eintrag pro Tag
+
+
+def test_doku_pages_render(client):
+    from playground import DOCS
+    assert client.get("/doku").status_code == 302
+    for slug in DOCS:
+        html = client.get(f"/doku/{slug}").get_data(as_text=True)
+        assert "<h1>" in html and 'aria-current="page"' in html, slug
+        assert ".md\"" not in html, slug  # Artikel-Verweise zeigen auf /doku/…, nicht auf Dateien
+    assert client.get("/doku/gibt-es-nicht").status_code == 404
+
+
+def test_doku_markdown_escapes_and_keeps_code():
+    from playground import _doc_to_html
+    html = _doc_to_html("# T\n\nText mit <b>x</b> und `a<b>`\n\n```js\nif (a < b) {}\n```\n- [Mehr](json-format.md)\n")
+    assert "<b>x</b>" not in html and "&lt;b&gt;x&lt;/b&gt;" in html
+    assert "<code>a&lt;b&gt;</code>" in html and "if (a &lt; b) {}" in html
+    assert '<a href="/doku/json-format">Mehr</a>' in html
+
+
+def test_json_tab_offers_ai_prompt(client):
+    html = client.post("/parse", data={"wodl": "---[A] Mo\nKniebeuge 3x5", "format": "json"}).get_data(as_text=True)
+    assert "Prompt für KI kopieren" in html and "JSON kopieren" in html
+    page = client.get("/").get_data(as_text=True)
+    assert "const AI_PROMPT" in page and "Kurzhantel-Rudern" in page

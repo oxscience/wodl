@@ -16,10 +16,11 @@ import re
 from datetime import date
 from pathlib import Path
 
-from flask import Flask, abort, jsonify, request, render_template_string
+from flask import Flask, abort, jsonify, redirect, request, render_template_string
 
 from wodl import __version__, parse, to_json, to_markdown, to_cycle_matrix
 from wodl.registry import EXERCISES, suggest
+from wodl.prompt import system_prompt
 from wodl.volume import weekly_volume
 from wodl.convert import freetext_to_wodl
 from wodl.progression import (
@@ -91,12 +92,13 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
-    ("25.10.", "How-to im Kopf: ein Video von der Vorlage über die Progression bis zum Link für Klient:innen"),
-    ("24.10.", "Progression: Leichte Gewichte steigen in kleinen Schritten, höchstens ein Zehntel pro Woche statt pauschal 2,5 kg"),
-    ("23.10.", "Das PDF aus dem Progression-Tab beginnt auf der ersten Seite, ohne Leerseite und ohne Rahmen um die Deload-Woche"),
-    ("22.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
-    ("21.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
-    ("20.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
+    ("25.10.", "Doku unter /doku: WODL in eigene Apps einbauen, das JSON-Format und Pläne mit lokaler KI; im JSON-Tab kopiert ein Knopf den passenden Prompt"),
+    ("24.10.", "How-to im Kopf: ein Video von der Vorlage über die Progression bis zum Link für Klient:innen"),
+    ("23.10.", "Progression: Leichte Gewichte steigen in kleinen Schritten, höchstens ein Zehntel pro Woche statt pauschal 2,5 kg"),
+    ("22.10.", "Das PDF aus dem Progression-Tab beginnt auf der ersten Seite, ohne Leerseite und ohne Rahmen um die Deload-Woche"),
+    ("21.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
+    ("20.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
+    ("19.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
     ("12.10.", "Wieder in der Bibliothek: Plantarfasziitis mit High-Load-Krafttraining nach Rathleff"),
     ("08.10.", "Meine Pläne: Mehrere Pläne bleiben im Browser, geteilte Links und Vorlagen kommen als eigener Plan dazu"),
     ("07.10.", "Link für Klient:innen: nur der Plan, aufs Handy zugeschnitten, aus dem Progression-Tab mit allen Wochen als Reitern"),
@@ -409,6 +411,7 @@ HTML = r"""<!DOCTYPE html>
   }
   .prog-badge.freetext { border-color: var(--orange, #e8a33d); color: var(--orange, #e8a33d); }
   .prog-hint { font-size: 0.78rem; color: var(--text2); margin: 0.4rem 0 0; }
+  .prog-toolbar a { color: var(--primary); font-size: 0.8rem; }
   .prog-toolbar {
     display: flex;
     align-items: center;
@@ -1572,12 +1575,13 @@ HTML = r"""<!DOCTYPE html>
       <button type="button" onclick="this.focus()" aria-describedby="changelog">WODL {{ version }}</button>
       <div class="changelog-pop" id="changelog" role="tooltip">
         <p>Was ist neu</p>
-        <ul>{% for d, text in changelog %}<li><span>{{ d }}</span>{{ text }}</li>{% endfor %}</ul>
+        <ul>{% for d, text in changelog[:8] %}<li><span>{{ d }}</span>{{ text }}</li>{% endfor %}</ul>
       </div>
     </span>
     · <a href="https://outoftheb-ox.de" target="_blank" rel="noopener">Out Of The Box Science</a>
   </span>
-  <a href="https://github.com/oxscience/wodl#syntax" target="_blank" rel="noopener">Syntax und Quellcode (MIT)</a>
+  <a href="/doku" target="_blank">Doku</a>
+  <a href="https://github.com/oxscience/wodl" target="_blank" rel="noopener">Quellcode (MIT)</a>
   <a href="https://outoftheb-ox.de/pages/ox-wodl" target="_blank" rel="noopener">Über WODL</a>
   <a href="https://outoftheb-ox.de/policies/legal-notice" target="_blank" rel="noopener">Impressum</a>
 </footer>
@@ -1586,6 +1590,15 @@ HTML = r"""<!DOCTYPE html>
   const editor = document.getElementById('editor');
   const outputBody = document.getElementById('output-body');
   const sample = {{ sample_json | safe }};
+  const AI_PROMPT = {{ ai_prompt_json | safe }};  // Systemprompt für lokale KI (wodl/prompt.py)
+
+  function copyText(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Kopiert ✓';
+      setTimeout(() => btn.textContent = orig, 1500);
+    }).catch(() => prompt('Zum Kopieren:', text));
+  }
   const clientView = document.body.classList.contains('client-view');
   const themes = {{ themes_json | safe }};
   let currentFormat = 'markdown';
@@ -2676,6 +2689,7 @@ def index():
         sample_json=json.dumps(SAMPLE_WODL),
         themes_json=json.dumps(THEMES),
         exercises_json=json.dumps(EXERCISE_NAMES, ensure_ascii=False),
+        ai_prompt_json=json.dumps(system_prompt(), ensure_ascii=False),
         initial_output=initial_html,
         version=__version__,
         changelog=CHANGELOG,
@@ -2698,7 +2712,13 @@ def parse_wodl():
     _log_unknowns(plan)
 
     if fmt == "json":
-        return f"<pre>{html_mod.escape(to_json(plan))}</pre>"
+        return (
+            '<div class="prog-toolbar">'
+            '<button class="btn" onclick="copyText(this, document.querySelector(\'#output-body pre\').textContent)">JSON kopieren</button>'
+            '<button class="btn" onclick="copyText(this, AI_PROMPT)">Prompt für KI kopieren</button>'
+            '<a href="/doku/ki-plaene-schreiben" target="_blank">Wie das mit lokaler KI geht</a>'
+            f"</div><pre>{html_mod.escape(to_json(plan))}</pre>"
+        )
 
     if fmt == "cycle":
         md = to_cycle_matrix(plan)
@@ -2982,6 +3002,152 @@ def get_example(name: str):
         if path.is_file() and path.parent == base_dir:
             return path.read_text(encoding="utf-8"), 200, {"Content-Type": "text/plain; charset=utf-8"}
     abort(404)
+
+
+# ---------------------------------------------------------------------------
+# Doku: Markdown aus docs/ (auf GitHub genauso lesbar), hier als Seiten unter /doku
+# ---------------------------------------------------------------------------
+
+DOCS_DIR = ROOT_DIR / "docs"
+DOCS = ["ueberblick", "eigene-apps", "json-format", "ki-plaene-schreiben", "ki-plaene-lesen"]
+
+
+def _doc_link(m):
+    text, url = m.group(1), m.group(2)
+    if url.endswith(".md") and "/" not in url:  # Verweis auf einen anderen Artikel
+        url = "/doku/" + url[:-3]
+    external = ' target="_blank" rel="noopener"' if url.startswith("http") else ""
+    return f'<a href="{url}"{external}>{text}</a>'
+
+
+def _doc_inline(text: str) -> str:
+    out = []
+    for part in re.split(r"(`[^`]+`)", text):
+        if len(part) > 1 and part.startswith("`") and part.endswith("`"):
+            out.append(f"<code>{html_mod.escape(part[1:-1])}</code>")
+            continue
+        part = html_mod.escape(part, quote=False)
+        part = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", part)
+        out.append(re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", _doc_link, part))
+    return "".join(out)
+
+
+def _doc_to_html(md: str) -> str:
+    """Nur was die Doku nutzt: Überschriften, Absätze, Listen, Codeblöcke, `code`, **fett**, Links."""
+    out, para, code, lst = [], [], None, None
+
+    def close():
+        nonlocal lst
+        if para:
+            out.append(f"<p>{_doc_inline(' '.join(para))}</p>")
+            para.clear()
+        if lst:
+            out.append(f"</{lst}>")
+            lst = None
+
+    for line in md.split("\n"):
+        if code is not None:
+            if line.startswith("```"):
+                out.append(f"<pre><code>{html_mod.escape(chr(10).join(code))}</code></pre>")
+                code = None
+            else:
+                code.append(line)
+            continue
+        s = line.strip()
+        heading = re.match(r"(#{1,3}) (.+)", s)
+        item = re.match(r"(-|\d+\.) (.+)", s)
+        if s.startswith("```"):
+            close()
+            code = []
+        elif heading:
+            close()
+            n = len(heading.group(1))
+            out.append(f"<h{n}>{_doc_inline(heading.group(2))}</h{n}>")
+        elif item:
+            tag = "ul" if item.group(1) == "-" else "ol"
+            if para or lst != tag:
+                close()
+                out.append(f"<{tag}>")
+                lst = tag
+            out.append(f"<li>{_doc_inline(item.group(2))}</li>")
+        elif not s:
+            close()
+        else:
+            if lst:
+                close()
+            para.append(s)
+    close()
+    return "\n".join(out)
+
+
+DOC_HTML = """<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} · WODL Doku</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32.png">
+<script>try { if (JSON.parse(localStorage.getItem('wodl_brand') || '{}').theme === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}</script>
+<style>
+  :root { --bg: #0f1117; --bg2: #1a1d27; --border: #2e3348; --text: #e2e4ed; --text2: #9298b0; --primary: #6c8cff;
+          --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace; }
+  [data-theme="light"] { --bg: #ffffff; --bg2: #f7f8fa; --border: #d8dce3; --text: #1a1d27; --text2: #5a6073; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+  header { display: flex; align-items: baseline; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); }
+  header a { color: var(--text); text-decoration: none; font-weight: 700; }
+  header a span { color: var(--primary); }
+  header small { color: var(--text2); }
+  .wrap { display: grid; grid-template-columns: 15rem minmax(0, 46rem); gap: 2.5rem; padding: 2rem 1.5rem 4rem; max-width: 66rem; }
+  nav ul { list-style: none; position: sticky; top: 1.5rem; }
+  nav a { display: block; padding: 0.35rem 0.6rem; border-radius: 6px; color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+  nav a:hover { color: var(--text); }
+  nav a[aria-current] { color: var(--text); background: var(--bg2); }
+  article h1 { font-size: 1.6rem; line-height: 1.25; margin-bottom: 1rem; }
+  article h2 { font-size: 1.15rem; margin: 2rem 0 0.6rem; }
+  article h3 { font-size: 1rem; margin: 1.5rem 0 0.5rem; }
+  article p, article ul, article ol { margin-bottom: 0.9rem; }
+  article ul, article ol { padding-left: 1.3rem; }
+  article li { margin-bottom: 0.3rem; }
+  article a { color: var(--primary); }
+  article code { font-family: var(--mono); font-size: 0.86em; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 0.05em 0.3em; }
+  article pre { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; overflow-x: auto; margin-bottom: 1rem; }
+  article pre code { background: none; border: 0; padding: 0; font-size: 0.82rem; line-height: 1.55; }
+  @media (max-width: 760px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding: 1.25rem 1rem 3rem; }
+    nav ul { position: static; display: flex; flex-wrap: wrap; gap: 0.25rem; }
+  }
+</style>
+</head>
+<body>
+<header><a href="/"><span>WODL</span> Progressions</a><small>Doku</small></header>
+<div class="wrap">
+  <nav><ul>{% for slug, t in nav %}<li><a href="/doku/{{ slug }}"{% if slug == current %} aria-current="page"{% endif %}>{{ t }}</a></li>{% endfor %}</ul></nav>
+  <article>{{ body | safe }}</article>
+</div>
+</body>
+</html>"""
+
+
+def _doc_title(slug: str) -> str:
+    first = (DOCS_DIR / f"{slug}.md").read_text(encoding="utf-8").split("\n", 1)[0]
+    return first.lstrip("# ").strip()
+
+
+@app.route("/doku")
+def doku_index():
+    return redirect("/doku/ueberblick")
+
+
+@app.route("/doku/<slug>")
+def doku(slug):
+    if slug not in DOCS:
+        abort(404)
+    md = (DOCS_DIR / f"{slug}.md").read_text(encoding="utf-8")
+    return render_template_string(
+        DOC_HTML, title=_doc_title(slug), body=_doc_to_html(md), current=slug,
+        nav=[(s, _doc_title(s)) for s in DOCS],
+    )
 
 
 @app.route("/healthz")

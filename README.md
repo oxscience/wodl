@@ -84,6 +84,10 @@ Coaches können ihre Klient:innen direkt zu einer gebrandeten Instanz linken:
 https://your-wodl.app/?primary=%23ff4477&logo=https://.../logo.png&coach=Praxis%20M%C3%BCller
 ```
 
+## Doku
+
+Anleitungen für eigene Apps, das JSON-Format und Pläne mit lokaler KI stehen in [docs/](docs/ueberblick.md) und in der Web-App unter `/doku`.
+
 ## Install
 
 ```bash

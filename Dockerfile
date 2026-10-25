@@ -12,6 +12,7 @@ COPY examples/ ./examples/
 COPY catalog/ ./catalog/
 COPY catalog.json ./
 COPY static/ ./static/
+COPY docs/ ./docs/
 COPY playground.py ./
 
 RUN pip install -r requirements.txt && pip install -e .

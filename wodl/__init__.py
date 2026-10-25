@@ -29,7 +29,7 @@ from wodl.parser import (
 )
 from wodl.registry import resolve, resolve_fuzzy, list_exercises, get_muscles, EXERCISES
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 __all__ = [
     "parse",
