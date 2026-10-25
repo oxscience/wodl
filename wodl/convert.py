@@ -37,22 +37,22 @@ _UNIT_S = r"(?:sekunden|seconds|sek|sec|s)"
 _UNIT_MIN = r"(?:minuten|minutes|min)"
 # 3x10 / 3 x 8-12 / 3x45 sek — aber nicht 2x20kg (Kurzhantel-Paar)
 _SETS_REPS = re.compile(
-    rf"(\d+)\s*[x×]\s*(\d+(?:\s*-\s*\d+)?)(?:\s*({_UNIT_S}|{_UNIT_MIN})\.?)?(?![\d.,]*\s*kg)(?=\W|$)", re.I)
+    rf"(?<!\d)(\d+)\s*[x×]\s*(\d+(?:\s*-\s*\d+)?)(?:\s*({_UNIT_S}|{_UNIT_MIN})\.?)?(?![\d.,]*\s*kg)(?=\W|$)", re.I)
 _SETS_WORD = re.compile(
-    r"(\d+)\s*(?:sätze|saetze|sätzen|sets?|serien)\s*(?:à|a|x|zu|mit|je|of)?\s*(\d+(?:\s*-\s*\d+)?)"
+    r"(?<!\d)(\d+)\s*(?:sätze|saetze|sätzen|sets?|serien)\s*(?:à|a|x|zu|mit|je|of)?\s*(\d+(?:\s*-\s*\d+)?)"
     r"(?:\s*(?:wdh\.?|wiederholungen|reps?))?", re.I)
-_SETS_MAX = re.compile(r"(\d+)\s*[x×]\s*(?:max|amrap)\b", re.I)
-_REPS_WORD = re.compile(r"(\d+(?:\s*-\s*\d+)?)\s*(?:wdh\.?|wiederholungen|reps?)(?=\W|$)", re.I)
-_TIME = re.compile(rf"(\d+)\s*({_UNIT_S}|{_UNIT_MIN})\.?(?=\W|$)", re.I)
+_SETS_MAX = re.compile(r"(?<!\d)(\d+)\s*[x×]\s*(?:max|amrap)\b", re.I)
+_REPS_WORD = re.compile(r"(?<!\d)(\d+(?:\s*-\s*\d+)?)\s*(?:wdh\.?|wiederholungen|reps?)(?=\W|$)", re.I)
+_TIME = re.compile(rf"(?<!\d)(\d+)\s*({_UNIT_S}|{_UNIT_MIN})\.?(?=\W|$)", re.I)
 
-_LOAD = re.compile(r"(?:\d+\s*[x×]\s*)?(\d+(?:[.,]\d+)?)\s*kg\b", re.I)
-_PCT = re.compile(r"(\d+)\s*%")
+_LOAD = re.compile(r"(?<!\d)(?:\d+\s*[x×]\s*)?(\d+(?:[.,]\d+)?)\s*kg\b", re.I)
+_PCT = re.compile(r"(?<!\d)(\d+)\s*%")
 _RPE = re.compile(r"\bRPE\s*(\d+(?:[.,]5)?)", re.I)
 _RIR = re.compile(r"\bRIR\s*(\d)", re.I)
 _BW = re.compile(r"\b(körpergewicht|eigengewicht|bodyweight|bw|kgw)\b", re.I)
 _REST = re.compile(
     rf"(?:\bpause|\brest)\s*:?\s*(\d+(?:\s*-\s*\d+)?)\s*({_UNIT_S}|{_UNIT_MIN}|m)?\.?(?=\W|$)"
-    rf"|(\d+(?:\s*-\s*\d+)?)\s*({_UNIT_S}|{_UNIT_MIN})\.?\s*(?:pause|rest)\b", re.I)
+    rf"|(?<!\d)(\d+(?:\s*-\s*\d+)?)\s*({_UNIT_S}|{_UNIT_MIN})\.?\s*(?:pause|rest)\b", re.I)
 _SIDE = re.compile(r"\b(?:je|pro)\s+(seite|bein|arm)\b", re.I)
 _TEMPO = re.compile(r"\btempo\s*:?\s*(\d)[\s-]?(\d)[\s-]?(\d)[\s-]?(\d)", re.I)
 
@@ -70,7 +70,7 @@ def _rest_token(m: re.Match) -> str:
 def _header(line: str) -> tuple[str, list[str]] | None:
     """Einheiten-Kopf erkennen → (Name, Tage) oder None."""
     text = line.lstrip("#").strip()
-    if re.search(r"\d+\s*[x×]\s*\d|\d+\s*kg|\bsätze\b|\bwdh\b", text, re.I):
+    if re.search(r"(?<!\d)\d+\s*[x×]\s*\d|(?<!\d)\d+\s*kg|\bsätze\b|\bwdh\b", text, re.I):
         return None
     days = [_DAY_OF[w.lower().rstrip(".")] for w in _DAY_WORD.findall(text)]
     if len(text.split()) > 5:  # "So oft wie möglich, sauber ausführen" ist kein Kopf

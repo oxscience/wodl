@@ -119,3 +119,27 @@ def test_json_tab_offers_ai_prompt(client):
     assert "Prompt für KI kopieren" in html and "JSON kopieren" in html
     page = client.get("/").get_data(as_text=True)
     assert "const AI_PROMPT" in page and "Kurzhantel-Rudern" in page
+
+
+@pytest.mark.parametrize("route", ["/parse", "/progress"])
+def test_overlong_plan_is_rejected(client, route):
+    html = client.post(route, data={"wodl": "Kniebeuge " + "1" * 20_001}).get_data(as_text=True)
+    assert "Plan zu lang" in html
+
+
+def test_cycle_matrix_is_capped(client):
+    html = client.post("/parse", data={"wodl": "@cycle 100000w\n---[A]\nKniebeuge 3x5 @100kg",
+                                       "format": "cycle"}).get_data(as_text=True)
+    assert "Zyklus zu lang" in html
+
+
+def test_long_digit_runs_stay_fast():
+    # Früher quadratisch: 4.000 Ziffern brauchten in /progress ~20 s
+    import time
+    from wodl.convert import freetext_to_wodl
+    from wodl.progression import ProgressionConfig, progress_auto
+    txt = "Kniebeuge " + "1" * 20_000
+    start = time.perf_counter()
+    freetext_to_wodl(txt)
+    progress_auto(txt, ProgressionConfig(weeks=12))
+    assert time.perf_counter() - start < 2

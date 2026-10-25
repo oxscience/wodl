@@ -470,14 +470,14 @@ def progress_matrix(plan: Plan, config: ProgressionConfig) -> str:
 # ---------------------------------------------------------------------------
 
 # kg-Lasten erkennen: "5kg", "12,5kg", "2x5kg" (Kurzhantel-Paar)
-_LOAD = re.compile(r"\d+(?:[.,]\d+)?(?:\s*[x×]\s*\d+(?:[.,]\d+)?)?\s*kg", re.I)
-_PLUS = re.compile(r"\d+(?:\+\d+)+")                 # 8+10+12
-_RANGE = re.compile(r"\d+(?:-\d+)+")                 # 10-12-14 / 8-12
+_LOAD = re.compile(r"(?<!\d)\d+(?:[.,]\d+)?(?:\s*[x×]\s*\d+(?:[.,]\d+)?)?\s*kg", re.I)
+_PLUS = re.compile(r"(?<!\d)\d+(?:\+\d+)+")                 # 8+10+12
+_RANGE = re.compile(r"(?<!\d)\d+(?:-\d+)+")                 # 10-12-14 / 8-12
 # 3x10 / 4 x 8-12 — aber NICHT Sätze×Zeit (3x45sek): dann ist die Zahl Zeit
-_SETSXREPS = re.compile(r"(\d+)(\s*[x×]\s*)(\d+)(-\d+)?(?!\d)(?!\s*(?:sek|sec|min|minuten)\b)", re.I)
-_SINGLE = re.compile(r"(\d+)(\s*[x×])(?!\s*[\d\x00])")   # 12x (Reps)
-_REPSWORD = re.compile(r"(\d+)(\s*)(Wdh|Wiederholungen|reps?)\b", re.I)
-_TIME = re.compile(r"(\d+)(\s*)(sek|sec|s|min|minuten|min\.)\b", re.I)
+_SETSXREPS = re.compile(r"(?<!\d)(\d+)(\s*[x×]\s*)(\d+)(-\d+)?(?!\d)(?!\s*(?:sek|sec|min|minuten)\b)", re.I)
+_SINGLE = re.compile(r"(?<!\d)(\d+)(\s*[x×])(?!\s*[\d\x00])")   # 12x (Reps)
+_REPSWORD = re.compile(r"(?<!\d)(\d+)(\s*)(Wdh|Wiederholungen|reps?)\b", re.I)
+_TIME = re.compile(r"(?<!\d)(\d+)(\s*)(sek|sec|s|min|minuten|min\.)\b", re.I)
 
 
 def _shift_reps(n: int, delta: int, cap: int | None) -> int:

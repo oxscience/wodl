@@ -19,6 +19,7 @@ from pathlib import Path
 from flask import Flask, abort, jsonify, redirect, request, render_template_string
 
 from wodl import __version__, parse, to_json, to_markdown, to_cycle_matrix
+from wodl.parser import _total_cycle_weeks
 from wodl.registry import EXERCISES, suggest
 from wodl.prompt import system_prompt
 from wodl.volume import weekly_volume
@@ -32,6 +33,13 @@ from wodl.progression import (
 )
 
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 256 * 1024
+
+# Öffentlicher Playground: Eingabe deckeln, damit ein Request die Worker nicht blockiert.
+# Größter Katalog-Plan hat ~8,4 KB, ein Zyklus über ein Jahr hinaus ist kein Plan mehr.
+MAX_PLAN_CHARS = 20_000
+MAX_CYCLE_WEEKS = 52
+TOO_LONG = "<div class='error-msg'>Plan zu lang (höchstens 20.000 Zeichen).</div>"
 
 # Wörterbuch-Lücken: unbekannte Übungsnamen anonym sammeln (nur Datum + Name, keine IP).
 # Aus, solange WODL_MISS_LOG (Dateipfad) nicht gesetzt ist.
@@ -2704,6 +2712,8 @@ def parse_wodl():
 
     if not wod_text.strip():
         return "<p style='color: var(--text2)'>Trainingsplan eingeben...</p>"
+    if len(wod_text) > MAX_PLAN_CHARS:
+        return TOO_LONG
 
     try:
         plan = parse(wod_text)
@@ -2721,6 +2731,8 @@ def parse_wodl():
         )
 
     if fmt == "cycle":
+        if _total_cycle_weeks(plan) > MAX_CYCLE_WEEKS:
+            return f"<div class='error-msg'>Zyklus zu lang (höchstens {MAX_CYCLE_WEEKS} Wochen).</div>"
         md = to_cycle_matrix(plan)
         return f'<div class="cycle-view">{_md_to_html(md)}</div>'
 
@@ -2935,6 +2947,8 @@ def progress_endpoint():
     text = request.form.get("wodl", "")
     if not text.strip():
         return "<p style='color: var(--text2)'>Trainingsplan eingeben...</p>"
+    if len(text) > MAX_PLAN_CHARS:
+        return TOO_LONG
     config = _progression_config_from_form(request.form)
     fmt = request.form.get("format", "weeks")
 
