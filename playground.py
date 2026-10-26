@@ -1124,6 +1124,7 @@ HTML = r"""<!DOCTYPE html>
     border-top: 1px solid var(--border);
   }
   .share-row span { display: block; font-size: 0.8rem; color: var(--text2); }
+  .share-row span[hidden] { display: none; }
   .share-dialog form { margin-top: 0.75rem; text-align: right; }
   .share-dialog.howto { max-width: min(60rem, 94vw); width: 100%; }
   .howto video { display: block; width: 100%; margin-top: 0.75rem; border-radius: 6px; background: #000; }
