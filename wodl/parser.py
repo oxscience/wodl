@@ -393,7 +393,7 @@ def parse(text: str) -> Plan:
             current_session = Session(
                 name=name,
                 days=_parse_days(m.group(2)) if m.group(2) else [],
-                phase=phase.group(0).strip() if phase else None,
+                phase=re.sub(r"\s*\(.*\)$", "", phase.group(0)).strip() if phase else None,
             )
             plan.sessions.append(current_session)
             group_stack = None

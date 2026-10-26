@@ -100,7 +100,7 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
-    ("26.10.", "Phasen und Blöcke: Oben in der Vorschau wählst du die aktuelle Phase, Tabelle, Progression, PDF und der Link für Klient:innen zeigen dann nur sie"),
+    ("26.10.", "Phasen und Blöcke: Oben in der Vorschau wählst du die aktuelle Phase, Tabelle, Progression, PDF und der Link für Klient:innen zeigen dann nur sie; der Volumen-Tab zählt mehrere Tage eines Blocks zusammen"),
     ("25.10.", "Neue Cardio-Geräte im Wörterbuch: Stepper, Laufband, Crosstrainer, Skiergometer und Seilspringen"),
     ("24.10.", "Doku unter /doku: WODL in eigene Apps einbauen, das JSON-Format und Pläne mit lokaler KI; im JSON-Tab kopiert ein Knopf den passenden Prompt"),
     ("23.10.", "How-to im Kopf: ein Video von der Vorlage über die Progression bis zum Link für Klient:innen"),
@@ -1682,12 +1682,14 @@ HTML = r"""<!DOCTYPE html>
   // Progression, PDF und Klient:innen-Link zeigen dann nur sie plus Einheiten ohne Phase.
   const PHASE_RE = /^(?:phase|stufe|block|pre-?op)\b[^:]*/i;
   let currentPhase = '', phaseMap = null;
+  const phaseKey = s => s.replace(/\s*\(.*\)$/, '').trim();
 
   function planPhases(text) {
     const seen = new Map();
     for (const m of text.matchAll(/^\s*---\[(.+?)\]/gm)) {
       const k = m[1].match(PHASE_RE);
-      if (k && !seen.has(k[0].trim())) seen.set(k[0].trim(), m[1].trim());
+      const key = k && phaseKey(k[0]);
+      if (key && !seen.has(key)) seen.set(key, m[1].trim());
     }
     return seen.size >= 2 ? [...seen].map(([key, label]) => ({ key, label })) : [];
   }
@@ -1700,7 +1702,7 @@ HTML = r"""<!DOCTYPE html>
     let keep = true;
     editor.value.split('\n').forEach((line, i) => {
       const head = line.match(/^\s*---\[(.+?)\]/);
-      if (head) { const k = head[1].match(PHASE_RE); keep = !k || k[0].trim() === phase.key; }
+      if (head) { const k = head[1].match(PHASE_RE); keep = !k || phaseKey(k[0]) === phase.key; }
       if (!keep) return;
       out.push(/^\s*@plan\s+"/.test(line) ? line.replace(/"([^"]*)"/, (m, n) => `"${n} · ${phase.label}"`) : line);
       map.push(i + 1);
@@ -1729,7 +1731,7 @@ HTML = r"""<!DOCTYPE html>
   function phaseChanged(key) {
     currentPhase = key;
     // Editor zur gewählten Phase scrollen, der ganze Plan bleibt stehen
-    const li = key ? editor.value.split('\n').findIndex(l => (l.match(/^\s*---\[(.+?)\]/)?.[1].match(PHASE_RE)?.[0] || '').trim() === key) : -1;
+    const li = key ? editor.value.split('\n').findIndex(l => phaseKey(l.match(/^\s*---\[(.+?)\]/)?.[1].match(PHASE_RE)?.[0] || '') === key) : -1;
     if (li >= 0) editor.scrollTop = Math.max(0, li * (parseFloat(getComputedStyle(editor).lineHeight) || 20) - 40);
     parseAndRender();
   }

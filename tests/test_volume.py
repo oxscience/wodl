@@ -34,3 +34,30 @@ def test_phase_plan_gets_one_column_per_phase():
     cols, rows, _ = weekly_volume(plan)
     assert cols == ["Phase 1", "Phase 2"]
     assert rows["Quadrizeps"] == [9, 6]
+
+
+BLOCKS = """@plan "Offseason"
+---[Block 1: Aufbau] Mo
+Kniebeuge  4x8
+Bankdrücken  4x8
+---[Block 1: Aufbau] Do
+Kreuzheben  4x8
+Bankdrücken  4x8
+---[Block 2: Maximalkraft] Mo
+Kniebeuge  5x3
+---[Gehprogramm (alle Blöcke)] Sa
+Ausfallschritt  2x10
+"""
+
+
+def test_block_with_two_days_is_one_column():
+    columns, rows, _ = weekly_volume(parse(BLOCKS))
+    assert columns == ["Block 1", "Block 2", "Gehprogramm"]
+    assert rows["Brust"][:2] == [8.0, 0]          # Mo + Do addiert, nicht 4 | 4
+
+
+def test_single_block_counts_per_week():
+    # Nur Block 1 gewählt (wie die Phasen-Auswahl filtert): keine Phasen-Spalten, Wochensumme
+    one = "---[Block 1: Aufbau] Mo\nBankdrücken  4x8\n---[Block 1: Aufbau] Do\nBankdrücken  4x8\n"
+    columns, rows, _ = weekly_volume(parse(one))
+    assert columns == ["pro Woche"] and rows["Brust"] == [8.0]

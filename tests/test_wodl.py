@@ -556,3 +556,8 @@ def test_session_phase_key_groups_mesocycles():
     )
     assert [s.phase for s in plan.sessions] == ["Block 1", "Block 1", "Block 2", None, "Pre-OP", "Stufe A"]
     assert to_dict(plan)["sessions"][0]["phase"] == "Block 1"
+
+
+def test_phase_key_drops_parenthesized_note():
+    plan = parse("---[Phase 1 (Woche 0-2)] Mo\nPlank 3x30s\n---[Phase 2 (Woche 2-6)] Mo\nPlank 3x30s\n")
+    assert [s.phase for s in plan.sessions] == ["Phase 1", "Phase 2"]

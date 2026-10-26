@@ -7,9 +7,10 @@ vollen Satz, alle weiteren einen halben (fractional counting, Pelland et al.
 nicht. Eine Einheit läuft so oft pro Woche, wie sie Wochentage hat (ohne
 Tage: 1x).
 
-Phasen-Pläne (mind. zwei Einheiten heißen "Phase …", "Stufe …", "Block …",
-"Pre-OP …") laufen nacheinander, nicht parallel — dort gibt es eine Spalte
-pro Einheit statt einer Wochensumme.
+Phasen-Pläne (mind. zwei verschiedene Phasen, siehe Session.phase) laufen
+nacheinander, nicht parallel — dort gibt es eine Spalte je Phase statt einer
+Wochensumme. Einheiten derselben Phase ("Block 1: Aufbau" Mo und Do) werden
+addiert, Einheiten ohne Phase (z. B. ein Gehprogramm) behalten eine eigene Spalte.
 """
 
 from __future__ import annotations
@@ -45,7 +46,6 @@ GROUPS: dict[str, tuple[str, ...]] = {
 _SLUG_GROUP = {slug: group for group, slugs in GROUPS.items() for slug in slugs}
 _SKIP_CATEGORIES = {"mobility", "cardio"}
 INDIRECT = 0.5
-_PHASE_NAME = re.compile(r"^(Phase|Stufe|Block|Pre-OP)\b", re.I)
 
 
 def _exercises(session):
@@ -85,10 +85,13 @@ def weekly_volume(plan: Plan) -> tuple[list[str], dict[str, list[float]], int]:
         (Spalten, {Gruppe: [Sätze je Spalte]}, Zahl unbekannter Übungen).
         Split-Plan: eine Spalte "pro Woche"; Phasen-Plan: eine Spalte je Phase.
     """
-    phased = sum(bool(_PHASE_NAME.match(s.name)) for s in plan.sessions) >= 2
-    blocks = [[s] for s in plan.sessions] if phased else [plan.sessions]
-    columns = ([re.sub(r"\s*\(.*\)$", "", s.name.split(":")[0]) for s in plan.sessions]
-               if phased else ["pro Woche"])
+    if len({s.phase for s in plan.sessions if s.phase}) >= 2:
+        grouped: dict[str, list] = {}
+        for s in plan.sessions:
+            grouped.setdefault(s.phase or re.sub(r"\s*\(.*\)$", "", s.name.split(":")[0]), []).append(s)
+        columns, blocks = list(grouped), list(grouped.values())
+    else:
+        columns, blocks = ["pro Woche"], [plan.sessions]
 
     totals: list[dict[str, float]] = []
     unknown = 0
