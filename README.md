@@ -136,6 +136,8 @@ print(to_markdown(plan))   # Lesbare Tabelle
 
 Tage: `Mo Di Mi Do Fr Sa So` (oder Englisch: `Mon Tue Wed Thu Fri Sat Sun`)
 
+Phasen und Blöcke (Mesozyklen): Beginnt der Name mit `Phase`, `Stufe`, `Block` oder `Pre-OP`, gehören alle Einheiten mit gleichem Namen vor dem Doppelpunkt zusammen (`---[Block 1: Aufbau] Mo`, `---[Block 1: Tag B] Do`). In der Web-App lässt sich dann eine Phase auswählen und einzeln teilen.
+
 ### Uebungszeile
 
 ```

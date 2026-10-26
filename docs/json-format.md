@@ -56,6 +56,7 @@ wird (gekürzt):
 ## Eine Einheit
 
 - `name`, `days`: aus `---[Name] Mo Do`
+- `phase`: der Mesozyklus der Einheit, wenn ihr Name mit Phase, Stufe, Block oder Pre-OP beginnt, und zwar der Teil vor dem Doppelpunkt (`"Phase 3"`, `"Block 1"`). Einheiten mit gleichem Wert gehören zur selben Phase, sonst `null`.
 - `notes`: Zeilen mit `>` als Text für Klient:innen
 - `items`: Übungen und Gruppen in Reihenfolge. Eine Gruppe erkennst du an `kind` (`superset`, `circuit` oder `giant`) und an ihrer Liste `exercises`.
 

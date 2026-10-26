@@ -3,7 +3,7 @@
 import glob
 from pathlib import Path
 
-from wodl import parse, to_json, to_markdown, resolve, resolve_fuzzy
+from wodl import parse, to_dict, to_json, to_markdown, resolve, resolve_fuzzy
 from wodl import list_exercises, get_muscles, ExerciseLine, ExerciseGroup
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -546,3 +546,13 @@ def test_side_marker_and_minutes():
     assert items[1].intensity == "@RPE7"
     assert (items[3].sets, items[3].reps) == (1, "20min")
     assert (items[4].sets, items[4].reps) == (3, "1min")
+
+
+def test_session_phase_key_groups_mesocycles():
+    plan = parse(
+        "---[Block 1: Aufbau] Mo\nKniebeuge 3x8\n---[Block 1: Tag B] Do\nKreuzheben 3x8\n"
+        "---[Block 2: Maximalkraft] Mo\nKniebeuge 5x3\n---[Gehprogramm (alle Blöcke)] Sa\nPlank 3x30s\n"
+        "---[Pre-OP: Vorbereitung] Mo\nPlank 3x30s\n---[Stufe A] Di\nPlank 3x30s\n"
+    )
+    assert [s.phase for s in plan.sessions] == ["Block 1", "Block 1", "Block 2", None, "Pre-OP", "Stufe A"]
+    assert to_dict(plan)["sessions"][0]["phase"] == "Block 1"

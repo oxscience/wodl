@@ -61,6 +61,7 @@ class Session:
     days: list[str] = field(default_factory=list)
     items: list[ExerciseLine | ExerciseGroup] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
+    phase: str | None = None  # Mesozyklus-Schlüssel, z. B. "Phase 3" oder "Block 1"
 
 
 @dataclass
@@ -94,6 +95,9 @@ RE_META_CYCLE = re.compile(r"^@cycle\s+(.+)", re.IGNORECASE)
 RE_META_UNIT = re.compile(r"^@unit\s+(kg|lb)", re.IGNORECASE)
 
 RE_SESSION = re.compile(r"^---\[(.+?)\]\s*(.*)")
+# Mesozyklus: Einheiten, deren Name mit Phase/Stufe/Block/Pre-OP beginnt; der Teil vor dem
+# Doppelpunkt ist der Schlüssel ("Block 1: Aufbau" und "Block 1: Tag B" gehören zusammen)
+RE_PHASE = re.compile(r"^(?:Phase|Stufe|Block|Pre-?OP)\b[^:]*", re.IGNORECASE)
 
 RE_GROUP_OPEN = re.compile(r"^(ss|superset|circuit|giant)\s*\{")
 RE_GROUP_CLOSE = re.compile(r"^\}")
@@ -384,9 +388,12 @@ def parse(text: str) -> Plan:
         # --- Session header ---
         m = RE_SESSION.match(stripped)
         if m:
+            name = m.group(1).strip()
+            phase = RE_PHASE.match(name)
             current_session = Session(
-                name=m.group(1).strip(),
+                name=name,
                 days=_parse_days(m.group(2)) if m.group(2) else [],
+                phase=phase.group(0).strip() if phase else None,
             )
             plan.sessions.append(current_session)
             group_stack = None

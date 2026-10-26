@@ -10,6 +10,12 @@ WODL ist eine kleine Sprache für Trainingspläne, und WODL Progressions ist die
 
 Alle drei entstehen aus demselben Text. Du pflegst also nur den Text, und Tabelle, JSON und Progression folgen daraus.
 
+## Phasen, Blöcke und Wochen
+
+Ein Plan ist in WODL der Makrozyklus, also zum Beispiel eine ganze Reha oder eine Saison. Beginnt der Name einer Einheit mit Phase, Stufe, Block oder Pre-OP, erkennt WODL darin einen Mesozyklus, und alles vor dem Doppelpunkt gehört zusammen, sodass `---[Block 1: Aufbau] Mo` und `---[Block 1: Tag B] Do` ein Block mit zwei Trainingstagen sind. Die Wochen, die der Reiter Progression daraus baut, sind die Mikrozyklen.
+
+Hat ein Plan mindestens zwei solcher Phasen, wählst du oben in der Vorschau aus, in welcher Phase deine Klientin gerade ist. Tabelle, Progression, PDF und der Link für Klient:innen zeigen dann nur diese Phase, dazu Einheiten ohne Phase wie ein Gehprogramm für alle Stufen. Im Editor bleibt der ganze Plan stehen, und für die nächste Phase stellst du die Auswahl einfach um.
+
 ## Was gespeichert wird
 
 Die Web-App speichert deine Pläne nur in deinem Browser. Ein geteilter Link trägt den Plan im Teil hinter dem `#`, und dieser Teil geht nie an den Server, sodass dort weder Pläne noch Namen von Klient:innen liegen. Wenn du Branding nutzt, stehen Praxisname, Logo-Adresse und Farbe im vorderen Teil des Links und damit wie jede Adresse im Zugriffsprotokoll des Servers.

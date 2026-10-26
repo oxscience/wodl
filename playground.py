@@ -100,14 +100,15 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
-    ("26.10.", "Neue Cardio-Geräte im Wörterbuch: Stepper, Laufband, Crosstrainer, Skiergometer und Seilspringen"),
-    ("25.10.", "Doku unter /doku: WODL in eigene Apps einbauen, das JSON-Format und Pläne mit lokaler KI; im JSON-Tab kopiert ein Knopf den passenden Prompt"),
-    ("24.10.", "How-to im Kopf: ein Video von der Vorlage über die Progression bis zum Link für Klient:innen"),
-    ("23.10.", "Progression: Leichte Gewichte steigen in kleinen Schritten, höchstens ein Zehntel pro Woche statt pauschal 2,5 kg"),
-    ("22.10.", "Das PDF aus dem Progression-Tab beginnt auf der ersten Seite, ohne Leerseite und ohne Rahmen um die Deload-Woche"),
-    ("21.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
-    ("20.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
-    ("19.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
+    ("26.10.", "Phasen und Blöcke: Oben in der Vorschau wählst du die aktuelle Phase, Tabelle, Progression, PDF und der Link für Klient:innen zeigen dann nur sie"),
+    ("25.10.", "Neue Cardio-Geräte im Wörterbuch: Stepper, Laufband, Crosstrainer, Skiergometer und Seilspringen"),
+    ("24.10.", "Doku unter /doku: WODL in eigene Apps einbauen, das JSON-Format und Pläne mit lokaler KI; im JSON-Tab kopiert ein Knopf den passenden Prompt"),
+    ("23.10.", "How-to im Kopf: ein Video von der Vorlage über die Progression bis zum Link für Klient:innen"),
+    ("22.10.", "Progression: Leichte Gewichte steigen in kleinen Schritten, höchstens ein Zehntel pro Woche statt pauschal 2,5 kg"),
+    ("21.10.", "Das PDF aus dem Progression-Tab beginnt auf der ersten Seite, ohne Leerseite und ohne Rahmen um die Deload-Woche"),
+    ("20.10.", "Lange Notizen in der Tabelle brechen sauber um und ragen nicht mehr über den Rand"),
+    ("19.10.", "Aufgeräumte Oberfläche: Die Bibliothek sitzt beim Editor, Teilen und PDF bei der Vorschau, die Feineinstellung der Progression klappt bei Bedarf auf"),
+    ("18.10.", "Progression: AMRAP-Sätze und Pyramiden, etwa in 5/3/1, GZCLP und McGill, bleiben in allen Wochen gültig"),
     ("12.10.", "Wieder in der Bibliothek: Plantarfasziitis mit High-Load-Krafttraining nach Rathleff"),
     ("08.10.", "Meine Pläne: Mehrere Pläne bleiben im Browser, geteilte Links und Vorlagen kommen als eigener Plan dazu"),
     ("07.10.", "Link für Klient:innen: nur der Plan, aufs Handy zugeschnitten, aus dem Progression-Tab mit allen Wochen als Reitern"),
@@ -362,6 +363,15 @@ HTML = r"""<!DOCTYPE html>
     color: var(--text); font-family: inherit; font-size: 0.78rem;
   }
   .plans select:focus { outline: none; border-color: var(--primary); }
+  .phase-pick { display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; color: var(--text2); }
+  .phase-pick[hidden] { display: none; }
+  .phase-pick select {
+    max-width: 13rem; padding: 0.3rem 0.5rem;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); font-family: inherit; font-size: 0.75rem;
+  }
+  .phase-pick select.on { border-color: var(--primary); color: var(--primary); }
+  #share-phase { color: var(--primary); }
   .panel-header .btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
   .panel-header .tabs { margin-right: auto; }
   .panel:last-child .panel-header { flex-wrap: wrap; }  /* schmal: Teilen/PDF rutschen in die zweite Zeile */
@@ -1375,7 +1385,7 @@ HTML = r"""<!DOCTYPE html>
   <h3>Plan teilen</h3>
   <p class="share-sub">Der Plan steckt komplett im Link. Nichts wird gespeichert.</p>
   <div class="share-row">
-    <div><strong>Für Klient:innen</strong><span>Nur der Plan, ohne Editor, aufs Handy zugeschnitten</span><span id="share-prog" hidden>Mit allen Wochen aus dem Progression-Tab</span></div>
+    <div><strong>Für Klient:innen</strong><span>Nur der Plan, ohne Editor, aufs Handy zugeschnitten</span><span id="share-phase" hidden></span><span id="share-prog" hidden>Mit allen Wochen aus dem Progression-Tab</span></div>
     <button class="btn primary" onclick="copyShareLink(this, 'view')">Link kopieren</button>
   </div>
   <div class="share-row">
@@ -1483,7 +1493,8 @@ HTML = r"""<!DOCTYPE html>
         <button class="tab" data-fmt="summary" onclick="setFormat('summary', this)">Volumen</button>
       </div>
       <div class="out-actions">
-        <button class="btn" onclick="document.getElementById('share-prog').hidden = currentFormat !== 'progression'; document.getElementById('share-dialog').showModal()" id="share-btn">Teilen</button>
+        <label class="phase-pick" id="phase-pick" hidden><span id="phase-word">Phase</span><select id="phase-select" onchange="phaseChanged(this.value)"></select></label>
+        <button class="btn" onclick="openShare()" id="share-btn">Teilen</button>
         <button class="btn" onclick="window.print()" id="pdf-btn">PDF</button>
       </div>
     </div>
@@ -1616,7 +1627,7 @@ HTML = r"""<!DOCTYPE html>
   // ===== Parse =====
   function progParams() {
     return new URLSearchParams({
-      wodl: editor.value,
+      wodl: viewText(),
       goal: document.getElementById('prog-goal').value,
       weeks: document.getElementById('prog-weeks').value,
       rep_increment: document.getElementById('prog-repinc').value,
@@ -1639,6 +1650,7 @@ HTML = r"""<!DOCTYPE html>
         .then(html => { outputBody.innerHTML = html; });
       return;
     }
+    refreshPhases();
     if (currentFormat === 'progression') {
       const view = document.getElementById('prog-view');
       const body = progParams();
@@ -1658,10 +1670,77 @@ HTML = r"""<!DOCTYPE html>
         });
       return;
     }
-    const body = new URLSearchParams({ wodl: editor.value, format: currentFormat });
+    const body = new URLSearchParams({ wodl: viewText(), format: currentFormat });
     fetch('/parse', { method: 'POST', body })
       .then(r => r.text())
       .then(html => { outputBody.innerHTML = html; markCurrentRow(); });
+  }
+
+  // ===== Phasen (Mesozyklen) =====
+  // Einheiten, deren Name mit Phase/Stufe/Block/Pre-OP beginnt; Schlüssel = Teil vor dem Doppelpunkt
+  // (wie RE_PHASE in wodl/parser.py). Gewählt wird die aktuelle Phase der Klientin; Vorschau,
+  // Progression, PDF und Klient:innen-Link zeigen dann nur sie plus Einheiten ohne Phase.
+  const PHASE_RE = /^(?:phase|stufe|block|pre-?op)\b[^:]*/i;
+  let currentPhase = '', phaseMap = null;
+
+  function planPhases(text) {
+    const seen = new Map();
+    for (const m of text.matchAll(/^\s*---\[(.+?)\]/gm)) {
+      const k = m[1].match(PHASE_RE);
+      if (k && !seen.has(k[0].trim())) seen.set(k[0].trim(), m[1].trim());
+    }
+    return seen.size >= 2 ? [...seen].map(([key, label]) => ({ key, label })) : [];
+  }
+
+  function viewText() {
+    phaseMap = null;
+    const phase = planPhases(editor.value).find(p => p.key === currentPhase);
+    if (!phase) return editor.value;
+    const out = [], map = [];
+    let keep = true;
+    editor.value.split('\n').forEach((line, i) => {
+      const head = line.match(/^\s*---\[(.+?)\]/);
+      if (head) { const k = head[1].match(PHASE_RE); keep = !k || k[0].trim() === phase.key; }
+      if (!keep) return;
+      out.push(/^\s*@plan\s+"/.test(line) ? line.replace(/"([^"]*)"/, (m, n) => `"${n} · ${phase.label}"`) : line);
+      map.push(i + 1);
+    });
+    phaseMap = map;
+    return out.join('\n');
+  }
+
+  function refreshPhases() {
+    const phases = planPhases(editor.value);
+    if (!phases.some(p => p.key === currentPhase)) currentPhase = '';
+    document.getElementById('phase-pick').hidden = !phases.length;
+    if (!phases.length) return;
+    const first = phases.find(p => !/^pre/i.test(p.key)) || phases[0];
+    document.getElementById('phase-word').textContent = /^block/i.test(first.key) ? 'Block' : /^stufe/i.test(first.key) ? 'Stufe' : 'Phase';
+    const sel = document.getElementById('phase-select');
+    const opts = [['', 'Alle'], ...phases.map(p => [p.key, p.label])];
+    if (sel.options.length !== opts.length || opts.some(([v], i) => sel.options[i].value !== v)) {
+      sel.innerHTML = '';
+      opts.forEach(([v, t]) => sel.add(new Option(t, v)));
+    }
+    sel.value = currentPhase;
+    sel.classList.toggle('on', !!currentPhase);
+  }
+
+  function phaseChanged(key) {
+    currentPhase = key;
+    // Editor zur gewählten Phase scrollen, der ganze Plan bleibt stehen
+    const li = key ? editor.value.split('\n').findIndex(l => (l.match(/^\s*---\[(.+?)\]/)?.[1].match(PHASE_RE)?.[0] || '').trim() === key) : -1;
+    if (li >= 0) editor.scrollTop = Math.max(0, li * (parseFloat(getComputedStyle(editor).lineHeight) || 20) - 40);
+    parseAndRender();
+  }
+
+  function openShare() {
+    document.getElementById('share-prog').hidden = currentFormat !== 'progression';
+    const phase = planPhases(editor.value).find(p => p.key === currentPhase);
+    const el = document.getElementById('share-phase');
+    el.hidden = !phase;
+    el.textContent = phase ? 'Nur ' + phase.label : '';
+    document.getElementById('share-dialog').showModal();
   }
 
   function setFormat(fmt, btn) {
@@ -2128,7 +2207,8 @@ HTML = r"""<!DOCTYPE html>
   // ===== Editor ↔ Vorschau: Klick auf Zeile springt, Cursor-Zeile ist markiert =====
   function rowLines() {
     const view = outputBody.querySelector('.plan-view');
-    return view ? view.dataset.lines.split(',').map(Number) : [];
+    const lines = view ? view.dataset.lines.split(',').map(Number) : [];
+    return phaseMap ? lines.map(n => phaseMap[n - 1]) : lines;
   }
 
   function caretLine() {
@@ -2357,6 +2437,7 @@ HTML = r"""<!DOCTYPE html>
     const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
     plans.push({ id, text, updated: Date.now() });
     setPlans(plans);
+    currentPhase = '';
     localStorage.setItem('wodl_current', id);
     editor.value = text;
     renderPlanSelect();
@@ -2381,6 +2462,7 @@ HTML = r"""<!DOCTYPE html>
   }
 
   function showPlan(plan) {
+    currentPhase = '';
     localStorage.setItem('wodl_current', plan.id);
     editor.value = plan.text;
     renderPlanSelect();
@@ -2474,7 +2556,7 @@ HTML = r"""<!DOCTYPE html>
     if (brand.coach) url.searchParams.set('coach', brand.coach);
     if (brand.theme && brand.theme !== defaults.theme) url.searchParams.set('theme', brand.theme);
     if (mode === 'view') url.searchParams.set('view', '1');
-    url.hash = 'p=' + await packPlan(editor.value);
+    url.hash = 'p=' + await packPlan(mode === 'view' ? viewText() : editor.value);
     if (mode === 'view' && currentFormat === 'progression') {  // Wochen-Einstellungen mitgeben
       const prog = progParams();
       prog.delete('wodl');
