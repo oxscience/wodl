@@ -265,6 +265,9 @@ HTML = r"""<!DOCTYPE html>
     border-color: var(--primary);
   }
 
+  .btn.outline { border-color: var(--primary); color: var(--primary); }
+  .btn.outline:hover { background: var(--bg3); }
+
   .btn.primary:hover {
     background: var(--primary2);
     border-color: var(--primary2);
@@ -1365,8 +1368,8 @@ HTML = r"""<!DOCTYPE html>
     </div>
   </div>
   <div class="header-actions">
-    {% if howto %}<button class="btn" onclick="document.getElementById('howto-dialog').showModal()" id="howto-btn" title="Video: von der Vorlage bis zum Link">How-to</button>{% endif %}
-    <button class="btn" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">Tour</button>
+    {% if howto %}<button class="btn primary" onclick="document.getElementById('howto-dialog').showModal()" id="howto-btn" title="Video: von der Vorlage bis zum Link">&#9654; Intro-Video</button>{% endif %}
+    <button class="btn outline" onclick="startTour()" id="tour-btn" title="Interaktive Tour starten">Tour</button>
     <button class="btn" onclick="toggleBranding()" id="branding-btn">Branding</button>
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Dark/Light Mode" aria-label="Theme wechseln">&#9790;</button>
   </div>
@@ -1374,7 +1377,7 @@ HTML = r"""<!DOCTYPE html>
 
 {% if howto %}
 <dialog id="howto-dialog" class="share-dialog howto" onclose="this.querySelector('video').pause()">
-  <h3>How-to: Vorlage, Anpassung, Link</h3>
+  <h3>Intro-Video: Vorlage, Phase, Anpassung, Link</h3>
   <p class="share-sub">Einmal durch WODL in gut zwei Minuten.</p>
   <video controls preload="none" playsinline poster="/static/howto/wodl-howto.jpg" src="/static/howto/wodl-howto.mp4"></video>
   <form method="dialog"><button class="btn">Schließen</button></form>
@@ -1853,7 +1856,7 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#library-btn',
       title: '🚀 Los geht\'s',
-      text: 'Klick jetzt auf <strong>Bibliothek</strong> und wähl einen Plan. Oder schreib einen eigenen im Editor, die Syntax steht in der <a href="/doku" target="_blank" style="color:var(--primary)">Doku</a>. Den ganzen Weg bis zum Link zeigt das <strong>How-to</strong> oben als Video.',
+      text: 'Klick jetzt auf <strong>Bibliothek</strong> und wähl einen Plan. Oder schreib einen eigenen im Editor, die Syntax steht in der <a href="/doku" target="_blank" style="color:var(--primary)">Doku</a>. Den ganzen Weg bis zum Link zeigt das <strong>Intro-Video</strong> oben.',
       pos: 'bottom',
     },
   ];

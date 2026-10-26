@@ -27,4 +27,4 @@ Die Web-App speichert deine Pl채ne nur in deinem Browser. Ein geteilter Link tr�
 - [Lokale KI schreibt Pl채ne](ki-plaene-schreiben.md): Ollama oder LM Studio, gepr체ft durch den Parser
 - [Lokale KI liest Pl채ne](ki-plaene-lesen.md): Pl채ne erkl채ren, 체bersetzen oder gegen die Ausstattung pr체fen lassen
 
-Die Syntax im Detail steht in der [README auf GitHub](https://github.com/oxscience/wodl#syntax-auf-einen-blick). Die Tour und das How-to-Video findest du oben in der App.
+Die Syntax im Detail steht in der [README auf GitHub](https://github.com/oxscience/wodl#syntax-auf-einen-blick). Das Intro-Video und die Tour findest du oben in der App.
