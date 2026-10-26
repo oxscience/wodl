@@ -1847,13 +1847,13 @@ HTML = r"""<!DOCTYPE html>
     {
       target: '#share-btn',
       title: '🔗 Zwei Links teilen',
-      text: '<strong>Für Klient:innen</strong> zeigt nur den Plan, ohne Editor, in deinen Farben und aufs Handy zugeschnitten. Teilst du aus dem Progression-Tab, kommen alle Wochen als Tabs mit. <strong>Zum Weiterbearbeiten</strong> öffnet den Plan im Editor, z.B. für Kolleg:innen. Der Plan steckt komplett im Link: kein Download, kein Account.',
+      text: '<strong>Für Klient:innen</strong> zeigt nur den Plan, ohne Editor, in deinen Farben und aufs Handy zugeschnitten. Teilst du aus dem Progression-Tab, kommen alle Wochen als Tabs mit, und hat der Plan Phasen oder Blöcke, enthält der Link nur die oben in der Vorschau gewählte. <strong>Zum Weiterbearbeiten</strong> öffnet den Plan im Editor, z.B. für Kolleg:innen. Der Plan steckt komplett im Link: kein Download, kein Account.',
       pos: 'bottom',
     },
     {
       target: '#library-btn',
       title: '🚀 Los geht\'s',
-      text: 'Klick jetzt auf <strong>Bibliothek</strong> und wähl einen Plan. Oder schreib einen eigenen im Editor, die Syntax findest du auf <a href="https://github.com/oxscience/wodl#syntax" target="_blank" style="color:var(--primary)">GitHub</a>.',
+      text: 'Klick jetzt auf <strong>Bibliothek</strong> und wähl einen Plan. Oder schreib einen eigenen im Editor, die Syntax steht in der <a href="/doku" target="_blank" style="color:var(--primary)">Doku</a>. Den ganzen Weg bis zum Link zeigt das <strong>How-to</strong> oben als Video.',
       pos: 'bottom',
     },
   ];

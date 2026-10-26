@@ -26,6 +26,12 @@ print(to_markdown(plan))         # Tabellen für Doku oder E-Mail
 
 Für eigene Datenstrukturen gibt es `to_dict(plan)`, das dasselbe wie das JSON als Python-Dictionary liefert.
 
+Phasen und Blöcke stehen an jeder Einheit in `phase` (`"Phase 3"`, `"Block 1"`, sonst `None`). So holst du dir wie die Phasen-Auswahl der App nur die aktuelle Phase, dazu Einheiten ohne Phase wie ein Gehprogramm:
+
+```python
+aktuell = [s for s in plan.sessions if s.phase in (None, "Phase 3")]
+```
+
 ## Progression aus Python
 
 Dieselbe Engine wie im Reiter Progression, Woche für Woche als gültiges WODL:
