@@ -190,7 +190,7 @@ Bench Press  4x8  # Inline-Kommentar
 
 ## Deutsche Uebungsnamen
 
-191 Uebungen, jede mit kanonischem englischem Namen, deutschem Anzeigenamen (`de`) und Aliases. Alle Namen einer Uebung sind gleichwertig (die Registry ist das Woerterbuch), die Ausgabe zeigt immer den deutschen Namen:
+196 Uebungen, jede mit kanonischem englischem Namen, deutschem Anzeigenamen (`de`) und Aliases. Alle Namen einer Uebung sind gleichwertig (die Registry ist das Woerterbuch), die Ausgabe zeigt immer den deutschen Namen:
 
 ```
 Squat, Back Squat, Kniebeugen  -> Kniebeuge

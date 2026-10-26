@@ -453,6 +453,41 @@ EXERCISES: dict[str, dict] = {
         "equipment": "machine",
         "aliases": ["Air Bike", "Airbike", "Fan Bike"],
     },
+    "Stair Climber": {
+        "de": "Stepper",
+        "muscles": ["quads", "glutes", "calves"],
+        "category": "cardio",
+        "equipment": "machine",
+        "aliases": ["Stepper", "Stairmaster", "Stair Stepper", "Treppensteiger", "Stepmaschine"],
+    },
+    "Treadmill": {
+        "de": "Laufband",
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "machine",
+        "aliases": ["Laufband", "Treadmill Walk", "Treadmill Run"],
+    },
+    "Elliptical": {
+        "de": "Crosstrainer",
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "machine",
+        "aliases": ["Crosstrainer", "Cross-Trainer", "Ellipsentrainer", "Elliptical Trainer"],
+    },
+    "Ski Erg": {
+        "de": "Skiergometer",
+        "muscles": ["full_body"],
+        "category": "cardio",
+        "equipment": "machine",
+        "aliases": ["Skiergometer", "SkiErg", "Ski-Ergometer"],
+    },
+    "Jump Rope": {
+        "de": "Seilspringen",
+        "muscles": ["calves", "full_body"],
+        "category": "cardio",
+        "equipment": "other",
+        "aliases": ["Seilspringen", "Seilchenspringen", "Springseil", "Skipping Rope"],
+    },
 
     # ========================================================================
     # REHAB — Evidenzbasierte Reha-Übungen (ACL, Rotator Cuff, LBP, Achilles)

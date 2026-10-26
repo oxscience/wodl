@@ -100,6 +100,7 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
+    ("26.10.", "Neue Cardio-Geräte im Wörterbuch: Stepper, Laufband, Crosstrainer, Skiergometer und Seilspringen"),
     ("25.10.", "Doku unter /doku: WODL in eigene Apps einbauen, das JSON-Format und Pläne mit lokaler KI; im JSON-Tab kopiert ein Knopf den passenden Prompt"),
     ("24.10.", "How-to im Kopf: ein Video von der Vorlage über die Progression bis zum Link für Klient:innen"),
     ("23.10.", "Progression: Leichte Gewichte steigen in kleinen Schritten, höchstens ein Zehntel pro Woche statt pauschal 2,5 kg"),
