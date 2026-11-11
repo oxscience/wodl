@@ -100,6 +100,7 @@ EXERCISE_NAMES = [
 # "Was ist neu" an der Versionsnummer im Fuß: nur, was Nutzer:innen sehen,
 # neuester Eintrag oben, ein Eintrag pro Tag.
 CHANGELOG = [
+    ("11.11.", "Drucken und PDF: Eine Überschrift steht nie mehr allein unten auf der Seite, der Block rutscht mit Tabelle und Notiz auf die nächste; lange Tabellen laufen mit Kopfzeile weiter, und im Progression-Tab beginnt jede Woche auf einer neuen Seite"),
     ("26.10.", "Phasen und Blöcke: Oben in der Vorschau wählst du die aktuelle Phase, Tabelle, Progression, PDF und der Link für Klient:innen zeigen dann nur sie; der Volumen-Tab zählt mehrere Tage eines Blocks zusammen"),
     ("25.10.", "Neue Cardio-Geräte im Wörterbuch: Stepper, Laufband, Crosstrainer, Skiergometer und Seilspringen"),
     ("24.10.", "Doku unter /doku: WODL in eigene Apps einbauen, das JSON-Format und Pläne mit lokaler KI; im JSON-Tab kopiert ein Knopf den passenden Prompt"),
@@ -471,9 +472,10 @@ HTML = r"""<!DOCTYPE html>
   @media print {
     .prog-controls, .prog-toolbar, .prog-week details, .prog-hint { display: none !important; }
     /* Woche darf über Seiten laufen (sonst schiebt eine lange Woche 1 alles auf Seite 2 und Seite 1 bleibt leer);
-       Tabellen bleiben zusammen, die Wochen-Überschrift bleibt bei ihrem Inhalt */
+       Blöcke bleiben zusammen (section.sess), die Wochen-Überschrift bleibt bei ihrem Inhalt */
     .prog-week, .prog-week.deload { border: none; padding: 0; margin: 0.6rem 0; }
     .prog-week h3 { break-after: avoid; }
+    .prog-week + .prog-week { break-before: page; }  /* jede Woche oben auf einer neuen Seite, wie im Link */
   }
 
   .theme-grid {
@@ -1208,8 +1210,12 @@ HTML = r"""<!DOCTYPE html>
     .wk-pane + .wk-pane { break-before: page; }
     #output, .client-view #output { background: white !important; }
     #output p, #output strong { color: black !important; }
-    #output table { display: table !important; width: 100% !important; break-inside: avoid; }
+    #output table { display: table !important; width: 100% !important; }
+    #output tr { break-inside: avoid; page-break-inside: avoid; }  /* längere Tabellen laufen weiter, Kopf wiederholt sich */
     #output h2 { break-after: avoid; }
+    /* Überschrift nie allein unten: Block bleibt zusammen, passt er nicht mehr, beginnt er oben auf der
+       nächsten Seite. Der erste Block steht direkt unter dem Titel und darf laufen (sonst Leerseite). */
+    #output section.sess:not(:first-of-type) { break-inside: avoid; page-break-inside: avoid; }
     main { display: block; height: auto; }
     .panel, #output :is(.plan-view, .prog-week) { overflow: visible; }
     #output {
@@ -2702,6 +2708,10 @@ def _md_to_html(md: str) -> str:
     html_lines = []
     in_table = False
     header_done = False
+    # Jede ## -Einheit samt Tabelle und Notizen in eine <section>: Beim Drucken bleibt der Block
+    # zusammen, die Überschrift steht nie allein unten auf der Seite (break-after: avoid am <h2>
+    # allein ignoriert Safari)
+    in_section = False
 
     for line in lines:
         stripped = line.strip()
@@ -2718,9 +2728,15 @@ def _md_to_html(md: str) -> str:
                 html_lines.append("</tbody></table>")
                 in_table = False
                 header_done = False
-            html_lines.append(f"<h2>{html_mod.escape(stripped[3:])}</h2>")
+            if in_section:
+                html_lines.append("</section>")
+            html_lines.append(f'<section class="sess"><h2>{html_mod.escape(stripped[3:])}</h2>')
+            in_section = True
             continue
         if stripped.startswith("# "):
+            if in_section:
+                html_lines.append("</section>")
+                in_section = False
             html_lines.append(f"<h1>{html_mod.escape(stripped[2:])}</h1>")
             continue
 
@@ -2771,6 +2787,8 @@ def _md_to_html(md: str) -> str:
 
     if in_table:
         html_lines.append("</tbody></table>")
+    if in_section:
+        html_lines.append("</section>")
 
     return "\n".join(html_lines)
 
